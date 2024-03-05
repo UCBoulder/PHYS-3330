@@ -7,25 +7,23 @@ author: [Department of Physics | University of Colorado Boulder]
 
 In this lab, you will characterize the frequency dependence of three passive filters. You will gain more experience modeling both the response of the filters and how your measurement tools affect your measurements.
 
-You will learn to use new equipment and devices
+Proficiency with new equipment:
 
 -   Oscilloscope probe
 
 -   Capacitors and inductors
 
--   LCR meter
+    -   Measure capacitance and inductance with an LCR meter
 
-You will learn to model
+Modeling the physical system:
 
--   the frequency dependence and effects on phase of passive filters
+-   Develop mathematical models of frequency dependent voltage dividers
 
--   scope measurements to include the capacitance of the coax cable
+Modeling measurement systems:
 
-You will also learn how to refine the oscilloscope measurement to reduce the effect of coax capacitance.
+-   Refine the model of scope measurement tool to include capacitance of the coax cable
 
-A frequent problem in physical experiments is to detect an electronic signal when it is hidden in a background of noise and unwanted signals. The signal of interest may be at a particular frequency, as in an NMR experiment, or it may be an electrical pulse, as from a nuclear particle detector. The background generally contains thermal noise from the transducer and amplifier, 60 Hz power pick up, transients from machinery, radiation from radio and TV stations, cell phone radiation, and so forth. The purpose of filtering is to enhance the signal of interest by recognizing its characteristic time dependence and to reduce the unwanted background to the lowest possible level. A radio does this when you tune to a particular station, using a resonant circuit to recognize the characteristic frequency. The signal you want may be less than 10^-6^ of the total radiation power at your antenna, yet you get a high-quality signal from the selected station. Many experiments require specific filters designed so that the signal from the phenomenon of interest lies in the pass-band of the filter, while the attenuation bands are chosen to suppress the background and noise.
-
-This experiment introduces you to the filtering properties of some widely used but simple circuits, employing only a resistor and capacitor for high- and low-pass filters and an LCR (inductor, capacitor, resistor) circuit for a band-pass filter.
+-   Refine the measurement system to reduce the effect of the capacitance of a coax cable
 
 # Definitions
 
@@ -41,7 +39,7 @@ This experiment introduces you to the filtering properties of some widely used b
 
 **Attenuation band** - the range of frequencies where the filter attenuates the signal.
 
-**Half power point** or **cutoff frequency** or **corner frequency** or **3 dB frequency, $f_c$** - frequency separating the pass and attenuation bands. It is the frequency at the half-power $(-3\text{ dB})$ point, where the *power* transmitted is half the maximum power transmitted. The output voltage *amplitude* at $f = f_c$ is $\frac{1}{\sqrt{2}} = 70.7\%$ of the maximum amplitude.
+**Cutoff frequency or corner frequency or 3 dB frequency, $f_c$** - frequency separating the pass and attenuation bands. It is the frequency at the half-power (3 dB) point, where the *power* transmitted is half the maximum power transmitted. The output voltage *amplitude* at $f = f_c$ is $1/\sqrt{2} = 70.7\%$ of the maximum amplitude.
 
 **Low-pass filter** - a filter that passes low frequency signals and attenuates (reduces the amplitude of) signals with frequencies higher than the cutoff frequency. Also known as an integrator.
 
@@ -51,253 +49,57 @@ This experiment introduces you to the filtering properties of some widely used b
 
 **Band-pass filter bandwidth** - the range of frequencies between the upper ($f_+$) and lower ($f_-$) half power (3dB) points: $\Delta f = f_+ - f_-$.
 
-# Voltage Divider Review
+# Application of Filters
 
-![Voltage divider](../resources/lab3fig/vd.png){#fig:vd width="10cm"}
+A frequent problem in physical experiments is to detect an electronic signal when it is hidden in a background of noise and unwanted signals. The signal of interest may be at a particular frequency, as in an NMR experiment, or it may be an electrical pulse, as from a nuclear particle detector. The background generally contains thermal noise from the transducer and amplifier, 60 Hz power pick up, transients from machinery, radiation from radio and TV stations, cell phone radiation, and so forth. The purpose of filtering is to enhance the signal of interest by recognizing its characteristic time dependence and to reduce the unwanted background to the lowest possible level. A radio does this when you tune to a particular station, using a resonant circuit to recognize the characteristic frequency. The signal you want may be less than 10^-6^ of the total radiation power at your antenna, yet you get a high-quality signal from the selected station. Many experiments require specific filters designed so that the signal from the phenomenon of interest lies in the pass-band of the filter, while the attenuation bands are chosen to suppress the background and noise.
 
-You found last week that the voltage divider splits the total voltage $V_\text{in}$ across $R_1$ and $R_2$ so that the output voltage $V_\text{out}$ is the voltage just across the second resistor. Since
+This experiment introduces you to the filtering properties of some widely used but simple circuits, employing only a resistor and capacitor for high- and low-pass filters and an LCR (inductor, capacitor, resistor) circuit for a band-pass filter.
 
-$$V_\text{in} = I (R_1+R_2)$$
+# Filter Basics
 
-$$V_\text{out} = IR_2$$
+Whenever we discuss frequency in the lab, measured in Hz, we mean $f$, and this is the most relevant. However, to avoid a bunch of factors of $2\pi$, the angular frequency $\omega$ often appears in theoretical derivations. Just remember that $\omega = 2\pi f$ so it is easy to convert. You should show results versus $f$.
 
-the transfer function is
+## RC low- and high-pass filters
 
-$$T = \frac{V_\text{out}}{V_\text{in}} = \frac{R_2}{R_1+R_2}$$
+The response of RC low-pass and high-pass filters to sine waves is discussed in Steck 2.3.5 & 2.3.7, H&H 1.18\--1.19, and Fischer-Cripps 3.9\--3.10. For these circuits, the magnitudes of the transfer functions are:
 
-In general, any two passive elements (resistors, capacitors, inductors) in this configuration lead to this same equation. We can generalize it in the following way
+$$\left| T(f) \right| = \frac{1}{\sqrt{1 + (2\pi fRC)^{2}}}~ \mbox{(low-pass)}$${#eq:1}
 
-$$T = \frac{Z_2}{Z_1+Z_2}$$
+$$\left| T(f) \right| = \frac{2\pi fRC}{\sqrt{1 + (2\pi fRC)^{2}}} ~\mbox{(high-pass)}$${#eq:2}
 
-where $Z_1$ and $Z_2$ could be a resistance or an impedance of a capacitor or inductor.
+For both filters: $f_{C} = 1/{2\pi RC} = 1/(2\pi RC) = \frac{1}{2\pi RC}\ $, where $f_{C}$ is the frequency at which the power drops by 3 dB (which means it is half of the maximum). 
 
-# Quick Complex Numbers Review
+*Note: we've explicitly written $f_C$ in this way as we've seen some students see the expression $1/2\pi RC$ and read this as $\frac{1}{2} \pi RC$ or $\frac{\pi RC}{2}$. This is **incorrect**, and we wanted to use this opportunity to clear up this misconception. The expression form $1/2\pi RC$ is common in the [academic literature](https://en.wikipedia.org/wiki/Order_of_operations#Mixed_division_and_multiplication), so hopefully this aside provides you value in the future.*
 
-In this lab, we will see that capacitors and inductors have impedances that are complex. When these elements are used in voltage divider arrangements, this will lead to transfer functions that are complex. When dealing with complex transfer functions, it much simpler to represent sinusoidal functions as complex exponentials
+In this lab, we are finding how efficiently signals of different frequencies are passed. This is called the frequency domain. Later, we will look at the time domain, where we see how the output changes as a function of time. In that context, low-pass and high-pass filters are called integrators and differentiators.
 
-$$e^{j\omega t} = \cos{\omega t} + j \sin{\omega t}$$
+## Parallel LCR band-pass filters
 
-Therefore for a sine-wave input with amplitude $V_\text{0}$ and angular frequency $\omega$ into a circuit with a complex transfer function, the output will be
+The LCR circuit is described in Fischer-Cripps 3.12, H&H 1.22, and Steck 2.6 (note that the Steck example is for a *serial* LCR circuit so the concepts are the same but the details are different). As this is another generalized voltage divider,
 
-$$V_\text{out} = TV_\text{in} = T V_0e^{j\omega t}$$
-{#eq:complex-transfer}
+$$V_{out} = IZ_{2} = V_{in}\frac{Z_{2}}{Z_{1} + Z_{2}}$$ {#eq:3}
 
-When multiplying complex numbers, it is best to have them in a "magnitude and phase" form.
+$$Z_{1} = R$${#eq:4}
 
-$$T = |T|e^{j\delta}$$
+$$Z_{2} = \frac{j\omega L}{1 - \omega^{2}LC}$${#eq:5}
 
-where $|T|$ is the magnitude of $T$ and $\delta$ is the phase of $T$ in the complex plane.
+The magnitude of the transfer function can then be calculated as:
 
-$$|T| = \sqrt{TT^*} = \sqrt{\text{Re}[T]^2 + \text{Im}[T]^2}$$
+$$\left| T(\omega) \right| = \sqrt{\frac{V_{out}V_{out}^{*}}{V_{in}V_{in}^{*}}}$${#eq:6}
 
-$$\tan\delta = \frac{\text{Im}[T]}{\text{Re}[T]}$$
+where $*$ indicates the complex conjugate. The algebra is left for you as a prelab exercise.
 
-In this form, Equation @eq:complex-transfer becomes
+The resonant frequency, $f_0$, and quality factor, or $Q$ factor, are given by:
 
-$$V_\text{out} = |T|V_0e^{j\omega t + \delta}$$
+$$f_{0} = \frac{1}{2\pi\sqrt{LC}}$${#eq:7}
 
-So the magnitude of $T$ scales the amplitude of $V_\text{out}$ and the phase of $T$ creates an offset in time.
-
-# Prelab
-
-## Introduction to Capacitors
-
-A capacitor is an object that stores energy in the form of electric fields (between two metal objects) when a voltage difference is applied. The capacitance is defined as the ratio of the induced charge (on the two metal objects) to the voltage applied; i.e.
-
-$$Q = CV$$
-
-Capacitance is purely determined by the geometry of the pieces of metal that are separated. You may remember that for parallel plates of area $A$ separated by distance $d$, the capacitance is
-
-$$C = \varepsilon_r\varepsilon_0 \frac{A}{d}$$
-
-where $\varepsilon_r$ is the relative dielectric constant of whatever material is between the plates.
-
-With regards to Ohm's law $(V=IZ)$, the impedance of a capacitor is
-
-$$Z_C = \frac{1}{j\omega C}$$
-
-where $\omega$ is the angular frequency (in radians per second) and is related to the frequency (in Hertz) by
-
-$$\omega = 2\pi f$$
-
-Angular frequency $\omega$ is typically used when working with theory because it helps avoid having to write down $2\pi$ over and over again. However, experimentally, you will be working with cycle frequency $f$ (inverse period).
-
-### Prelab Question {#1.1}
-
-Evaluate the impedance of the capacitor at the two frequency extremes ($\omega = 0$ and $\omega\rightarrow\infty$). Describe what the capacitor acts like at these extremes (think in terms of open or short circuits).
-
-## Introduction to Inductors
-
-The inductor is an element that stores energy in the form of magnetic fields when current is passed through them. Any loop(s) of current has an associated magnetic field that it self generates. When the current changes, naturally the strength of the self-induced magnetic field through the loop changes. Faraday's law states therefore that this will create a back EMF (electromagnetic force). This can be written as a voltage drop across the inductor
-
-$$V = L\frac{dI}{dt}$$
-
-where $L$ is the inductance of the inductor. To make an inductor, long wires are wrapped carefully into compact coils or solenoids. The inductance of a solenoid can be calculated from its geometry
-
-$$L = \mu_r\mu_0\frac{N^2 A}{\ell}$$
-
-where $\mu_r$ is the relative magnetic permeability of any material the coil is wrapped around and $N$ is the number of turns, $A$ is the cross-sectional area of a loop, $\ell$ is the length of the solenoid.
-
-The impedance of an inductor is
-
-$$Z_L = j\omega L$$
-
-### Prelab Question {#2.1}
-
-Evaluate the impedances of the inductor at the two frequency extremes ($\omega = 0$ and $\omega\rightarrow\infty$). Describe what the capacitor acts like at these extremes (think in terms of open or short circuits).
-
-## Low-Pass Filters
-
-![A low-pass filter](../resources/lab3fig/lowpass.png){#fig:lowpass width="10cm"}
-
-The filter shown in Figure @fig:lowpass is like the voltage divider, except with $R_2$ replaced with a capacitor. Applying the impedance of these elements to the voltage divider equation yields
-
-$$T_\text{low-pass}(\omega)=\frac{V_\text{out}}{V_\text{in}} = \frac{Z_C}{R+Z_C}= \frac{(j\omega C)^{-1}}{(R+(j\omega C)^{-1})} = \frac{1}{1+j\omega RC}$$
-
-Note that the transfer function depends on frequency (and is complex)! This means that this circuit will affect different frequencies differently (this is how it gets the name filter)
-
-### Prelab Question {#3.1}
-
-Find $T_\text{low-pass}$ when $\omega=0$ and when $\omega\rightarrow\infty$. Based on these calculations, describe what frequencies the low-pass filter cuts and passes. Is this consistent with its name?
-
-### Prelab Question {#3.2}
-
-Find $|T_\text{low-pass}|$ (the magnitude of the complex number) and express it with respect to $f$ instead of $\omega$.
-
-## High-Pass Filters
-
-![A high-pass filter](../resources/lab3fig/highpass.png){#fig:highpass width="10cm"}
-
-The filter shown in Figure @fig:highpass swaps the capacitor and resistor from the previous filter. We can simply swap $Z_C$ and $R$ in the voltage divider equation to get
-
-$$T_\text{high-pass} = \frac{R}{(j\omega C)^{-1}+R} = \frac{j\omega RC}{1 + j\omega RC}$$
-
-### Prelab Question {#3.1}
-
-Find $T_\text{high-pass}$ for $\omega=0$ and $\omega\rightarrow\infty$ to confirm this is a high-pass filter.
-
-### Prelab Question {#3.2}
-
-Calculate $|T_\text{high-pass}|$ and express it in terms of $f$ instead of $\omega$.
-
-## Cutoff Frequency
-
-Defining what frequency a filter starts to *cut* (as opposed to pass) is somewhat tricky. There is a smooth transition between where $T=1$ and $T=0$, but everyone has decided to agree to define the cutoff frequency $f_c$ as **the frequency when the power has dropped half from its full power**.
-
-***DEFINITION:*** **Half power point** or **cutoff frequency** or **corner frequency** or **3 dB frequency, $f_c$** - frequency separating the pass and attenuation bands. It is the frequency at the half-power $(-3\text{ dB})$ point, where the *power* transmitted is half the maximum power transmitted.
-
-The relationship between voltage and power is
-
-$$P = \frac{V^2}{Z}$$
-
-Therefore, when the power is cut in half, the voltage is cut by a factor of $\frac{1}{\sqrt{2}}$
-
-$$\frac{V_\text{out}}{V_\text{in}} = \sqrt{\frac{P_\text{out}}{P_\text{in}}} = \frac{1}{\sqrt{2}}\approx 0.707$$
-
-So the cutoff frequency $f_c$ is the frequency at which $T\approx 0.707$
-
-For both the low-pass and high-pass filter, you can take the magnitude of the transfer function you calculated and set it equal to $\frac{1}{\sqrt{2}}$. This will lead to the result
-
-$$f_c = \frac{1}{2\pi RC}$$
-{@eq:cutoff-freq}
-
-### Prelab Question {#4.1}
-
-Decibels is a "relative unit of measurement." In electronics, decibels are meant to describe how the power changes (sort of like a transfer function). You can calculate decibels with the following equation:
-
-$$ 10\log_{10} \bigg[\frac{P_\text{out}}{P_\text{in}}\bigg]\text{ dB}$$
-
-When you have negative decibels, it means the something is attenuated (gets smaller), and, when positive, it means that something has gain (gets larger)
-
-Calculate the decibels for when the power is cut in half. Does it make sense that the half power point is also called the 3 dB point?
-
-### Prelab Question {#4.2}
-
-Use the $|T_\text{low-pass}|$ and $|T_\text{high-pass}|$ equations you found to show that Equation @eq:cutoff-freq is true for these filters.
-
-### Prelab Question {#4.3}
-
-Since the cutoff frequency of these filters is $f_c = 1/(2\pi RC)$, the cutoff frequency can be determined by measuring the RC-time constant of the circuit. For the low-pass filter, this is simply done by applying a voltage long enough to fully charge the capacitor to the input voltage (i.e. when $V_\text{in}=V_\text{out}$), and then turning off the voltage to allow the capacitor to discharge. This discharge will be dictated by an exponential decay
-
-$$V_\text{out}(t) = V_0e^{-t/\tau}$$
-
-where $\tau$ is the time constant of the decay (therefore $\tau=RC$).
-
-![The capacitor takes time to charge and discharge dictated by exponential decays and RC-time constants](../resources/lab3fig/fall-time.png)
-
-Evaluate the exponential decay function above at the time $t=\tau$. This value is important because by measuring the time at which the voltage drops to this value, you have measured $\tau$, and therefore $RC$, and therefore know the cutoff frequency.
-
-## Parallel LCR Bandpass Filters
-
-![A simple bandpass filter using a parallel inductor and capacitor](../resources/lab3fig/bandpass.png){#fig:bandpass width="13cm"}
-
-Figure @fig:bandpass shows a simple band-pass filter using a resistor, capacitor, and inductor. We can treat the capacitor and inductor as a single lumped element with an impedance equal to the elements' impedances in parallel
-
-$$ \frac{1}{Z} = \frac{1}{(j\omega C)^{-1}} + \frac{1}{j\omega L}$$
-
-$$Z = \frac{j\omega L}{1- \omega^2 LC}$$
-
-Treating this as another generalized voltage divider leads to the transfer function
-
-$$T_\text{bandpass} = \frac{Z}{R+Z} = \frac{j\omega L}{R-\omega^2 LRC + j\omega L}$$
-
-$$|T_\text{bandpass}| = \frac{\omega L}{\sqrt{(R-\omega^2 LRC)^2+(\omega L)^2}}$$
-
-### Prelab Question {#5.1}
-
-As the name suggests, this filter passes a "band" of frequencies. This means that it should "cut" both low and high frequencies. Show that at $\omega=0$ and $\omega\rightarrow\infty$ the magnitude of $T$ goes is zero.
-
-### Prelab Question {#5.2}
-
-The *center frequency* is defined by the frequency that maximizes the transfer function (this is the frequency it passes "strongest"). For these simple LRC bandpass filters, this happens when 
-
-$$|T_\text{bandpass}|=1$$
-
-Find $f_c$ using this fact and the equation for $|T_\text{bandpass}|$ above (*Hint:* $\omega_c=2\pi f_c$)
-
-## Quality factor
-
-For a low-pass and high-pass filter, the bandwidth can be described simply by the cutoff frequency. For a low-pass, the bandwidth is $0\text{ Hz} - f_c$ and for the high-pass filter, the bandwidth is $f_c-\infty\text{ Hz}$. The band-pass filter however, has two cutoff frequencies, one above, and one below the center frequency. The bandwidth is then
-
-$$\Delta f = f_{c_+} - f_{c_-}$$
-
-However, this bandwidth is usually packaged up in a dimensionless factor called the *quality factor* $Q$ which mathematically is
-
-$$Q = \frac{f_0}{\Delta f}$$
-
-A *quality factor* in general, is a property of any resonator (oscillator). Our LCR band-pass filter is a resonator ([here's a nice, short video explanation](https://www.youtube.com/watch?v=nh4q7mIhLrY)): the capacitor and inductor exchange electric field energy (in the capacitor) for magnetic field energy (in the inductor) at a frequency of $f_0$ (the center frequency).
-
-In the context of a resonator acting as a filter, the *quality factor* defines how "sharp" the filter is. The higher the *quality factor*, the smaller the bandwidth around the center frequency is. Conversely, the smaller the *quality factor*, the wider the bandwidth.
-
-The two cut off frequencies can be found by setting the magnitude of the transfer function to the -3 dB ratio: $(1/\sqrt{2})$
-
-$$\frac{\omega L}{\sqrt{(R-\omega^2 LRC)^2+(\omega L)^2}} = \frac{1}{\sqrt{2}}$$
-$$\frac{(\omega L)^2}{(R-\omega^2 LRC)^2+(\omega L)^2} = \frac{1}{2}$$
-
-Clearly, the left hand side equals $1/2$ when
-
-$$(R-\omega^2 LRC)^2 = (\omega L)^2$$
-
-$$R-\omega^2 LRC = \pm\omega L$$
-
-$$RC \omega^2 \pm\omega - \frac{R}{L} = 0$$
-
-$$\omega_{c_\pm} = \frac{\pm1+\sqrt{1+4\frac{R^2C}{L}}}{2RC}$$
-
-$$\Delta\omega = \omega_{c_+}-\omega_{c_-} = \frac{1}{RC}$$
-
-### Prelab Question {#5.3}
-
-Find $Q$ with respect to $L$, $R$, and $C$.
-
-
-$$Q = \omega_{0}RC = \frac{R\sqrt{C}}{\sqrt{L}} = \frac{f_{0}}{\Delta f}$$
+ $$Q = \omega_{0}RC = \frac{R\sqrt{C}}{\sqrt{L}} = \frac{f_{0}}{\Delta f}$${#eq:8}
 
 The resonant frequency, $f_{0}$, is the center frequency of the pass band, and $Q$ is equal to the ratio of the center frequency to the bandwidth $\Delta f$. (These definitions are exactly true only for $Q\gg1$).
 
 For a resonant LCR circuit the characteristic impedance, $Z_0$, is the magnitude of the impedance of the inductor or the capacitor at the resonant frequency:
 
-$$Z_{0} = \omega_{0}L = \frac{1}{\omega_{0}C} = \frac{\sqrt{L}}{\sqrt{C}}$$
+$$Z_{0} = \omega_{0}L = \frac{1}{\omega_{0}C} = \frac{\sqrt{L}}{\sqrt{C}}$${#eq:9}
 
 # Useful Readings
 
@@ -426,7 +228,6 @@ Plot your mathematical models of all three filter circuits (three independent pl
 
 Inductors often have considerable resistance as they are just wires wrapped around a ferrite core. One can include this resistance as a resistor in series with the inductor. The refined model of the Q of this system is
 
-$$Q_{refined} = \frac{\frac{R}{R_{L}}}{R\sqrt{\frac{C}{L}} + \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}$$
-{#eq:10}
+$$Q_{refined} = \frac{\frac{R}{R_{L}}}{R\sqrt{\frac{C}{L}} + \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}$${#eq:10}
 
 where $R_L$ is the equivalent series resistance of the inductor. This is non-trivial to derive.

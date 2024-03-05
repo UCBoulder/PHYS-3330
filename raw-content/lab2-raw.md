@@ -5,145 +5,249 @@ author: [Department of Physics | University of Colorado Boulder]
 
 # Goals
 
-In this lab, you will gain experience working with the prototyping board, which will be the main platform for building circuits for the rest of the semester. You will also learn how to refine your model of a circuit to include the measurement probes. Finally, you will apply your knowledge of voltage dividers to build a dimmer switch.
+The goals of this lab are to
 
-Proficiency with new equipment:
+-  familiarize yourself with the prototyping boards (breadboards). You will use this tool extensively for the rest of the semester. 
 
--   Prototyping board:
+-  build, test, and explore refined models of voltage divider circuits to include the effects of measurements and loads.
 
-    -   Set power rails on the board
+-  learn how to interface your equipment with the prototyping board through the header attached to the board.
 
-    -   Determine the connection layout on the proto-boards
+-  learn how to use the switches and potentiometers on the header.
 
-    -   Be able to assemble resistive circuits and measurement test points on the boards
+-  build a volume knob using your knowledge of voltage dividers and switches.
 
--   Potentiometers
+<!--# Definitions
 
-    -   Determine the connections on a 10-turn pot
-
-    -   Use a pot to continuously control an output voltage
-
-Modeling measurement systems:
-
--   Develop mathematical and schematic models of voltage dividers
-
--   Refine the voltage divider models to include the effect of the measurement probes
-
-Applications:
-
--   Build a dimmer switch for a light bulb
-
-# Definitions
-
-**Potentiometer (pot)** - a three-terminal resistive device that provides a variable resistance between the ends and the \"wiper\" connection.
-
-# Useful Readings
-
-1.  [Steck](https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf) Sections 1.3.3 - 1.4.2
-
-2.  Fischer-Cripps Sections 2.1 - 2.3
-
-3.  Horowitz & Hill 2^nd^ Ed. Sections 1.03 - 1.04
+**Potentiometer (pot)** - a three-terminal resistive device that provides a variable resistance between the ends and the \"wiper\" connection.-->
 
 # Prelab
 
-Answer the following questions in your lab notebook. Scan the relevant pages and upload the PDF file. Note that the lab prep activities are directly related to the lab and by completing them (and having them available during lab) you will be able to work through the lab more efficiently and be able to understand what you are doing during the lab.
+Answer the following questions in your lab notebook and with Jupyter Notebooks. Scan the relevant pages and upload the PDF file to Canvas. Note that the lab prep activities are directly related to the lab and by completing them (and having them available during lab) you will be able to work through the lab more efficiently and be able to understand what you are doing during the lab.
 
-## Resistive voltage dividers (ideal power supply)
+For your calculations, you should write a reusable function in a Python script that you can import into your Jupyter Notebooks. This will allow you to easily update calculations and recycle code in a practical way.
 
-An ideal voltage source (no internal resistance) drives current around the loop of resistors shown in Figure @fig:ideal-vd .
+For example, with a script called `jlab.py`
 
-1.  Derive a formula for the current, $I$, and the output voltage, $V_{out}$.
+```Python
+"""
+Python script to import useful functions for J-Lab
+"""
 
-2.  What is $V_{out}$ if $V = 10~V$, $R_{1} = 2~k\Omega$, and $R_{2} = 1~k\Omega$?
+def parallel_resistance(resistors: list) -> float:
+    conductance = 0.0
+    for resistance in resistors:
+        conductance += 1.0 / resistance
+    return 1.0 / conductance
+```
 
-3.  Calculate the voltage, $V_{out}$, for the modified circuit shown in Figure @fig:modified-vd with $R_{3} = 10~k\Omega$ and the other components unchanged.
+This function can be used in a Jupyter Notebook like this
 
-## Resistive voltage dividers (non-ideal power supply)
+```Python
+import jlab as jl
 
-A non-ideal voltage source has an output impedance (resistance). First consider a supply with an output impedance $500 ~\Omega$.
+r1 = 2e3  # 2 kOhm
+r2 = 800  # 500 Ohm
+r3 = 1e3  # 1 kOhm
+rp = jl.parallel_restance([r1, r2, r3])
+print( "R_p = {:.1f} Ohm".format(rp) )
+```
 
-1.  Draw a modified circuit diagram of Figure @fig:ideal-vd to model the non-ideal voltage source as an ideal source with a series resistor.
+## Breadboard
 
-2.  Derive a formula for the current, $I$, and the output voltage, $V_{out}$, of the circuit you just drew.
+Before modern prototyping boards, to test circuits, people would take wooden cutting boards (aka breadboards) and tack nails into them to provide scaffolding to create a circuit. [Take a look!](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/history) Even though we've moved to far more sophisticated prototyping boards, we still affectionately call them breadboards.
 
-3.  What is $V_{out}$  if $V = 10~V$, $R_1 = 2~ k\Omega$, and $R_2 = 1 ~k\Omega$?
+Breadboards allow for quickly creating and modifying circuits, with no soldering. Once the circuit works and meets the desired specifications, a printed circuit board (PCB) can be designed and made. All the components can be soldered to the PCB and the circuit can be mounted in a metal case to shield it from external electromagnetic fields. Present technology allows anyone to cheaply design, layout, and print professional circuit boards. For example: <http://www.expresspcb.com/>
 
-4.  An additional load is connected between $V_{out}$ and ground in the form of the resistor $R_3$ as shown in Figure @fig:modified-vd . Calculate the voltage $V_{out}$ for this circuit (with the non­‐ideal power supply) and with $R_3 = 10 ~k\Omega$.
+![Example of breadboard rows of holes. (left) The front of the breadboard, and (right) the backside of the breadboard. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-pins.jpg){#fig:bread-pins, width="10cm"}
 
-5.  Using your symbolic equation for $V_{out}$, solve for $R_3$. (This will be super helpful for use in the lab).
+Breadboards are composed of several holes that you can stick wires into. The holes form rows of metallic connection (as seen in Figure @fig:bread-pins). Each of these rows are constructed like little grabbers that allow for secure connections (as seen in Figure @fig:bread-row).
 
-## Lab activities
+![The breadboard is composed of many of these little. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-row.JPG){#fig:bread-row, width="8cm"}
 
-1. Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
+Our breadboards have a custom built headers (see Figure @fig:bread-header) to allow you to easily interface your equipment (scope, power supply, function generator, etc.) with the breadboard. All the connectors, switches, and potentiometers are connected to the green screw terminals that wires can be clamped in to connect to the breadboard.
 
-2. List at least one question you have about the lab activity.
+![A breadboard with a header attached (a second header is shown upside-down to reveal what's going on "under the hood")](../resources/lab2fig/breadboard-header.png){#fig:bread-header, width="15cm"}
 
-![Ideal Voltage Divider](../resources/lab2fig/ideal-vd.png){#fig:ideal-vd height="7cm"}
+The far left and far right screw terminals are connected to switches and potentiometers (three terminal, variable resistors). The mid-left screw terminal is connected to banana ports, and the mid-right screw terminal is connected to the inner conductors of BNC ports.
+
+### Prelab Question {#0.1}
+
+![Chassis ground.](../resources/lab2fig/cground.png)
+
+The symbol shown above is chassis ground. This refers to a common connection to the case. Notice that this is labeled in a few places on the breadboard's header (suggesting connection to the metal case).
+
+Which screw terminal should be used to access the outer conductor of the BNCs?
+
+## Voltage Dividers
+
+![Three equivalent *Ideal Voltage Divider* circuits. (a), (b), and (c) all show the same exact circuit diagram!](../resources/lab2fig/ideal-vd.png){#fig:ideal-vd height="7cm"}
+
+An ideal voltage source (no internal resistance) drives current around the loop of  two resistors shown in Figure @fig:ideal-vd (all three circuits in this figure are equivalent!). Each resistor has a voltage drop across it due to the current running through them, so the voltage out will be less than the voltage in.
+
+### Prelab Question {#1.1}
+
+What is the current $I$ through each resistor? Represent these with respect to $V_\text{in}$, $R_1$ and $R_2$. (*Hint:* the resistors are in series)
+
+### Prelab Question {#1.2}
+
+What is the voltage across $R_2$? Express this with respect to the current. Explain why this is $V_\text{out}$.
+
+### Prelab Question {#1.3}
+
+Express $V_\text{out}$ with respect to $V_\text{in}$, and the two resistors (don't have $I$ in the equation).
+
+## Transfer Function
+
+A **transfer function** $T$ is ratio of an output to an input. In this class, we are interested in voltage transfer functions, so
+
+$$\begin{equation}
+T = \frac{V_\text{out}}{V_\text{in}}
+\end{equation}$$
+
+### Prelab Question {#2.1}
+
+Calculate the transfer function of the voltage divider. (*Hint:* this should only depend on the values of the resistors)
+
+### Prelab Question {#2.2}
+
+For $R_1 = 2\text{ k}\Omega$ and $R_2 = 1\text{ k}\Omega$, what is the transfer function?
+
+### Prelab Question {#2.3}
+
+For a $V_\text{in}$ of $10\text{ V}$, what will $V_\text{out}$ be (using the resistance values above)?
+
+## Voltage Divider with Non-ideal Power Supply
+
+![A real power source has an output impedance $R_o$ that can impact the circuit](../resources/lab2fig/nonideal-vd.png){#fig:nonideal-vd height="7.5cm"}
+
+Real voltage sources have output impedances (modeled with a resistor in series with the voltage as seen in Figure @fig:nonideal-vd).
+
+### Prelab Question {#3.1}
+
+Express the current $I$ with respect to the voltage source, and all the impedances/resistances.
+
+### Prelab Question {#3.2}
+
+Express the voltage across $R_2$ ($V_\text{out}$) with respect to the voltage source and the impedances/resistances.
+
+### Prelab Question {#3.3}
+
+What is $V_\text{out}$ for $V_\text{in} = 10$, $R_o = 50\ \Omega$, $R_1 = 2\text{ k}\Omega$ and $R_2 = 1\text{ k}\Omega$
+
+### Prelab Question {#3.4}
+
+Compare this voltage to the case where you had an ideal voltage source. Why are you getting less output with a non-ideal voltage source?
+
+## Impacts of Parallel Impedances
 
 ![Modified Voltage Divider](../resources/lab2fig/modified-vd.png){#fig:modified-vd height="7cm"}
 
-# Setting Up Your Prototyping Board
+In the lab activities we will discover that the circuit shown in Figure @fig:modified-vd will provide a more accurate model for certain situations.
 
-Before breadboards (aka prototyping or proto boards), creating circuits required soldering all components together, and changing the circuit was difficult. Breadboards allow for quickly creating and modifying circuits, with no soldering. Once the circuit works and meets the desired specifications, the circuit can be built using more permanent methods such as soldering to a Vector board or to a printed circuit board. Present technology allows anyone to cheaply design, layout, and print professional circuit boards. For example: <http://www.expresspcb.com/>
+### Prelab Question {4.1}
+
+Express $V_\text{out}$ with respect to the input voltage and the 3 resistor values.
+
+### Prelab Question {4.2}
+
+Rearrange the equation you just found to solve for $R_3$ given the other values. This equation will be useful when you do the lab.
+
+## Lab Activities
+
+### Prelab Question {5.1}
+
+Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
+
+### Prelab Question {5.2}
+
+List at least one question you have about the lab activity.
+
+# Useful Readings
+
+You can find more helpful information in the following sections of the text books:
+
+1.  [Steck](https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf) Sections 1.3.3 -- 1.4.2
+
+2.  Fischer-Cripps Sections 2.1 -- 2.3
+
+3.  Horowitz and Hill 2<sup>nd</sup> Ed., 1 -- 1.04
+
+4.  Horowitz and Hill 3<sup>rd</sup> Ed., 1 -- 1.3.1
+
+# Lab activities
+
+
 
 ## Test your protoboard
 
-1.  Get a protoboard from the shelf labeled with your section number. Using the label printer in the lab (and 12mm label tape), make a label for each of your group member's names and place on the metal plate that the breadboards are attached to. Your team will use the same board all semester. It's good practice to note the bin number in your lab notebook and continue to use that bin for the semester. At the end of the lab, you will store your protoboard in this bin (the protoboards may not be removed from the lab).
+1.  Get a protoboard (breadboard) from the shelf labeled with your section number. Using the label printer in the lab (and 12mm label tape), make a label for each of your group member's names and place on the metal plate that the breadboards are attached to. Your team will use the same board all semester. It's good practice to note the bin number in your lab notebook and continue to use that bin for the semester. At the end of the lab, you will store your protoboard in this bin (the protoboards may not be removed from the lab).
 
 2. On the protoboard interface panel, you will find:
 
    -   BNC cable jacks that carry electric signals between your circuit on the board and the function generator and oscilloscope.
+
    -   Colored banana jacks to bring in DC power for transistors or chips from an external power supply.
-   -   A precision 10 k$\Omega$ ten‑turn potentiometer with a fuse on the wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if you need a replacement).
-   -   Several switches.
+   
+   -   A precision $10\text{ k}\Omega$ ten‑turn potentiometer with a fuse on the wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if you need a replacement).
+   
+   -   Four switches.
+   
    -   Screw terminals which will be used with jumper wires to bring power/signals from the interface panel to your breadboard.
 
    <br>The components on the interface panel are pre-soldered to the screw terminals and a wiring diagram is printed on the panel. If you think there are any issues with your interface panel, please notify the [technical staff](/PHYS-3330/report-lab-issue).
 
-3.  The breadboard contains arrays of holes, interconnected by buried conductors, into which components are plugged to build your circuit. In general, you can never be sure that any two contacts are really connected, or any wire is really continuous, unless you test it yourself, so get into the habit of testing things.
+3.  The breadboard contains arrays of holes, interconnected by buried conductors. There is a pattern to how the the holes are connected: typically in the form of short rows and long columns (sometimes called rails). Use the DMM, mini-grabbers, and a couple short wires to test the connections of the breadboard.
 
-4.  Determine which holes on your protoboard are connected by using the DMM (you may also find wires and alligator clips or mini-grabbers useful). Draw a diagram in your lab notebook of the connections. You can refer back to this diagram throughout the semester as you build new circuits.
+    - There are hundreds of holes, so testing every pair of holes would take many hours. Take a strategic approach to testing.
 
-5.  Find a 1k resistor and measure the resistor directly with the DMM. Now insert the resistor into two holes on the breadboard that you know are not connected and remeasure the resistance. Now insert the resistor into two holes on the breadboard that you know **are** connected and remeasure the resistance. Explain your results. What does this tell you about when you should measure resistors?
+    - Assume connections are in single rows or columns.
 
-## Making power connections to your protoboard
+    - How far does each row/column connect?
 
-1.  For essentially all circuits, you will need power connections (+15 V, -15V, ground). Connect the power supply to the interface panel using banana cables.
+4.  Draw a diagram of the basic pattern in your lab notebook of the connections. You can refer back to this diagram throughout the semester as you build new circuits.
+
+5.  Find a $1\text{ k}\Omega$ resistor and measure the resistor directly with the DMM. Now insert the resistor into two holes on the breadboard that you know are not connected and remeasure the resistance. Now insert the resistor into two holes on the breadboard that you know **are** connected and remeasure the resistance. Explain your results. What does this tell you about when you should measure resistors?
+
+### Making power connections to your protoboard
+
+1.  Many circuits require DC power connections (+15 V, -15V, ground). Connect the power supply to the interface panel using banana cables.
 
 2.  **USE A COLOR CODE FOR THE POWER CONNECTIONS!** The convention used in this course is **black = ground**, <span style="color: red;">**red = +15 V**</span>, and <span style="color: blue;">**blue = -15 V**</span>. Using a consistent color code will allow you and others to debug your circuits quickly. You are also less likely to plug something in incorrectly and burn up a component. You should also have a white colored banana jack on your interface panel. You may find that this is useful during your final project phase if you require another voltage. Remember to write down your color code in your lab notebook. 
 
-3.  Once you have power connected to the interface panel, use jumper wires from the appropriate screw terminal to make connections to the breadboard (+15, -15, and ground). The long rails that run the length of the board are best for distributing power to all of your components. Use these for only power or ground.
+3.  Once you have power connected to the interface panel, use jumper wires from the appropriate screw terminal to make connections to the breadboard (+15, -15, and ground). The long rails that run the length of the board are best for distributing power to all of your components. **Use these for only DC power or ground.**
 
-4.  Good electrical contact is essential when you plug in components or wires. Use only 22- or 24-gauge solid wire, not stranded wire. The 22- or 24-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Dont force larger wires into the protoboard. You can damage the connectors.**
+4.  Good electrical contact is essential when you plug in components or wires. Use only 22- or 24-gauge solid wire, not stranded wire. The 22- or 24-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Don't force larger wires into the protoboard. You can damage the connectors.**
 
 5.  Reliable ground connections (0 V), readily accessible from any point on the breadboard, are essential to the good functioning of most circuits. The interface panel is wired such that outer conductor on the BNC connectors are connected to the **black** banana jack, which forces a common chassis ground. This is indicated on the wiring diagram printed on the interface panel.
 
-## Supplying power to your protoboard
+![The outer conductor of the BNC connectors are all connected to the black banana port.](<../resources/lab2fig/grounding connections.png>)
+
+### Supplying power to your protoboard
 
 1.  Turn on your DC power supply such that it produces +15 V and -15 V. Set the current limit to about 100 mA. This will reduce the amount of smoke released from your components when you happen to plug in the power incorrectly. Describe the procedure you followed to set the current limit.
 
 2.  Measure the voltage on your protoboard rails using a DMM. You may need to use a wire to probe the voltage if your DMM probes do not fit in the holes. Always remember to measure voltages with respect to ground. Record the voltages in your lab notebook.
 
-# Building and Testing Voltage Dividers
+## Building and Testing Voltage Dividers
 
 Components (resistors, capacitors, transistors, etc.) are available from the community stock. Take what components you need for your experiments. If you notice the inventory getting low, please let the [technical staff](/PHYS-3330/report-lab-issue) know.
 
-## Fixed-value voltage divider - 1k$\boldsymbol{\Omega}$
+## Fixed-value voltage divider - $1\text{ k}\Omega$
 
-1.  Build a voltage divider similar to the one shown in Figure @fig:ideal-vd using resistors of around 1 k$\Omega$. Draw a diagram of the circuit in your lab notebook. Make sure to label the resistors and record all measured component values and voltages.
+1.  Build a voltage divider similar to the one shown in Figure @fig:ideal-vd using resistors of around $1\text{ k}\Omega$. Draw a diagram of the circuit in your lab notebook. Make sure to label the resistors and record all measured component values and voltages.
 
 2.  Measure each resistor with your DMM before inserting it into your circuit and record the value. Why should you measure component values before placing them in the circuit?
 
 3.  Predict the output voltage you should measure based on your input voltage and resistance measurements. Include your calculations and numerical predictions in your lab notebook.
 
-4.  Now, apply a DC voltage to the input and measure the output voltage of your divider, first using your DMM and second using your oscilloscope with the minigrabbers. Record your measurements. *Do not have the DMM and the oscilloscope connected at the same time because each may perturb the measurement differently.*
+4.  Now, apply a DC voltage to the input and measure the output voltage of your divider, first using your DMM and second using your oscilloscope with the mini-grabbers. Record your measurements. *Do not have the DMM and the oscilloscope connected at the same time because each may perturb the measurement differently.*
 
 5.  Compare the voltages you predicted to the voltages you measured. Does your model of the voltage divider agree with each of your measurements? Explicitly record what criteria you used to determine whether or not the model and measurements agreed.
 
-6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for R~3~). You may have this from your prelab.
+6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).
 
-## Fixed-value voltage dividers of 1M$\boldsymbol{\Omega}$ and 10M$\boldsymbol{\Omega}$
+## Fixed-value voltage dividers of $1\text{ M}\Omega$ and $10\text{ M}\Omega$
 
 1.  Complete the steps in the previous section for two additional voltage dividers, one using resistors 1M$\Omega$ and one with resistors 10M$\Omega$.
 
@@ -153,33 +257,87 @@ Components (resistors, capacitors, transistors, etc.) are available from the com
 
 4.  There is an easy way to determine the specified input impedance of the scope. Where can you find that information? Does the measured input resistance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
 
-# Build a Controllable Voltage Source
+## Hidden Voltage Dividers (Output Impedance)
 
-You will now use your skills with building and testing voltage dividers to build a controllable voltage source using a potentiometer.
+Remember last week when we set the function generator to an output termination of *High Z*? We want to do this EVERY TIME we use the function generator in this class. This does not change the output impedance of the function generator: it's ALWAYS $50\ \Omega$, but by default, it *assumes* you are impedance matching everything with $50\ \Omega$ (this is important at high frequencies; feel free to ask an instructor if you're curious to hear more).
 
-## Testing your potentiometer (pot)
+When  the output goes through a $50\ \Omega$ load (i.e. $50\ \Omega$ termination), the voltage output will divide over the output impedance and the load, so only half the voltage will be applied to the load $\frac{50\ \Omega}{50\ \Omega+50\ \Omega} = \frac{1}{2}$. When the output termination **setting** is set to $50\ \Omega$, the device will assume half the voltage will drop across the output impedance, and display only half the voltage being applied (since this will be how much is expected to reach the $50\ \Omega$ termination). Since we won't be doing any $50\ \Omega$ impedance matching, we always want set the function generator to be in *High Z* mode and know that if the termination impedance is small, that this will voltage divide with the $50\ \Omega$ output impedance of the function generator. If you don't remember how to change this setting, refer to Appendix B in Lab 1.
 
-1.  Set the dial to some point between 0 and 1000, but not 500. Since you have a 10-turn, 10 k$\Omega$ pot, the resistance between the wiper and one of the terminals should be equal to the dial value multiplied by 10 $\Omega$. The resistance between the wiper and the remaining terminal should be the previous resistance subtracted from 10 k$\Omega$.
+In general, the voltage out from the function generator is
+
+$$V_\text{out}=\frac{R_\text{termination}}{50\ \Omega+R_\text{termination}}V_\text{displayed}$$
+
+For large termination impedance, clearly the voltage out will be the same as what is displayed on the screen; however, we can see a clear issue: if the termination impedance is smaller than $50\ \Omega$, less than half of the voltage actually exits the function generator.
+
+This next activity will demonstrate how this can be a problem in order to motivate the use of an op-amp as a voltage buffer. You will try to play a note through a speaker directly from the function generator.
+
+1.  Grab a speaker and use your DMM to measure the resistance of the speaker.
+
+2.  Set up the function generator and the oscilloscope.
+
+    1.  Set the output impedance on the function generator to *High Z*.
+
+    2.  Set up the function generator and the oscilloscope so that you can read Channel 1 from the function generator with Channel 1 of the oscilloscope (use a BNC T-connector so that later you can eventually connect this to your breadboard as well).
+
+    3.  Connect the *Sync* on the function generator with Channel 4 of the oscilloscope.
+
+    4.  Create a $2\ \text{V}_\text{pp}$ sine wave with a $261.63\ \text{Hz}$ frequency and trigger on the *Sync* (in the trigger menu, change the channel to Channel 4). This will provide a nice lower frequency tone (a $\text{C}_4$ note) at a volume that won't be too obnoxious to your neighbors.
+
+3.  Confirm on the oscilloscope that the frequency and the amplitude of your wave match the settings on the function generator.
+
+3.  Apply the signal from the function generator to the speaker (use the T-connector, so you can still see it on the oscilloscope).
+
+    1.  Now what is the amplitude of the sine wave on Channel 1 of the oscilliscope?
+
+    2.  Why did the amplitude change after applying the load to the function generator's output? Unplug the BNC connector from the breadboard's header: did the amplitude recover? Why? Reconnect the function generator to your circuit and confirm the voltage drops.
+
+    3.  What is the transfer function of the voltage before plugging it into the circuit divided by voltage after plugging into the circuit?
+
+    2.  Draw a full circuit diagram which describes why this behavior is happening. *Hint*: there should be 3 resistors: the output impedance of the function generator, the impedance of the speaker, and the input impedance of the oscilliscope.
+
+Since the impedance of the speaker can't be changed, in order to get the full voltage to the speaker, you will have to decrease the output impedance. This can be done with a voltage buffer (this is a circuit you will learn to build in Lab 4).
+
+## Build a Controllable Voltage Source
+
+You will now use your skills with building and testing voltage dividers to build a controllable voltage source using a potentiometer and a switch.
+
+![A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where $R_1+R_2$ is a fixed value (in our case, $10\text{ k}\Omega$)](../resources/lab2fig/pot.png)
+
+## Testing the Potentiometer (pot)
+
+1.  Set the dial to some point between 0 and 1000, but not 500. Since you have a 10-turn, $10\text{ k}\Omega$ pot, each "tick" of the dial represents ~$10\ \Omega$; therefore, the resistance between the wiper and one of the terminals should be equal to the dial value multiplied by $10\ \Omega$. The resistance between the wiper and the remaining terminal should be the previous resistance subtracted from $10\text{ k}\Omega$.
 
 2.  Use the DMM to measure the resistance between all possible pairs of connections. Determine which terminal corresponds to the wiper, and which terminals correspond to the ends of the dial. Test with a DMM at a few different dial settings to get the hang of it.
 
-3.  Draw a diagram of the pot including a model of the internal components and external connections using the resistance observations.
+3.  Draw a diagram of the pot including a model of the internal components and external connections using the resistance observations (which "resistor" gets smaller and which gets bigger when you turn the dial clockwise?).
+
+## Testing the Switch
+
+![The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch.](../resources/lab2fig/switch.png)
+
+1. Connect wires to screw terminals of a switch and test with your DMM which lever position corresponds to which connections.
 
 ## Build a variable voltage source
 
-1. Draw a circuit diagram that uses one pot to create a variable voltage divider.
+1. Draw a circuit diagram that uses one pot and one switch to create a variable voltage divider that can be switched off (*Hint:* have the switch switch between connecting the output to the voltage divider or to ground).
 
-2. Derive an expression for the output voltage based on the input voltage and the two resistances. Are both resistances independently variable or a function of the other?
+2. Check in with an instructor regarding your circuit diagram.
 
-3. Construct your voltage divider and use a scope to measure the output voltage. Do you need to include the scope input resistance in your model? Explain why or why not.
+3. Derive an expression for the output voltage based on the input voltage and the two resistances. Are both resistances independently variable or a function of the other?
 
-4. Predict the maximum and minimum output voltage (when the wiper is at one end and then the other).
+4. Construct your voltage divider using any arbitrary output from the function generator for $V_\text{in}$ and use a scope to measure the output voltage.
 
-5. Test your model by making measurements on the scope. Make sure to include the limits of the voltage source. Do your measurements agree with your predictions? Explicitly record what criteria you used to determine whether or not the model and measurements agree.
+    - Do you need to include the scope input resistance in your model? Explain why or why not.
+
+    - Do you need to include the function generator's $50\ \Omega$ output impedance in your model? Explain why or why not.
+
+5. Predict the maximum and minimum output voltage (when the wiper is at one end and then the other).
+
+6. Test your model by making measurements on the scope. Make sure to include the limits of the voltage source. Do your measurements agree with your predictions? Explicitly record what criteria you used to determine whether or not the model and measurements agree.
 
    <!--Now connect a low voltage light bulb to the output. Do not exceed a current limit of 120 mA or the fuse on your potentiometer will blow out (it is a 125 mA fuse). Describe qualitatively the brightness of the bulb as the pot knob is adjusted. What is the minimum voltage needed to see the light bulb turn on?-->
 
-6. **Bonus question:** A good voltage source has very little (a few ohms) output resistance and thus very little power is dissipated in the supply. What is the output resistance of the circuit (including your power supply and external components) if it produces 10V? Would this circuit be good for creating a variable voltage source in the range of 5-10 V? HINT: Consider the power dissipated in the source. Explain using your diagram, model, and values of resistance.
+7. **Bonus question:** A good voltage source has very little (a few ohms) output resistance and thus very little power is dissipated in the supply. What is the output resistance of the circuit (including your power supply and external components) if it produces 10V? Would this circuit be good for creating a variable voltage source in the range of 5-10 V? HINT: Consider the power dissipated in the source. Explain using your diagram, model, and values of resistance.
 
 # Appendix A: Calibrating the 10-turn Potentiometer (If Needed) {#appendix-a-calibrating-the-10-turn-potentiometer-if-needed .unnumbered}
 
