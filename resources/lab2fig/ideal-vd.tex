@@ -7,19 +7,40 @@
 
 \documentclass[border=0.2cm]{standalone}
 \usepackage{circuitikz}
+\usepackage{amsmath}
 
 \standaloneenv{circuitikz}
 \begin{document}
 
 
 \begin{circuitikz}[american voltages]
-\draw (0,0)
-    to [V, invert, *-, l=$V$] (0, 4) %-- ++(2,0)
-    to [short, f=$I$] ++(2,0)
-    to [R=$R_1$, -*] ++(0,-2)
-    to [R=$R_2$, -*] ++(0,-2)--(0,0) node[ground]{};
-    \draw (2,2) to [short, -o] (4,2) node[anchor = west]{$V_{out}$};
-    \draw (2,0) to [short, -o] (4,0) node[anchor = west]{$0~V$};
+    \node at (-5,.5) {(a)};
+    \draw (-4.5,0) to [V] ++(0, -4)
+
+    (-4.5,0) to ++(1.5,0) to [R=$R_1$] ++(0,-2) to [short,-*] ++(0,0) coordinate(vout) to [R=$R_2$] ++(0,-2) to [short,-*] ++(0,0) coordinate(gnd) to [short,-*] ++(-1.5,0) node[ground]{}
+
+    (gnd) to [short,-o] ++(1.5,0)
+
+    (vout) to [short,-o] ++(1.5,0)
+
+    (-1.5, -3) node {$V_\text{out}$}
+    (-1.5, -3.25) to ++(0,-.5)
+    (-1.5, -2.75) to ++(0,.5)
+    ;
+
+    \node at (-1,0.5) {(b)};
+    \draw (0,0) node[anchor=south]{$V_\text{in}$} to [short,-o] ++(0,0) to [R,l=$R_1$] ++(0,-2) to [short,-*] ++(0,0) coordinate(mid) to ++(1,0) node[anchor=west]{$V_\text{out}$} to [short,-o] ++(0,0)
+
+    (mid) to [R,l=$R_2$] ++(0,-2) to ++(0,.4) node[ground]{} 
+    ;
+
+    \node at (2.5,0.5) {(c)};
+    \draw (3.5,-1.5) coordinate (three)
+    (three) node[anchor=east]{$V_\text{in}$} to [short,-o] ++ (0,0) to [R,l=$R_1$] ++ (2,0) to [short,-*] ++(0,0) coordinate(mid3) to [R,l=$R_2$] ++(0,-2) node[ground]{}
+    (mid3) to [short,-o] ++ (1,0) node[anchor=west]{$V_\text{out}$}
+    ;
+    
+    
 \end{circuitikz}
 
 \end{document}

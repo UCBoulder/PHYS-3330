@@ -1,0 +1,36 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+    \draw (0,0) to [V] ++(0, -4)
+
+    (0,0) to [R=$R_o$] ++(2,0) to ++(.5,0) to [R=$R_1$] ++(0,-2) to [short,-*] ++(0,0) coordinate(vout) to [R=$R_2$] ++(0,-2) to [short,-*] ++(0,0) coordinate(gnd) to [short,-*] ++(-2.5,0) node[ground]{}
+
+    (gnd) to [short,-o] ++(1.5,0)
+
+    (vout) to [short,-o] ++(1.5,0)
+
+    (4.15, -3) node {$V_\text{out}$}
+    (4, -3.25) to ++(0,-.5)
+    (4, -2.75) to ++(0,.5)
+    ;
+    
+    \draw [rounded corners,dashed] (-0.75,0.75)--(-0.75,-4.25)--(2,-4.25)--(2,0.75)--cycle;
+
+    \node at (.6,1) {Real Power Supply};
+    
+\end{circuitikz}
+
+\end{document}

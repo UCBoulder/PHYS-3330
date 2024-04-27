@@ -7,6 +7,7 @@
 
 \documentclass[border=0.2cm]{standalone}
 \usepackage{circuitikz}
+\usepackage{amsmath}
 
 \standaloneenv{circuitikz}
 \begin{document}
@@ -18,8 +19,9 @@
     to [short, f=$I$] ++(2,0)
     to [R=$R_1$, -*] ++(0,-2)
     to [R=$R_2$, -*] ++(0,-2)--(0,0) node[ground]{};
-    \draw (2,2) to [short, -o] (4.5,2) node[anchor = west]{$V_{out}$};
-    \draw (2,0) to [short, -o] (4.5,0) node[anchor = west]{$0~V$};
+    \draw (2,2) to [short, -o] (4.5,2) node[anchor = west]{$V_\text{out}$};
+    \draw (2,0) to ++(1.5,0);
+    %\draw (2,0) to [short, -o] (4.5,0) node[anchor = west]{$0~V$};
     \draw (3.5,2) to [R=$R_3$, *-*] ++(0,-2);
 \end{circuitikz}
 

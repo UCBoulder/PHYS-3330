@@ -1,0 +1,29 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+    \draw(0,1) to[american potentiometer,n=mypot, o-o] ++(0,-2)
+    (mypot.wiper) to [short,-o] ++(.25,0) to ++(0,0) node[anchor=west]{Wiper}
+    
+    (3.5,-2) to [vR,l_=$R_1$,o-*] ++(0,2) to [vR,l_=$R_2$,-o] ++(0,2)
+    
+    (3.5,0) to [short,-o] ++(0.5,0) to ++(0,0) node[anchor=west]{Wiper};
+
+    \node[scale=2] at (2.5,0) {=};
+    
+\end{circuitikz}
+
+\end{document}
+

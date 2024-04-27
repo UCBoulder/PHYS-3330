@@ -145,21 +145,49 @@ Compare this voltage to the case where you had an ideal voltage source. Why are 
 
 In the lab activities we will discover that the circuit shown in Figure @fig:modified-vd will provide a more accurate model for certain situations.
 
-### Prelab Question {4.1}
+### Prelab Question {#4.1}
 
 Express $V_\text{out}$ with respect to the input voltage and the 3 resistor values.
 
-### Prelab Question {4.2}
+### Prelab Question {#4.2}
 
 Rearrange the equation you just found to solve for $R_3$ given the other values. This equation will be useful when you do the lab.
 
+## Non-ideal power source driving a load
+
+A non-ideal power source has series resistance (output impedance). When it drives a load, the load is in series with the power source's output impedance. The two resistances in this case act like a voltage divider and the voltage across the load will never be the full voltage applied by the source.
+
+### Prelab Question {#5.1}
+
+Draw a circuit diagram of a non-ideal power source with output impedance $R_o$ connected to a load (resistor) with impedance $R_L$, and explain how this is a voltage divider.
+
+### Prelab Question {#5.2}
+
+Write an expression for the voltage across the load $V_\text{out}$ with respect to the resistances and the applied voltage from the source $V_\text{in}$.
+
+### Prelab Question {#5.3}
+
+The power applied to the load is $P=\frac{V_\text{out}^2}{R_L}$. Show that this is equivalent to
+
+$$P = V_\text{in}^2\frac{R_L}{(R_o+R_L)^2}$$
+
+### Prelab Question {#5.4}
+
+Assuming $R_o$ is fixed (you can't change the properties of your power supply), find the load impedance $R_L$ that maximizes the power transferred to the load.
+
+*Hint:* find the $R_L$ that makes $\frac{\partial P}{\partial R_L} = 0$
+
+### Prelab Question {#5.5}
+
+Impedance matching is the process of matching load impedances with power source's output impedance. Use your result from the previous problem to justify what matching these two impedances can be important.
+
 ## Lab Activities
 
-### Prelab Question {5.1}
+### Prelab Question {#6.1}
 
 Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
 
-### Prelab Question {5.2}
+### Prelab Question {#6.2}
 
 List at least one question you have about the lab activity.
 
@@ -259,43 +287,31 @@ Components (resistors, capacitors, transistors, etc.) are available from the com
 
 ## Hidden Voltage Dividers (Output Impedance)
 
-Remember last week when we set the function generator to an output termination of *High Z*? We want to do this EVERY TIME we use the function generator in this class. This does not change the output impedance of the function generator: it's ALWAYS $50\ \Omega$, but by default, it *assumes* you are impedance matching everything with $50\ \Omega$ (this is important at high frequencies; feel free to ask an instructor if you're curious to hear more).
+1. Remember last week when we set the function generator to an output termination of *High Z*? We want to do this EVERY TIME we use the function generator in this class. This does not change the output impedance of the function generator: it's ALWAYS $50\ \Omega$, but by default, it *assumes* you are impedance matching everything with $50\ \Omega$ (you worked out why this might be important to do in the prelab). Turn on your function generator and set it to *High Z*. If you don't remember how to change this setting, refer to Appendix B in Lab 1.
 
-When  the output goes through a $50\ \Omega$ load (i.e. $50\ \Omega$ termination), the voltage output will divide over the output impedance and the load, so only half the voltage will be applied to the load $\frac{50\ \Omega}{50\ \Omega+50\ \Omega} = \frac{1}{2}$. When the output termination **setting** is set to $50\ \Omega$, the device will assume half the voltage will drop across the output impedance, and display only half the voltage being applied (since this will be how much is expected to reach the $50\ \Omega$ termination). Since we won't be doing any $50\ \Omega$ impedance matching, we always want set the function generator to be in *High Z* mode and know that if the termination impedance is small, that this will voltage divide with the $50\ \Omega$ output impedance of the function generator. If you don't remember how to change this setting, refer to Appendix B in Lab 1.
+2.  Write an expression for the transfer function for the amount of the source voltage should actually be applied to the load.
 
-In general, the voltage out from the function generator is
+3.  Grab a speaker (this will be your load) and use your DMM to measure the resistance of the speaker. On your diagram label the resistances of the output impedance of the function generator ($50\ \Omega$) and the impedance of your speaker.
 
-$$V_\text{out}=\frac{R_\text{termination}}{50\ \Omega+R_\text{termination}}V_\text{displayed}$$
+4.  Set up the function generator and the oscilloscope.
 
-For large termination impedance, clearly the voltage out will be the same as what is displayed on the screen; however, we can see a clear issue: if the termination impedance is smaller than $50\ \Omega$, less than half of the voltage actually exits the function generator.
+    1.  Set up the function generator and the oscilloscope so that you can read Channel 1 from the function generator with Channel 1 of the oscilloscope (use a BNC T-connector so that later you can eventually connect this to your breadboard as well).
 
-This next activity will demonstrate how this can be a problem in order to motivate the use of an op-amp as a voltage buffer. You will try to play a note through a speaker directly from the function generator.
+    2.  Connect the *Sync* on the function generator with Channel 4 of the oscilloscope.
 
-1.  Grab a speaker and use your DMM to measure the resistance of the speaker.
+    3.  Create a $2\ \text{V}_\text{pp}$ sine wave with a $261.63\ \text{Hz}$ frequency and trigger on the *Sync* (in the trigger menu, change the channel to Channel 4). This will provide a nice lower frequency tone (a $\text{C}_4$ note) at a volume that won't be too obnoxious to your neighbors.
 
-2.  Set up the function generator and the oscilloscope.
+3.  Confirm on the oscilloscope that the frequency and the amplitude of your wave match the settings on the function generator (measure them).
 
-    1.  Set the output impedance on the function generator to *High Z*.
-
-    2.  Set up the function generator and the oscilloscope so that you can read Channel 1 from the function generator with Channel 1 of the oscilloscope (use a BNC T-connector so that later you can eventually connect this to your breadboard as well).
-
-    3.  Connect the *Sync* on the function generator with Channel 4 of the oscilloscope.
-
-    4.  Create a $2\ \text{V}_\text{pp}$ sine wave with a $261.63\ \text{Hz}$ frequency and trigger on the *Sync* (in the trigger menu, change the channel to Channel 4). This will provide a nice lower frequency tone (a $\text{C}_4$ note) at a volume that won't be too obnoxious to your neighbors.
-
-3.  Confirm on the oscilloscope that the frequency and the amplitude of your wave match the settings on the function generator.
-
-3.  Apply the signal from the function generator to the speaker (use the T-connector, so you can still see it on the oscilloscope).
+3.  Apply the signal from the function generator to the speaker (use the T-connector, so you can still see it on the oscilloscope). You can use mini grabbers to connect to the two ends of the speaker.
 
     1.  Now what is the amplitude of the sine wave on Channel 1 of the oscilliscope?
 
-    2.  Why did the amplitude change after applying the load to the function generator's output? Unplug the BNC connector from the breadboard's header: did the amplitude recover? Why? Reconnect the function generator to your circuit and confirm the voltage drops.
+    2.  Why did the amplitude change after applying the load to the function generator's output? Disconnect the speaker: did the amplitude recover? Why? Reconnect the function generator to your circuit and confirm the voltage changes.
 
-    3.  What is the transfer function of the voltage before plugging it into the circuit divided by voltage after plugging into the circuit?
+4.  When you measure the voltage without the speaker, there is (virtually) no current, so no voltage drops across the $50\ \Omega$ output impedance of the function generator. In this case, we are measuring the internal, source voltage ($V_\text{in}$ of our voltage divider model). When you apply the speaker, current flows and voltage drops across the output impedance, so that the full voltage doesn't reach the load ($V_\text{out}$ in our voltage divider model). Using both measurements calculate the transfer function.
 
-    2.  Draw a full circuit diagram which describes why this behavior is happening. *Hint*: there should be 3 resistors: the output impedance of the function generator, the impedance of the speaker, and the input impedance of the oscilliscope.
-
-Since the impedance of the speaker can't be changed, in order to get the full voltage to the speaker, you will have to decrease the output impedance. This can be done with a voltage buffer (this is a circuit you will learn to build in Lab 4).
+Since neither the impedance of the speaker nor the output impedance of the function generator can be changed, in order to get more power to the speaker, you will have to design more circuitry to deliver the signal in a way that draws little to no current from the function generator. In Lab 4, you will learn to build a voltage buffer circuit that does just that.
 
 ## Build a Controllable Voltage Source
 
