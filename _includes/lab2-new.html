@@ -1,0 +1,962 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="generator" content="pandoc">
+      <meta name="author" content="Department of Physics | University of
+Colorado Boulder">
+      
+      <title>PHYS 3330</title>
+         </head>
+   <body>
+            <div>
+         <style>
+            .eqnos { display: inline-block; position: relative; width: 100%; }
+            .eqnos br { display: none; }
+            .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
+         </style>
+         <h1 class="title">Lab 2 - Modeling Measurement Systems Using
+Voltage Dividers</h1>
+                  <h1 class="title">Contents</h1>
+        <nav id="TOC">
+            <ul>
+            <li><a href="#goals" id="toc-goals"><span
+            class="toc-section-number">1</span> Goals</a></li>
+            <li><a href="#prelab" id="toc-prelab"><span
+            class="toc-section-number">2</span> Prelab</a>
+            <ul>
+            <li><a href="#breadboard" id="toc-breadboard"><span
+            class="toc-section-number">2.1</span> Breadboard</a>
+            <ul>
+            <li><a href="#0.1" id="toc-0.1"><span
+            class="toc-section-number">2.1.1</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#voltage-dividers"
+            id="toc-voltage-dividers"><span
+            class="toc-section-number">2.2</span> Voltage Dividers</a>
+            <ul>
+            <li><a href="#1.1" id="toc-1.1"><span
+            class="toc-section-number">2.2.1</span> Prelab
+            Question</a></li>
+            <li><a href="#1.2" id="toc-1.2"><span
+            class="toc-section-number">2.2.2</span> Prelab
+            Question</a></li>
+            <li><a href="#1.3" id="toc-1.3"><span
+            class="toc-section-number">2.2.3</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#transfer-function"
+            id="toc-transfer-function"><span
+            class="toc-section-number">2.3</span> Transfer Function</a>
+            <ul>
+            <li><a href="#2.1" id="toc-2.1"><span
+            class="toc-section-number">2.3.1</span> Prelab
+            Question</a></li>
+            <li><a href="#2.2" id="toc-2.2"><span
+            class="toc-section-number">2.3.2</span> Prelab
+            Question</a></li>
+            <li><a href="#2.3" id="toc-2.3"><span
+            class="toc-section-number">2.3.3</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#voltage-divider-with-non-ideal-power-supply"
+            id="toc-voltage-divider-with-non-ideal-power-supply"><span
+            class="toc-section-number">2.4</span> Voltage Divider with
+            Non-ideal Power Supply</a>
+            <ul>
+            <li><a href="#3.1" id="toc-3.1"><span
+            class="toc-section-number">2.4.1</span> Prelab
+            Question</a></li>
+            <li><a href="#3.2" id="toc-3.2"><span
+            class="toc-section-number">2.4.2</span> Prelab
+            Question</a></li>
+            <li><a href="#3.3" id="toc-3.3"><span
+            class="toc-section-number">2.4.3</span> Prelab
+            Question</a></li>
+            <li><a href="#3.4" id="toc-3.4"><span
+            class="toc-section-number">2.4.4</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#impacts-of-parallel-impedances"
+            id="toc-impacts-of-parallel-impedances"><span
+            class="toc-section-number">2.5</span> Impacts of Parallel
+            Impedances</a>
+            <ul>
+            <li><a href="#4.1" id="toc-4.1"><span
+            class="toc-section-number">2.5.1</span> Prelab
+            Question</a></li>
+            <li><a href="#4.2" id="toc-4.2"><span
+            class="toc-section-number">2.5.2</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#non-ideal-power-source-driving-a-load"
+            id="toc-non-ideal-power-source-driving-a-load"><span
+            class="toc-section-number">2.6</span> Non-ideal power source
+            driving a load</a>
+            <ul>
+            <li><a href="#5.1" id="toc-5.1"><span
+            class="toc-section-number">2.6.1</span> Prelab
+            Question</a></li>
+            <li><a href="#5.2" id="toc-5.2"><span
+            class="toc-section-number">2.6.2</span> Prelab
+            Question</a></li>
+            <li><a href="#5.3" id="toc-5.3"><span
+            class="toc-section-number">2.6.3</span> Prelab
+            Question</a></li>
+            <li><a href="#5.4" id="toc-5.4"><span
+            class="toc-section-number">2.6.4</span> Prelab
+            Question</a></li>
+            <li><a href="#5.5" id="toc-5.5"><span
+            class="toc-section-number">2.6.5</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#lab-activities" id="toc-lab-activities"><span
+            class="toc-section-number">2.7</span> Lab Activities</a>
+            <ul>
+            <li><a href="#6.1" id="toc-6.1"><span
+            class="toc-section-number">2.7.1</span> Prelab
+            Question</a></li>
+            <li><a href="#6.2" id="toc-6.2"><span
+            class="toc-section-number">2.7.2</span> Prelab
+            Question</a></li>
+            </ul></li>
+            </ul></li>
+            <li><a href="#useful-readings"
+            id="toc-useful-readings"><span
+            class="toc-section-number">3</span> Useful Readings</a></li>
+            <li><a href="#lab-activities-1"
+            id="toc-lab-activities-1"><span
+            class="toc-section-number">4</span> Lab activities</a>
+            <ul>
+            <li><a href="#test-your-protoboard"
+            id="toc-test-your-protoboard"><span
+            class="toc-section-number">4.1</span> Test your
+            protoboard</a>
+            <ul>
+            <li><a href="#making-power-connections-to-your-protoboard"
+            id="toc-making-power-connections-to-your-protoboard"><span
+            class="toc-section-number">4.1.1</span> Making power
+            connections to your protoboard</a></li>
+            <li><a href="#supplying-power-to-your-protoboard"
+            id="toc-supplying-power-to-your-protoboard"><span
+            class="toc-section-number">4.1.2</span> Supplying power to
+            your protoboard</a></li>
+            </ul></li>
+            <li><a href="#building-and-testing-voltage-dividers"
+            id="toc-building-and-testing-voltage-dividers"><span
+            class="toc-section-number">4.2</span> Building and Testing
+            Voltage Dividers</a></li>
+            <li><a href="#fixed-value-voltage-divider---1text-komega"
+            id="toc-fixed-value-voltage-divider---1text-komega"><span
+            class="toc-section-number">4.3</span> Fixed-value voltage
+            divider - <span class="math inline">\(1\text{
+            k}\Omega\)</span></a></li>
+            <li><a
+            href="#fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"
+            id="toc-fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"><span
+            class="toc-section-number">4.4</span> Fixed-value voltage
+            dividers of <span class="math inline">\(1\text{
+            M}\Omega\)</span> and <span class="math inline">\(10\text{
+            M}\Omega\)</span></a></li>
+            <li><a href="#hidden-voltage-dividers-output-impedance"
+            id="toc-hidden-voltage-dividers-output-impedance"><span
+            class="toc-section-number">4.5</span> Hidden Voltage
+            Dividers (Output Impedance)</a></li>
+            <li><a href="#build-a-controllable-voltage-source"
+            id="toc-build-a-controllable-voltage-source"><span
+            class="toc-section-number">4.6</span> Build a Controllable
+            Voltage Source</a></li>
+            <li><a href="#testing-the-potentiometer-pot"
+            id="toc-testing-the-potentiometer-pot"><span
+            class="toc-section-number">4.7</span> Testing the
+            Potentiometer (pot)</a></li>
+            <li><a href="#testing-the-switch"
+            id="toc-testing-the-switch"><span
+            class="toc-section-number">4.8</span> Testing the
+            Switch</a></li>
+            <li><a href="#build-a-variable-voltage-source"
+            id="toc-build-a-variable-voltage-source"><span
+            class="toc-section-number">4.9</span> Build a variable
+            voltage source</a></li>
+            </ul></li>
+            <li><a
+            href="#appendix-a-calibrating-the-10-turn-potentiometer-if-needed"
+            id="toc-appendix-a-calibrating-the-10-turn-potentiometer-if-needed">Appendix
+            A: Calibrating the 10-turn Potentiometer (If
+            Needed)</a></li>
+            </ul>
+        </nav>
+        <hr/>
+         <h1 data-number="1" id="goals"><span
+         class="header-section-number">1</span> Goals</h1>
+         <p>The goals of this lab are to</p>
+         <ul>
+         <li><p>familiarize yourself with the prototyping boards
+         (breadboards). You will use this tool extensively for the rest
+         of the semester.</p></li>
+         <li><p>build, test, and explore refined models of voltage
+         divider circuits to include the effects of measurements and
+         loads.</p></li>
+         <li><p>learn how to interface your equipment with the
+         prototyping board through the header attached to the
+         board.</p></li>
+         <li><p>learn how to use the switches and potentiometers on the
+         header.</p></li>
+         <li><p>build a volume knob using your knowledge of voltage
+         dividers and switches.</p></li>
+         </ul>
+         <!--# Definitions
+
+         **Potentiometer (pot)** - a three-terminal resistive device that provides a variable resistance between the ends and the \"wiper\" connection.-->
+         <h1 data-number="2" id="prelab"><span
+         class="header-section-number">2</span> Prelab</h1>
+         <p>Answer the following questions in your lab notebook and with
+         Jupyter Notebooks. Scan the relevant pages and upload the PDF
+         file to Canvas. Note that the lab prep activities are directly
+         related to the lab and by completing them (and having them
+         available during lab) you will be able to work through the lab
+         more efficiently and be able to understand what you are doing
+         during the lab.</p>
+         <p>For your calculations, you should write a reusable function
+         in a Python script that you can import into your Jupyter
+         Notebooks. This will allow you to easily update calculations
+         and recycle code in a practical way.</p>
+         <p>For example, with a script called <code>jlab.py</code></p>
+         <div class="sourceCode" id="cb1"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Python script to import useful functions for J-Lab</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parallel_resistance(resistors: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    conductance <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> resistance <span class="kw">in</span> resistors:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        conductance <span class="op">+=</span> <span class="fl">1.0</span> <span class="op">/</span> resistance</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> conductance</span></code></pre></div>
+         <p>This function can be used in a Jupyter Notebook like
+         this</p>
+         <div class="sourceCode" id="cb2"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jlab <span class="im">as</span> jl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> <span class="fl">2e3</span>  <span class="co"># 2 kOhm</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> <span class="dv">800</span>  <span class="co"># 500 Ohm</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> <span class="fl">1e3</span>  <span class="co"># 1 kOhm</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rp <span class="op">=</span> jl.parallel_restance([r1, r2, r3])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="st">&quot;R_p = </span><span class="sc">{:.1f}</span><span class="st"> Ohm&quot;</span>.<span class="bu">format</span>(rp) )</span></code></pre></div>
+         <h2 data-number="2.1" id="breadboard"><span
+         class="header-section-number">2.1</span> Breadboard</h2>
+         <p>Before modern prototyping boards, to test circuits, people
+         would take wooden cutting boards (aka breadboards) and tack
+         nails into them to provide scaffolding to create a circuit. <a
+         href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/history">Take
+         a look!</a> Even though we’ve moved to far more sophisticated
+         prototyping boards, we still affectionately call them
+         breadboards.</p>
+         <p>Breadboards allow for quickly creating and modifying
+         circuits, with no soldering. Once the circuit works and meets
+         the desired specifications, a printed circuit board (PCB) can
+         be designed and made. All the components can be soldered to the
+         PCB and the circuit can be mounted in a metal case to shield it
+         from external electromagnetic fields. Present technology allows
+         anyone to cheaply design, layout, and print professional
+         circuit boards. For example: <a
+         href="http://www.expresspcb.com/"
+         class="uri">http://www.expresspcb.com/</a></p>
+         <div id="fig:bread-pins," class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/breadboard-pins.jpg"
+         style="width:10cm"
+         alt="Figure 1: Example of breadboard rows of holes. (left) The front of the breadboard, and (right) the backside of the breadboard. Image from Sparkfun." />
+         <figcaption aria-hidden="true"><span>Figure 1:</span> Example
+         of breadboard rows of holes. (left) The front of the
+         breadboard, and (right) the backside of the breadboard. <a
+         href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Image
+         from Sparkfun.</a></figcaption>
+         </figure>
+         </div>
+         <p>Breadboards are composed of several holes that you can stick
+         wires into. The holes form rows of metallic connection (as seen
+         in Figure ??). Each of these rows are constructed like little
+         grabbers that allow for secure connections (as seen in Figure
+         ??).</p>
+         <div id="fig:bread-row," class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/breadboard-row.JPG"
+         style="width:8cm"
+         alt="Figure 2: The breadboard is composed of many of these little. Image from Sparkfun." />
+         <figcaption aria-hidden="true"><span>Figure 2:</span> The
+         breadboard is composed of many of these little. <a
+         href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Image
+         from Sparkfun.</a></figcaption>
+         </figure>
+         </div>
+         <p>Our breadboards have a custom built headers (see Figure ??)
+         to allow you to easily interface your equipment (scope, power
+         supply, function generator, etc.) with the breadboard. All the
+         connectors, switches, and potentiometers are connected to the
+         green screw terminals that wires can be clamped in to connect
+         to the breadboard.</p>
+         <div id="fig:bread-header," class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/breadboard-header.png"
+         style="width:15cm"
+         alt="Figure 3: A breadboard with a header attached (a second header is shown upside-down to reveal what’s going on “under the hood”)" />
+         <figcaption aria-hidden="true"><span>Figure 3:</span> A
+         breadboard with a header attached (a second header is shown
+         upside-down to reveal what’s going on “under the
+         hood”)</figcaption>
+         </figure>
+         </div>
+         <p>The far left and far right screw terminals are connected to
+         switches and potentiometers (three terminal, variable
+         resistors). The mid-left screw terminal is connected to banana
+         ports, and the mid-right screw terminal is connected to the
+         inner conductors of BNC ports.</p>
+         <h3 data-number="2.1.1" id="0.1"><span
+         class="header-section-number">2.1.1</span> Prelab Question</h3>
+         <figure>
+         <img src="../resources/lab2fig/cground.png"
+         alt="Chassis ground." />
+         <figcaption aria-hidden="true">Chassis ground.</figcaption>
+         </figure>
+         <p>The symbol shown above is chassis ground. This refers to a
+         common connection to the case. Notice that this is labeled in a
+         few places on the breadboard’s header (suggesting connection to
+         the metal case).</p>
+         <p>Which screw terminal should be used to access the outer
+         conductor of the BNCs?</p>
+         <h2 data-number="2.2" id="voltage-dividers"><span
+         class="header-section-number">2.2</span> Voltage Dividers</h2>
+         <div id="fig:ideal-vd" class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/ideal-vd.png" style="height:7cm"
+         alt="Figure 4: Three equivalent Ideal Voltage Divider circuits. (a), (b), and (c) all show the same exact circuit diagram!" />
+         <figcaption aria-hidden="true"><span>Figure 4:</span> Three
+         equivalent <em>Ideal Voltage Divider</em> circuits. (a), (b),
+         and (c) all show the same exact circuit diagram!</figcaption>
+         </figure>
+         </div>
+         <p>An ideal voltage source (no internal resistance) drives
+         current around the loop of two resistors shown in Figure <a
+         href="#fig:ideal-vd">4</a> (all three circuits in this figure
+         are equivalent!). Each resistor has a voltage drop across it
+         due to the current running through them, so the voltage out
+         will be less than the voltage in.</p>
+         <h3 data-number="2.2.1" id="1.1"><span
+         class="header-section-number">2.2.1</span> Prelab Question</h3>
+         <p>What is the current <span class="math inline">\(I\)</span>
+         through each resistor? Represent these with respect to <span
+         class="math inline">\(V_\text{in}\)</span>, <span
+         class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span>. (<em>Hint:</em> the
+         resistors are in series)</p>
+         <h3 data-number="2.2.2" id="1.2"><span
+         class="header-section-number">2.2.2</span> Prelab Question</h3>
+         <p>What is the voltage across <span
+         class="math inline">\(R_2\)</span>? Express this with respect
+         to the current. Explain why this is <span
+         class="math inline">\(V_\text{out}\)</span>.</p>
+         <h3 data-number="2.2.3" id="1.3"><span
+         class="header-section-number">2.2.3</span> Prelab Question</h3>
+         <p>Express <span class="math inline">\(V_\text{out}\)</span>
+         with respect to <span
+         class="math inline">\(V_\text{in}\)</span>, and the two
+         resistors (don’t have <span class="math inline">\(I\)</span> in
+         the equation).</p>
+         <h2 data-number="2.3" id="transfer-function"><span
+         class="header-section-number">2.3</span> Transfer Function</h2>
+         <p>A <strong>transfer function</strong> <span
+         class="math inline">\(T\)</span> is ratio of an output to an
+         input. In this class, we are interested in voltage transfer
+         functions, so</p>
+         <p><span class="math display">\[\begin{equation}
+         T = \frac{V_\text{out}}{V_\text{in}}
+         \end{equation}\]</span></p>
+         <h3 data-number="2.3.1" id="2.1"><span
+         class="header-section-number">2.3.1</span> Prelab Question</h3>
+         <p>Calculate the transfer function of the voltage divider.
+         (<em>Hint:</em> this should only depend on the values of the
+         resistors)</p>
+         <h3 data-number="2.3.2" id="2.2"><span
+         class="header-section-number">2.3.2</span> Prelab Question</h3>
+         <p>For <span class="math inline">\(R_1 = 2\text{
+         k}\Omega\)</span> and <span class="math inline">\(R_2 = 1\text{
+         k}\Omega\)</span>, what is the transfer function?</p>
+         <h3 data-number="2.3.3" id="2.3"><span
+         class="header-section-number">2.3.3</span> Prelab Question</h3>
+         <p>For a <span class="math inline">\(V_\text{in}\)</span> of
+         <span class="math inline">\(10\text{ V}\)</span>, what will
+         <span class="math inline">\(V_\text{out}\)</span> be (using the
+         resistance values above)?</p>
+         <h2 data-number="2.4"
+         id="voltage-divider-with-non-ideal-power-supply"><span
+         class="header-section-number">2.4</span> Voltage Divider with
+         Non-ideal Power Supply</h2>
+         <div id="fig:nonideal-vd" class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/nonideal-vd.png"
+         style="height:7.5cm"
+         alt="Figure 5: A real power source has an output impedance R_o that can impact the circuit" />
+         <figcaption aria-hidden="true"><span>Figure 5:</span> A real
+         power source has an output impedance <span
+         class="math inline">\(R_o\)</span> that can impact the
+         circuit</figcaption>
+         </figure>
+         </div>
+         <p>Real voltage sources have output impedances (modeled with a
+         resistor in series with the voltage as seen in Figure <a
+         href="#fig:nonideal-vd">5</a>).</p>
+         <h3 data-number="2.4.1" id="3.1"><span
+         class="header-section-number">2.4.1</span> Prelab Question</h3>
+         <p>Express the current <span class="math inline">\(I\)</span>
+         with respect to the voltage source, and all the
+         impedances/resistances.</p>
+         <h3 data-number="2.4.2" id="3.2"><span
+         class="header-section-number">2.4.2</span> Prelab Question</h3>
+         <p>Express the voltage across <span
+         class="math inline">\(R_2\)</span> (<span
+         class="math inline">\(V_\text{out}\)</span>) with respect to
+         the voltage source and the impedances/resistances.</p>
+         <h3 data-number="2.4.3" id="3.3"><span
+         class="header-section-number">2.4.3</span> Prelab Question</h3>
+         <p>What is <span class="math inline">\(V_\text{out}\)</span>
+         for <span class="math inline">\(V_\text{in} = 10\)</span>,
+         <span class="math inline">\(R_o = 50\ \Omega\)</span>, <span
+         class="math inline">\(R_1 = 2\text{ k}\Omega\)</span> and <span
+         class="math inline">\(R_2 = 1\text{ k}\Omega\)</span></p>
+         <h3 data-number="2.4.4" id="3.4"><span
+         class="header-section-number">2.4.4</span> Prelab Question</h3>
+         <p>Compare this voltage to the case where you had an ideal
+         voltage source. Why are you getting less output with a
+         non-ideal voltage source?</p>
+         <h2 data-number="2.5" id="impacts-of-parallel-impedances"><span
+         class="header-section-number">2.5</span> Impacts of Parallel
+         Impedances</h2>
+         <div id="fig:modified-vd" class="fignos">
+         <figure>
+         <img src="../resources/lab2fig/modified-vd.png"
+         style="height:7cm" alt="Figure 6: Modified Voltage Divider" />
+         <figcaption aria-hidden="true"><span>Figure 6:</span> Modified
+         Voltage Divider</figcaption>
+         </figure>
+         </div>
+         <p>In the lab activities we will discover that the circuit
+         shown in Figure <a href="#fig:modified-vd">6</a> will provide a
+         more accurate model for certain situations.</p>
+         <h3 data-number="2.5.1" id="4.1"><span
+         class="header-section-number">2.5.1</span> Prelab Question</h3>
+         <p>Express <span class="math inline">\(V_\text{out}\)</span>
+         with respect to the input voltage and the 3 resistor
+         values.</p>
+         <h3 data-number="2.5.2" id="4.2"><span
+         class="header-section-number">2.5.2</span> Prelab Question</h3>
+         <p>Rearrange the equation you just found to solve for <span
+         class="math inline">\(R_3\)</span> given the other values. This
+         equation will be useful when you do the lab.</p>
+         <h2 data-number="2.6"
+         id="non-ideal-power-source-driving-a-load"><span
+         class="header-section-number">2.6</span> Non-ideal power source
+         driving a load</h2>
+         <p>A non-ideal power source has series resistance (output
+         impedance). When it drives a load, the load is in series with
+         the power source’s output impedance. The two resistances in
+         this case act like a voltage divider and the voltage across the
+         load will never be the full voltage applied by the source.</p>
+         <h3 data-number="2.6.1" id="5.1"><span
+         class="header-section-number">2.6.1</span> Prelab Question</h3>
+         <p>Draw a circuit diagram of a non-ideal power source with
+         output impedance <span class="math inline">\(R_o\)</span>
+         connected to a load (resistor) with impedance <span
+         class="math inline">\(R_L\)</span>, and explain how this is a
+         voltage divider.</p>
+         <h3 data-number="2.6.2" id="5.2"><span
+         class="header-section-number">2.6.2</span> Prelab Question</h3>
+         <p>Write an expression for the voltage across the load <span
+         class="math inline">\(V_\text{out}\)</span> with respect to the
+         resistances and the applied voltage from the source <span
+         class="math inline">\(V_\text{in}\)</span>.</p>
+         <h3 data-number="2.6.3" id="5.3"><span
+         class="header-section-number">2.6.3</span> Prelab Question</h3>
+         <p>The power applied to the load is <span
+         class="math inline">\(P=\frac{V_\text{out}^2}{R_L}\)</span>.
+         Show that this is equivalent to</p>
+         <p><span class="math display">\[P =
+         V_\text{in}^2\frac{R_L}{(R_o+R_L)^2}\]</span></p>
+         <h3 data-number="2.6.4" id="5.4"><span
+         class="header-section-number">2.6.4</span> Prelab Question</h3>
+         <p>Assuming <span class="math inline">\(R_o\)</span> is fixed
+         (you can’t change the properties of your power supply), find
+         the load impedance <span class="math inline">\(R_L\)</span>
+         that maximizes the power transferred to the load.</p>
+         <p><em>Hint:</em> find the <span
+         class="math inline">\(R_L\)</span> that makes <span
+         class="math inline">\(\frac{\partial P}{\partial R_L} =
+         0\)</span></p>
+         <h3 data-number="2.6.5" id="5.5"><span
+         class="header-section-number">2.6.5</span> Prelab Question</h3>
+         <p>Impedance matching is the process of matching load
+         impedances with power source’s output impedance. Use your
+         result from the previous problem to justify what matching these
+         two impedances can be important.</p>
+         <h2 data-number="2.7" id="lab-activities"><span
+         class="header-section-number">2.7</span> Lab Activities</h2>
+         <h3 data-number="2.7.1" id="6.1"><span
+         class="header-section-number">2.7.1</span> Prelab Question</h3>
+         <p>Read through all of the lab steps and identify the step (or
+         sub-step) that you think will be the most challenging.</p>
+         <h3 data-number="2.7.2" id="6.2"><span
+         class="header-section-number">2.7.2</span> Prelab Question</h3>
+         <p>List at least one question you have about the lab
+         activity.</p>
+         <h1 data-number="3" id="useful-readings"><span
+         class="header-section-number">3</span> Useful Readings</h1>
+         <p>You can find more helpful information in the following
+         sections of the text books:</p>
+         <ol type="1">
+         <li><p><a
+         href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
+         Sections 1.3.3 – 1.4.2</p></li>
+         <li><p>Fischer-Cripps Sections 2.1 – 2.3</p></li>
+         <li><p>Horowitz and Hill 2<sup>nd</sup> Ed., 1 – 1.04</p></li>
+         <li><p>Horowitz and Hill 3<sup>rd</sup> Ed., 1 – 1.3.1</p></li>
+         </ol>
+         <h1 data-number="4" id="lab-activities-1"><span
+         class="header-section-number">4</span> Lab activities</h1>
+         <h2 data-number="4.1" id="test-your-protoboard"><span
+         class="header-section-number">4.1</span> Test your
+         protoboard</h2>
+         <ol type="1">
+         <li><p>Get a protoboard (breadboard) from the shelf labeled
+         with your section number. Using the label printer in the lab
+         (and 12mm label tape), make a label for each of your group
+         member’s names and place on the metal plate that the
+         breadboards are attached to. Your team will use the same board
+         all semester. It’s good practice to note the bin number in your
+         lab notebook and continue to use that bin for the semester. At
+         the end of the lab, you will store your protoboard in this bin
+         (the protoboards may not be removed from the lab).</p></li>
+         <li><p>On the protoboard interface panel, you will find:</p>
+         <ul>
+         <li><p>BNC cable jacks that carry electric signals between your
+         circuit on the board and the function generator and
+         oscilloscope.</p></li>
+         <li><p>Colored banana jacks to bring in DC power for
+         transistors or chips from an external power supply.</p></li>
+         <li><p>A precision <span class="math inline">\(10\text{
+         k}\Omega\)</span> ten‑turn potentiometer with a fuse on the
+         wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if
+         you need a replacement).</p></li>
+         <li><p>Four switches.</p></li>
+         <li><p>Screw terminals which will be used with jumper wires to
+         bring power/signals from the interface panel to your
+         breadboard.</p></li>
+         </ul>
+         <p><br>The components on the interface panel are pre-soldered
+         to the screw terminals and a wiring diagram is printed on the
+         panel. If you think there are any issues with your interface
+         panel, please notify the <a
+         href="/PHYS-3330/report-lab-issue">technical
+         staff</a>.</p></li>
+         <li><p>The breadboard contains arrays of holes, interconnected
+         by buried conductors. There is a pattern to how the the holes
+         are connected: typically in the form of short rows and long
+         columns (sometimes called rails). Use the DMM, mini-grabbers,
+         and a couple short wires to test the connections of the
+         breadboard.</p>
+         <ul>
+         <li><p>There are hundreds of holes, so testing every pair of
+         holes would take many hours. Take a strategic approach to
+         testing.</p></li>
+         <li><p>Assume connections are in single rows or
+         columns.</p></li>
+         <li><p>How far does each row/column connect?</p></li>
+         </ul></li>
+         <li><p>Draw a diagram of the basic pattern in your lab notebook
+         of the connections. You can refer back to this diagram
+         throughout the semester as you build new circuits.</p></li>
+         <li><p>Find a <span class="math inline">\(1\text{
+         k}\Omega\)</span> resistor and measure the resistor directly
+         with the DMM. Now insert the resistor into two holes on the
+         breadboard that you know are not connected and remeasure the
+         resistance. Now insert the resistor into two holes on the
+         breadboard that you know <strong>are</strong> connected and
+         remeasure the resistance. Explain your results. What does this
+         tell you about when you should measure resistors?</p></li>
+         </ol>
+         <h3 data-number="4.1.1"
+         id="making-power-connections-to-your-protoboard"><span
+         class="header-section-number">4.1.1</span> Making power
+         connections to your protoboard</h3>
+         <ol type="1">
+         <li><p>Many circuits require DC power connections (+15 V, -15V,
+         ground). Connect the power supply to the interface panel using
+         banana cables.</p></li>
+         <li><p><strong>USE A COLOR CODE FOR THE POWER
+         CONNECTIONS!</strong> The convention used in this course is
+         <strong>black = ground</strong>, <span
+         style="color: red;"><strong>red = +15 V</strong></span>, and
+         <span style="color: blue;"><strong>blue = -15
+         V</strong></span>. Using a consistent color code will allow you
+         and others to debug your circuits quickly. You are also less
+         likely to plug something in incorrectly and burn up a
+         component. You should also have a white colored banana jack on
+         your interface panel. You may find that this is useful during
+         your final project phase if you require another voltage.
+         Remember to write down your color code in your lab
+         notebook.</p></li>
+         <li><p>Once you have power connected to the interface panel,
+         use jumper wires from the appropriate screw terminal to make
+         connections to the breadboard (+15, -15, and ground). The long
+         rails that run the length of the board are best for
+         distributing power to all of your components. <strong>Use these
+         for only DC power or ground.</strong></p></li>
+         <li><p>Good electrical contact is essential when you plug in
+         components or wires. Use only 22- or 24-gauge solid wire, not
+         stranded wire. The 22- or 24-gauge wire should make a good
+         connection with the conductors inside the board without
+         slipping out easily. Push in each wire until you feel the
+         contacts grip. <strong>Don’t force larger wires into the
+         protoboard. You can damage the connectors.</strong></p></li>
+         <li><p>Reliable ground connections (0 V), readily accessible
+         from any point on the breadboard, are essential to the good
+         functioning of most circuits. The interface panel is wired such
+         that outer conductor on the BNC connectors are connected to the
+         <strong>black</strong> banana jack, which forces a common
+         chassis ground. This is indicated on the wiring diagram printed
+         on the interface panel.</p></li>
+         </ol>
+         <figure>
+         <img src="../resources/lab2fig/grounding%20connections.png"
+         alt="The outer conductor of the BNC connectors are all connected to the black banana port." />
+         <figcaption aria-hidden="true">The outer conductor of the BNC
+         connectors are all connected to the black banana
+         port.</figcaption>
+         </figure>
+         <h3 data-number="4.1.2"
+         id="supplying-power-to-your-protoboard"><span
+         class="header-section-number">4.1.2</span> Supplying power to
+         your protoboard</h3>
+         <ol type="1">
+         <li><p>Turn on your DC power supply such that it produces +15 V
+         and -15 V. Set the current limit to about 100 mA. This will
+         reduce the amount of smoke released from your components when
+         you happen to plug in the power incorrectly. Describe the
+         procedure you followed to set the current limit.</p></li>
+         <li><p>Measure the voltage on your protoboard rails using a
+         DMM. You may need to use a wire to probe the voltage if your
+         DMM probes do not fit in the holes. Always remember to measure
+         voltages with respect to ground. Record the voltages in your
+         lab notebook.</p></li>
+         </ol>
+         <h2 data-number="4.2"
+         id="building-and-testing-voltage-dividers"><span
+         class="header-section-number">4.2</span> Building and Testing
+         Voltage Dividers</h2>
+         <p>Components (resistors, capacitors, transistors, etc.) are
+         available from the community stock. Take what components you
+         need for your experiments. If you notice the inventory getting
+         low, please let the <a
+         href="/PHYS-3330/report-lab-issue">technical staff</a>
+         know.</p>
+         <h2 data-number="4.3"
+         id="fixed-value-voltage-divider---1text-komega"><span
+         class="header-section-number">4.3</span> Fixed-value voltage
+         divider - <span class="math inline">\(1\text{
+         k}\Omega\)</span></h2>
+         <ol type="1">
+         <li><p>Build a voltage divider similar to the one shown in
+         Figure <a href="#fig:ideal-vd">4</a> using resistors of around
+         <span class="math inline">\(1\text{ k}\Omega\)</span>. Draw a
+         diagram of the circuit in your lab notebook. Make sure to label
+         the resistors and record all measured component values and
+         voltages.</p></li>
+         <li><p>Measure each resistor with your DMM before inserting it
+         into your circuit and record the value. Why should you measure
+         component values before placing them in the circuit?</p></li>
+         <li><p>Predict the output voltage you should measure based on
+         your input voltage and resistance measurements. Include your
+         calculations and numerical predictions in your lab
+         notebook.</p></li>
+         <li><p>Now, apply a DC voltage to the input and measure the
+         output voltage of your divider, first using your DMM and second
+         using your oscilloscope with the mini-grabbers. Record your
+         measurements. <em>Do not have the DMM and the oscilloscope
+         connected at the same time because each may perturb the
+         measurement differently.</em></p></li>
+         <li><p>Compare the voltages you predicted to the voltages you
+         measured. Does your model of the voltage divider agree with
+         each of your measurements? Explicitly record what criteria you
+         used to determine whether or not the model and measurements
+         agreed.</p></li>
+         <li><p><em>Complete this step only if your model and
+         measurements did not agree.</em> If your model and measurements
+         did not agree, you will have to either refine your model or
+         your experiment. Lets start by refining your model. Consider
+         the input resistance of your measurement device. Draw a circuit
+         diagram that includes that resistance. <em>HINT: See Figure <a
+         href="#fig:modified-vd">6</a></em>. Derive an expression for
+         the output voltage now including the unknown measurement device
+         resistance. Use this new model to determine the input
+         resistance of measurement device. (that is, rearrange your
+         equation to solve for <span
+         class="math inline">\(R_3\)</span>.. You did this in the
+         prelab).</p></li>
+         </ol>
+         <h2 data-number="4.4"
+         id="fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"><span
+         class="header-section-number">4.4</span> Fixed-value voltage
+         dividers of <span class="math inline">\(1\text{
+         M}\Omega\)</span> and <span class="math inline">\(10\text{
+         M}\Omega\)</span></h2>
+         <ol type="1">
+         <li><p>Complete the steps in the previous section for two
+         additional voltage dividers, one using resistors 1M<span
+         class="math inline">\(\Omega\)</span> and one with resistors
+         10M<span class="math inline">\(\Omega\)</span>.</p></li>
+         <li><p>Using your refined model, you have determined the input
+         resistance of both the DMM and scope. <a
+         href="/PHYS-3330/manuals-data-sheets">Specification (spec)
+         sheets or data sheets</a> can also be used to refine your
+         model.</p></li>
+         <li><p>Look up the input resistance of your DMM using the spec
+         sheet at the link above. Does the measured input resistance
+         agree with the instrument specs? Explicitly record what
+         criteria you used to determine whether or not the resistances
+         agree.</p></li>
+         <li><p>There is an easy way to determine the specified input
+         impedance of the scope. Where can you find that information?
+         Does the measured input resistance agree with the instrument
+         specs? Explicitly record what criteria you used to determine
+         whether or not the resistances agree.</p></li>
+         </ol>
+         <h2 data-number="4.5"
+         id="hidden-voltage-dividers-output-impedance"><span
+         class="header-section-number">4.5</span> Hidden Voltage
+         Dividers (Output Impedance)</h2>
+         <ol type="1">
+         <li><p>Remember last week when we set the function generator to
+         an output termination of <em>High Z</em>? We want to do this
+         EVERY TIME we use the function generator in this class. This
+         does not change the output impedance of the function generator:
+         it’s ALWAYS <span class="math inline">\(50\ \Omega\)</span>,
+         but by default, it <em>assumes</em> you are impedance matching
+         everything with <span class="math inline">\(50\ \Omega\)</span>
+         (you worked out why this might be important to do in the
+         prelab). Turn on your function generator and set it to <em>High
+         Z</em>. If you don’t remember how to change this setting, refer
+         to Appendix B in Lab 1.</p></li>
+         <li><p>Write an expression for the transfer function for the
+         amount of the source voltage should actually be applied to the
+         load.</p></li>
+         <li><p>Grab a speaker (this will be your load) and use your DMM
+         to measure the resistance of the speaker. On your diagram label
+         the resistances of the output impedance of the function
+         generator (<span class="math inline">\(50\ \Omega\)</span>) and
+         the impedance of your speaker.</p></li>
+         <li><p>Set up the function generator and the oscilloscope.</p>
+         <ol type="1">
+         <li><p>Set up the function generator and the oscilloscope so
+         that you can read Channel 1 from the function generator with
+         Channel 1 of the oscilloscope (use a BNC T-connector so that
+         later you can eventually connect this to your breadboard as
+         well).</p></li>
+         <li><p>Connect the <em>Sync</em> on the function generator with
+         Channel 4 of the oscilloscope.</p></li>
+         <li><p>Create a <span class="math inline">\(2\
+         \text{V}_\text{pp}\)</span> sine wave with a <span
+         class="math inline">\(261.63\ \text{Hz}\)</span> frequency and
+         trigger on the <em>Sync</em> (in the trigger menu, change the
+         channel to Channel 4). This will provide a nice lower frequency
+         tone (a <span class="math inline">\(\text{C}_4\)</span> note)
+         at a volume that won’t be too obnoxious to your
+         neighbors.</p></li>
+         </ol></li>
+         <li><p>Confirm on the oscilloscope that the frequency and the
+         amplitude of your wave match the settings on the function
+         generator (measure them).</p></li>
+         <li><p>Apply the signal from the function generator to the
+         speaker (use the T-connector, so you can still see it on the
+         oscilloscope). You can use mini grabbers to connect to the two
+         ends of the speaker.</p>
+         <ol type="1">
+         <li><p>Now what is the amplitude of the sine wave on Channel 1
+         of the oscilliscope?</p></li>
+         <li><p>Why did the amplitude change after applying the load to
+         the function generator’s output? Disconnect the speaker: did
+         the amplitude recover? Why? Reconnect the function generator to
+         your circuit and confirm the voltage changes.</p></li>
+         </ol></li>
+         <li><p>When you measure the voltage without the speaker, there
+         is (virtually) no current, so no voltage drops across the <span
+         class="math inline">\(50\ \Omega\)</span> output impedance of
+         the function generator. In this case, we are measuring the
+         internal, source voltage (<span
+         class="math inline">\(V_\text{in}\)</span> of our voltage
+         divider model). When you apply the speaker, current flows and
+         voltage drops across the output impedance, so that the full
+         voltage doesn’t reach the load (<span
+         class="math inline">\(V_\text{out}\)</span> in our voltage
+         divider model). Using both measurements calculate the transfer
+         function.</p></li>
+         </ol>
+         <p>Since neither the impedance of the speaker nor the output
+         impedance of the function generator can be changed, in order to
+         get more power to the speaker, you will have to design more
+         circuitry to deliver the signal in a way that draws little to
+         no current from the function generator. In Lab 4, you will
+         learn to build a voltage buffer circuit that does just
+         that.</p>
+         <h2 data-number="4.6"
+         id="build-a-controllable-voltage-source"><span
+         class="header-section-number">4.6</span> Build a Controllable
+         Voltage Source</h2>
+         <p>You will now use your skills with building and testing
+         voltage dividers to build a controllable voltage source using a
+         potentiometer and a switch.</p>
+         <figure>
+         <img src="../resources/lab2fig/pot.png"
+         alt="A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where R_1+R_2 is a fixed value (in our case, 10\text{ k}\Omega)" />
+         <figcaption aria-hidden="true">A potentiometer (symbol shown on
+         the right), has a wiper which connects at a variable position
+         along a length of wire with a fixed resistance per length. The
+         potentiometer acts like two variable resistors (as shown on the
+         right) where <span class="math inline">\(R_1+R_2\)</span> is a
+         fixed value (in our case, <span class="math inline">\(10\text{
+         k}\Omega\)</span>)</figcaption>
+         </figure>
+         <h2 data-number="4.7" id="testing-the-potentiometer-pot"><span
+         class="header-section-number">4.7</span> Testing the
+         Potentiometer (pot)</h2>
+         <ol type="1">
+         <li><p>Set the dial to some point between 0 and 1000, but not
+         500. Since you have a 10-turn, <span
+         class="math inline">\(10\text{ k}\Omega\)</span> pot, each
+         “tick” of the dial represents ~<span class="math inline">\(10\
+         \Omega\)</span>; therefore, the resistance between the wiper
+         and one of the terminals should be equal to the dial value
+         multiplied by <span class="math inline">\(10\ \Omega\)</span>.
+         The resistance between the wiper and the remaining terminal
+         should be the previous resistance subtracted from <span
+         class="math inline">\(10\text{ k}\Omega\)</span>.</p></li>
+         <li><p>Use the DMM to measure the resistance between all
+         possible pairs of connections. Determine which terminal
+         corresponds to the wiper, and which terminals correspond to the
+         ends of the dial. Test with a DMM at a few different dial
+         settings to get the hang of it.</p></li>
+         <li><p>Draw a diagram of the pot including a model of the
+         internal components and external connections using the
+         resistance observations (which “resistor” gets smaller and
+         which gets bigger when you turn the dial clockwise?).</p></li>
+         </ol>
+         <h2 data-number="4.8" id="testing-the-switch"><span
+         class="header-section-number">4.8</span> Testing the
+         Switch</h2>
+         <figure>
+         <img src="../resources/lab2fig/switch.png"
+         alt="The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch." />
+         <figcaption aria-hidden="true">The switches on your breadboard
+         header have three terminals. Moving the position of the lever
+         changes which terminal the center terminal connects to. The
+         left and right of the figure show the two possible states of
+         the switch.</figcaption>
+         </figure>
+         <ol type="1">
+         <li>Connect wires to screw terminals of a switch and test with
+         your DMM which lever position corresponds to which
+         connections.</li>
+         </ol>
+         <h2 data-number="4.9"
+         id="build-a-variable-voltage-source"><span
+         class="header-section-number">4.9</span> Build a variable
+         voltage source</h2>
+         <ol type="1">
+         <li><p>Draw a circuit diagram that uses one pot and one switch
+         to create a variable voltage divider that can be switched off
+         (<em>Hint:</em> have the switch switch between connecting the
+         output to the voltage divider or to ground).</p></li>
+         <li><p>Check in with an instructor regarding your circuit
+         diagram.</p></li>
+         <li><p>Derive an expression for the output voltage based on the
+         input voltage and the two resistances. Are both resistances
+         independently variable or a function of the other?</p></li>
+         <li><p>Construct your voltage divider using any arbitrary
+         output from the function generator for <span
+         class="math inline">\(V_\text{in}\)</span> and use a scope to
+         measure the output voltage.</p>
+         <ul>
+         <li><p>Do you need to include the scope input resistance in
+         your model? Explain why or why not.</p></li>
+         <li><p>Do you need to include the function generator’s <span
+         class="math inline">\(50\ \Omega\)</span> output impedance in
+         your model? Explain why or why not.</p></li>
+         </ul></li>
+         <li><p>Predict the maximum and minimum output voltage (when the
+         wiper is at one end and then the other).</p></li>
+         <li><p>Test your model by making measurements on the scope.
+         Make sure to include the limits of the voltage source. Do your
+         measurements agree with your predictions? Explicitly record
+         what criteria you used to determine whether or not the model
+         and measurements agree.</p>
+         <!--Now connect a low voltage light bulb to the output. Do not exceed a current limit of 120 mA or the fuse on your potentiometer will blow out (it is a 125 mA fuse). Describe qualitatively the brightness of the bulb as the pot knob is adjusted. What is the minimum voltage needed to see the light bulb turn on?--></li>
+         <li><p><strong>Bonus question:</strong> A good voltage source
+         has very little (a few ohms) output resistance and thus very
+         little power is dissipated in the supply. What is the output
+         resistance of the circuit (including your power supply and
+         external components) if it produces 10V? Would this circuit be
+         good for creating a variable voltage source in the range of
+         5-10 V? HINT: Consider the power dissipated in the source.
+         Explain using your diagram, model, and values of
+         resistance.</p></li>
+         </ol>
+         <h1 class="unnumbered"
+         id="appendix-a-calibrating-the-10-turn-potentiometer-if-needed">Appendix
+         A: Calibrating the 10-turn Potentiometer (If Needed)</h1>
+         <ol type="1">
+         <li><p>The potentiometer on the circuit board panel has three
+         connections. Two of the connections are at opposite end of a
+         resistor. The third connection is connected to a sliding
+         "wiper."</p></li>
+         <li><p>Your potentiometer is actually a very precise device!
+         You can control the intermediate resistances at the level of
+         0.1% with a little care. To understand how, examine the dial on
+         the potentiometer. It should have a window with a number in it,
+         and a dial marked with a scale that goes from 00 to 99. The
+         digit in the window increments with each full turn of the dial,
+         so it represents the most significant digit of the setting
+         number: if it says 3 in the window and the dial reads 55, then
+         the setting is 355. For a 10-turn potentiometer such as yours,
+         the dial should be able to run from 000 to 1000 by turning the
+         knob ten full turns.</p></li>
+         <li><p>First, check if your pot is already calibrated! Turn the
+         knob counterclockwise until it stops. If the dial reads 000 in
+         this position, your pot is calibrated.</p></li>
+         <li><p>If the dial reads something other than 000 in this
+         position, do the following procedure:</p>
+         <ol type="1">
+         <li><p>Use a 0.050” Allen key to loosen the small set-screw on
+         the side of the knob.</p></li>
+         <li><p>Pull the entire dial off the panel.</p></li>
+         <li><p>Turn the inner knob that remains on your panel
+         counterclockwise until it stops.</p></li>
+         <li><p>Turn the now-detached knob until the dial reads
+         000.</p></li>
+         <li><p>Lock the dial by depressing the black switch on knob
+         (and verify that the dial still reads 000).</p></li>
+         <li><p>Push the dial back onto the inner knob, rotating the
+         outside of the dial <strong>counterclockwise</strong> until it
+         snaps in place against the panel and wont rotate. The dial
+         should still read 000. If it doesnt, repeat the last three
+         steps.</p></li>
+         <li><p>Use the Allen key to tighten the set screw. Check the
+         calibration again: the knob should stop at 000 and
+         1000.</p></li>
+         </ol></li>
+         </ol>
+               </div>
+            <!-- Mathjax -->
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script>
+
+      </script>
+   </body>
+</html>

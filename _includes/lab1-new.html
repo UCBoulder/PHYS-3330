@@ -65,10 +65,11 @@ Colorado Boulder">
             voltage on a scope</a></li>
             </ul></li>
             <li><a
-            href="#creating-an-ac-waveform-using-a-function-generator"
-            id="toc-creating-an-ac-waveform-using-a-function-generator"><span
+            href="#creating-an-ac-waveform-using-a-function-generator-and-measuring-it-on-a-scope"
+            id="toc-creating-an-ac-waveform-using-a-function-generator-and-measuring-it-on-a-scope"><span
             class="toc-section-number">6.3</span> Creating an AC
-            waveform using a function generator</a></li>
+            waveform using a function generator and measuring it on a
+            scope</a></li>
             <li><a href="#triggering" id="toc-triggering"><span
             class="toc-section-number">6.4</span> Triggering</a></li>
             <li><a href="#measuring-waves-with-the-scope"
@@ -137,7 +138,7 @@ Colorado Boulder">
          </ul></li>
          <li>Digital multimeter (DMM)
          <ul>
-         <li>This is an extremely versitile tool that can measure DC and
+         <li>This is an extremely versatile tool that can measure DC and
          AC voltages and currents, resistances, and sometimes more
          (depending on the model)</li>
          <li>It has a simple display that can only show single values
@@ -169,7 +170,7 @@ Colorado Boulder">
          implement because they rely on more complicated and difficult
          to solve mathematics. Balancing accuracy and simplicity is a
          skill and takes practice.</p>
-         <p>In this guided lab, you will learn how to</p>
+         <p>Today, you will learn how to</p>
          <ul>
          <li><p>Tie (connect) your circuit to <em>Earth
          ground</em>,</p></li>
@@ -177,9 +178,9 @@ Colorado Boulder">
          negative voltages (relative to ground),</p></li>
          <li><p>Operate the power supply in constant voltage and
          constant current modes,</p></li>
-         <li><p>Measure physical properties, such as voltage, current,
+         <li><p>Measure physical properties, such as voltages current,
          and resistance,</p></li>
-         <li><p>Trigger the oscilliscope,</p></li>
+         <li><p>Trigger the oscilloscope,</p></li>
          <li><p>Operate the function generator,</p></li>
          </ul>
          <!--
@@ -188,7 +189,7 @@ Colorado Boulder">
          <ul>
          <li><p>Use a micrometer to measure the diameter of a wire and
          estimate the resistivity,</p></li>
-         <li><p>Measure resistors using 2-terminal and 4-terminal
+         <li><p>Measure resistors using 2-terminal and with 4-terminal
          measurement methods,</p></li>
          <li><p>Develop familiarity with the model-based approach to
          experiment.</p></li>
@@ -198,9 +199,9 @@ Colorado Boulder">
          Guidelines</h1>
          <p>Lab notebooks are an essential tool in research and
          development settings. They may seem tedious to maintain, but if
-         you develop good habits now, you will avoid unecessary
+         you develop good habits now, you will avoid unnecessary
          headaches in the future. Poor notetaking can force you to
-         unecessarily repeat experiments and/or calculations.</p>
+         unnecessarily repeat experiments and/or calculations.</p>
          <p>In this course, the lab notebook will play an essential role
          and it will be graded each week. You will use your notebook for
          keeping records of many things including:</p>
@@ -301,13 +302,13 @@ Colorado Boulder">
          class="math inline">\(0\text{ V}\)</span> and that all other
          voltages are measured with respect to.</p>
          <p><strong>Earth ground</strong> - a common ground which is
-         ultimately connected to the Earth. The 3<sup>rd</sup> round
-         prong on wall outlets is Earth ground. Under buildings, large
-         metal plates or rods are buried and are connected to via a
-         <em>ground wire</em>. Earth ground allows for certain kinds of
-         short circuit failures (and lightning strikes) to have the
-         power diverted away and avoid excessive damage to devices,
-         buildings, and people.</p>
+         ultimately connected to the Earth. The 3<sup>rd</sup> prong on
+         wall outlets is Earth ground. Under buildings large metal
+         plates are buried and are connected to via a <em>ground
+         wire</em>. Earth ground allows for certain kinds of short
+         circuit failures (and lightning strikes) to have the power
+         diverted away and avoid excessive damage to devices, buildings,
+         and people.</p>
          <p><strong>Chassis ground</strong> - a common ground which is a
          metal frame around the circuit. If a device plugs into the wall
          with 3 prongs, it <em>should</em> have the chassis connect to
@@ -317,7 +318,9 @@ Colorado Boulder">
          <p><strong>Electrical Load</strong> - a load refers to the
          impedance (in ohms) connected to the output of a power source.
          This could be a speaker, a light bulb, a microwave oven, or
-         anything else which is drawing power from the circuit.</p>
+         anything else which is drawing power from the circuit. [//]: #
+         (a load refers to the impedance (in ohms) connected from the
+         output of a power source to the circuit’s ground.)</p>
          <p><strong>RMS (Root Mean Square)</strong> - the square root of
          the average of a periodic function squared over one period
          <span class="math inline">\(V_\text{RMS}=\sqrt{\langle
@@ -366,7 +369,7 @@ Colorado Boulder">
          <li><p>Fischer-Cripps Sections 1.1 – 1.11, 2.1 – 2.5, 3.1 –
          3.3</p>
          <ul>
-         <li>Reisitor color code chart on p. 247 (Here’s a <a
+         <li>Resistor color code chart on p. 247 (Here’s a <a
          href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code">Code
          calculator</a> and an <a
          href="https://www.allaboutcircuits.com/textbook/reference/chpt-2/resistor-color-codes/">online
@@ -379,9 +382,9 @@ Colorado Boulder">
          <ul>
          <li>Multimeters on p. 10</li>
          </ul></li>
-         <li><p>The following manuals, which can be found on the <a
-         href="/PHYS-3330/manuals-data-sheets">Data Sheets and
-         Instruments Manuals</a> page:</p>
+         <li><p>The following <a
+         href="/PHYS-3330/manuals-data-sheets">manuals</a>, which can be
+         found on Canvas:</p>
          <ul>
          <li><p>Keysight EDU33210 Series Waveform Generator User Guide
          and Data Sheet</p></li>
@@ -396,9 +399,9 @@ Colorado Boulder">
          </ol>
          <h1 data-number="6" id="lab-activities"><span
          class="header-section-number">6</span> Lab Activities</h1>
-         <p><em>IMPORTANT NOTE:</em> In this course’s guided lab
-         manuals, “ground” refers to Earth ground; other kinds of ground
-         will be explicitly differentiated.</p>
+         <p><em>IMPORTANT NOTE:</em> In this course’s lab manuals,
+         “ground” refers to Earth ground; other kinds of ground will be
+         explictly differentiated.</p>
          <h2 data-number="6.1" id="power-supply"><span
          class="header-section-number">6.1</span> Power Supply</h2>
          <p>Your DC power supply will provide your circuits with the
@@ -421,26 +424,24 @@ Colorado Boulder">
          respect to ground</strong>.</p>
          <p>By default, all 3 outputs are
          <strong><em>FLOATING</em></strong> with respect to ground. You
-         have to manually connect one of the terminals of a channel’s
-         output to ground in order to “tie” it to ground. This gives you
-         the flexibility to use the power supply in a number of
-         different ways.</p>
-         <p>For example: when you set <span
-         class="math inline">\(5\text{ V}\)</span> on Channel 2, the
-         power supply will make the <span
+         have to manually connect one of the terminals of an output to
+         ground in order to “tie” it to ground. This gives you the
+         flexibility to use the power supply in a number of different
+         ways.</p>
+         <p>When you set <span class="math inline">\(5\text{ V}\)</span>
+         on channel 2, the power supply will make the <span
          class="math inline">\((+)\)</span> terminal <span
          class="math inline">\(5\text{ V}\)</span> above the <span
          class="math inline">\((-)\)</span> terminal. In order to get
-         <span class="math inline">\(\pm 5\text{ V}\)</span>
+         <span class="math inline">\(5\text{ V}\)</span>
          <strong>relative to ground</strong>, you will need to connect
          one of these terminals to the ground terminal.</p>
          <ol type="1">
-         <li><p>Get some <strong><span
-         style="color: green;">green</span></strong> wire from the wire
-         spool rack on the top of the blue tool cabinet to make these
-         grounding connections. Connect Channel 2’s <span
+         <li><p>Get some <span style="color: green;">green</span> wire
+         from the wire spool rack on the top of the blue tool cabinet to
+         make these grounding connections. Connect channel 2’s <span
          class="math inline">\((-)\)</span> terminal to ground and
-         Channel 3’s <span class="math inline">\((+)\)</span> terminal
+         channel 3’s <span class="math inline">\((+)\)</span> terminal
          to ground (see the green lines drawn on Figure <a
          href="#fig:ps">6</a>). You can unscrew the input jacks on the
          power supply to expose a small hole where the jumper wires can
@@ -462,17 +463,17 @@ Colorado Boulder">
 
          [//]: # (We harp on that black is ground in this course - I'm not certain why that was historically done here and I'm certainly on board to converting to conventional standards (including shifting red to white and blue to black {I might have that backwords}). But, we should change all the proto board connections to be consistent? Buy a bunch of green banana cables? I'm genuinely in favor of this and it will require revisions to subsequent lab guides.)
          --></p></li>
-         <li><p>We will set the outputs of Channel 2 and 3 to <span
-         class="math inline">\(15\text{ V}\)</span> in an upcoming step.
-         Predict what the voltages will be at each of the 4 output
-         terminals (whenever someone refers to a voltage at a location,
-         they always mean “relative to ground”).</p></li>
+         <li><p>We will set the outputs of channel 2 and 3 to <span
+         class="math inline">\(15\text{ V}\)</span>. Predict what the
+         voltages will be at each of the 4 output terminals (whenever
+         someone refers to a voltage at a location, they always mean
+         “relative to ground”).</p></li>
          <li><p>Using banana cables, how would you connect your DMM to
          the power supply to measure the voltage at these terminals?
          Sketch it in your notebook (<em>Hint:</em> don’t use the
-         minigrabbers since there’s no sensible place to grab with
+         mini-grabbers since there’s no sensible place to grab with
          them).</p></li>
-         <li><p>Set the voltages and turn on the outputs of Channels 2
+         <li><p>Set the voltages and turn on the outputs of channels 2
          and 3. Set up your DMM to measure the voltages at each
          terminal. Do your results match your predictions?</p></li>
          </ol>
@@ -494,8 +495,8 @@ Colorado Boulder">
          <p>But as the load <span class="math inline">\(R\)</span>
          changes, either the voltage or the current will have to adjust.
          A <em>voltage source</em> supplies a <em>constant voltage</em>
-         (the current changes), and a <em>current source</em> supplies a
-         <em>constant current</em> (the voltage changes).
+         (the current changes), and a <em>current source supplies a
+         </em>constant current* (the voltage changes).
          Mathematically:</p>
          <ul>
          <li><p>Voltage source: <span class="math inline">\(I(R) =
@@ -514,7 +515,7 @@ Colorado Boulder">
          between these modes depending on the voltage and current limits
          you set as well as the load attached.</p>
          <ol type="1">
-         <li><p>With no load attached, what mode is each channel in (CV
+         <li><p>With no load attached, what mode is the channel in (CV
          or CC)? How can you quantify the value of the load <span
          class="math inline">\(R\)</span>? <!--
          *** The point of this problem is to get them to think of the load as infinity. I think it's fine if they're confused by the question as long as they ask for help.
@@ -551,7 +552,7 @@ Colorado Boulder">
          voltage at the input would cause the beam to deflect up and
          down with the voltage, allowing you to visualize how the
          voltage behaved over time. Today, most labs are equipped with
-         digital oscilliscopes which rapidly measure the voltage and
+         digital oscilloscopes which rapidly measure the voltage and
          then plot the data on a screen in real time. This has many
          advantages over using the DMM as a voltmeter because it gives
          you much more information about the voltage you’re
@@ -559,9 +560,12 @@ Colorado Boulder">
          <p>There are a few precautions to observe when operating the
          oscilloscope:</p>
          <ul>
-         <li>Avoid overheating the instrument. Do not block ventilation
-         of the interior.</li>
-         <li>Do not apply more than 300 V to any input terminal.</li>
+         <li><p>Avoid overheating the instrument. Do not block
+         ventilation of the interior.</p></li>
+         <li><p>Do not apply more than 300 V to any input
+         terminal.</p></li>
+         <li><p>Avoid serious or fatal injury from electrical shock. Do
+         not remove the case to expose the 120 V mains.</p></li>
          </ul>
          <p>Otherwise, the instruments are robust and cannot be damaged
          by wrong settings. So, try whatever you’re curious about and
@@ -569,9 +573,9 @@ Colorado Boulder">
          <div id="fig:scope-guide" class="fignos">
          <figure>
          <img src="../resources/lab1fig/scope-guide.png"
-         alt="Figure 7: Basic operation guide for the oscilliscope." />
+         alt="Figure 7: Basic operation guide for the oscilloscope." />
          <figcaption aria-hidden="true"><span>Figure 7:</span> Basic
-         operation guide for the oscilliscope.</figcaption>
+         operation guide for the oscilloscope.</figcaption>
          </figure>
          </div>
          <p>The front panel of the scope is organized in a very
@@ -618,11 +622,11 @@ Colorado Boulder">
          settings. The default setting is to have the reported voltages
          be 10x what is actually measured (we’ll get to why this is the
          default later).</p></li>
-         <li><p>Press the yellow 1 button to open Channel 1’s menu, and
+         <li><p>Press the yellow 1 button to open channel 1’s menu, and
          set the <em>Probe Setup</em> setting to 1x (see Figure <a
          href="#fig:probe-setup">9</a>). Repeat this for the other 3
-         channels.</p></li>
-         <li><p>Turn off Channels 2, 3 and 4. To turn a channel off (so
+         menus.</p></li>
+         <li><p>Turn off channels 2, 3 and 4. To turn a channel off (so
          you don’t see it on the screen), you can press the menu button
          for that channel to open the menu, and then again to disable
          the channel.</p></li>
@@ -641,13 +645,13 @@ Colorado Boulder">
          voltage on a scope</h3>
          <ol type="1">
          <li><p>Use a BNC cable and a BNC to double banana adapter to
-         connect Channel 1 of the scope to the power supply.
+         connect channel 1 of the scope to the power supply.
          <!--Measure the voltage on scope using the cursors. Try exploring the different knobs and menus on the scope to make the measurement. Refer to the appendix listed at the end of this document if you get stuck.--></p></li>
          <li><p>Apply a voltage from your power supply and confirm that
-         this is what you see on the oscilliscope. The yellow triangle
+         this is what you see on the oscilloscope. The yellow triangle
          on the left of the screen indicates where <span
          class="math inline">\(0\text{ V}\)</span> is (this can be moved
-         with the yellow vertical postion knob). <em>Hint:</em> moving
+         with the yellow vertical position knob). <em>Hint:</em> moving
          the zero position to the bottom of the screen allows you to
          choose a smaller voltage scale (zooming in) so that you have
          more resolution on the screen.</p>
@@ -666,7 +670,7 @@ Colorado Boulder">
          </ol>
          <p><strong><em>IMPORTANT NOTES:</em></strong></p>
          <ul>
-         <li><p>Even though this button is called “Measure,” the real
+         <li><p>Even though this button is called “measure,” the real
          measurement is already being done to display the line on the
          screen.</p></li>
          <li><p>The scope stores the real measurements of voltage and
@@ -694,15 +698,16 @@ Colorado Boulder">
          <div id="fig:scope-screen" class="fignos">
          <figure>
          <img src="../resources/lab1fig/scope-screen.png"
-         alt="Figure 10: The oscilliscope screen." />
+         alt="Figure 10: The oscilloscope screen." />
          <figcaption aria-hidden="true"><span>Figure 10:</span> The
-         oscilliscope screen.</figcaption>
+         oscilloscope screen.</figcaption>
          </figure>
          </div>
          <h2 data-number="6.3"
-         id="creating-an-ac-waveform-using-a-function-generator"><span
+         id="creating-an-ac-waveform-using-a-function-generator-and-measuring-it-on-a-scope"><span
          class="header-section-number">6.3</span> Creating an AC
-         waveform using a function generator</h2>
+         waveform using a function generator and measuring it on a
+         scope</h2>
          <p>The Keysight EDU33212A function generator can produce a
          number of different waveforms over the frequencies from <span
          class="math inline">\(10^{-6}\text{ Hz}\)</span> to <span
@@ -727,7 +732,7 @@ Colorado Boulder">
          \Omega\)</span> load. This means that half of the voltage will
          drop across the output impedance, and half will drop across the
          load, so by default, the function generator displays only half
-         the voltage that it is actually trying to apply (becuase this
+         the voltage that it is actually trying to apply (because this
          is how much “reaches” the load). <span
          style="color: red;"><strong>Every time you turn on the function
          generator, you have to set the output termination setting to
@@ -741,13 +746,13 @@ Colorado Boulder">
          </ol>
          <h2 data-number="6.4" id="triggering"><span
          class="header-section-number">6.4</span> Triggering</h2>
-         <p>In order to view waves on the oscilliscope, it needs to
+         <p>In order to view waves on the oscilloscope, it needs to
          redraw the wave in the right place at the right time.
          “Triggering” is the process of stabilizing a repeating signal
          on the screen.</p>
          <ol type="1">
          <li><p>Use a BNC connector to connect the output of the
-         function generator to the input of Channel 1 on the
+         function generator to the input of channel 1 on the
          scope.</p></li>
          <li><p>Set the <em>voltage / div</em> and <em>time / div</em>
          so that the sine wave appears nice and big on the screen.
@@ -757,7 +762,7 @@ Colorado Boulder">
          with an instructor to learn more about aliasing.</p></li>
          <li><p>The <strong>Trigger</strong> options are in the
          top-right corner of the front panel. Open the <em>Trigger
-         Menu</em>. You should see that the channel the scope is
+         Menu</em>. You should see that the Channel the scope is
          triggering on is Channel 1.</p></li>
          <li><p>There are 3 options that you will change most regularly.
          Paraphrase these in your lab notebook for future reference.</p>
@@ -795,7 +800,7 @@ Colorado Boulder">
          <li><p>Play with the trigger level. Describe what you see. Why
          does this happen? Get help if you don’t understand.</p></li>
          <li><p>Press the slope button to change between rising and
-         falling edge triggering. Desribe what happens (<em>Hint:</em>
+         falling edge triggering. Describe what happens (<em>Hint:</em>
          the wave is <strong>not</strong> “flipping”).</p></li>
          <li><p>Set the trigger level to <span
          class="math inline">\(-400\text{ mV}\)</span>. Is the wave
@@ -805,7 +810,7 @@ Colorado Boulder">
          class="math inline">\(100\text{ mV}_\text{pp}\)</span>. The
          waveform should no longer be triggered. Why?</p></li>
          <li><p>It is annoying to have to adjust the trigger every time
-         you adjust your waveform. To accomodate this, the function
+         you adjust your waveform. To accommodate this, the function
          generator has an output specifically for triggering on:
          <strong>Sync / Trigger out</strong> (just to the left of the
          Channel 1 output).</p>
@@ -820,9 +825,9 @@ Colorado Boulder">
          </ul></li>
          <li><p>Change the trigger channel to Channel 4. Adjust the
          trigger level. Does the trigger level matter? Why?</p></li>
-         <li><p>Play with the waveform (from Channel 1) on the function
+         <li><p>Play with the waveform (from channel 1) on the function
          generator. What happens to the <strong>Sync / Trigger
-         out</strong> when you change</p>
+         out</strong> when you change the</p>
          <ul>
          <li><p>the amplitude,</p></li>
          <li><p>the frequency,</p></li>
@@ -863,9 +868,9 @@ Colorado Boulder">
          cycle through different measurement settings on each of these
          dial positions. What is the difference between the voltage
          channel with the straight line over the <span
-         class="math inline">\(\overline{\text{V}}\)</span> and the
-         squiggly line over the <span
-         class="math inline">\(\widetilde{\text{V}}\)</span>?</p></li>
+         class="math inline">\(\~{\text{V}}\)</span> and the squiggly
+         line over over the <span
+         class="math inline">\(\overline{\text{V}}\)</span>?</p></li>
          <li><p>The second thing you’ll notice is the single
          <strong>COM</strong> port and separate ports for current
          measurements and for everything else (voltage, resistance,
@@ -895,22 +900,21 @@ Colorado Boulder">
          -->
          <ol start="6" type="1">
          <li><p>Switch the DMM to the <span
-         class="math inline">\(\overline{\text{V}}\)</span> mode. What
-         does the voltage read now? Does this meet your
-         expectation?</p></li>
+         class="math inline">\(\~V\)</span> mode. What does the voltage
+         read now? Does this meet your expectation?</p></li>
          <li><p>To measure the current you will have to rearrange the
          circuit and change the DMM configuration. Set up the DMM
          properly so that current flows <em>through</em> the correct
          port of the DMM. Does the current measurement match the display
          on the power supply? Sketch a circuit diagram representing the
-         arrangment of the supply, resistor, and DMM. <!--
+         arrangement of the supply, resistor, and DMM. <!--
          *** Not sure! I am open to ideas. I think having some ambiguity here is fine, as I expect everyone should be getting through this part during the 3 hours.
 
          [//]: # (Same as above, do we instruct them?)
          --></p></li>
          <li><p>Switch the DMM to the <span
-         class="math inline">\(\text{A}\)</span> mode. What does the
-         current read now? Does this meet your expectation?</p></li>
+         class="math inline">\(\~A\)</span> mode. What does the current
+         read now? Does this meet your expectation?</p></li>
          </ol>
          <!-- 
          *** I have been working across a few computers and sometimes it seems to not sync. I don't remember what I did, so I will take another stab at it!
@@ -926,9 +930,8 @@ Colorado Boulder">
          <ol start="9" type="1">
          <li>It should be clear by now that, on the DMM, ~ is a symbol
          for AC and – <!-- should render as a long dash --> is a symbol
-         for DC. Use the <span
-         class="math inline">\(\widetilde{\text{V}}\)</span> mode to
-         measure the AC voltage from the function generator. Set the
+         for DC. Use the <span class="math inline">\(\~V\)</span> mode
+         to measure the AC voltage from the function generator. Set the
          function generator to <span class="math inline">\(2\text{
          V}_\text{pp}\)</span> at <span class="math inline">\(1\text{
          kHz}\)</span>. Note: the DMM displays the RMS amplitude of the
@@ -1018,14 +1021,16 @@ Colorado Boulder">
          class="header-section-number">6.7.3</span> Compare the two
          measurement techniques</h3>
          <ol type="1">
-         <li><p>The ohmmeter in the DMM works by supplying a calibrated
+         <li>The ohmmeter in the DMM works by supplying a calibrated
          current and measuring the potential difference between the
          outputs. How is this measurement different than the 4-terminal
-         approach you built?</p>
+         approach you built?</li>
+         </ol>
          <p><em>Hint:</em> consider where the current is flowing and
          what resistances are involved with each measurement technique.
          It is usually helpful to draw a diagram including all the
-         resistances (including the wires and the contacts).</p></li>
+         resistances (including the wires and the contacts).</p>
+         <ol start="2" type="1">
          <li><p>Which method is more accurate for measuring small
          resistances based on your explanation above?</p></li>
          <li><p>Do your two measurements confirm the scientific argument
@@ -1125,18 +1130,18 @@ Colorado Boulder">
          </figure>
          <figure>
          <img src="../resources/lab1fig/scope-screen-trigger.png"
-         alt="The bottom right of the screen shows what channel the scope is triggering on as well as the trigger level and the rate at which the trigger is occuring." />
+         alt="The bottom right of the screen shows what channel the scope is triggering on as well as the trigger level and the rate at which the trigger is occurring." />
          <figcaption aria-hidden="true">The bottom right of the screen
          shows what channel the scope is triggering on as well as the
          trigger level and the rate at which the trigger is
-         occuring.</figcaption>
+         occurring.</figcaption>
          </figure>
          <p><strong>To select the AQUIRE mode:</strong></p>
          <ol type="1">
-         <li><p>Run/Stop: sets the scope to continuously aquire or
+         <li><p>Run/Stop: sets the scope to continuously acquire or
          freeze after last trigger. The button will glow red when
          “stopped” and green when “running.”</p></li>
-         <li><p>Single: (aka single shot) aquires a single trace from
+         <li><p>Single: (aka single shot) acquires a single trace from
          the trigger and then doesn’t continue to update.</p></li>
          </ol>
          <figure>

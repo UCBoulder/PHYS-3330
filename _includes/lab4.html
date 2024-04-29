@@ -121,38 +121,42 @@ I</h1>
             question</a></li>
             </ul></li>
             </ul></li>
+            <li><a href="#spice-activities"
+            id="toc-spice-activities"><span
+            class="toc-section-number">3</span> SPICE
+            Activities</a></li>
             <li><a href="#op-amp-tldr" id="toc-op-amp-tldr"><span
-            class="toc-section-number">3</span> Op-amp TLDR</a>
+            class="toc-section-number">4</span> Op-amp TLDR</a>
             <ul>
             <li><a href="#golden-rules" id="toc-golden-rules"><span
-            class="toc-section-number">3.1</span> Golden Rules</a></li>
+            class="toc-section-number">4.1</span> Golden Rules</a></li>
             <li><a href="#definitions" id="toc-definitions"><span
-            class="toc-section-number">3.2</span> Definitions</a></li>
+            class="toc-section-number">4.2</span> Definitions</a></li>
             </ul></li>
             <li><a href="#useful-readings"
             id="toc-useful-readings"><span
-            class="toc-section-number">4</span> Useful Readings</a></li>
+            class="toc-section-number">5</span> Useful Readings</a></li>
             <li><a href="#ic-tips" id="toc-ic-tips"><span
-            class="toc-section-number">5</span> IC Tips</a></li>
+            class="toc-section-number">6</span> IC Tips</a></li>
             <li><a href="#lab-activities-1"
             id="toc-lab-activities-1"><span
-            class="toc-section-number">6</span> Lab Activities</a>
+            class="toc-section-number">7</span> Lab Activities</a>
             <ul>
             <li><a
             href="#the-function-generator-and-its-output-impedance."
             id="toc-the-function-generator-and-its-output-impedance."><span
-            class="toc-section-number">6.1</span> The Function Generator
+            class="toc-section-number">7.1</span> The Function Generator
             and Its Output Impedance.</a></li>
             <li><a href="#building-an-op-amp-test-circuit"
             id="toc-building-an-op-amp-test-circuit"><span
-            class="toc-section-number">6.2</span> Building an op-amp
+            class="toc-section-number">7.2</span> Building an op-amp
             test circuit</a></li>
             <li><a href="#voltage-buffer" id="toc-voltage-buffer"><span
-            class="toc-section-number">6.3</span> Voltage
+            class="toc-section-number">7.3</span> Voltage
             Buffer</a></li>
             <li><a href="#non-inverting-amplifier-1"
             id="toc-non-inverting-amplifier-1"><span
-            class="toc-section-number">6.4</span> Non-Inverting
+            class="toc-section-number">7.4</span> Non-Inverting
             Amplifier</a></li>
             </ul></li>
             </ul>
@@ -545,10 +549,11 @@ I</h1>
          <figure>
          <img src="../resources/lab4fig/non-inv-amp-var.png"
          style="width:20cm"
-         alt="Figure 4: Non-inverting amplifier diagram variations (all of these are the exact same circuit)" />
+         alt="Figure 4: Non-inverting amplifier diagram variations (all of these are the exact same circuit). Note that all of these have feedback to the negative pin." />
          <figcaption aria-hidden="true"><span>Figure 4:</span>
          Non-inverting amplifier diagram variations (all of these are
-         the exact same circuit)</figcaption>
+         the exact same circuit). Note that all of these have feedback
+         to the negative pin.</figcaption>
          </figure>
          </div>
          <p>The two resistors form a voltage divider <em>feedback
@@ -782,8 +787,69 @@ I</h1>
          class="header-section-number">2.9.2</span> Prelab question</h3>
          <p>List at least one question you have about the lab
          activity.</p>
-         <h1 data-number="3" id="op-amp-tldr"><span
-         class="header-section-number">3</span> Op-amp TLDR</h1>
+         <h1 data-number="3" id="spice-activities"><span
+         class="header-section-number">3</span> SPICE Activities</h1>
+         <ul>
+         <li><p>There are many choices of op-amps in LTSpice. You can
+         find them in the component’s menu (<strong><em>P</em></strong>
+         is the shortcut). In the search bar, type “op” to open the
+         op-amp folder. Selecting an op-amp will reveal a short
+         description of each. In <em>most</em> cases, it doesn’t matter
+         which you choose for your simulations, and unfortunately, the
+         LF356, isn’t built in to the program. The OP07 (which should
+         pop up first in the search) can be trusted for most
+         cases.</p></li>
+         <li><p>Create two voltage supplies off to the side and wire
+         them together just like the figure below. Making them both
+         <span class="math inline">\(+15\text{ V}\)</span> but grounding
+         the middle will get both plus and minus voltages (just like you
+         do with your real power supply in the lab). <img
+         src="../resources/lab4fig/spice-powering-opamp.png"
+         alt="Easy way to keep the power supply from cluttering your circuit simulation." /></p></li>
+         <li><p>Use the “Label Net” tool (<strong><em>N</em></strong>
+         shortcut) to label the positive end of the power supply
+         “supply+” and the negative end “supply-”, then you can label
+         the two power pins of the op-amp the same (as seen in the
+         figure above). Net labels are a way of making connections
+         between things without having to clutter your diagram with
+         wires. <em>Note:</em> the ground symbol is a net label as
+         well.</p>
+         <ul>
+         <li><em>Author’s voice: I was able to make the text horizontal
+         by adding a little L-shaped tail of wire to the node. This is
+         not essential, but I think it looks nicer this way</em></li>
+         </ul></li>
+         <li><p>Make a voltage buffer circuit (see below) with a input
+         voltage with a <span class="math inline">\(1\text{ V}\)</span>
+         amplitude and <span class="math inline">\(1\text{
+         kHz}\)</span>. Set up the simulation such that about 5
+         oscillations will be visible (make the stop time 5 times the
+         period).</p></li>
+         </ul>
+         <ol type="1">
+         <li>Measure the input and output voltage of the buffer.
+         Calculate the transfer function. It should be 1.</li>
+         </ol>
+         <figure>
+         <img src="../resources/lab4fig/spice-follower.png"
+         alt="Voltage follower in LTSpice" />
+         <figcaption aria-hidden="true">Voltage follower in
+         LTSpice</figcaption>
+         </figure>
+         <ul>
+         <li>The simulation does not need decoupling capacitors for
+         powering the op-amp because the power supply in the simulation
+         is <em>ideal</em>. Next we will simulate the effect of a
+         non-ideal power supply. To do this, add inductors in series
+         with the outputs of the power supply</li>
+         </ul>
+         <figure>
+         <img src="../resources/lab4fig/spice-non-ideal-power.png"
+         style="width:4cm" alt="alt text" />
+         <figcaption aria-hidden="true">alt text</figcaption>
+         </figure>
+         <h1 data-number="4" id="op-amp-tldr"><span
+         class="header-section-number">4</span> Op-amp TLDR</h1>
          <p>This section summarizes information covered in the prelab
          (you may find this useful for a quick reference in the
          future).</p>
@@ -797,8 +863,8 @@ I</h1>
          <em>Closed-loop</em> refers to the state of an op-amp with
          feedback, and <em>open-loop</em> refers to the state of an
          op-amp with no feedback.</p>
-         <h2 data-number="3.1" id="golden-rules"><span
-         class="header-section-number">3.1</span> Golden Rules</h2>
+         <h2 data-number="4.1" id="golden-rules"><span
+         class="header-section-number">4.1</span> Golden Rules</h2>
          <p>The golden rules are approximations that make op-amp
          analysis relatively simple and straight forward.</p>
          <ol type="1">
@@ -811,8 +877,8 @@ I</h1>
          inverting input to be the same voltage as the non-inverting
          input: <span class="math display">\[V_+=V_-\]</span></li>
          </ol>
-         <h2 data-number="3.2" id="definitions"><span
-         class="header-section-number">3.2</span> Definitions</h2>
+         <h2 data-number="4.2" id="definitions"><span
+         class="header-section-number">4.2</span> Definitions</h2>
          <p>Here are all the terms we defined in the prelab:</p>
          <p><strong>Open-loop gain, <span
          class="math inline">\(A\)</span></strong> - the gain of the
@@ -887,8 +953,8 @@ I</h1>
          so the decoupling capacitors compensate with the energy stored
          and provide the current necessary to maintain constant
          voltage.</p>
-         <h1 data-number="4" id="useful-readings"><span
-         class="header-section-number">4</span> Useful Readings</h1>
+         <h1 data-number="5" id="useful-readings"><span
+         class="header-section-number">5</span> Useful Readings</h1>
          <p>You can find more on op-amps from these recommended
          sources:</p>
          <ol type="1">
@@ -902,8 +968,8 @@ I</h1>
          4.2.3</p></li>
          <li><p>Open Circuits - 40, 52, 76</p></li>
          </ol>
-         <h1 data-number="5" id="ic-tips"><span
-         class="header-section-number">5</span> IC Tips</h1>
+         <h1 data-number="6" id="ic-tips"><span
+         class="header-section-number">6</span> IC Tips</h1>
          <p>In this lab, we will use ICs (integrated circuits) for the
          first time. ICs come in many forms; we will be using DIP chips
          because these are designed for using in breadboards. DIP is a
@@ -994,11 +1060,11 @@ I</h1>
          connecting the power supply (especially polarized capacitor
          orientations).</li>
          </ol>
-         <h1 data-number="6" id="lab-activities-1"><span
-         class="header-section-number">6</span> Lab Activities</h1>
-         <h2 data-number="6.1"
+         <h1 data-number="7" id="lab-activities-1"><span
+         class="header-section-number">7</span> Lab Activities</h1>
+         <h2 data-number="7.1"
          id="the-function-generator-and-its-output-impedance."><span
-         class="header-section-number">6.1</span> The Function Generator
+         class="header-section-number">7.1</span> The Function Generator
          and Its Output Impedance.</h2>
          <p>Remember last week when we set the function generator to an
          output termination of <em>High Z</em>? We want to do this EVERY
@@ -1096,9 +1162,9 @@ I</h1>
          order to get the full voltage to the speaker, you will have to
          decrease the output impedance. This can be done with a voltage
          buffer.</p>
-         <h2 data-number="6.2"
+         <h2 data-number="7.2"
          id="building-an-op-amp-test-circuit"><span
-         class="header-section-number">6.2</span> Building an op-amp
+         class="header-section-number">7.2</span> Building an op-amp
          test circuit</h2>
          <p>Before you solve the problem above with a voltage buffer,
          let’s build a simple means to test if an op-amp chip is
@@ -1137,8 +1203,8 @@ I</h1>
          chip, throw it in the trash and grab another (In case you are
          wondering, the LF356 costs less than $1). If you’re not sure,
          grab an instructor and have them take a look with you.</p>
-         <h2 data-number="6.3" id="voltage-buffer"><span
-         class="header-section-number">6.3</span> Voltage Buffer</h2>
+         <h2 data-number="7.3" id="voltage-buffer"><span
+         class="header-section-number">7.3</span> Voltage Buffer</h2>
          <div id="fig:voltage-follower" class="fignos">
          <figure>
          <img src="../resources/lab4fig/voltage-follower.png"
@@ -1235,8 +1301,8 @@ I</h1>
          6.  If you observed ideal behavior, you're lucky! At frequencies above a few MHz, the simple model of the frequency response of the op-amp is not accurate. Once you are in this frequency range, many physical details of your circuit and breadboard can have large effects in the circuit (see notes in 7.1.4 above). You could model these effects, but a better procedure to follow is to modify the physical setup. Building reliable circuits at these frequencies typically requires careful attention to grounding and minimization of capacitive and inductive coupling between circuit elements and to ground. Printed circuit boards are much better for high-frequency applications. At lower frequencies, our model of the circuit will work much better.
 
          -->
-         <h2 data-number="6.4" id="non-inverting-amplifier-1"><span
-         class="header-section-number">6.4</span> Non-Inverting
+         <h2 data-number="7.4" id="non-inverting-amplifier-1"><span
+         class="header-section-number">7.4</span> Non-Inverting
          Amplifier</h2>
          <div id="fig:non-inv-amp" class="fignos">
          <figure>
