@@ -145,7 +145,7 @@ Start with $V_\text{out}=A(V_+-V_-)$, and use the first two golden rules to show
 
 Alongside the buffer, the non-inverting amplifier is one of the most used and simplest op-amp circuits; as the name implies, the non-inverting amplifier outputs a signal with greater amplitude than the input (without inverting it). It is very similar in design to the buffer, but with a resistor, $R_F$, in the feedback loop and a resistor, $R$, from the inverting input to ground. There are many ways you'll see this diagram drawn as seen in Figure @fig:non-invert-var. Note that sometimes people draw the inverting input on top, and sometimes on bottom, but the feedback resistor always goes to the inverting input.
 
-![Non-inverting amplifier diagram variations (all of these are the exact same circuit)](../resources/lab4fig/non-inv-amp-var.png){#fig:non-invert-var width="20cm"}
+![Non-inverting amplifier diagram variations (all of these are the exact same circuit). Note that all of these have feedback to the negative pin.](../resources/lab4fig/non-inv-amp-var.png){#fig:non-invert-var width="20cm"}
 
 The two resistors form a voltage divider *feedback network* with a transfer function $B$ (think of $R_F$ as $R_1$ and $R$ as $R_2$ in the voltage divider equation from lab 2):
 
@@ -240,6 +240,26 @@ Read through all of the lab steps and identify the step that you think will be t
 
 List at least one question you have about the lab activity.
 
+# SPICE Activities
+
+- There are many choices of op-amps in LTSpice. You can find them in the component's menu (***P*** is the shortcut). In the search bar, type "op" to open the op-amp folder. Selecting an op-amp will reveal a short description of each. In *most* cases, it doesn't matter which you choose for your simulations, and unfortunately, the LF356, isn't built in to the program. The OP07 (which should pop up first in the search) can be trusted for most cases.
+
+- Create two voltage supplies off to the side and wire them together just like the figure below. Making them both $+15\text{ V}$ but grounding the middle will get both plus and minus voltages (just like you do with your real power supply in the lab).
+![Easy way to keep the power supply from cluttering your circuit simulation.](../resources/lab4fig/spice-powering-opamp.png)
+
+- Use the "Label Net" tool (***N*** shortcut) to label the positive end of the power supply "supply+" and the negative end "supply-", then you can label the two power pins of the op-amp the same (as seen in the figure above). Net labels are a way of making connections between things without having to clutter your diagram with wires. *Note:* the ground symbol is a net label as well.
+
+    - *Author's voice: I was able to make the text horizontal by adding a little L-shaped tail of wire to the node. This is not essential, but I think it looks nicer this way*
+
+- Make a voltage buffer circuit (see below) with a input voltage with a $1\text{ V}$ amplitude and $1\text{ kHz}$. Set up the simulation such that about 5 oscillations will be visible (make the stop time 5 times the period).
+
+1. Measure the input and output voltage of the buffer. Calculate the transfer function. It should be 1.
+
+![Voltage follower in LTSpice](../resources/lab4fig/spice-follower.png)
+
+- The simulation does not need decoupling capacitors for powering the op-amp because the power supply in the simulation is *ideal*. Next we will simulate the effect of a non-ideal power supply. To do this, add inductors in series with the outputs of the power supply
+
+![alt text](../resources/lab4fig/spice-non-ideal-power.png){width=4cm}
 
 # Op-amp TLDR
 
