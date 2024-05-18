@@ -167,8 +167,9 @@ Voltage Dividers</h1>
          class="header-section-number">4.1</span> Resistive voltage
          dividers (ideal power supply)</h2>
          <p>An ideal voltage source (no internal resistance) drives
-         current around the loop of resistors shown in Figure <a
-         href="#fig:ideal-vd">1</a> .</p>
+         current around the loop of resistors shown in Figure <span
+         class="citation" data-cites="fig:ideal-vd">@fig:ideal-vd</span>
+         .</p>
          <ol type="1">
          <li><p>Derive a formula for the current, <span
          class="math inline">\(I\)</span>, and the output voltage, <span
@@ -179,9 +180,10 @@ Voltage Dividers</h1>
          class="math inline">\(R_{2} = 1~k\Omega\)</span>?</p></li>
          <li><p>Calculate the voltage, <span
          class="math inline">\(V_{out}\)</span>, for the modified
-         circuit shown in Figure <a href="#fig:modified-vd">2</a> with
-         <span class="math inline">\(R_{3} = 10~k\Omega\)</span> and the
-         other components unchanged.</p></li>
+         circuit shown in Figure <span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span> with <span
+         class="math inline">\(R_{3} = 10~k\Omega\)</span> and the other
+         components unchanged.</p></li>
          </ol>
          <h2 data-number="4.2"
          id="resistive-voltage-dividers-non-ideal-power-supply"><span
@@ -191,9 +193,10 @@ Voltage Dividers</h1>
          (resistance). First consider a supply with an output impedance
          <span class="math inline">\(500 ~\Omega\)</span>.</p>
          <ol type="1">
-         <li><p>Draw a modified circuit diagram of Figure <a
-         href="#fig:ideal-vd">1</a> to model the non-ideal voltage
-         source as an ideal source with a series resistor.</p></li>
+         <li><p>Draw a modified circuit diagram of Figure <span
+         class="citation" data-cites="fig:ideal-vd">@fig:ideal-vd</span>
+         to model the non-ideal voltage source as an ideal source with a
+         series resistor.</p></li>
          <li><p>Derive a formula for the current, <span
          class="math inline">\(I\)</span>, and the output voltage, <span
          class="math inline">\(V_{out}\)</span>, of the circuit you just
@@ -205,9 +208,11 @@ Voltage Dividers</h1>
          <li><p>An additional load is connected between <span
          class="math inline">\(V_{out}\)</span> and ground in the form
          of the resistor <span class="math inline">\(R_3\)</span> as
-         shown in Figure <a href="#fig:modified-vd">2</a> . Calculate
-         the voltage <span class="math inline">\(V_{out}\)</span> for
-         this circuit (with the non­‐ideal power supply) and with <span
+         shown in Figure <span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span> .
+         Calculate the voltage <span
+         class="math inline">\(V_{out}\)</span> for this circuit (with
+         the non­‐ideal power supply) and with <span
          class="math inline">\(R_3 = 10 ~k\Omega\)</span>.</p></li>
          <li><p>Using your symbolic equation for <span
          class="math inline">\(V_{out}\)</span>, solve for <span
@@ -223,22 +228,19 @@ Voltage Dividers</h1>
          <li><p>List at least one question you have about the lab
          activity.</p></li>
          </ol>
-         <div id="fig:ideal-vd" class="fignos">
          <figure>
-         <img src="../resources/lab2fig/ideal-vd.png" style="height:7cm"
-         alt="Figure 1: Ideal Voltage Divider" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Ideal
-         Voltage Divider</figcaption>
+         <img src="../resources/lab2fig/ideal-vd.png" id="fig:ideal-vd"
+         style="height:7cm" alt="Ideal Voltage Divider" />
+         <figcaption aria-hidden="true">Ideal Voltage
+         Divider</figcaption>
          </figure>
-         </div>
-         <div id="fig:modified-vd" class="fignos">
          <figure>
          <img src="../resources/lab2fig/modified-vd.png"
-         style="height:7cm" alt="Figure 2: Modified Voltage Divider" />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Modified
-         Voltage Divider</figcaption>
+         id="fig:modified-vd" style="height:7cm"
+         alt="Modified Voltage Divider" />
+         <figcaption aria-hidden="true">Modified Voltage
+         Divider</figcaption>
          </figure>
-         </div>
          <h1 data-number="5"
          id="setting-up-your-prototyping-board"><span
          class="header-section-number">5</span> Setting Up Your
@@ -383,11 +385,12 @@ Voltage Dividers</h1>
          class="math inline">\(\boldsymbol{\Omega}\)</span></h2>
          <ol type="1">
          <li><p>Build a voltage divider similar to the one shown in
-         Figure <a href="#fig:ideal-vd">1</a> using resistors of around
-         1 k<span class="math inline">\(\Omega\)</span>. Draw a diagram
-         of the circuit in your lab notebook. Make sure to label the
-         resistors and record all measured component values and
-         voltages.</p></li>
+         Figure <span class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span> using resistors
+         of around 1 k<span class="math inline">\(\Omega\)</span>. Draw
+         a diagram of the circuit in your lab notebook. Make sure to
+         label the resistors and record all measured component values
+         and voltages.</p></li>
          <li><p>Measure each resistor with your DMM before inserting it
          into your circuit and record the value. Why should you measure
          component values before placing them in the circuit?</p></li>
@@ -411,13 +414,14 @@ Voltage Dividers</h1>
          did not agree, you will have to either refine your model or
          your experiment. Lets start by refining your model. Consider
          the input resistance of your measurement device. Draw a circuit
-         diagram that includes that resistance. <em>HINT: See Figure <a
-         href="#fig:modified-vd">2</a></em>. Derive an expression for
-         the output voltage now including the unknown measurement device
-         resistance. Use this new model to determine the input
-         resistance of measurement device. (that is, rearrange your
-         equation to solve for R<sub>3</sub>). You may have this from
-         your prelab.</p></li>
+         diagram that includes that resistance. <em>HINT: See Figure
+         <span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span></em>.
+         Derive an expression for the output voltage now including the
+         unknown measurement device resistance. Use this new model to
+         determine the input resistance of measurement device. (that is,
+         rearrange your equation to solve for R<sub>3</sub>). You may
+         have this from your prelab.</p></li>
          </ol>
          <h2 data-number="6.2"
          id="fixed-value-voltage-dividers-of-1mboldsymbolomega-and-10mboldsymbolomega"><span

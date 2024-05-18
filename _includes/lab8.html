@@ -191,27 +191,25 @@ Colorado Boulder">
          gain-bandwidth product of 300 MHz (compared to 5 MHz for the
          LF356 op-amp you have been using).</p>
          <p>The three terminals of a bipolar transistor are called the
-         emitter, base, and collector (Figure <a href="#fig:NPN">1</a>).
-         A small current into the base controls a large current flow
-         from the collector to the emitter. The current at the base is
-         typically about 1% of the collector-emitter current. This means
-         that the transistor acts as a current amplifier with a typical
-         current gain (<span class="math inline">\(h_{fe}\)</span> or
-         <span class="math inline">\(\beta\)</span>) of about 100.
-         Moreover, the large collector current flow is almost
-         independent of the voltage across the transistor from collector
-         to emitter. This makes it possible to obtain a large
-         amplification of voltage by having the collector current flow
-         through a resistor.</p>
-         <div id="fig:NPN" class="fignos">
+         emitter, base, and collector (Figure <span class="citation"
+         data-cites="fig:NPN">@fig:NPN</span>). A small current into the
+         base controls a large current flow from the collector to the
+         emitter. The current at the base is typically about 1% of the
+         collector-emitter current. This means that the transistor acts
+         as a current amplifier with a typical current gain (<span
+         class="math inline">\(h_{fe}\)</span> or <span
+         class="math inline">\(\beta\)</span>) of about 100. Moreover,
+         the large collector current flow is almost independent of the
+         voltage across the transistor from collector to emitter. This
+         makes it possible to obtain a large amplification of voltage by
+         having the collector current flow through a resistor.</p>
          <figure>
-         <img src="../resources/lab7fig/npn.png"
-         alt="Figure 1: Diagram of an NPN bipolar junction transistor (left) and schematic symbol (right)" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Diagram
-         of an NPN bipolar junction transistor (left) and schematic
-         symbol (right)</figcaption>
+         <img src="../resources/lab7fig/npn.png" id="fig:NPN"
+         alt="Diagram of an NPN bipolar junction transistor (left) and schematic symbol (right)" />
+         <figcaption aria-hidden="true">Diagram of an NPN bipolar
+         junction transistor (left) and schematic symbol
+         (right)</figcaption>
          </figure>
-         </div>
          <h1 data-number="4"
          id="current-amplifier-model-of-a-bipolar-transistor"><span
          class="header-section-number">4</span> Current Amplifier Model
@@ -261,10 +259,11 @@ Colorado Boulder">
          second circuit, the emitter follower (EF), as a second stage.
          The common-emitter amplifier and the emitter follower are the
          most common bipolar transistor circuits.</p>
-         <p>First consider the emitter follower (Figure <a
-         href="#fig:emitterf">2</a>). The output (emitter) voltage is
-         always 0.6 V (one diode drop) below the input (base) voltage. A
-         small AC signal of amplitude <span
+         <p>First consider the emitter follower (Figure <span
+         class="citation"
+         data-cites="fig:emitterf">@fig:emitterf</span>). The output
+         (emitter) voltage is always 0.6 V (one diode drop) below the
+         input (base) voltage. A small AC signal of amplitude <span
          class="math inline">\(v_{in}\)</span> at the input will
          therefore give a signal <span
          class="math inline">\(v_{in}\)</span> at the output, i.e. the
@@ -272,10 +271,11 @@ Colorado Boulder">
          1) but we will see later that this circuit is still useful
          because it has high input impedance and low output
          impedance.</p>
-         <p>Now consider the common emitter amplifier (Figure <a
-         href="#fig:emittera">3</a>). A small AC signal of amplitude
-         <span class="math inline">\(v_{in}\)</span> at the input will
-         give the same AC signal <span
+         <p>Now consider the common emitter amplifier (Figure <span
+         class="citation"
+         data-cites="fig:emittera">@fig:emittera</span>). A small AC
+         signal of amplitude <span class="math inline">\(v_{in}\)</span>
+         at the input will give the same AC signal <span
          class="math inline">\(v_{in}\)</span> at the emitter (just like
          the emitter follower). This will cause a varying current of
          amplitude <span class="math inline">\(v_{in}/R_E\)</span> to
@@ -290,34 +290,32 @@ Colorado Boulder">
          <p><strong>Note:</strong> this gain is about the change in
          voltage, which is a bit different than the gains you have been
          working with so far.</p>
-         <div id="fig:emitterf" class="fignos">
          <figure>
-         <img src="../resources/lab7fig/emitterf.png" style="width:7cm"
-         alt="Figure 2: Emitter follower transistor circuit" />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Emitter
-         follower transistor circuit</figcaption>
+         <img src="../resources/lab7fig/emitterf.png" id="fig:emitterf"
+         style="width:7cm" alt="Emitter follower transistor circuit" />
+         <figcaption aria-hidden="true">Emitter follower transistor
+         circuit</figcaption>
          </figure>
-         </div>
-         <div id="fig:emittera" class="fignos">
          <figure>
-         <img src="../resources/lab7fig/emittera.png" style="width:7cm"
-         alt="Figure 3: Emitter amplifier transistor circuit" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Emitter
-         amplifier transistor circuit</figcaption>
+         <img src="../resources/lab7fig/emittera.png" id="fig:emittera"
+         style="width:7cm" alt="Emitter amplifier transistor circuit" />
+         <figcaption aria-hidden="true">Emitter amplifier transistor
+         circuit</figcaption>
          </figure>
-         </div>
          <h1 data-number="6" id="biasing-a-transistor-amplifier"><span
          class="header-section-number">6</span> Biasing a Transistor
          Amplifier</h1>
-         <p>Figure <a href="#fig:emittera">3</a> shows the basic common
-         emitter amplifier, while Figure <a href="#fig:emitterabn">4</a>
-         shows the common emitter amplifier circuit that you will build
-         with the biasing resistors, power filter capacitor, and
-         coupling capacitors in place. The power filter capacitor
-         connecting +15 V to ground serves to ensure that electronic
-         noise from the power supply does not enter the circuit. The
-         coupling capacitors on the input and output serve to transmit
-         the AC signal and block the DC voltage. For the input, this is
+         <p>Figure <span class="citation"
+         data-cites="fig:emittera">@fig:emittera</span> shows the basic
+         common emitter amplifier, while Figure <span class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> shows the
+         common emitter amplifier circuit that you will build with the
+         biasing resistors, power filter capacitor, and coupling
+         capacitors in place. The power filter capacitor connecting +15
+         V to ground serves to ensure that electronic noise from the
+         power supply does not enter the circuit. The coupling
+         capacitors on the input and output serve to transmit the AC
+         signal and block the DC voltage. For the input, this is
          essential because if you feed DC voltage into something
          providing its own voltage, bad things will happen. In this
          case, if the biasing DC voltage is directly connected to the
@@ -326,16 +324,13 @@ Colorado Boulder">
          function generator will break. For the output, the coupling
          capacitor is simply convenient as we don’t care about the DC
          voltages, just the AC signal.</p>
-         <div id="fig:emitterabn" class="fignos">
          <figure>
          <img src="../resources/lab7fig/emitterabn.png"
-         style="width:13cm"
-         alt="Figure 4: Common emitter amplifier with biasing network and coupling capacitors in place" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> Common
-         emitter amplifier with biasing network and coupling capacitors
-         in place</figcaption>
+         id="fig:emitterabn" style="width:13cm"
+         alt="Common emitter amplifier with biasing network and coupling capacitors in place" />
+         <figcaption aria-hidden="true">Common emitter amplifier with
+         biasing network and coupling capacitors in place</figcaption>
          </figure>
-         </div>
          <p>This brings us to the biasing network. While we are usually
          trying to amplify a small AC signal, it is essential that we
          setup the proper “quiescent point” or bias voltages. These are
@@ -347,8 +342,9 @@ Colorado Boulder">
          <li><p>Set the DC voltage of the base, <span
          class="math inline">\(V_B\)</span>, with a voltage divider
          (<span class="math inline">\(R_1\)</span> and <span
-         class="math inline">\(R_2\)</span> in Figure <a
-         href="#fig:emitterabn">4</a>).</p></li>
+         class="math inline">\(R_2\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span>).</p></li>
          <li><p>The emitter voltage, <span
          class="math inline">\(V_E\)</span>, will be 0.6 V less than the
          base voltage.</p></li>
@@ -424,8 +420,10 @@ Colorado Boulder">
          class="math inline">\(r_{in}\)</span> in parallel with the base
          bias resistors.</p>
          <p>The output impedance of the common emitter amplifier (Figure
-         <a href="#fig:emittera">3</a>) is just equal to the collector
-         resistor <span class="math inline">\(R_C\)</span>:</p>
+         <span class="citation"
+         data-cites="fig:emittera">@fig:emittera</span>) is just equal
+         to the collector resistor <span
+         class="math inline">\(R_C\)</span>:</p>
          <p><span class="math display">\[r_{out} = R_C ~~\text{(common
          emitter)}\]</span></p>
          <p>The output impedance of the emitter follower is found to
@@ -490,9 +488,11 @@ Colorado Boulder">
          <ol type="1">
          <li>Explain why we need to have the biasing resistors <span
          class="math inline">\(R_1\)</span> and <span
-         class="math inline">\(R_2\)</span> in Figure <a
-         href="#fig:emitterabn">4</a> if we are going to amplify an AC
-         signal? That is, why won’t Figure <a href="#fig:emittera">3</a>
+         class="math inline">\(R_2\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> if we are
+         going to amplify an AC signal? That is, why won’t Figure <span
+         class="citation" data-cites="fig:emittera">@fig:emittera</span>
          work as is?</li>
          <li>Calculate the quiescent voltages (the DC voltages with no
          signal present) <span class="math inline">\(V_B\)</span>, <span
@@ -500,7 +500,8 @@ Colorado Boulder">
          class="math inline">\(V_C\)</span> and the currents <span
          class="math inline">\(I_E\)</span> and <span
          class="math inline">\(I_C\)</span> for the common emitter
-         circuit in Figure <a href="#fig:emitterabn">4</a>. You may
+         circuit in Figure <span class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span>. You may
          assume that <span class="math inline">\(h_{fe}\)</span> is so
          large that the base current is negligible.</li>
          <li>How much power is dissipated in the transistor itself? Is
@@ -519,8 +520,10 @@ Colorado Boulder">
          class="math inline">\(h_{fe}\)</span> value at 10 mA collector
          current? See the 2N3904 data sheet posted on Canvas. (You may
          use this value for calculations below.)</li>
-         <li>What is the AC voltage gain of the circuit in Figure <a
-         href="#fig:emitterabn">4</a> for 10 kHz sine waves?</li>
+         <li>What is the AC voltage gain of the circuit in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> for 10 kHz
+         sine waves?</li>
          <li>What are the maximum and minimum possible output voltages
          without the output coupling capacitor in place?</li>
          <li>Since the gain is negative, this is an inverting amplifier.
@@ -544,12 +547,13 @@ Colorado Boulder">
          <li>Calculate the fraction of the original amplitude obtained
          when a 470 <span class="math inline">\(\Omega\)</span> load is
          connected to the output via a coupling capacitor (<span
-         class="math inline">\(C_{out}\)</span> in Figure <a
-         href="#fig:emitterabn">4</a>) to ground. HINT: the 470 <span
-         class="math inline">\(\Omega\)</span> resistor is in series
-         with the output impedance of the circuit to ground. The output
-         capacitor only blocks the DC component; it passes the AC signal
-         just fine.</li>
+         class="math inline">\(C_{out}\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span>) to ground.
+         HINT: the 470 <span class="math inline">\(\Omega\)</span>
+         resistor is in series with the output impedance of the circuit
+         to ground. The output capacitor only blocks the DC component;
+         it passes the AC signal just fine.</li>
          </ol>
          <h2 data-number="11.3" id="sec:dsa"><span
          class="header-section-number">11.3</span> Dual stage
@@ -557,16 +561,18 @@ Colorado Boulder">
          <ol type="1">
          <li>What is the AC voltage gain for 10 kHz sine waves of the
          entire dual-stage amplifier (common emitter + emitter follower)
-         shown in Figure <a href="#fig:dualsa">5</a>?</li>
+         shown in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>?</li>
          <li>Calculate the quiescent voltages (the DC voltages with no
          signal present) <span class="math inline">\(V_B\)</span>, <span
          class="math inline">\(V_E\)</span>, and <span
          class="math inline">\(V_C\)</span> as well as the currents
          <span class="math inline">\(I_E\)</span> and <span
          class="math inline">\(I_C\)</span> for the emitter follower
-         part of the circuit in Figure <a href="#fig:dualsa">5</a>. You
-         may assume that <span class="math inline">\(h_{fe}\)</span> is
-         so large that the base current is negligible.</li>
+         part of the circuit in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>. You may assume that
+         <span class="math inline">\(h_{fe}\)</span> is so large that
+         the base current is negligible.</li>
          <li>How much power is dissipated in the transistor of the
          emitter follower? Is the power safely below <span
          class="math inline">\(P_{max}\)</span>? See 2N3904 data sheet
@@ -578,8 +584,9 @@ Colorado Boulder">
          <span class="math inline">\(\Omega\)</span>. How much power
          would be dissipated in the emitter follower transistor in that
          case? Is that safe to do?</li>
-         <li>For the entire dual stage amplifier in Figure <a
-         href="#fig:dualsa">5</a>, what is the output impedance <span
+         <li>For the entire dual stage amplifier in Figure <span
+         class="citation" data-cites="fig:dualsa">@fig:dualsa</span>,
+         what is the output impedance <span
          class="math inline">\(r_{out}\)</span> at 10 kHz? You should
          use the Eber-Molls model. Also, the impedance at the base of
          the emitter follower is simply the collector resistor of the
@@ -587,12 +594,13 @@ Colorado Boulder">
          <li>Calculate the fraction of the original amplitude obtained
          when a 470 <span class="math inline">\(\Omega\)</span> load is
          connected to the output via a coupling capacitor (<span
-         class="math inline">\(C_{out}\)</span> in Figure <a
-         href="#fig:dualsa">5</a>). HINT: the 470 <span
-         class="math inline">\(\Omega\)</span> resistor will be in
-         series with the output impedance of the circuit to ground. Even
-         at only 10 kHz, the output capacitor acts as a wire for the AC
-         impedance. It serves to block only the DC voltage.</li>
+         class="math inline">\(C_{out}\)</span> in Figure <span
+         class="citation" data-cites="fig:dualsa">@fig:dualsa</span>).
+         HINT: the 470 <span class="math inline">\(\Omega\)</span>
+         resistor will be in series with the output impedance of the
+         circuit to ground. Even at only 10 kHz, the output capacitor
+         acts as a wire for the AC impedance. It serves to block only
+         the DC voltage.</li>
          </ol>
          <h2 data-number="11.4" id="audio-amplifier"><span
          class="header-section-number">11.4</span> Audio amplifier</h2>
@@ -613,10 +621,11 @@ Colorado Boulder">
          amplifier? HINT: Think voltage divider with the output
          impedance of the common emitter.</li>
          <li>Finally, consider using the two-stage amplifier shown in
-         Figure <a href="#fig:dualsa">5</a> to drive the speaker. If the
-         emitter follower amplifier output stage has an unloaded output
-         voltage of 2.7 V (assuming a gain of 2.7), what is the output
-         voltage if you connect an 8 <span
+         Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span> to drive the
+         speaker. If the emitter follower amplifier output stage has an
+         unloaded output voltage of 2.7 V (assuming a gain of 2.7), what
+         is the output voltage if you connect an 8 <span
          class="math inline">\(\Omega\)</span> speaker to the amplifier?
          Note that in the lab you will be using the output of the lab’s
          laptop computer headphone jack. HINT: Think voltage divider
@@ -637,10 +646,11 @@ Colorado Boulder">
          <h2 data-number="12.1" id="quiescent-scale"><span
          class="header-section-number">12.1</span> Quiescent scale</h2>
          <ol type="1">
-         <li>Build the common emitter amplifier shown in Figure <a
-         href="#fig:emitterabn">4</a> without the capacitors <span
-         class="math inline">\(C_{in}\)</span> and <span
-         class="math inline">\(C_{out}\)</span> (and without <span
+         <li>Build the common emitter amplifier shown in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> without the
+         capacitors <span class="math inline">\(C_{in}\)</span> and
+         <span class="math inline">\(C_{out}\)</span> (and without <span
          class="math inline">\(V_{in}\)</span>). Measure the resistors
          before putting them in the circuit, and if they differ from the
          values used in your calculations, recalculate the predicted
@@ -671,8 +681,9 @@ Colorado Boulder">
          amplifier with 10 kHz sine waves. Check that your setup works,
          and you can measure both the input and output.</li>
          <li>Vary the input amplitude to determine the output amplitude
-         at which clipping begins. Compare your results to section <a
-         href="#sec:cea">11.2</a>.3? and <a href="#sec:cea">11.2</a>.4.
+         at which clipping begins. Compare your results to section <span
+         class="citation" data-cites="sec:cea">@sec:cea</span>.3? and
+         <span class="citation" data-cites="sec:cea">@sec:cea</span>.4.
          You will want to stay below half of the clipping voltage to
          ensure the amplifier is not distorting the output
          waveform.</li>
@@ -716,11 +727,11 @@ Colorado Boulder">
          impedance. Connect a 470 <span
          class="math inline">\(\Omega\)</span> load from the output to
          ground. What fraction of the original output do you now see?
-         Does this agree with your prediction from section <a
-         href="#sec:cea">11.2</a>.6? If not, can you use your
-         measurements of the output voltage before and after the
-         resistor was in place to refine the model of your amplifier’s
-         output impedance?</li>
+         Does this agree with your prediction from section <span
+         class="citation" data-cites="sec:cea">@sec:cea</span>.6? If
+         not, can you use your measurements of the output voltage before
+         and after the resistor was in place to refine the model of your
+         amplifier’s output impedance?</li>
          <li>Remove the 470 <span class="math inline">\(\Omega\)</span>
          load resistor.</li>
          <li>Attach the speaker to your circuit board. Connect the black
@@ -738,17 +749,16 @@ Colorado Boulder">
          the common emitter amplifier result in a louder tone from the
          speaker? Explain your results. You may want to measure the
          impedance of the speaker with your DMM and do a calculation
-         similar to section <a href="#sec:cea">11.2</a>.6 to understand
-         what is going on.</li>
+         similar to section <span class="citation"
+         data-cites="sec:cea">@sec:cea</span>.6 to understand what is
+         going on.</li>
          </ol>
-         <div id="fig:dualsa" class="fignos">
          <figure>
-         <img src="../resources/lab7fig/dualsa.png" style="width:15cm"
-         alt="Figure 5: Dual stage amplifier" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> Dual
-         stage amplifier</figcaption>
+         <img src="../resources/lab7fig/dualsa.png" id="fig:dualsa"
+         style="width:15cm" alt="Dual stage amplifier" />
+         <figcaption aria-hidden="true">Dual stage
+         amplifier</figcaption>
          </figure>
-         </div>
          <h1 data-number="13" id="dual-stage-amplifier"><span
          class="header-section-number">13</span> Dual Stage
          Amplifier</h1>
@@ -761,11 +771,12 @@ Colorado Boulder">
          already has a value suitable for biasing the emitter follower,
          so a direct DC connection can be made between the two circuits.
          Add the emitter follower to your circuit to build the dual
-         stage amplifier shown in Figure <a
-         href="#fig:dualsa">5</a>.</li>
+         stage amplifier shown in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>.</li>
          <li>Using your measured resistor values, calculate the DC
          voltages for the emitter follower’s base, emitter, and
-         collector (see section <a href="#sec:dsa">11.3</a>.2).</li>
+         collector (see section <span class="citation"
+         data-cites="sec:dsa">@sec:dsa</span>.2).</li>
          <li>Measure the quiescent (DC) voltages (<span
          class="math inline">\(V_B\)</span>, <span
          class="math inline">\(V_E\)</span>, <span

@@ -1,0 +1,28 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+
+    \draw (0,0) coordinate (O) to [V,l=$V^\text{(internal)}_\text{out}$] ++(0, -3)
+
+    (O) to [R=$R_o$] ++(2,0) to ++(1.5,0) coordinate(corner) to [R=$R_i$] ++(0,-3) to ++(0,0) coordinate(gnd) to [short,-*] ++(-3.5,0) node[ground]{}
+    (corner) [short,*-o] to ++ (.5,0) node[anchor=west]{$V^\text{(external)}_\text{out}$}
+    ;
+    
+    \draw [rounded corners,dashed] (O) ++ (-0.75,0.75)--++(0,-4)--++(3,0)--++(0,4)--cycle node[midway, above]{Voltage Source} (O) ++ (3,-0.5)--++(0,-2)--++(2,0) node[midway,anchor=north west,xshift=-10,align=center]{Load impedance\\or\\Circuit with\\ input impedance}--++(0,2)--cycle;
+
+\end{circuitikz}
+
+\end{document}

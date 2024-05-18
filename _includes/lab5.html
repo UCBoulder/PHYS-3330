@@ -311,18 +311,16 @@ II</h1>
          <h2 data-number="3.1" id="inverting-amplifier"><span
          class="header-section-number">3.1</span> Inverting
          Amplifier</h2>
-         <div id="fig:invamp" class="fignos">
          <figure>
-         <img src="../resources/lab5fig/invamp.png" style="width:10cm"
-         alt="Figure 1: Inverting amplifier" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Inverting
-         amplifier</figcaption>
+         <img src="../resources/lab5fig/invamp.png" id="fig:invamp"
+         style="width:10cm" alt="Inverting amplifier" />
+         <figcaption aria-hidden="true">Inverting amplifier</figcaption>
          </figure>
-         </div>
-         <p>The inverting amplifier is shown in Figure <a
-         href="#fig:invamp">1</a>. Notice that this is very similar to
-         the non-inverting amplifier, except for the fact that the input
-         and ground are swapped.</p>
+         <p>The inverting amplifier is shown in Figure <span
+         class="citation" data-cites="fig:invamp">@fig:invamp</span>.
+         Notice that this is very similar to the non-inverting
+         amplifier, except for the fact that the input and ground are
+         swapped.</p>
          <p>There is still a voltage divider network feeding the output
          back to the inverting input with a transfer function <span
          class="math inline">\(B\)</span>, such that</p>
@@ -367,8 +365,8 @@ II</h1>
          <span class="math inline">\(V_-\)</span>, so all the current
          <span class="math inline">\(I\)</span> that flows through <span
          class="math inline">\(R\)</span> will also flow through <span
-         class="math inline">\(R_F\)</span> (see <a
-         href="#fig:invamp-finite">2</a>).</p>
+         class="math inline">\(R_F\)</span> (see <span class="citation"
+         data-cites="fig:invamp-finite">@fig:invamp-finite</span>).</p>
          <p>Second, plugging <span class="math inline">\(V_+=0\)</span>
          into the op-amp equation</p>
          <p><span
@@ -377,21 +375,18 @@ II</h1>
          <p><span
          class="math display">\[V_-=\frac{-V_\text{out}}{A}\]</span></p>
          <!-- Note that $$\lim_{A\rightarrow\infty}V_-=0$$ which is what the voltage golden rule says should happen with negative feedback and infinite open-loop gain. **This is the virtual ground**.-->
-         <div id="fig:invamp-finite" class="fignos">
          <figure>
          <img
          src="../resources/lab5fig/inverting-amp-with-finite-gain.png"
-         style="width:15cm"
-         alt="Figure 2: Using the op-amp equation, the voltage at the inverting input can be found: V_-=-V_\text{out}/A. Since so little current flows through the input, it is reasonable to assume the current through both resistors is the same." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Using the
-         op-amp equation, the voltage at the inverting input can be
-         found: <span
+         id="fig:invamp-finite" style="width:15cm"
+         alt="Using the op-amp equation, the voltage at the inverting input can be found: V_-=-V_\text{out}/A. Since so little current flows through the input, it is reasonable to assume the current through both resistors is the same." />
+         <figcaption aria-hidden="true">Using the op-amp equation, the
+         voltage at the inverting input can be found: <span
          class="math inline">\(V_-=-V_\text{out}/A\)</span>. Since so
          little current flows through the input, it is reasonable to
          assume the current through both resistors is the
          same.</figcaption>
          </figure>
-         </div>
          <p>We can now right down two equations based on Kircchoff’s
          voltage law:</p>
          <p><span class="math display">\[V_\text{out} = V_- + IR_F =
@@ -418,9 +413,9 @@ II</h1>
          class="math inline">\(V_\text{in}\)</span> using this value for
          <span class="math inline">\(V_-\)</span> and Kircchoff’s
          voltage rule. Does this lead to the same result for <span
-         class="math inline">\(G_0\)</span> you found in question <a
-         href="#2.1">3.2.1</a>? (You may need to do a little rearranging
-         to show they are the same)</p>
+         class="math inline">\(G_0\)</span> you found in question <span
+         class="citation" data-cites="sec:2.1">@sec:2.1</span>? (You may
+         need to do a little rearranging to show they are the same)</p>
          <h3 data-number="3.2.3" id="2.3"><span
          class="header-section-number">3.2.3</span> Prelab Question</h3>
          <p>Find <span class="math inline">\(G_0\)</span> (assume <span
@@ -471,32 +466,29 @@ II</h1>
          class="math inline">\(R_i&#39;=R\)</span>?</p>
          <h3 data-number="3.3.2" id="3.2"><span
          class="header-section-number">3.3.2</span> Prelab Question</h3>
-         <div id="fig:invamp-meas-in" class="fignos">
          <figure>
          <img src="../resources/lab5fig/invamp-meas-in.png"
-         style="width:12cm"
-         alt="Figure 3: Both the output impedance of the function generator and the input impedance of the oscilliscope may impact the circuit in significant ways" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Both the
-         output impedance of the function generator and the input
-         impedance of the oscilliscope may impact the circuit in
-         significant ways</figcaption>
+         id="fig:invamp-meas-in" style="width:12cm"
+         alt="Both the output impedance of the function generator and the input impedance of the oscilliscope may impact the circuit in significant ways" />
+         <figcaption aria-hidden="true">Both the output impedance of the
+         function generator and the input impedance of the oscilliscope
+         may impact the circuit in significant ways</figcaption>
          </figure>
-         </div>
          <p>If <span class="math inline">\(V_\text{in}\)</span> is
          coming from the function generator, there is a <span
          class="math inline">\(50\ \Omega\)</span> output impedance, and
          when you measure <span
          class="math inline">\(V_\text{in}\)</span> on the scope there
          is a <span class="math inline">\(1\text{ M}\Omega\)</span>
-         measurement impedance (see Figure <a
-         href="#fig:invamp-meas-in">3</a>). In each of the following
-         cases, decide whether the <span class="math inline">\(50\
-         \Omega\)</span>, the <span class="math inline">\(1\text{
-         M}\Omega\)</span>, both, or neither impedances will
-         significantly impact either the measurement of <span
-         class="math inline">\(V_\text{in}\)</span> or <span
-         class="math inline">\(V_\text{out}\)</span>. In each case draw
-         an updated diagram which simplifies the model
+         measurement impedance (see Figure <span class="citation"
+         data-cites="fig:invamp-meas-in">@fig:invamp-meas-in</span>). In
+         each of the following cases, decide whether the <span
+         class="math inline">\(50\ \Omega\)</span>, the <span
+         class="math inline">\(1\text{ M}\Omega\)</span>, both, or
+         neither impedances will significantly impact either the
+         measurement of <span class="math inline">\(V_\text{in}\)</span>
+         or <span class="math inline">\(V_\text{out}\)</span>. In each
+         case draw an updated diagram which simplifies the model
          appropriately.</p>
          <ol type="1">
          <li><p><span class="math inline">\(R=100\ \Omega\)</span> and
@@ -548,19 +540,18 @@ II</h1>
          class="math inline">\(R_F=100\text{ k}\Omega\)</span>?</p>
          <h2 data-number="3.5" id="summing-amplifier"><span
          class="header-section-number">3.5</span> Summing Amplifier</h2>
-         <div id="fig:sumamp" class="fignos">
          <figure>
-         <img src="../resources/lab5fig/sumamp.png" style="width:10cm"
-         alt="Figure 4: Summing amplifier can sum 2 or more voltages" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> Summing
-         amplifier can sum 2 or more voltages</figcaption>
+         <img src="../resources/lab5fig/sumamp.png" id="fig:sumamp"
+         style="width:10cm"
+         alt="Summing amplifier can sum 2 or more voltages" />
+         <figcaption aria-hidden="true">Summing amplifier can sum 2 or
+         more voltages</figcaption>
          </figure>
-         </div>
-         <p>The Summing Amplifier, shown in Figure <a
-         href="#fig:sumamp">4</a>, is a very flexible circuit. Notice
-         that it is just like the inverting amplifier op-amp
-         configuration, but it has multiple inputs coming together at
-         the inverting input. Since <span
+         <p>The Summing Amplifier, shown in Figure <span
+         class="citation" data-cites="fig:sumamp">@fig:sumamp</span>, is
+         a very flexible circuit. Notice that it is just like the
+         inverting amplifier op-amp configuration, but it has multiple
+         inputs coming together at the inverting input. Since <span
          class="math inline">\(V_-\)</span> is a <em>virtual
          ground</em>, each input <span class="math inline">\(i\)</span>
          with input voltage <span class="math inline">\(V_i\)</span> has
@@ -652,18 +643,15 @@ II</h1>
          things easiest.</p>
          <h2 data-number="3.6" id="integrator"><span
          class="header-section-number">3.6</span> Integrator</h2>
-         <div id="fig:integrator" class="fignos">
          <figure>
          <img src="../resources/lab5fig/integrator.png"
-         style="width:10cm" alt="Figure 5: Integrator" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span>
-         Integrator</figcaption>
+         id="fig:integrator" style="width:10cm" alt="Integrator" />
+         <figcaption aria-hidden="true">Integrator</figcaption>
          </figure>
-         </div>
-         <p>The integrator is shown in Figure <a
-         href="#fig:integrator">5</a>. This is like the inverting
-         amplifier but with the feedback resistor replaced with a
-         feedback capacitor.</p>
+         <p>The integrator is shown in Figure <span class="citation"
+         data-cites="fig:integrator">@fig:integrator</span>. This is
+         like the inverting amplifier but with the feedback resistor
+         replaced with a feedback capacitor.</p>
          <p>Due to the complex impedance of the capacitor, the transfer
          function <span class="math inline">\(B\)</span> also becomes
          complex</p>
@@ -841,43 +829,40 @@ II</h1>
          overtime.</p>
          <p>A real capacitor can be accurately modeled as an ideal
          capacitor with resistance in series and in parallel with it
-         (see Figure <a href="#fig:cap-measure">6</a>). Good capacitors
-         have very small series resistance and very large parallel
-         resistance. The parallel resistance often has to do with the
-         dielectric material inside “leaking” charge through it. When
-         the LCR meter is used to measure a capcitance, it is unable to
-         apply the series+parallel resistance model with a single
-         measurement; it can be set to either measure with a parallel
-         resistance model <em>or</em> a series resistance model (see
-         Figure <a href="#fig:LCR">7</a>). For this application in
+         (see Figure <span class="citation"
+         data-cites="fig:cap-measure">@fig:cap-measure</span>). Good
+         capacitors have very small series resistance and very large
+         parallel resistance. The parallel resistance often has to do
+         with the dielectric material inside “leaking” charge through
+         it. When the LCR meter is used to measure a capcitance, it is
+         unable to apply the series+parallel resistance model with a
+         single measurement; it can be set to either measure with a
+         parallel resistance model <em>or</em> a series resistance model
+         (see Figure <span class="citation"
+         data-cites="fig:LCR">@fig:LCR</span>). For this application in
          particular, it is a good idea to measure the capacitor with a
          parallel resistance model so that you know how much resistance
          should be added in parallel to reach a specific parallel
          resistance to get the right amount of “leakage.”</p>
-         <div id="fig:cap-measure" class="fignos">
          <figure>
          <img src="../resources/lab5fig/cap-measure.png"
-         style="width:15cm"
-         alt="Figure 6: A real capacitor is accurately modeled with resistance in series and in parallel with the capacitance. When you measure a capacitor with the LCR meter, you can select whether it measures with a series resistance or parallel resistance equivalent circuit model." />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> A real
-         capacitor is accurately modeled with resistance in series and
-         in parallel with the capacitance. When you measure a capacitor
-         with the LCR meter, you can select whether it measures with a
-         series resistance or parallel resistance equivalent circuit
-         model.</figcaption>
+         id="fig:cap-measure" style="width:15cm"
+         alt="A real capacitor is accurately modeled with resistance in series and in parallel with the capacitance. When you measure a capacitor with the LCR meter, you can select whether it measures with a series resistance or parallel resistance equivalent circuit model." />
+         <figcaption aria-hidden="true">A real capacitor is accurately
+         modeled with resistance in series and in parallel with the
+         capacitance. When you measure a capacitor with the LCR meter,
+         you can select whether it measures with a series resistance or
+         parallel resistance equivalent circuit model.</figcaption>
          </figure>
-         </div>
-         <div id="fig:LCR" class="fignos">
          <figure>
          <img src="../resources/lab5fig/cap-parallel-resistance.png"
-         style="width:15cm"
-         alt="Figure 7: When you measure your capacitor, make sure the PARAMETER is set to C+R and the Equiv Circuit is set to PARALLEL" />
-         <figcaption aria-hidden="true"><span>Figure 7:</span> When you
-         measure your capacitor, make sure the PARAMETER is set to <span
+         id="fig:LCR" style="width:15cm"
+         alt="When you measure your capacitor, make sure the PARAMETER is set to C+R and the Equiv Circuit is set to PARALLEL" />
+         <figcaption aria-hidden="true">When you measure your capacitor,
+         make sure the PARAMETER is set to <span
          class="math inline">\(C+R\)</span> and the Equiv Circuit is set
          to PARALLEL</figcaption>
          </figure>
-         </div>
          <h3 data-number="3.8.1" id="8.1"><span
          class="header-section-number">3.8.1</span> Prelab Question</h3>
          <p>Design an integrator that would have</p>
@@ -885,7 +870,8 @@ II</h1>
          <li>an input impedance of <span class="math inline">\(10\text{
          k}\Omega\)</span></li>
          <li>an <span class="math inline">\(RC\)</span> value that you
-         calculated in Prelab Question <a href="#7.1">3.7.1</a></li>
+         calculated in Prelab Question <span class="citation"
+         data-cites="sec:7.1">@sec:7.1</span></li>
          </ul>
          <h2 data-number="3.9" id="lab-activities"><span
          class="header-section-number">3.9</span> Lab Activities</h2>
@@ -916,23 +902,22 @@ II</h1>
          <strong>Read through them all</strong> again before you begin
          using any IC chips. You should refer back to this section in
          future labs to remind yourself of these useful tips.</p>
-         <div id="fig:power-example" class="fignos">
          <figure>
          <img src="../resources/lab4fig/power-example.jpg"
-         style="width:15cm"
-         alt="Figure 8: The LF356 op-amp DIP chip powered with plus (red) and minus (blue) voltages with decoupling capacitors. Also notice the wire jumping ground to both sides of the chip." />
-         <figcaption aria-hidden="true"><span>Figure 8:</span> The LF356
-         op-amp DIP chip powered with plus (red) and minus (blue)
-         voltages with decoupling capacitors. Also notice the wire
-         jumping ground to both sides of the chip.</figcaption>
+         id="fig:power-example" style="width:15cm"
+         alt="The LF356 op-amp DIP chip powered with plus (red) and minus (blue) voltages with decoupling capacitors. Also notice the wire jumping ground to both sides of the chip." />
+         <figcaption aria-hidden="true">The LF356 op-amp DIP chip
+         powered with plus (red) and minus (blue) voltages with
+         decoupling capacitors. Also notice the wire jumping ground to
+         both sides of the chip.</figcaption>
          </figure>
-         </div>
          <ol type="1">
          <li><p>Always unplug the power supply from your circuit while
          you’re wiring it.</p></li>
          <li><p>Chips sit across the groove on the breadboard (see
-         Figure <a href="#fig:power-example">8</a>). Any other placement
-         will cause legs to short together.</p>
+         Figure <span class="citation"
+         data-cites="fig:power-example">@fig:power-example</span>). Any
+         other placement will cause legs to short together.</p>
          <ul>
          <li><p>Before inserting a chip, ensure the pins are straight
          (using a needle-nose pliers or something similar).</p></li>
@@ -958,21 +943,22 @@ II</h1>
          ground</p></li>
          </ul></li>
          <li><p>Connect capacitors between the power pin(s) of the IC
-         (as close to the pin as possible as in Figure <a
-         href="#fig:power-example">8</a>) to ground. These are called
-         decoupling or bypass capacitors and are critical for
-         maintaining constant voltage at the pin as the current needs
-         change. Use nice, big polarized (electrolytic) capacitors
-         (<span class="math inline">\(&gt;1\ \mu\text{F}\)</span>) so
-         that they’re able to collect enough charge to deliver the
-         necessary current when needed.</p></li>
+         (as close to the pin as possible as in Figure <span
+         class="citation"
+         data-cites="fig:power-example">@fig:power-example</span>) to
+         ground. These are called decoupling or bypass capacitors and
+         are critical for maintaining constant voltage at the pin as the
+         current needs change. Use nice, big polarized (electrolytic)
+         capacitors (<span class="math inline">\(&gt;1\
+         \mu\text{F}\)</span>) so that they’re able to collect enough
+         charge to deliver the necessary current when needed.</p></li>
          <li><p>Measure all your passive elements (resistors,
          capacitors, inductors, diodes) before putting them in the
          circuits; trying to measure while they are plugged into the
          breadboard can lead to mistakes.</p></li>
          <li><p>Always have a diagram of your circuit with pin numbers
-         labeled (like the left side of Figure <a
-         href="#fig:pin-diagram">9</a>).</p></li>
+         labeled (like the left side of Figure <span class="citation"
+         data-cites="fig:pin-diagram">@fig:pin-diagram</span>).</p></li>
          <li><p>Make sure any polarized (electrolytic) capacitors are
          oriented such that the higher voltage is applied to the correct
          lead of the capacitor. Remember: <strong>ground</strong> is a
@@ -1026,16 +1012,14 @@ II</h1>
          forget to follow all the IC tips above). Below is the LF356 pin
          diagram for easy reference.</p></li>
          </ol>
-         <div id="fig:pin-diagram" class="fignos">
          <figure>
          <img src="../resources/lab4fig/lf356-pins.png"
-         style="width:10cm"
-         alt="Figure 9: Pin diagram for LF356 (left). The numbers correspond to the corresponding pin on the DIP chip (right)" />
-         <figcaption aria-hidden="true"><span>Figure 9:</span> Pin
-         diagram for LF356 (left). The numbers correspond to the
-         corresponding pin on the DIP chip (right)</figcaption>
+         id="fig:pin-diagram" style="width:10cm"
+         alt="Pin diagram for LF356 (left). The numbers correspond to the corresponding pin on the DIP chip (right)" />
+         <figcaption aria-hidden="true">Pin diagram for LF356 (left).
+         The numbers correspond to the corresponding pin on the DIP chip
+         (right)</figcaption>
          </figure>
-         </div>
          <ol start="4" type="1">
          <li><p>Use the function generator and the oscilliscope to
          measure <span class="math inline">\(G_0\)</span> of the

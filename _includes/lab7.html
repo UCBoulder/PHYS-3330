@@ -99,14 +99,16 @@ MOSFETS</h1>
          difference</p>
          <h1 data-number="3" id="fet-basics"><span
          class="header-section-number">3</span> FET Basics</h1>
-         <p>The input to a FET is called the gate (see Figure <a
-         href="#fig:mosfetpo">2</a>). Almost no current flows into the
-         gate, and FETs are nearly ideal voltage amplifiers with very
-         high input impedance. In junction FETs (JFETs), the gate is
-         connected to the rest of the device through a reverse-biased pn
-         junction, while in metal-oxide-semiconductor FETs (MOSFETs) the
-         gate is connected via a thin insulating oxide layer. FETs come
-         in two polarities called n-channel and p-channel.</p>
+         <p>The input to a FET is called the gate (see Figure <span
+         class="citation"
+         data-cites="fig:mosfetpo">@fig:mosfetpo</span>). Almost no
+         current flows into the gate, and FETs are nearly ideal voltage
+         amplifiers with very high input impedance. In junction FETs
+         (JFETs), the gate is connected to the rest of the device
+         through a reverse-biased pn junction, while in
+         metal-oxide-semiconductor FETs (MOSFETs) the gate is connected
+         via a thin insulating oxide layer. FETs come in two polarities
+         called n-channel and p-channel.</p>
          <p>In integrated circuit form, small MOSFETs are ubiquitous in
          digital electronics, used in everything from simple logic
          circuits to the 2.5-billion transistor Intel 10-core Xeon
@@ -147,25 +149,24 @@ MOSFETS</h1>
          is nearly independent of <span
          class="math inline">\(V_{DS}\)</span>. We will work in the
          saturation region for this lab. The linear and saturation
-         regions are separated by the dotted line in Figure <a
-         href="#fig:mosfetchar">1</a>. In the saturation region, the
-         dependence of current on <span
+         regions are separated by the dotted line in Figure <span
+         class="citation"
+         data-cites="fig:mosfetchar">@fig:mosfetchar</span>. In the
+         saturation region, the dependence of current on <span
          class="math inline">\(V_{GS}\)</span> is modeled by <span
          class="math inline">\(I_D = k(V_{GS} ~–~V_{th})^2\)</span>,
          where <span class="math inline">\(k\)</span> is a constant that
          depends on the device.</p>
-         <div id="fig:mosfetchar" class="fignos">
          <figure>
          <img src="../resources/lab8fig/mosfetchar.png"
-         style="width:15cm"
-         alt="Figure 1: Typical output characteristics of a MOSFET. These vary greatly between different types of MOSFETs. Always check the data sheet for your exact part. This is not the diagram for the MOSFET you will be using!" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Typical
-         output characteristics of a MOSFET. These vary greatly between
-         different types of MOSFETs. Always check the data sheet for
-         your exact part. This is not the diagram for the MOSFET you
-         will be using!</figcaption>
+         id="fig:mosfetchar" style="width:15cm"
+         alt="Typical output characteristics of a MOSFET. These vary greatly between different types of MOSFETs. Always check the data sheet for your exact part. This is not the diagram for the MOSFET you will be using!" />
+         <figcaption aria-hidden="true">Typical output characteristics
+         of a MOSFET. These vary greatly between different types of
+         MOSFETs. Always check the data sheet for your exact part. This
+         is not the diagram for the MOSFET you will be
+         using!</figcaption>
          </figure>
-         </div>
          <h1 data-number="5" id="useful-readings"><span
          class="header-section-number">5</span> Useful Readings</h1>
          <ol type="1">
@@ -244,14 +245,13 @@ MOSFETS</h1>
          <h1 data-number="7" id="irf710pbf-pin-out-and-schematic"><span
          class="header-section-number">7</span> IRF710PBF Pin-Out and
          Schematic</h1>
-         <div id="fig:mosfetpo" class="fignos">
          <figure>
-         <img src="../resources/lab8fig/mosfetpo.png" style="width:15cm"
-         alt="Figure 2: MOSFET schematic symbol and pin out configuration." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> MOSFET
-         schematic symbol and pin out configuration.</figcaption>
+         <img src="../resources/lab8fig/mosfetpo.png" id="fig:mosfetpo"
+         style="width:15cm"
+         alt="MOSFET schematic symbol and pin out configuration." />
+         <figcaption aria-hidden="true">MOSFET schematic symbol and pin
+         out configuration.</figcaption>
          </figure>
-         </div>
          <p><strong>CAUTION!</strong></p>
          <ol type="1">
          <li>These transistors are vulnerable to static discharges.
@@ -269,26 +269,26 @@ MOSFETS</h1>
          <h1 data-number="8" id="device-characterization"><span
          class="header-section-number">8</span> Device
          Characterization</h1>
-         <div id="fig:testcir" class="fignos">
          <figure>
-         <img src="../resources/lab8fig/testcir.png" style="width:15cm"
-         alt="Figure 3: Test circuit to determine the MOSFET I-V curves." />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Test
-         circuit to determine the MOSFET I-V curves.</figcaption>
+         <img src="../resources/lab8fig/testcir.png" id="fig:testcir"
+         style="width:15cm"
+         alt="Test circuit to determine the MOSFET I-V curves." />
+         <figcaption aria-hidden="true">Test circuit to determine the
+         MOSFET I-V curves.</figcaption>
          </figure>
-         </div>
          <h2 data-number="8.1" id="sec:fetchar"><span
          class="header-section-number">8.1</span> Characterizing the
          MOSFET</h2>
          <ol type="1">
-         <li>Build the test circuit for the MOSFET shown in Figure <a
-         href="#fig:testcir">3</a>. Make sure to attach a heat sink fin
-         to the FET. (See notes of caution above.) You can use the
-         10-turn pot on the interface panel of your protoboard. The
-         10-turn pot allows more intuitive control of the <span
-         class="math inline">\(V_{GS}\)</span> than the knobs on the DC
-         power supply. You can measure the resistance between pairs of
-         the three leads to make sure you have it wired correctly.</li>
+         <li>Build the test circuit for the MOSFET shown in Figure <span
+         class="citation" data-cites="fig:testcir">@fig:testcir</span>.
+         Make sure to attach a heat sink fin to the FET. (See notes of
+         caution above.) You can use the 10-turn pot on the interface
+         panel of your protoboard. The 10-turn pot allows more intuitive
+         control of the <span class="math inline">\(V_{GS}\)</span> than
+         the knobs on the DC power supply. You can measure the
+         resistance between pairs of the three leads to make sure you
+         have it wired correctly.</li>
          <li>Devise a quick way to determine the approximate threshold
          voltage for your device and write down your method. Proceed
          with finding the approximate threshold voltage. Is this value
@@ -297,20 +297,22 @@ MOSFETS</h1>
          class="math inline">\(I_D\)</span> vs. <span
          class="math inline">\(V_{DS}\)</span> curve for a value of
          <span class="math inline">\(V_{GS}\)</span> that will give you
-         about 0.5 A in the saturation regime (see <a
-         href="#sec:fetcharpre">6.1</a>.2). Plot the measurements on the
-         same graph as your prelab predictions. Do your measurements
-         agree qualitatively with the predictions from the data
-         sheet?</li>
+         about 0.5 A in the saturation regime (see <span
+         class="citation"
+         data-cites="sec:fetcharpre">@sec:fetcharpre</span>.2). Plot the
+         measurements on the same graph as your prelab predictions. Do
+         your measurements agree qualitatively with the predictions from
+         the data sheet?</li>
          <li>Measure the relationship between <span
          class="math inline">\(I_D\)</span> and <span
          class="math inline">\(V_{GS}\)</span> for one value of <span
          class="math inline">\(V_{DS}\)</span>. Use your measurements
-         from <a href="#sec:fetchar">8.1</a>.3 and the data sheet to
-         determine the <span class="math inline">\(V_{DS}\)</span> value
-         so as to operate in the saturated regime. Describe how you
-         determined the value of <span
-         class="math inline">\(V_{DS}\)</span> to use. Plot <span
+         from <span class="citation"
+         data-cites="sec:fetchar">@sec:fetchar</span>.3 and the data
+         sheet to determine the <span
+         class="math inline">\(V_{DS}\)</span> value so as to operate in
+         the saturated regime. Describe how you determined the value of
+         <span class="math inline">\(V_{DS}\)</span> to use. Plot <span
          class="math inline">\(I_D\)</span> vs. <span
          class="math inline">\(V_{GS}\)</span> on the same graph as your
          prelab predictions. Do your measurements agree qualitatively
@@ -319,23 +321,22 @@ MOSFETS</h1>
          data to obtain values for <span
          class="math inline">\(k\)</span> and <span
          class="math inline">\(V_{th}\)</span>, including uncertainties.
-         Do these match your predictions from <a
-         href="#sec:fetcharpre">6.1</a>.3? Does the value for <span
-         class="math inline">\(V_{th}\)</span> agree with your result
-         from <a href="#sec:fetchar">8.1</a>.2?</li>
+         Do these match your predictions from <span class="citation"
+         data-cites="sec:fetcharpre">@sec:fetcharpre</span>.3? Does the
+         value for <span class="math inline">\(V_{th}\)</span> agree
+         with your result from <span class="citation"
+         data-cites="sec:fetchar">@sec:fetchar</span>.2?</li>
          </ol>
          <h1 data-number="9" id="voltage-controlled-electromagnet"><span
          class="header-section-number">9</span> Voltage Controlled
          Electromagnet</h1>
-         <div id="fig:magcircuit" class="fignos">
          <figure>
          <img src="../resources/lab8fig/magcircuit.png"
-         style="width:15cm"
-         alt="Figure 4: Circuit diagram for a voltage-controlled electromagnet." />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> Circuit
-         diagram for a voltage-controlled electromagnet.</figcaption>
+         id="fig:magcircuit" style="width:15cm"
+         alt="Circuit diagram for a voltage-controlled electromagnet." />
+         <figcaption aria-hidden="true">Circuit diagram for a
+         voltage-controlled electromagnet.</figcaption>
          </figure>
-         </div>
          <h2 data-number="9.1" id="electromagnetic-coil"><span
          class="header-section-number">9.1</span> Electromagnetic
          coil</h2>
@@ -355,12 +356,13 @@ MOSFETS</h1>
          <h2 data-number="9.2" id="electromagnet"><span
          class="header-section-number">9.2</span> Electromagnet</h2>
          <ol type="1">
-         <li>Build the circuit shown in Figure <a
-         href="#fig:magcircuit">4</a> using your coil.</li>
-         <li>Using the data you acquired in section <a
-         href="#sec:fetchar">8.1</a>, determine <span
-         class="math inline">\(V_{supply}\)</span> and <span
-         class="math inline">\(V_{GS}\)</span> to operate your
+         <li>Build the circuit shown in Figure <span class="citation"
+         data-cites="fig:magcircuit">@fig:magcircuit</span> using your
+         coil.</li>
+         <li>Using the data you acquired in section <span
+         class="citation" data-cites="sec:fetchar">@sec:fetchar</span>,
+         determine <span class="math inline">\(V_{supply}\)</span> and
+         <span class="math inline">\(V_{GS}\)</span> to operate your
          electromagnet with 1 A of current in the saturation region.
          Remember to include the voltage drop across your coil in your
          calculations (HINT: <span class="math inline">\(V_{DS} =

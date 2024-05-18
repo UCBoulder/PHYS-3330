@@ -1,0 +1,29 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+    \draw (0,0) ellipse (.5cm and 1cm);
+    \draw[->,>=stealth] (0,0) -- ++ (-.5,0) node[midway,above]{$r$}; 
+    \draw (0,1) --++(-3,0) (0,-1) --++(-3,0);
+    \draw (-3,0) +(90:.5cm and 1cm) arc (90:270:.5cm and 1cm);
+    \draw (0,1.1) --++ (0,.5);
+    \draw (-3,1.1) --++ (0,.5);
+    \draw[<-,>=stealth] (0,1.4) --++ (-1.3,0);
+    \draw[<-,>=stealth] (-3,1.4) --++ (1.3,0) node[anchor=west] {$\ell$};
+    \draw[<-] (.25,.5) --++ (.7,.7) node[anchor=south west] {$V_1$};
+    \draw[<-] (-3.5,.5) --++ (-.7,.7) node[anchor=south east] {$V_2$};
+\end{circuitikz}
+
+\end{document}

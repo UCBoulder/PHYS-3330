@@ -208,25 +208,23 @@ clocks</h1>
          <p>The voltage in a digital circuit is allowed to be in only
          one of two states: HIGH or LOW. HIGH is taken to mean logical
          (1) or logical TRUE. LOW is taken to mean logical (0) or
-         logical FALSE. In the TTL logic family (see Figure <a
-         href="#fig:TTLvolt">1</a>), the “ideal” HIGH and LOW voltage
-         levels are 5 V and 0 V, respectively, but any input voltage in
-         the range of 2–5 V is interpreted as HIGH, and any input
-         voltage in the range of 0–0.8 V as LOW. Voltages outside this
-         range are undefined, and therefore “illegal,” except if they
-         occur briefly during transitions. If the input to a TTL circuit
-         is a voltage in this undefined range, the response is
-         unpredictable, with the circuit sometimes interpreting it as a
-         “1” and sometimes as a “0.” Avoid sending voltages in the
-         undefined range into TTL components.</p>
-         <div id="fig:TTLvolt" class="fignos">
+         logical FALSE. In the TTL logic family (see Figure <span
+         class="citation" data-cites="fig:TTLvolt">@fig:TTLvolt</span>),
+         the “ideal” HIGH and LOW voltage levels are 5 V and 0 V,
+         respectively, but any input voltage in the range of 2–5 V is
+         interpreted as HIGH, and any input voltage in the range of
+         0–0.8 V as LOW. Voltages outside this range are undefined, and
+         therefore “illegal,” except if they occur briefly during
+         transitions. If the input to a TTL circuit is a voltage in this
+         undefined range, the response is unpredictable, with the
+         circuit sometimes interpreting it as a “1” and sometimes as a
+         “0.” Avoid sending voltages in the undefined range into TTL
+         components.</p>
          <figure>
-         <img src="../resources/lab9fig/TTLvolt.png"
-         alt="Figure 1: TTL voltage levels" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> TTL
-         voltage levels</figcaption>
+         <img src="../resources/lab9fig/TTLvolt.png" id="fig:TTLvolt"
+         alt="TTL voltage levels" />
+         <figcaption aria-hidden="true">TTL voltage levels</figcaption>
          </figure>
-         </div>
          <h1 data-number="5" id="digital-logic-gates"><span
          class="header-section-number">5</span> Digital Logic Gates</h1>
          <p>The flow of digital signals is controlled by transistors in
@@ -247,26 +245,25 @@ clocks</h1>
          input states. The output values of the truth tables can be
          understood in terms of two switches. If the switches are in
          series, you get the AND function. Parallel switches perform the
-         OR operation. The most common gates are shown in Figure <a
-         href="#fig:simpgates">2</a> and Figure <a
-         href="#fig:compgates">3</a>. A small circle after a gate or at
-         an input indicates negation (NOT).</p>
-         <div id="fig:simpgates" class="fignos">
+         OR operation. The most common gates are shown in Figure <span
+         class="citation"
+         data-cites="fig:simpgates">@fig:simpgates</span> and Figure
+         <span class="citation"
+         data-cites="fig:compgates">@fig:compgates</span>. A small
+         circle after a gate or at an input indicates negation
+         (NOT).</p>
          <figure>
          <img src="../resources/lab9fig/simpgates.png"
-         alt="Figure 2: Simple logic gates" />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Simple
-         logic gates</figcaption>
+         id="fig:simpgates" alt="Simple logic gates" />
+         <figcaption aria-hidden="true">Simple logic gates</figcaption>
          </figure>
-         </div>
-         <div id="fig:compgates" class="fignos">
          <figure>
          <img src="../resources/lab9fig/compgates.png"
-         style="width:15cm" alt="Figure 3: Compound logic gates" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Compound
-         logic gates</figcaption>
+         id="fig:compgates" style="width:15cm"
+         alt="Compound logic gates" />
+         <figcaption aria-hidden="true">Compound logic
+         gates</figcaption>
          </figure>
-         </div>
          <h1 data-number="6" id="memory-elements-and-flip-flops"><span
          class="header-section-number">6</span> Memory Elements and
          Flip-Flops</h1>
@@ -287,14 +284,11 @@ clocks</h1>
          Q=1, where it remains after S returns to zero. A later pulse R
          on the other input resets the circuit to Q=0, where it remains
          until the next S pulse.</p>
-         <div id="fig:rsmem" class="fignos">
          <figure>
-         <img src="../resources/lab9fig/rsmem.png"
-         alt="Figure 4: RS memory element" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> RS memory
-         element</figcaption>
+         <img src="../resources/lab9fig/rsmem.png" id="fig:rsmem"
+         alt="RS memory element" />
+         <figcaption aria-hidden="true">RS memory element</figcaption>
          </figure>
-         </div>
          <h2 data-number="6.2" id="jk-flip-flop-ttl74107"><span
          class="header-section-number">6.2</span> JK flip-flop
          (TTL74107)</h2>
@@ -317,41 +311,37 @@ clocks</h1>
          class="math inline">\(Q_n\)</span> depends on the J and K
          inputs in the way specified in the truth table. The change
          occurs at the falling (trailing) edge of the clock pulse,
-         indicated by a downward arrow in the truth table in Figure <a
-         href="#fig:jkflipflop">5</a>. The direct input, CLR, overrides
-         the clock and data inputs. During normal operation, CLR = 1. At
-         the moment CLR goes to zero, the output goes to zero and
-         remains there as long as CLR = 0.</p>
-         <div id="fig:jkflipflop" class="fignos">
+         indicated by a downward arrow in the truth table in Figure
+         <span class="citation"
+         data-cites="fig:jkflipflop">@fig:jkflipflop</span>. The direct
+         input, CLR, overrides the clock and data inputs. During normal
+         operation, CLR = 1. At the moment CLR goes to zero, the output
+         goes to zero and remains there as long as CLR = 0.</p>
          <figure>
          <img src="../resources/lab9fig/jkflipflop.png"
-         alt="Figure 5: JK flip-flop" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> JK
-         flip-flop</figcaption>
+         id="fig:jkflipflop" alt="JK flip-flop" />
+         <figcaption aria-hidden="true">JK flip-flop</figcaption>
          </figure>
-         </div>
          <h2 data-number="6.3" id="timer-and-digital-clock"><span
          class="header-section-number">6.3</span> 555 timer and digital
          clock</h2>
          <p>See <a
          href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
          section 15.1.1 for a description of the guts of the 555 timer
-         chip. Figure <a href="#fig:555timer">6</a> shows the circuit
-         for generating a clock with the 555 and summarizes the formulas
-         relating the resistor and capacitor values to the output low
-         time T1 and the output high time T2. Much more information is
-         available in <a
+         chip. Figure <span class="citation"
+         data-cites="fig:555timer">@fig:555timer</span> shows the
+         circuit for generating a clock with the 555 and summarizes the
+         formulas relating the resistor and capacitor values to the
+         output low time T1 and the output high time T2. Much more
+         information is available in <a
          href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
          section 15.1.2.</p>
-         <div id="fig:555timer" class="fignos">
          <figure>
-         <img src="../resources/lab9fig/555timer.png"
-         alt="Figure 6: Summary of information for generating a clock with a 555 Timer" />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> Summary
-         of information for generating a clock with a 555
-         Timer</figcaption>
+         <img src="../resources/lab9fig/555timer.png" id="fig:555timer"
+         alt="Summary of information for generating a clock with a 555 Timer" />
+         <figcaption aria-hidden="true">Summary of information for
+         generating a clock with a 555 Timer</figcaption>
          </figure>
-         </div>
          <h1 data-number="7" id="digital-logic-chip-pin-outs"><span
          class="header-section-number">7</span> Digital Logic Chip
          Pin-Outs</h1>
@@ -362,14 +352,13 @@ clocks</h1>
          14 is always connected to the +5 V supply. You connect these to
          the breadboard the same way as the op-amp (across the groove in
          the middle of the breadboard).</p>
-         <div id="fig:logicchips" class="fignos">
          <figure>
          <img src="../resources/lab9fig/logicchips.png"
-         style="width:20cm" alt="Figure 7: Some logic chip pin-outs." />
-         <figcaption aria-hidden="true"><span>Figure 7:</span> Some
-         logic chip pin-outs.</figcaption>
+         id="fig:logicchips" style="width:20cm"
+         alt="Some logic chip pin-outs." />
+         <figcaption aria-hidden="true">Some logic chip
+         pin-outs.</figcaption>
          </figure>
-         </div>
          <h1 data-number="8" id="useful-readings"><span
          class="header-section-number">8</span> Useful Readings</h1>
          <ol type="1">
@@ -412,12 +401,13 @@ clocks</h1>
          class="header-section-number">9.3</span> JK flip-flop</h2>
          <ol type="1">
          <li>A JK flip-flop with J=K=1 and CLR=1 is driven at the clock
-         input by the 4 kHz clock you designed in section <a
-         href="#sec:555pre">9.2</a>. Draw the waveforms for the clock
-         and the Q output (labeling each) vs. time using the same time
-         scale (making sure the times are indicated on the x-axis).
-         Include enough periods of the clock signal to see the full
-         behavior of the flip-flop’s output.</li>
+         input by the 4 kHz clock you designed in section <span
+         class="citation" data-cites="sec:555pre">@sec:555pre</span>.
+         Draw the waveforms for the clock and the Q output (labeling
+         each) vs. time using the same time scale (making sure the times
+         are indicated on the x-axis). Include enough periods of the
+         clock signal to see the full behavior of the flip-flop’s
+         output.</li>
          </ol>
          <h2 data-number="9.4" id="lab-activities"><span
          class="header-section-number">9.4</span> Lab activities</h2>
@@ -472,8 +462,8 @@ clocks</h1>
          <ol type="1">
          <li>Verify the truth tables for an XOR chip (7486).</li>
          <li>Build and test the XOR circuit you designed using only NAND
-         or only NOR gates in section <a
-         href="#sec:bdlpre">9.1</a>.2.</li>
+         or only NOR gates in section <span class="citation"
+         data-cites="sec:bdlpre">@sec:bdlpre</span>.2.</li>
          </ol>
          <h1 data-number="11" id="sequential-logic"><span
          class="header-section-number">11</span> Sequential Logic</h1>
@@ -498,12 +488,12 @@ clocks</h1>
          555 timer</h2>
          <ol type="1">
          <li>Build the ~4 kHz digital clock using a 555 Timer according
-         to your design in section <a href="#sec:555pre">9.2</a>.1.
-         Measure the frequency, the pulse length (time the output is
-         high), the duty cycle, and the nominal 5 V amplitude. Include a
-         screen shot showing the results. Do your measurements agree
-         with your predictions using the measured values of your
-         components?</li>
+         to your design in section <span class="citation"
+         data-cites="sec:555pre">@sec:555pre</span>.1. Measure the
+         frequency, the pulse length (time the output is high), the duty
+         cycle, and the nominal 5 V amplitude. Include a screen shot
+         showing the results. Do your measurements agree with your
+         predictions using the measured values of your components?</li>
          <li>Check that a suitable large capacitor placed in parallel
          with the existing one converts the clock to 2 Hz.</li>
          </ol>
@@ -527,21 +517,21 @@ clocks</h1>
          flip-flop with 4 kHz pulses from your clock circuit. Use the
          oscilloscope to measure the clock input and the output, <span
          class="math inline">\(Q\)</span>, of the flip-flop. You may
-         find Figure <a href="#fig:jkfftest">8</a> helpful to setup this
-         part. Record your measurements and compare with your prediction
-         from section <a href="#sec:jkffpre">9.3</a>. Include a screen
+         find Figure <span class="citation"
+         data-cites="fig:jkfftest">@fig:jkfftest</span> helpful to setup
+         this part. Record your measurements and compare with your
+         prediction from section <span class="citation"
+         data-cites="sec:jkffpre">@sec:jkffpre</span>. Include a screen
          shot showing the results.</li>
          <li>Do the same test with J = K = 0 and record what
          happens.</li>
          </ol>
-         <div id="fig:jkfftest" class="fignos">
          <figure>
-         <img src="../resources/lab9fig/jkfftest.png" style="width:20cm"
-         alt="Figure 8: JK flip-flop test setup" />
-         <figcaption aria-hidden="true"><span>Figure 8:</span> JK
-         flip-flop test setup</figcaption>
+         <img src="../resources/lab9fig/jkfftest.png" id="fig:jkfftest"
+         style="width:20cm" alt="JK flip-flop test setup" />
+         <figcaption aria-hidden="true">JK flip-flop test
+         setup</figcaption>
          </figure>
-         </div>
          <h1 data-number="12" id="appendix-boolean-algebra"><span
          class="header-section-number">12</span> Appendix: Boolean
          Algebra</h1>
@@ -553,9 +543,8 @@ clocks</h1>
          identities using the AND, OR and NOT operations. Looking at
          these identities you can see why the ‘plus’ symbol was chosen
          for OR and ‘times’ (•) for AND.</p>
-         <div id="tbl:1" class="tablenos">
-         <table id="tbl:1">
-         <caption><span>Table 1:</span> Caption. </caption>
+         <table>
+         <caption>Caption. {#tbl:1}</caption>
          <thead>
          <tr class="header">
          <th>OR</th>
@@ -586,7 +575,6 @@ clocks</h1>
          </tr>
          </tbody>
          </table>
-         </div>
          <h2 data-number="12.2" id="equality"><span
          class="header-section-number">12.2</span> Equality</h2>
          <p>Two Boolean expressions are equal if and only if their truth
@@ -619,9 +607,8 @@ clocks</h1>
          tables for the left and right sides. We take on DeMorgan’s
          first theorem for two variables, <span
          class="math inline">\(\overline{AB}=\bar{A}+\bar{B}\)</span>:</p>
-         <div id="tbl:2" class="tablenos">
-         <table id="tbl:2">
-         <caption><span>Table 2:</span> Caption. </caption>
+         <table>
+         <caption>Caption. {#tbl:2}</caption>
          <thead>
          <tr class="header">
          <th><span class="math inline">\(A\)</span></th>
@@ -657,10 +644,8 @@ clocks</h1>
          </tr>
          </tbody>
          </table>
-         </div>
-         <div id="tbl:3" class="tablenos">
-         <table id="tbl:3">
-         <caption><span>Table 3:</span> Caption. </caption>
+         <table>
+         <caption>Caption. {#tbl:3}</caption>
          <thead>
          <tr class="header">
          <th><span class="math inline">\(A\)</span></th>
@@ -701,7 +686,6 @@ clocks</h1>
          </tr>
          </tbody>
          </table>
-         </div>
          <p>The last columns of the truth tables are identical. Thus,
          the first theorem is proven for two variables.</p>
          <h2 data-number="12.7" id="example-of-simplification"><span
@@ -713,14 +697,11 @@ clocks</h1>
          <span class="math inline">\(Y=A+\bar{A}BC\)</span>.</p>
          <p><strong>Direct implementation</strong> using NOT, NOR, and
          NAND</p>
-         <div id="fig:logic" class="fignos">
          <figure>
-         <img src="../resources/lab9fig/logic.png"
-         alt="Figure 9: Logic" />
-         <figcaption aria-hidden="true"><span>Figure 9:</span>
-         Logic</figcaption>
+         <img src="../resources/lab9fig/logic.png" id="fig:logic"
+         alt="Logic" />
+         <figcaption aria-hidden="true">Logic</figcaption>
          </figure>
-         </div>
                </div>
             <!-- Mathjax -->
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

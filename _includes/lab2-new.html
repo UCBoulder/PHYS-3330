@@ -45,6 +45,9 @@ Voltage Dividers</h1>
             <li><a href="#1.3" id="toc-1.3"><span
             class="toc-section-number">2.2.3</span> Prelab
             Question</a></li>
+            <li><a href="#1.4" id="toc-1.4"><span
+            class="toc-section-number">2.2.4</span> Prelab
+            Question</a></li>
             </ul></li>
             <li><a href="#transfer-function"
             id="toc-transfer-function"><span
@@ -60,10 +63,10 @@ Voltage Dividers</h1>
             class="toc-section-number">2.3.3</span> Prelab
             Question</a></li>
             </ul></li>
-            <li><a href="#voltage-divider-with-non-ideal-power-supply"
-            id="toc-voltage-divider-with-non-ideal-power-supply"><span
-            class="toc-section-number">2.4</span> Voltage Divider with
-            Non-ideal Power Supply</a>
+            <li><a href="#non-ideal-voltage-source-driving-a-circuit"
+            id="toc-non-ideal-voltage-source-driving-a-circuit"><span
+            class="toc-section-number">2.4</span> Non-ideal voltage
+            source driving a circuit</a>
             <ul>
             <li><a href="#3.1" id="toc-3.1"><span
             class="toc-section-number">2.4.1</span> Prelab
@@ -78,10 +81,10 @@ Voltage Dividers</h1>
             class="toc-section-number">2.4.4</span> Prelab
             Question</a></li>
             </ul></li>
-            <li><a href="#impacts-of-parallel-impedances"
-            id="toc-impacts-of-parallel-impedances"><span
-            class="toc-section-number">2.5</span> Impacts of Parallel
-            Impedances</a>
+            <li><a href="#voltage-divider-with-non-ideal-power-supply"
+            id="toc-voltage-divider-with-non-ideal-power-supply"><span
+            class="toc-section-number">2.5</span> Voltage Divider with
+            Non-ideal Power Supply</a>
             <ul>
             <li><a href="#4.1" id="toc-4.1"><span
             class="toc-section-number">2.5.1</span> Prelab
@@ -89,11 +92,29 @@ Voltage Dividers</h1>
             <li><a href="#4.2" id="toc-4.2"><span
             class="toc-section-number">2.5.2</span> Prelab
             Question</a></li>
+            <li><a href="#4.3" id="toc-4.3"><span
+            class="toc-section-number">2.5.3</span> Prelab
+            Question</a></li>
+            <li><a href="#4.4" id="toc-4.4"><span
+            class="toc-section-number">2.5.4</span> Prelab
+            Question</a></li>
+            <li><a href="#4.5" id="toc-4.5"><span
+            class="toc-section-number">2.5.5</span> Prelab
+            Question</a></li>
+            <li><a href="#4.6" id="toc-4.6"><span
+            class="toc-section-number">2.5.6</span> Prelab
+            Question</a></li>
+            <li><a href="#4.7" id="toc-4.7"><span
+            class="toc-section-number">2.5.7</span> Prelab
+            Question</a></li>
+            <li><a href="#4.8" id="toc-4.8"><span
+            class="toc-section-number">2.5.8</span> Prelab
+            Question</a></li>
             </ul></li>
-            <li><a href="#non-ideal-power-source-driving-a-load"
-            id="toc-non-ideal-power-source-driving-a-load"><span
-            class="toc-section-number">2.6</span> Non-ideal power source
-            driving a load</a>
+            <li><a href="#impacts-of-parallel-impedances"
+            id="toc-impacts-of-parallel-impedances"><span
+            class="toc-section-number">2.6</span> Impacts of Parallel
+            Impedances</a>
             <ul>
             <li><a href="#5.1" id="toc-5.1"><span
             class="toc-section-number">2.6.1</span> Prelab
@@ -103,12 +124,6 @@ Voltage Dividers</h1>
             Question</a></li>
             <li><a href="#5.3" id="toc-5.3"><span
             class="toc-section-number">2.6.3</span> Prelab
-            Question</a></li>
-            <li><a href="#5.4" id="toc-5.4"><span
-            class="toc-section-number">2.6.4</span> Prelab
-            Question</a></li>
-            <li><a href="#5.5" id="toc-5.5"><span
-            class="toc-section-number">2.6.5</span> Prelab
             Question</a></li>
             </ul></li>
             <li><a href="#lab-activities" id="toc-lab-activities"><span
@@ -211,102 +226,67 @@ Voltage Dividers</h1>
          **Potentiometer (pot)** - a three-terminal resistive device that provides a variable resistance between the ends and the \"wiper\" connection.-->
          <h1 data-number="2" id="prelab"><span
          class="header-section-number">2</span> Prelab</h1>
-         <p>Answer the following questions in your lab notebook and with
-         Jupyter Notebooks. Scan the relevant pages and upload the PDF
-         file to Canvas. Note that the lab prep activities are directly
-         related to the lab and by completing them (and having them
-         available during lab) you will be able to work through the lab
-         more efficiently and be able to understand what you are doing
-         during the lab.</p>
-         <p>For your calculations, you should write a reusable function
-         in a Python script that you can import into your Jupyter
-         Notebooks. This will allow you to easily update calculations
-         and recycle code in a practical way.</p>
-         <p>For example, with a script called <code>jlab.py</code></p>
-         <div class="sourceCode" id="cb1"><pre
-         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Python script to import useful functions for J-Lab</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parallel_resistance(resistors: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    conductance <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> resistance <span class="kw">in</span> resistors:</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        conductance <span class="op">+=</span> <span class="fl">1.0</span> <span class="op">/</span> resistance</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> conductance</span></code></pre></div>
-         <p>This function can be used in a Jupyter Notebook like
-         this</p>
-         <div class="sourceCode" id="cb2"><pre
-         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jlab <span class="im">as</span> jl</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> <span class="fl">2e3</span>  <span class="co"># 2 kOhm</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> <span class="dv">800</span>  <span class="co"># 500 Ohm</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> <span class="fl">1e3</span>  <span class="co"># 1 kOhm</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rp <span class="op">=</span> jl.parallel_restance([r1, r2, r3])</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="st">&quot;R_p = </span><span class="sc">{:.1f}</span><span class="st"> Ohm&quot;</span>.<span class="bu">format</span>(rp) )</span></code></pre></div>
          <h2 data-number="2.1" id="breadboard"><span
          class="header-section-number">2.1</span> Breadboard</h2>
-         <p>Before modern prototyping boards, to test circuits, people
-         would take wooden cutting boards (aka breadboards) and tack
-         nails into them to provide scaffolding to create a circuit. <a
+         <p>Before modern prototyping boards, people would take wooden
+         cutting boards (aka breadboards) and tack nails into them to
+         provide scaffolding for testing circuits. <a
          href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/history">Take
-         a look!</a> Even though we’ve moved to far more sophisticated
-         prototyping boards, we still affectionately call them
+         a look!</a> Modern prototyping boards are far more
+         sophisticated but are affectionately still called
          breadboards.</p>
-         <p>Breadboards allow for quickly creating and modifying
-         circuits, with no soldering. Once the circuit works and meets
-         the desired specifications, a printed circuit board (PCB) can
-         be designed and made. All the components can be soldered to the
-         PCB and the circuit can be mounted in a metal case to shield it
-         from external electromagnetic fields. Present technology allows
-         anyone to cheaply design, layout, and print professional
-         circuit boards. For example: <a
+         <p>Breadboards allow you to quickly create and modify circuits
+         without needing to solder anything. Once the circuit works and
+         meets the desired specifications, a printed circuit board (PCB)
+         can be designed and made. All the components can be soldered to
+         the PCB and the circuit can be mounted in a metal case to
+         shield it from external electromagnetic fields. Present
+         technology allows anyone to cheaply design, layout, and print
+         professional circuit boards. For example: <a
          href="http://www.expresspcb.com/"
          class="uri">http://www.expresspcb.com/</a></p>
-         <div id="fig:bread-pins," class="fignos">
          <figure>
          <img src="../resources/lab2fig/breadboard-pins.jpg"
-         style="width:10cm"
-         alt="Figure 1: Example of breadboard rows of holes. (left) The front of the breadboard, and (right) the backside of the breadboard. Image from Sparkfun." />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Example
-         of breadboard rows of holes. (left) The front of the
-         breadboard, and (right) the backside of the breadboard. <a
+         id="fig:breadpins" style="width:10cm"
+         alt="Example of breadboard with rows of holes. (left) The front of the breadboard, and (right) the backside of the breadboard. Image from Sparkfun." />
+         <figcaption aria-hidden="true">Example of breadboard with rows
+         of holes. (left) The front of the breadboard, and (right) the
+         backside of the breadboard. <a
          href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Image
          from Sparkfun.</a></figcaption>
          </figure>
-         </div>
          <p>Breadboards are composed of several holes that you can stick
          wires into. The holes form rows of metallic connection (as seen
-         in Figure ??). Each of these rows are constructed like little
-         grabbers that allow for secure connections (as seen in Figure
-         ??).</p>
-         <div id="fig:bread-row," class="fignos">
+         in Figure <span class="citation"
+         data-cites="fig:breadpins">@fig:breadpins</span>). Each of
+         these rows are constructed like little grabbers that allow for
+         secure connections (as seen in Figure <span class="citation"
+         data-cites="fig:breadrow">@fig:breadrow</span>).</p>
          <figure>
          <img src="../resources/lab2fig/breadboard-row.JPG"
-         style="width:8cm"
-         alt="Figure 2: The breadboard is composed of many of these little. Image from Sparkfun." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> The
-         breadboard is composed of many of these little. <a
+         id="fig:breadrow" style="width:8cm"
+         alt="The breadboard is composed of many of these rows of grabbers. Image from Sparkfun." />
+         <figcaption aria-hidden="true">The breadboard is composed of
+         many of these rows of grabbers. <a
          href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Image
          from Sparkfun.</a></figcaption>
          </figure>
-         </div>
-         <p>Our breadboards have a custom built headers (see Figure ??)
-         to allow you to easily interface your equipment (scope, power
-         supply, function generator, etc.) with the breadboard. All the
+         <p>Our breadboards have custom built headers (see Figure <span
+         class="citation"
+         data-cites="fig:breadheader">@fig:breadheader</span>) to allow
+         you to easily interface your equipment (scope, power supply,
+         function generator, etc.) with the breadboard. All the
          connectors, switches, and potentiometers are connected to the
          green screw terminals that wires can be clamped in to connect
          to the breadboard.</p>
-         <div id="fig:bread-header," class="fignos">
          <figure>
          <img src="../resources/lab2fig/breadboard-header.png"
-         style="width:15cm"
-         alt="Figure 3: A breadboard with a header attached (a second header is shown upside-down to reveal what’s going on “under the hood”)" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> A
-         breadboard with a header attached (a second header is shown
-         upside-down to reveal what’s going on “under the
-         hood”)</figcaption>
+         id="fig:breadheader" style="width:15cm"
+         alt="A breadboard with a header attached (a second header is shown upside-down to reveal what’s going on “under the hood”)" />
+         <figcaption aria-hidden="true">A breadboard with a header
+         attached (a second header is shown upside-down to reveal what’s
+         going on “under the hood”)</figcaption>
          </figure>
-         </div>
          <p>The far left and far right screw terminals are connected to
          switches and potentiometers (three terminal, variable
          resistors). The mid-left screw terminal is connected to banana
@@ -323,33 +303,36 @@ Voltage Dividers</h1>
          common connection to the case. Notice that this is labeled in a
          few places on the breadboard’s header (suggesting connection to
          the metal case).</p>
-         <p>Which screw terminal should be used to access the outer
-         conductor of the BNCs?</p>
+         <p>Which screw terminal (there’s just one) should be used to
+         access the outer conductor of the BNCs? You can describe the
+         screw terminal by which connector is connected to it.</p>
          <h2 data-number="2.2" id="voltage-dividers"><span
          class="header-section-number">2.2</span> Voltage Dividers</h2>
-         <div id="fig:ideal-vd" class="fignos">
          <figure>
-         <img src="../resources/lab2fig/ideal-vd.png" style="height:7cm"
-         alt="Figure 4: Three equivalent Ideal Voltage Divider circuits. (a), (b), and (c) all show the same exact circuit diagram!" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> Three
-         equivalent <em>Ideal Voltage Divider</em> circuits. (a), (b),
-         and (c) all show the same exact circuit diagram!</figcaption>
+         <img src="../resources/lab2fig/ideal-vd.png" id="fig:ideal-vd"
+         style="height:7cm"
+         alt="Three equivalent Ideal Voltage Divider circuits. (a), (b), and (c) are all equivalent diagrams representing the exact same circuit!" />
+         <figcaption aria-hidden="true">Three equivalent <em>Ideal
+         Voltage Divider</em> circuits. (a), (b), and (c) are all
+         equivalent diagrams representing the exact same
+         circuit!</figcaption>
          </figure>
-         </div>
          <p>An ideal voltage source (no internal resistance) drives
-         current around the loop of two resistors shown in Figure <a
-         href="#fig:ideal-vd">4</a> (all three circuits in this figure
-         are equivalent!). Each resistor has a voltage drop across it
-         due to the current running through them, so the voltage out
-         will be less than the voltage in.</p>
+         current around the loop of two resistors shown in Figure <span
+         class="citation" data-cites="fig:ideal-vd">@fig:ideal-vd</span>
+         (all three circuits in this figure are equivalent!). Each
+         resistor has a voltage drop across it due to the current
+         running through them, so the voltage difference labeled <span
+         class="math inline">\(V_\text{out}\)</span> will be less than
+         the voltage applied to the whole circuit.</p>
          <h3 data-number="2.2.1" id="1.1"><span
          class="header-section-number">2.2.1</span> Prelab Question</h3>
          <p>What is the current <span class="math inline">\(I\)</span>
          through each resistor? Represent these with respect to <span
          class="math inline">\(V_\text{in}\)</span>, <span
          class="math inline">\(R_1\)</span> and <span
-         class="math inline">\(R_2\)</span>. (<em>Hint:</em> the
-         resistors are in series)</p>
+         class="math inline">\(R_2\)</span>. <em>Hint:</em> the
+         resistors are in series.</p>
          <h3 data-number="2.2.2" id="1.2"><span
          class="header-section-number">2.2.2</span> Prelab Question</h3>
          <p>What is the voltage across <span
@@ -361,8 +344,24 @@ Voltage Dividers</h1>
          <p>Express <span class="math inline">\(V_\text{out}\)</span>
          with respect to <span
          class="math inline">\(V_\text{in}\)</span>, and the two
-         resistors (don’t have <span class="math inline">\(I\)</span> in
-         the equation).</p>
+         resistors <em>Hint:</em> this expression should not depend on
+         the current.</p>
+         <h3 data-number="2.2.4" id="1.4"><span
+         class="header-section-number">2.2.4</span> Prelab Question</h3>
+         <p>Build the circuit shown in Figure <span class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span> in LTspice. Use
+         these values - <span class="math inline">\(V_\text{in} =
+         10\text{ V}\)</span> - <span class="math inline">\(R_1 =
+         1\text{ k}\Omega\)</span> - <span class="math inline">\(R_2 =
+         3\text{ k}\Omega\)</span></p>
+         <p>First calculate <span class="math inline">\(I\)</span> and
+         <span class="math inline">\(V_\text{out}\)</span>. Then run a
+         transient simulation and measure <span
+         class="math inline">\(I\)</span> and <span
+         class="math inline">\(V_\text{out}\)</span>. If your
+         calculations and simulation do not agree, resolve any issues
+         (this could be due to a mistake in your calculations or in
+         setting up your simulation).</p>
          <h2 data-number="2.3" id="transfer-function"><span
          class="header-section-number">2.3</span> Transfer Function</h2>
          <p>A <strong>transfer function</strong> <span
@@ -372,11 +371,15 @@ Voltage Dividers</h1>
          <p><span class="math display">\[\begin{equation}
          T = \frac{V_\text{out}}{V_\text{in}}
          \end{equation}\]</span></p>
+         <p>A voltage divider’s output will always be less than the
+         input, so the transfer function will range between <span
+         class="math inline">\(0\)</span> and <span
+         class="math inline">\(1\)</span>.</p>
          <h3 data-number="2.3.1" id="2.1"><span
          class="header-section-number">2.3.1</span> Prelab Question</h3>
          <p>Calculate the transfer function of the voltage divider.
-         (<em>Hint:</em> this should only depend on the values of the
-         resistors)</p>
+         <em>Hint:</em> use the result of problem <span class="citation"
+         data-cites="1.3">@1.3</span>.</p>
          <h3 data-number="2.3.2" id="2.2"><span
          class="header-section-number">2.3.2</span> Prelab Question</h3>
          <p>For <span class="math inline">\(R_1 = 2\text{
@@ -388,116 +391,232 @@ Voltage Dividers</h1>
          <span class="math inline">\(10\text{ V}\)</span>, what will
          <span class="math inline">\(V_\text{out}\)</span> be (using the
          resistance values above)?</p>
+         <p>Use LTspice to confirm this.</p>
          <h2 data-number="2.4"
-         id="voltage-divider-with-non-ideal-power-supply"><span
-         class="header-section-number">2.4</span> Voltage Divider with
-         Non-ideal Power Supply</h2>
-         <div id="fig:nonideal-vd" class="fignos">
+         id="non-ideal-voltage-source-driving-a-circuit"><span
+         class="header-section-number">2.4</span> Non-ideal voltage
+         source driving a circuit</h2>
          <figure>
-         <img src="../resources/lab2fig/nonideal-vd.png"
-         style="height:7.5cm"
-         alt="Figure 5: A real power source has an output impedance R_o that can impact the circuit" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> A real
-         power source has an output impedance <span
-         class="math inline">\(R_o\)</span> that can impact the
-         circuit</figcaption>
+         <img src="../resources/lab2fig/output-input-impedance.png"
+         id="fig:input-output-impedance" style="height:7.5cm"
+         alt="A real power source has an output impedance R_o that can impact the output voltage" />
+         <figcaption aria-hidden="true">A real power source has an
+         output impedance <span class="math inline">\(R_o\)</span> that
+         can impact the output voltage</figcaption>
          </figure>
-         </div>
-         <p>Real voltage sources have output impedances (modeled with a
-         resistor in series with the voltage as seen in Figure <a
-         href="#fig:nonideal-vd">5</a>).</p>
+         <p>A non-ideal power source has series resistance (aka output
+         impedance) <span class="math inline">\(R_o\)</span>. When your
+         circuit draws current from the power source, current will pass
+         through <span class="math inline">\(R_o\)</span>, so voltage
+         will drop across it. Even complicated circuits can often be
+         modeled as a single resistor</p>
+         <p>When it drives a load (or a circuit with input impedance)
+         <span class="math inline">\(R_i\)</span>, the load is in series
+         with the power source’s output impedance. The two resistances
+         in this case act like a voltage divider and the voltage across
+         the load will never be the full voltage applied by the
+         source.</p>
+         <p>The relationship between the internal voltage of the voltage
+         source <span
+         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
+         and the voltage seen at the output of the voltage source <span
+         class="math inline">\(V_\text{out}^\text{(external)}\)</span>
+         can be written as a transfer function based on the voltage
+         divider</p>
+         <p><span class="math display">\[T =
+         \frac{V_\text{out}^\text{(external)}}{V_\text{out}^\text{(internal)}}
+         = \frac{R_i}{R_o+R_i}\]</span></p>
          <h3 data-number="2.4.1" id="3.1"><span
          class="header-section-number">2.4.1</span> Prelab Question</h3>
-         <p>Express the current <span class="math inline">\(I\)</span>
-         with respect to the voltage source, and all the
-         impedances/resistances.</p>
+         <p>Confirm that your solution for the transfer function from
+         problem {<span class="citation"
+         data-cites="2.1">@2.1</span>}</p>
          <h3 data-number="2.4.2" id="3.2"><span
          class="header-section-number">2.4.2</span> Prelab Question</h3>
+         <p>The power delivered to the circuit or the load is determined
+         by</p>
+         <p><span class="math display">\[P = I
+         V_\text{out}^\text{(external)} =
+         \frac{(V_\text{out}^\text{(external)})^2}{R_i}\]</span></p>
+         <p>For a given <span class="math inline">\(R_o\)</span>, find
+         the <span class="math inline">\(R_i\)</span> that maximizes the
+         power delivered.</p>
+         <p><em>Hint:</em> Express <span
+         class="math inline">\(P\)</span> in terms of <span
+         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
+         instead of <span
+         class="math inline">\(V_\text{out}^\text{(external)}\)</span>,
+         and then find the extrema by finding the value of <span
+         class="math inline">\(R_i\)</span> that makes the derivative to
+         zero:</p>
+         <p><span class="math display">\[\frac{\partial P}{\partial R_i}
+         = 0\]</span></p>
+         <h3 data-number="2.4.3" id="3.3"><span
+         class="header-section-number">2.4.3</span> Prelab Question</h3>
+         <p>Impedance matching is the process of matching load
+         impedances with power source’s output impedance. Use your
+         result from the previous problem to justify why matching these
+         two impedances can be important.</p>
+         <h3 data-number="2.4.4" id="3.4"><span
+         class="header-section-number">2.4.4</span> Prelab Question</h3>
+         <p>Plot <span class="math inline">\(P\)</span> vs <span
+         class="math inline">\(R_i\)</span> from <span
+         class="math inline">\(R_i=0\ \Omega\)</span> to <span
+         class="math inline">\(R_i=200\ \Omega\)</span> using <span
+         class="math inline">\(V_\text{out}^\text{(internal)}=1\text{
+         V}\)</span> with the following values of <span
+         class="math inline">\(R_o\)</span> on the same plot (use a
+         legend to label the different plots for each <span
+         class="math inline">\(R_o\)</span>):</p>
+         <ul>
+         <li><span class="math inline">\(R_o = 10\ \Omega\)</span></li>
+         <li><span class="math inline">\(R_o = 25\ \Omega\)</span></li>
+         <li><span class="math inline">\(R_o = 50\ \Omega\)</span></li>
+         </ul>
+         <p>Notice that, even though the curves peak at <span
+         class="math inline">\(R_i=R_o\)</span>, that decreasing <span
+         class="math inline">\(R_o\)</span> still increases the power at
+         all <span class="math inline">\(R_i\)</span>. To deliver a lot
+         of power, having a low output impedance is best, but this isn’t
+         always a parameter we can control.</p>
+         <h2 data-number="2.5"
+         id="voltage-divider-with-non-ideal-power-supply"><span
+         class="header-section-number">2.5</span> Voltage Divider with
+         Non-ideal Power Supply</h2>
+         <figure>
+         <img src="../resources/lab2fig/nonideal-vd.png"
+         id="fig:nonideal-vd" style="height:7.5cm"
+         alt="A real power source has an output impedance R_o that can impact the circuit" />
+         <figcaption aria-hidden="true">A real power source has an
+         output impedance <span class="math inline">\(R_o\)</span> that
+         can impact the circuit</figcaption>
+         </figure>
+         <p>Real voltage sources have output impedances (modeled with a
+         resistor in series with the voltage as seen in Figure <span
+         class="citation"
+         data-cites="fig:nonideal-vd">@fig:nonideal-vd</span>). The
+         following questions will explore the potential impact the
+         output impedance can have on a voltage divider circuit.</p>
+         <h3 data-number="2.5.1" id="4.1"><span
+         class="header-section-number">2.5.1</span> Prelab Question</h3>
+         <p>What is the input impedance of the voltage divider
+         circuit?</p>
+         <h3 data-number="2.5.2" id="4.2"><span
+         class="header-section-number">2.5.2</span> Prelab Question</h3>
+         <p>The <span class="math inline">\(V_\text{in}\)</span> of the
+         voltage divider will be the <span
+         class="math inline">\(V_\text{out}^\text{(external)}\)</span>
+         of the power supply (see figure <span class="citation"
+         data-cites="fig:input-output-impedance">@fig:input-output-impedance</span>).
+         Express <span class="math inline">\(V_\text{in}\)</span> as a
+         function of <span
+         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
+         and the resistor values.</p>
+         <h3 data-number="2.5.3" id="4.3"><span
+         class="header-section-number">2.5.3</span> Prelab Question</h3>
+         <p>Using the voltage divider equation (found in problem <span
+         class="citation" data-cites="1.3">@1.3</span>), express <span
+         class="math inline">\(V_\text{out}\)</span> with respect to
+         <span
+         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
+         (of the voltage supply) and the resistor values.</p>
+         <h3 data-number="2.5.4" id="4.4"><span
+         class="header-section-number">2.5.4</span> Prelab Question</h3>
+         <p>Now consider the current <span
+         class="math inline">\(I\)</span> through the circuit. Express
+         the current <span class="math inline">\(I\)</span> with respect
+         to the voltage source (internal), and all the
+         impedances/resistances.</p>
+         <h3 data-number="2.5.5" id="4.5"><span
+         class="header-section-number">2.5.5</span> Prelab Question</h3>
          <p>Express the voltage across <span
          class="math inline">\(R_2\)</span> (<span
          class="math inline">\(V_\text{out}\)</span>) with respect to
-         the voltage source and the impedances/resistances.</p>
-         <h3 data-number="2.4.3" id="3.3"><span
-         class="header-section-number">2.4.3</span> Prelab Question</h3>
-         <p>What is <span class="math inline">\(V_\text{out}\)</span>
-         for <span class="math inline">\(V_\text{in} = 10\)</span>,
-         <span class="math inline">\(R_o = 50\ \Omega\)</span>, <span
-         class="math inline">\(R_1 = 2\text{ k}\Omega\)</span> and <span
-         class="math inline">\(R_2 = 1\text{ k}\Omega\)</span></p>
-         <h3 data-number="2.4.4" id="3.4"><span
-         class="header-section-number">2.4.4</span> Prelab Question</h3>
-         <p>Compare this voltage to the case where you had an ideal
-         voltage source. Why are you getting less output with a
-         non-ideal voltage source?</p>
-         <h2 data-number="2.5" id="impacts-of-parallel-impedances"><span
-         class="header-section-number">2.5</span> Impacts of Parallel
+         the current and the relevant impedances/resistances.</p>
+         <h3 data-number="2.5.6" id="4.6"><span
+         class="header-section-number">2.5.6</span> Prelab Question</h3>
+         <p>Use your results from problems <span class="citation"
+         data-cites="4.4">@4.4</span> and <span class="citation"
+         data-cites="4.5">@4.5</span> to show how they lead to the same
+         result in problem <span class="citation"
+         data-cites="4.3">@4.3</span>.</p>
+         <h3 data-number="2.5.7" id="4.7"><span
+         class="header-section-number">2.5.7</span> Prelab Question</h3>
+         <ul>
+         <li><p>For an ideal voltage divider <span
+         class="math inline">\((R_o=0\text{ V})\)</span>, having <span
+         class="math inline">\(R_1=100\ \Omega\)</span> and <span
+         class="math inline">\(R_2=50\ \Omega\)</span> or <span
+         class="math inline">\(R_1=2\text{ k}\Omega\)</span> and <span
+         class="math inline">\(R_2=1\text{ k}\Omega\)</span> or <span
+         class="math inline">\(R_1=200\text{ k}\Omega\)</span> and <span
+         class="math inline">\(R_2=100\text{ k}\Omega\)</span> will have
+         the same transfer function. Predict <span
+         class="math inline">\(V_\text{out}\)</span> when the ideal
+         voltage source is set to <span class="math inline">\(10\text{
+         V}\)</span></p></li>
+         <li><p>What is <span
+         class="math inline">\(V_\text{out}\)</span> for each case if
+         instead of an ideal voltage source, it had an output impedance
+         of <span class="math inline">\(R_o=50\ \Omega\)</span></p>
+         <ul>
+         <li><span class="math inline">\(R_1=100\ \Omega\text{ and
+         }R_2=50\ \Omega\)</span></li>
+         <li><span class="math inline">\(R_1=2\text{ k}\Omega\text{ and
+         }R_2=1\text{ k}\Omega\)</span></li>
+         <li><span class="math inline">\(R_1=200\text{ k}\Omega\text{
+         and }R_2=100\text{ k}\Omega\)</span></li>
+         </ul></li>
+         </ul>
+         <h3 data-number="2.5.8" id="4.8"><span
+         class="header-section-number">2.5.8</span> Prelab Question</h3>
+         <ul>
+         <li>Compare the output with a an ideal voltage source vs a non
+         ideal voltage source.</li>
+         <li>How does the input impedance of the voltage divider <span
+         class="math inline">\((R_1+R_2)\)</span> impact the non-ideal
+         circuit compared to the ideal circuit?</li>
+         <li>What condition should be met for</li>
+         </ul>
+         <h2 data-number="2.6" id="impacts-of-parallel-impedances"><span
+         class="header-section-number">2.6</span> Impacts of Parallel
          Impedances</h2>
-         <div id="fig:modified-vd" class="fignos">
          <figure>
          <img src="../resources/lab2fig/modified-vd.png"
-         style="height:7cm" alt="Figure 6: Modified Voltage Divider" />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> Modified
-         Voltage Divider</figcaption>
+         id="fig:modified-vd" style="height:7cm"
+         alt="Modified Voltage Divider" />
+         <figcaption aria-hidden="true">Modified Voltage
+         Divider</figcaption>
          </figure>
-         </div>
          <p>In the lab activities we will discover that the circuit
-         shown in Figure <a href="#fig:modified-vd">6</a> will provide a
-         more accurate model for certain situations.</p>
-         <h3 data-number="2.5.1" id="4.1"><span
-         class="header-section-number">2.5.1</span> Prelab Question</h3>
+         shown in Figure <span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span> will
+         provide a more accurate model for certain situations. <span
+         class="math inline">\(R_3\)</span> represents an impedance
+         (resistance in parallel with <span
+         class="math inline">\(R_2\)</span>) which can be due to
+         measurement impedance or trying to drive a load</p>
+         <h3 data-number="2.6.1" id="5.1"><span
+         class="header-section-number">2.6.1</span> Prelab Question</h3>
          <p>Express <span class="math inline">\(V_\text{out}\)</span>
          with respect to the input voltage and the 3 resistor
          values.</p>
-         <h3 data-number="2.5.2" id="4.2"><span
-         class="header-section-number">2.5.2</span> Prelab Question</h3>
+         <h3 data-number="2.6.2" id="5.2"><span
+         class="header-section-number">2.6.2</span> Prelab Question</h3>
          <p>Rearrange the equation you just found to solve for <span
          class="math inline">\(R_3\)</span> given the other values. This
          equation will be useful when you do the lab.</p>
-         <h2 data-number="2.6"
-         id="non-ideal-power-source-driving-a-load"><span
-         class="header-section-number">2.6</span> Non-ideal power source
-         driving a load</h2>
-         <p>A non-ideal power source has series resistance (output
-         impedance). When it drives a load, the load is in series with
-         the power source’s output impedance. The two resistances in
-         this case act like a voltage divider and the voltage across the
-         load will never be the full voltage applied by the source.</p>
-         <h3 data-number="2.6.1" id="5.1"><span
-         class="header-section-number">2.6.1</span> Prelab Question</h3>
-         <p>Draw a circuit diagram of a non-ideal power source with
-         output impedance <span class="math inline">\(R_o\)</span>
-         connected to a load (resistor) with impedance <span
-         class="math inline">\(R_L\)</span>, and explain how this is a
-         voltage divider.</p>
-         <h3 data-number="2.6.2" id="5.2"><span
-         class="header-section-number">2.6.2</span> Prelab Question</h3>
-         <p>Write an expression for the voltage across the load <span
-         class="math inline">\(V_\text{out}\)</span> with respect to the
-         resistances and the applied voltage from the source <span
-         class="math inline">\(V_\text{in}\)</span>.</p>
          <h3 data-number="2.6.3" id="5.3"><span
          class="header-section-number">2.6.3</span> Prelab Question</h3>
-         <p>The power applied to the load is <span
-         class="math inline">\(P=\frac{V_\text{out}^2}{R_L}\)</span>.
-         Show that this is equivalent to</p>
-         <p><span class="math display">\[P =
-         V_\text{in}^2\frac{R_L}{(R_o+R_L)^2}\]</span></p>
-         <h3 data-number="2.6.4" id="5.4"><span
-         class="header-section-number">2.6.4</span> Prelab Question</h3>
-         <p>Assuming <span class="math inline">\(R_o\)</span> is fixed
-         (you can’t change the properties of your power supply), find
-         the load impedance <span class="math inline">\(R_L\)</span>
-         that maximizes the power transferred to the load.</p>
-         <p><em>Hint:</em> find the <span
-         class="math inline">\(R_L\)</span> that makes <span
-         class="math inline">\(\frac{\partial P}{\partial R_L} =
-         0\)</span></p>
-         <h3 data-number="2.6.5" id="5.5"><span
-         class="header-section-number">2.6.5</span> Prelab Question</h3>
-         <p>Impedance matching is the process of matching load
-         impedances with power source’s output impedance. Use your
-         result from the previous problem to justify what matching these
-         two impedances can be important.</p>
+         <p>Thevenin’s theorem says that any circuit (and therefore the
+         voltage divider) can be modeled as an ideal voltage source with
+         an output impedance <span
+         class="math inline">\(R_o\)</span></p>
+         <figure>
+         <img src="../resources/lab2fig/thevenin-vd.png" id="fig:thev"
+         alt="alt text" />
+         <figcaption aria-hidden="true">alt text</figcaption>
+         </figure>
          <h2 data-number="2.7" id="lab-activities"><span
          class="header-section-number">2.7</span> Lab Activities</h2>
          <h3 data-number="2.7.1" id="6.1"><span
@@ -627,6 +746,7 @@ Voltage Dividers</h1>
          </ol>
          <figure>
          <img src="../resources/lab2fig/grounding%20connections.png"
+         id="fig:header"
          alt="The outer conductor of the BNC connectors are all connected to the black banana port." />
          <figcaption aria-hidden="true">The outer conductor of the BNC
          connectors are all connected to the black banana
@@ -665,11 +785,12 @@ Voltage Dividers</h1>
          k}\Omega\)</span></h2>
          <ol type="1">
          <li><p>Build a voltage divider similar to the one shown in
-         Figure <a href="#fig:ideal-vd">4</a> using resistors of around
-         <span class="math inline">\(1\text{ k}\Omega\)</span>. Draw a
-         diagram of the circuit in your lab notebook. Make sure to label
-         the resistors and record all measured component values and
-         voltages.</p></li>
+         Figure <span class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span> using resistors
+         of around <span class="math inline">\(1\text{
+         k}\Omega\)</span>. Draw a diagram of the circuit in your lab
+         notebook. Make sure to label the resistors and record all
+         measured component values and voltages.</p></li>
          <li><p>Measure each resistor with your DMM before inserting it
          into your circuit and record the value. Why should you measure
          component values before placing them in the circuit?</p></li>
@@ -693,12 +814,13 @@ Voltage Dividers</h1>
          did not agree, you will have to either refine your model or
          your experiment. Lets start by refining your model. Consider
          the input resistance of your measurement device. Draw a circuit
-         diagram that includes that resistance. <em>HINT: See Figure <a
-         href="#fig:modified-vd">6</a></em>. Derive an expression for
-         the output voltage now including the unknown measurement device
-         resistance. Use this new model to determine the input
-         resistance of measurement device. (that is, rearrange your
-         equation to solve for <span
+         diagram that includes that resistance. <em>HINT: See Figure
+         <span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span></em>.
+         Derive an expression for the output voltage now including the
+         unknown measurement device resistance. Use this new model to
+         determine the input resistance of measurement device. (that is,
+         rearrange your equation to solve for <span
          class="math inline">\(R_3\)</span>.. You did this in the
          prelab).</p></li>
          </ol>
@@ -814,7 +936,7 @@ Voltage Dividers</h1>
          voltage dividers to build a controllable voltage source using a
          potentiometer and a switch.</p>
          <figure>
-         <img src="../resources/lab2fig/pot.png"
+         <img src="../resources/lab2fig/pot.png" id="fig:pot"
          alt="A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where R_1+R_2 is a fixed value (in our case, 10\text{ k}\Omega)" />
          <figcaption aria-hidden="true">A potentiometer (symbol shown on
          the right), has a wiper which connects at a variable position
@@ -852,7 +974,7 @@ Voltage Dividers</h1>
          class="header-section-number">4.8</span> Testing the
          Switch</h2>
          <figure>
-         <img src="../resources/lab2fig/switch.png"
+         <img src="../resources/lab2fig/switch.png" id="fig:switch"
          alt="The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch." />
          <figcaption aria-hidden="true">The switches on your breadboard
          header have three terminals. Moving the position of the lever

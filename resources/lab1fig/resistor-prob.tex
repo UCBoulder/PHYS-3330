@@ -1,0 +1,20 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+    \draw (0,0) to [R=$50\ \Omega$,o-*] ++ (0,-2) to ++(.5,0) to [R=$100\ \Omega$] ++ (0,-2) to ++(-.5,0) to [short,*-o] ++(0,-.5) ++(0,.5) to ++ (-.5,0) to [R=$75\ \Omega$] ++ (0,2) to ++ (.5,0);
+\end{circuitikz}
+
+\end{document}

@@ -146,9 +146,10 @@ Colorado Boulder">
          class="header-section-number">3</span> Diodes</h1>
          <p>A diode is a semiconductor device that has two terminals, an
          anode and a cathode. These terminals are represented by (-) for
-         the cathode and (+) for the anode on the diagram in Figure <a
-         href="#fig:diode-char">1</a>. Diodes are made out of n-doped
-         and p-doped semiconductors. Visit this <a
+         the cathode and (+) for the anode on the diagram in Figure
+         <span class="citation"
+         data-cites="fig:diode-char">@fig:diode-char</span>. Diodes are
+         made out of n-doped and p-doped semiconductors. Visit this <a
          href="https://phet.colorado.edu/en/simulation/semiconductor">PhET
          simulation</a> for a good example of how these work.</p>
          <p>The fundamental property of a diode is its tendency to
@@ -166,15 +167,14 @@ Colorado Boulder">
          the diode will again conduct. Regular diodes are not used in
          the break down region, but Zener diodes are used for this
          purpose.</p>
-         <div id="fig:diode-char" class="fignos">
          <figure>
          <img src="../resources/lab6fig/diode-characteristics.png"
-         style="width:15cm" alt="Figure 1: Diode characteristics" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> <a
+         id="fig:diode-char" style="width:15cm"
+         alt="Diode characteristics" />
+         <figcaption aria-hidden="true"><a
          href="https://commons.wikimedia.org/wiki/File:Diode_current_wiki.png">Diode
          characteristics</a></figcaption>
          </figure>
-         </div>
          <h2 data-number="3.1" id="light-emitting-diode-led"><span
          class="header-section-number">3.1</span> Light emitting diode
          (LED)</h2>
@@ -186,32 +186,31 @@ Colorado Boulder">
          is made of AlInGaP instead of silicon.</p>
          <h2 data-number="3.2" id="photodiode"><span
          class="header-section-number">3.2</span> Photodiode</h2>
-         <div id="fig:photodiode" class="fignos">
          <figure>
          <img src="../resources/lab6fig/photodiode.png"
-         style="width:15cm"
-         alt="Figure 2: Diagram and schematic symbol for a PIN silicon photodiode." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Diagram
-         and schematic symbol for a PIN silicon photodiode.</figcaption>
+         id="fig:photodiode" style="width:15cm"
+         alt="Diagram and schematic symbol for a PIN silicon photodiode." />
+         <figcaption aria-hidden="true">Diagram and schematic symbol for
+         a PIN silicon photodiode.</figcaption>
          </figure>
-         </div>
          <p>The PD204 photodiode used in this experiment is a
          p-intrinsic-n (PIN) silicon diode operated in reverse bias. A
-         sketch of the photodiode structure is shown in Figure <a
-         href="#fig:photodiode">2</a>. The very thin p-type conducting
-         layer acts as a window to admit light into the crystal. The
-         reverse bias voltage maintains a strong electric field
-         throughout the intrinsic region forming an extended depletion
-         layer. The depletion layer should be thicker than the
-         absorption length for photons in silicon in order to maximize
-         the efficiency. An incident photon whose energy exceeds the
-         bandgap energy can be absorbed to produce an electron-hole pair
-         by photoelectric excitation of a valence electron into the
-         conduction band. The charge carriers are swept out of the
-         crystal by the internal electric field to appear as a
-         photocurrent at the terminals. The photocurrent is proportional
-         to light intensity over a range of more than 6 orders of
-         magnitude.</p>
+         sketch of the photodiode structure is shown in Figure <span
+         class="citation"
+         data-cites="fig:photodiode">@fig:photodiode</span>. The very
+         thin p-type conducting layer acts as a window to admit light
+         into the crystal. The reverse bias voltage maintains a strong
+         electric field throughout the intrinsic region forming an
+         extended depletion layer. The depletion layer should be thicker
+         than the absorption length for photons in silicon in order to
+         maximize the efficiency. An incident photon whose energy
+         exceeds the bandgap energy can be absorbed to produce an
+         electron-hole pair by photoelectric excitation of a valence
+         electron into the conduction band. The charge carriers are
+         swept out of the crystal by the internal electric field to
+         appear as a photocurrent at the terminals. The photocurrent is
+         proportional to light intensity over a range of more than 6
+         orders of magnitude.</p>
          <p>The photodiode sensitivity <span
          class="math inline">\(S_{\lambda}\)</span> is the
          proportionality factor that links how incident optical power
@@ -279,18 +278,16 @@ Colorado Boulder">
          RSR:</p>
          <p><span class="math display">\[S_{\lambda} =
          S_{940}~RSR(\lambda)\]</span></p>
-         <p>Figure <a href="#fig:pd204">3</a> shows the RSR from the
+         <p>Figure <span class="citation"
+         data-cites="fig:pd204">@fig:pd204</span> shows the RSR from the
          PD204 data sheet. You can see the maximum sensitivity is around
          940 nm.</p>
-         <div id="fig:pd204" class="fignos">
          <figure>
-         <img src="../resources/lab6fig/pd204-rss.png"
-         style="width:10cm"
-         alt="Figure 3: PD204 Relative Spectral Sensitivity" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> PD204
-         Relative Spectral Sensitivity</figcaption>
+         <img src="../resources/lab6fig/pd204-rss.png" id="fig:pd204"
+         style="width:10cm" alt="PD204 Relative Spectral Sensitivity" />
+         <figcaption aria-hidden="true">PD204 Relative Spectral
+         Sensitivity</figcaption>
          </figure>
-         </div>
          <h1 data-number="4"
          id="current-to-voltage-amplifier-transimpedance-amplifier"><span
          class="header-section-number">4</span> Current to Voltage
@@ -299,14 +296,15 @@ Colorado Boulder">
          applied to a resistor, and the amplifier generates an output
          voltage in response to the current that flows through the input
          resistor to the virtual ground at the negative op-amp input. A
-         current-to-voltage amplifier (Figure <a
-         href="#fig:photodetector">4</a>) is an inverting amplifier with
-         the input current <span class="math inline">\(I_{in}\)</span>
-         supplied by the photodiode and applied to the inverting op-amp
-         input. Since no current flows into the op-amp input, the output
-         voltage must be <span class="math inline">\(V_{out} = –
-         I_{in}R_F\)</span>. The ideal (Golden Rules result)
-         low-frequency gain of a current-to-voltage amplifier is</p>
+         current-to-voltage amplifier (Figure <span class="citation"
+         data-cites="fig:photodetector">@fig:photodetector</span>) is an
+         inverting amplifier with the input current <span
+         class="math inline">\(I_{in}\)</span> supplied by the
+         photodiode and applied to the inverting op-amp input. Since no
+         current flows into the op-amp input, the output voltage must be
+         <span class="math inline">\(V_{out} = – I_{in}R_F\)</span>. The
+         ideal (Golden Rules result) low-frequency gain of a
+         current-to-voltage amplifier is</p>
          <p><span
          class="math display">\[G=\frac{V_{out}}{I_{in}}=-R_F\]</span></p>
          <p>This gain has the units of impedance i.e., Ohms, and it is
@@ -315,14 +313,13 @@ Colorado Boulder">
          of amplifier is very common in research labs, and is used to
          amplify the current from photodiodes, photo multiplier tubes,
          ion detectors, etc.</p>
-         <div id="fig:photodetector" class="fignos">
          <figure>
          <img src="../resources/lab6fig/photodetector.png"
-         style="width:10cm" alt="Figure 4: Photodetector circuit" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span>
-         Photodetector circuit</figcaption>
+         id="fig:photodetector" style="width:10cm"
+         alt="Photodetector circuit" />
+         <figcaption aria-hidden="true">Photodetector
+         circuit</figcaption>
          </figure>
-         </div>
          <p>In our photometer circuit the current <span
          class="math inline">\(I_{in}\)</span> flows through the
          reverse-biased photodiode when it is illuminated (it flows out
@@ -336,21 +333,23 @@ Colorado Boulder">
          class="header-section-number">5</span> Optical Communication
          Link</h1>
          <p>The basic optical communication link is composed of two
-         circuits (Figure <a href="#fig:photodetector">4</a> and Figure
-         <a href="#fig:ocl">5</a>). The circuit in Figure <a
-         href="#fig:ocl">5</a> uses an AC voltage source to produce a
-         light signal from the LED. The circuit in Figure <a
-         href="#fig:photodetector">4</a> is the photometer, composed of
-         a photodiode connected to a transimpedance amplifier to convert
-         the light into a measurable voltage.</p>
-         <div id="fig:ocl" class="fignos">
+         circuits (Figure <span class="citation"
+         data-cites="fig:photodetector">@fig:photodetector</span> and
+         Figure <span class="citation"
+         data-cites="fig:ocl">@fig:ocl</span>). The circuit in Figure
+         <span class="citation" data-cites="fig:ocl">@fig:ocl</span>
+         uses an AC voltage source to produce a light signal from the
+         LED. The circuit in Figure <span class="citation"
+         data-cites="fig:photodetector">@fig:photodetector</span> is the
+         photometer, composed of a photodiode connected to a
+         transimpedance amplifier to convert the light into a measurable
+         voltage.</p>
          <figure>
-         <img src="../resources/lab6fig/ocl.png" style="width:9cm"
-         alt="Figure 5: Optical communication link circuit" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> Optical
-         communication link circuit</figcaption>
+         <img src="../resources/lab6fig/ocl.png" id="fig:ocl"
+         style="width:9cm" alt="Optical communication link circuit" />
+         <figcaption aria-hidden="true">Optical communication link
+         circuit</figcaption>
          </figure>
-         </div>
          <h1 data-number="6" id="lf356-pin-out-and-schematic"><span
          class="header-section-number">6</span> LF356 Pin Out and
          Schematic</h1>
@@ -358,14 +357,12 @@ Colorado Boulder">
          connections. Op-amps are active components, which means they
          need external power to function, unlike passive components such
          as resistors and capacitors.</p>
-         <div id="fig:lf356" class="fignos">
          <figure>
-         <img src="../resources/lab6fig/lf356.png" style="width:10cm"
-         alt="Figure 6: LF356 schematic and pin-out" />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> LF356
-         schematic and pin-out</figcaption>
+         <img src="../resources/lab6fig/lf356.png" id="fig:lf356"
+         style="width:10cm" alt="LF356 schematic and pin-out" />
+         <figcaption aria-hidden="true">LF356 schematic and
+         pin-out</figcaption>
          </figure>
-         </div>
          <h1 data-number="7" id="useful-readings"><span
          class="header-section-number">7</span> Useful Readings</h1>
          <ol type="1">
@@ -388,10 +385,10 @@ Colorado Boulder">
          <h2 data-number="8.1" id="sec:simp-diodes"><span
          class="header-section-number">8.1</span> Simple diodes</h2>
          <ol type="1">
-         <li><p>Consider the circuit in Figure <a
-         href="#fig:diode-cir">7</a>. If the diode is ideal with a
-         threshold voltage of 0.6 V and a breakdown voltage of 50 V,
-         predict the behavior of the current <span
+         <li><p>Consider the circuit in Figure <span class="citation"
+         data-cites="fig:diode-cir">@fig:diode-cir</span>. If the diode
+         is ideal with a threshold voltage of 0.6 V and a breakdown
+         voltage of 50 V, predict the behavior of the current <span
          class="math inline">\(I\)</span> (consider clockwise current to
          be positive) and <span class="math inline">\(V_{out}\)</span>
          as a function of the source voltage <span
@@ -413,13 +410,15 @@ Colorado Boulder">
          class="header-section-number">8.2</span> Transimpedance
          amplifier</h2>
          <ol type="1">
-         <li><p>For the current-to-voltage amplifier in Figure <a
-         href="#fig:photodetector">4</a>, choose a value for the
-         feedback resistor <span class="math inline">\(R_F\)</span> so
-         that an incident white-light (<span
-         class="math inline">\(\lambda\)</span> = 555 nm) optical power
-         of P = 71 <span class="math inline">\(\mu\)</span>W produces an
-         output of 10 V.</p></li>
+         <li><p>For the current-to-voltage amplifier in Figure <span
+         class="citation"
+         data-cites="fig:photodetector">@fig:photodetector</span>,
+         choose a value for the feedback resistor <span
+         class="math inline">\(R_F\)</span> so that an incident
+         white-light (<span class="math inline">\(\lambda\)</span> = 555
+         nm) optical power of P = 71 <span
+         class="math inline">\(\mu\)</span>W produces an output of 10
+         V.</p></li>
          <li><p>The small feedback capacitor <span
          class="math inline">\(C_F\)</span> is used to suppress
          spontaneous oscillations. The transimpedance gain of the
@@ -474,21 +473,20 @@ Colorado Boulder">
          </ol>
          <h1 data-number="9" id="introducing-diodes"><span
          class="header-section-number">9</span> Introducing Diodes</h1>
-         <div id="fig:diode-cir" class="fignos">
          <figure>
-         <img src="../resources/lab6fig/diode-cir.png" style="width:7cm"
-         alt="Figure 7: Simple diode circuit" />
-         <figcaption aria-hidden="true"><span>Figure 7:</span> Simple
-         diode circuit</figcaption>
+         <img src="../resources/lab6fig/diode-cir.png"
+         id="fig:diode-cir" style="width:7cm"
+         alt="Simple diode circuit" />
+         <figcaption aria-hidden="true">Simple diode
+         circuit</figcaption>
          </figure>
-         </div>
          <h2 data-number="9.1" id="sec:iv-silicon"><span
          class="header-section-number">9.1</span> Determine the I-V
          characteristics for a silicon diode</h2>
          <ol type="1">
-         <li><p>Build the circuit in Figure <a
-         href="#fig:diode-cir">7</a> using the silicon diode
-         1N4002.</p></li>
+         <li><p>Build the circuit in Figure <span class="citation"
+         data-cites="fig:diode-cir">@fig:diode-cir</span> using the
+         silicon diode 1N4002.</p></li>
          <li><p>Measure the current <span
          class="math inline">\(I\)</span> and the voltage across the
          diode (<span class="math inline">\(V_{out}\)</span>) for
@@ -500,9 +498,12 @@ Colorado Boulder">
          data points (at least 10) to map out the characteristic curve
          of the diode, with a few extra points around <span
          class="math inline">\(V_{in}\)</span> of 0.6–0.9 V. How does
-         the result compare with your predictions from section <a
-         href="#sec:simp-diodes">8.1</a>.1? How does your plotted data
-         compare with Figure <a href="#fig:diode-char">1</a>?</p></li>
+         the result compare with your predictions from section <span
+         class="citation"
+         data-cites="sec:simp-diodes">@sec:simp-diodes</span>.1? How
+         does your plotted data compare with Figure <span
+         class="citation"
+         data-cites="fig:diode-char">@fig:diode-char</span>?</p></li>
          <li><p>Specifically consider the points at <span
          class="math inline">\(V_{in}\)</span> = +0.5 V, +0.8 V, and
          +2.0 V. What is the power dissipated in the diode and in the
@@ -516,8 +517,8 @@ Colorado Boulder">
          source (function generator) and input a 1 kHz sine wave with a
          3 V amplitude (6 V peak-to-peak) Record the resulting <span
          class="math inline">\(V_{out}\)</span> waveform and compare
-         with your prediction in section <a
-         href="#sec:simp-diodes">8.1</a>.2.</p></li>
+         with your prediction in section <span class="citation"
+         data-cites="sec:simp-diodes">@sec:simp-diodes</span>.2.</p></li>
          </ol>
          <h2 data-number="9.2"
          id="determine-the-i-v-characteristics-for-a-light-emitting-diode"><span
@@ -525,7 +526,8 @@ Colorado Boulder">
          characteristics for a light emitting diode</h2>
          <ol type="1">
          <li>Now, replace the silicon diode with a red LED (HLMPC625).
-         Repeat section <a href="#sec:iv-silicon">9.1</a>.2, but take
+         Repeat section <span class="citation"
+         data-cites="sec:iv-silicon">@sec:iv-silicon</span>.2, but take
          the extra points in the region where the current begins to
          rapidly increase. Be sure to read the spec sheet for the LED
          and don’t exceed the DC current limit. Take note whether the
@@ -538,46 +540,47 @@ Colorado Boulder">
          <h1 data-number="10" id="test-with-inverting-amplifier"><span
          class="header-section-number">10</span> Test with Inverting
          Amplifier</h1>
-         <div id="fig:inv-amp-cir" class="fignos">
          <figure>
          <img src="../resources/lab6fig/inv-amp-cir.png"
-         style="width:12cm"
-         alt="Figure 8: Inverting amplifier circuit" />
-         <figcaption aria-hidden="true"><span>Figure 8:</span> Inverting
-         amplifier circuit</figcaption>
+         id="fig:inv-amp-cir" style="width:12cm"
+         alt="Inverting amplifier circuit" />
+         <figcaption aria-hidden="true">Inverting amplifier
+         circuit</figcaption>
          </figure>
-         </div>
          <ol type="1">
          <li><p>We will first build the amplifier in a normal voltage
          amplifier configuration to test the setup and all the
          connections. Build the inverting amplifier circuit shown in
-         Figure <a href="#fig:inv-amp-cir">8</a>. Use a value for <span
-         class="math inline">\(R_F = R\)</span> close to what you found
-         in <a href="#sec:trans-pre">8.2</a>, and a 10 pF capacitor
-         <span class="math inline">\(C_F\)</span> in parallel with the
-         feedback resistor to avoid spontaneous oscillations. Draw the
-         schematic in your lab notebook and record the values of the
-         components.</p></li>
+         Figure <span class="citation"
+         data-cites="fig:inv-amp-cir">@fig:inv-amp-cir</span>. Use a
+         value for <span class="math inline">\(R_F = R\)</span> close to
+         what you found in <span class="citation"
+         data-cites="sec:trans-pre">@sec:trans-pre</span>, and a 10 pF
+         capacitor <span class="math inline">\(C_F\)</span> in parallel
+         with the feedback resistor to avoid spontaneous oscillations.
+         Draw the schematic in your lab notebook and record the values
+         of the components.</p></li>
          <li><p>Predict the low frequency gain and 3 dB frequency of the
          circuit. HINT: Look at your prelab answers. This will be the
          <span class="math inline">\(R_FC_F\)</span> time constant from
-         <a href="#sec:trans-pre">8.2</a>; in this circuit the time
-         constant will be determined by the feedback resistor and
-         capacitor (not the input resistor). Design a test to ensure the
-         amplifier is working as predicted at low frequency (much lower
-         than the cutoff). Don’t bother testing the high-frequency
-         behavior.</p></li>
+         <span class="citation"
+         data-cites="sec:trans-pre">@sec:trans-pre</span>; in this
+         circuit the time constant will be determined by the feedback
+         resistor and capacitor (not the input resistor). Design a test
+         to ensure the amplifier is working as predicted at low
+         frequency (much lower than the cutoff). Don’t bother testing
+         the high-frequency behavior.</p></li>
          </ol>
          <h1 data-number="11" id="room-light-photometer"><span
          class="header-section-number">11</span> Room Light
          Photometer</h1>
          <ol type="1">
          <li><p>Reconfigure your voltage amplifier to the transimpedance
-         amplifier circuit shown in Figure <a
-         href="#fig:photodetector">4</a>. Pay attention to the direction
-         of the photodiode. You can use your DMM set to the “diode
-         setting” to determine which side of the diode is the
-         cathode.</p></li>
+         amplifier circuit shown in Figure <span class="citation"
+         data-cites="fig:photodetector">@fig:photodetector</span>. Pay
+         attention to the direction of the photodiode. You can use your
+         DMM set to the “diode setting” to determine which side of the
+         diode is the cathode.</p></li>
          <li><p>Verify that it changes as a function of the amount of
          incident light on the photodiode, for instance, by putting your
          hand over the photodiode to shade it from the room lights. Look
@@ -593,15 +596,15 @@ Colorado Boulder">
          <ol type="1">
          <li><p>Set up a light emitting diode type HLMP-C625 as the
          transmitter on a separate small circuit board according to the
-         schematic in Figure <a href="#fig:ocl">5</a>. Be sure to
-         protect the LED with a series resistance that prevents the
-         forward current exceeding 20 mA. HINT: You calculated the
-         required resistance in the prelab. Also, the LEDs have a
-         nominal breakdown voltage of 5 V, which, if exceeded, can
-         damage the LED. Therefore, to prevent this from happening,
-         connect a regular diode in parallel with the LED but with
-         opposite polarity. This will protect the LED from a large
-         negative voltage.</p></li>
+         schematic in Figure <span class="citation"
+         data-cites="fig:ocl">@fig:ocl</span>. Be sure to protect the
+         LED with a series resistance that prevents the forward current
+         exceeding 20 mA. HINT: You calculated the required resistance
+         in the prelab. Also, the LEDs have a nominal breakdown voltage
+         of 5 V, which, if exceeded, can damage the LED. Therefore, to
+         prevent this from happening, connect a regular diode in
+         parallel with the LED but with opposite polarity. This will
+         protect the LED from a large negative voltage.</p></li>
          <li><p>Set up the function generator to produce 5 Hz square
          waves with the low voltage level 0 V and the high voltage of 8
          V. You can accomplish this by using the DC offset setting of
@@ -688,10 +691,11 @@ Colorado Boulder">
          ~y(\lambda)~P(W)\]</span></p>
          <p>The dimensionless quantity <span
          class="math inline">\(y(\lambda)\)</span> is the photopic
-         standard luminosity function and is shown in Figure <a
-         href="#fig:lum">9</a> and tabulated in the Datasheets section
-         of Canvas. At <span class="math inline">\(\lambda\)</span> =
-         555 nm, where the eye is most sensitive, <span
+         standard luminosity function and is shown in Figure <span
+         class="citation" data-cites="fig:lum">@fig:lum</span> and
+         tabulated in the Datasheets section of Canvas. At <span
+         class="math inline">\(\lambda\)</span> = 555 nm, where the eye
+         is most sensitive, <span
          class="math inline">\(y(\lambda)\)</span> = 1. Therefore, two
          sources with the same luminous flux will have the same
          subjective brightness to a human observer (even though the
@@ -702,22 +706,20 @@ Colorado Boulder">
          flux per unit area (similar to intensity). This is measured in
          units of lux, where 1 lux = 1 <span
          class="math inline">\(lm/m^2\)</span>.</p>
-         <div id="fig:lum" class="fignos">
          <figure>
-         <img src="../resources/lab6fig/lum.png" style="width:10cm"
-         alt="Figure 9: The photopic standard luminosity function" />
-         <figcaption aria-hidden="true"><span>Figure 9:</span> The
-         photopic standard luminosity function</figcaption>
+         <img src="../resources/lab6fig/lum.png" id="fig:lum"
+         style="width:10cm"
+         alt="The photopic standard luminosity function" />
+         <figcaption aria-hidden="true">The photopic standard luminosity
+         function</figcaption>
          </figure>
-         </div>
          <h1 class="unnumbered"
          id="appendix-b-light-output-in-lumens-for-various-light-sources">Appendix
          B: Light Output in Lumens for Various Light Sources</h1>
          <center>
-         <div id="tbl:1" class="tablenos">
-         <table id="tbl:1">
-         <caption><span>Table 1:</span> Electrical power consumption of
-         select light sources as a function of light output. </caption>
+         <table>
+         <caption>Electrical power consumption of select light sources
+         as a function of light output. {#tbl:1}</caption>
          <colgroup>
          <col style="width: 26%" />
          <col style="width: 31%" />
@@ -786,7 +788,6 @@ Colorado Boulder">
          </tr>
          </tbody>
          </table>
-         </div>
          </center>
          <p><br></p>
                </div>

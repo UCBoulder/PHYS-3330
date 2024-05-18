@@ -106,11 +106,13 @@ Mathematica</h1>
          appropriately).</li>
          <li>Make a plot of your prediction using the expression you
          created above.</li>
-         <li>Scale your <code>sinTable</code> function from Sections <a
-         href="#sec:basic">2</a>.3-5 to the same frequency, amplitude,
-         and offset as the expression you created in <a
-         href="#sec:plots">3</a>.1. Combine the plot of your
-         oscilloscope data with your prediction. Do they match up
+         <li>Scale your <code>sinTable</code> function from Sections
+         <span class="citation"
+         data-cites="sec:basic">@sec:basic</span>.3-5 to the same
+         frequency, amplitude, and offset as the expression you created
+         in <span class="citation"
+         data-cites="sec:plots">@sec:plots</span>.1. Combine the plot of
+         your oscilloscope data with your prediction. Do they match up
          exactly? If not, did you make a mistake, or is there a good
          reason for the difference?</li>
          </ol>
@@ -152,20 +154,20 @@ Mathematica</h1>
          Mathematica</h1>
          <p>The default plot style in Mathematica does not look very
          good for presentation quality graphics. This screencast give
-         some options for changing the plot style. Figure <a
-         href="#fig:plot">1</a> shows an example of the plot style
-         changes you will be able to implement after watching the
-         screencast. The screencast also demonstrates the use of the
-         <code>SetOptions</code> function which allows you to set the
-         default plot options.</p>
+         some options for changing the plot style. Figure <span
+         class="citation" data-cites="fig:plot">@fig:plot</span> shows
+         an example of the plot style changes you will be able to
+         implement after watching the screencast. The screencast also
+         demonstrates the use of the <code>SetOptions</code> function
+         which allows you to set the default plot options.</p>
          <p>Watch the <a href="https://tinyurl.com/y4hxvmjn">screencast
          on changing the plot style.</a></p>
-         <div id="fig:plot" class="fignos">
          <figure>
-         <img src="../resources/lsa2fig/plot.png" style="width:15cm"
-         alt="Figure 1: Plot of sin(t) for t between 0 and 10. Modifying the plot options can improve the viewing of the plot within Mathematica and for printing. Notice that the default axes and sine curve are very thin when printed." />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Plot of
-         <span class="math inline">\(sin(t)\)</span> for <span
+         <img src="../resources/lsa2fig/plot.png" id="fig:plot"
+         style="width:15cm"
+         alt="Plot of sin(t) for t between 0 and 10. Modifying the plot options can improve the viewing of the plot within Mathematica and for printing. Notice that the default axes and sine curve are very thin when printed." />
+         <figcaption aria-hidden="true">Plot of <span
+         class="math inline">\(sin(t)\)</span> for <span
          class="math inline">\(t\)</span> between <span
          class="math inline">\(0\)</span> and <span
          class="math inline">\(10\)</span>. Modifying the plot options
@@ -173,7 +175,6 @@ Mathematica</h1>
          printing. Notice that the default axes and sine curve are very
          thin when printed.</figcaption>
          </figure>
-         </div>
          <p><strong>Default</strong></p>
          <pre><code>Plot[Sin[x], {x, 0, 10}, 
     AxesLabel -&gt; {&quot;Time (s)&quot;, &quot;Displacement (cm)&quot;}]</code></pre>

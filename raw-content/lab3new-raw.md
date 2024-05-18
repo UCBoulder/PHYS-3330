@@ -85,8 +85,7 @@ $$V_\text{in}(t) = V_0e^{j\omega t}$$
 
 Applying any transfer function $T$ to this input will lead to the following output
 
-$$V_\text{out}(t) = TV_\text{in}(t) = V_0 T e^{j\omega t}$$
-{#eq:complex-transfer}
+$$V_\text{out}(t) = TV_\text{in}(t) = V_0 T e^{j\omega t}$${#eq:complex-transfer}
 
 When $T$ is a complex function, it is far easier to multiply it and the complex exponential when $T$ is put into its "magnitude and phase" form
 
@@ -181,7 +180,7 @@ The impedance of an inductor is
 
 $$Z_L = j\omega L$$
 
-### Prelab Question {#2.1}
+### Prelab Question {#3.1}
 
 Evaluate the impedances of the inductor at the two frequency extremes ($\omega = 0$ and $\omega\rightarrow\infty$). Describe what the capacitor acts like at these extremes (think in terms of open or short circuits).
 
@@ -199,11 +198,11 @@ For this filter's transfer function, you will find the magnitude in the followin
 
 $$\delta = -\tan^{-1}(\omega RC)$$
 
-### Prelab Question {#3.1}
+### Prelab Question {#4.1}
 
 Find $T_\text{low-pass}$ when $\omega=0$ and when $\omega\rightarrow\infty$. Based on these calculations, describe what frequencies the low-pass filter cuts and passes. Is this consistent with its name?
 
-### Prelab Question {#3.2}
+### Prelab Question {#4.2}
 
 Find $|T_\text{low-pass}|$ (the magnitude of the complex number) and express it with respect to $f$ instead of $\omega$.
 
@@ -219,11 +218,11 @@ For this filter's transfer function, you will find the magnitude in the followin
 
 $$\delta = \tan^{-1}\bigg(\frac{1}{\omega RC}\bigg)$$
 
-### Prelab Question {#3.1}
+### Prelab Question {#5.1}
 
 Find $T_\text{high-pass}$ for $\omega=0$ and $\omega\rightarrow\infty$ to confirm this is a high-pass filter.
 
-### Prelab Question {#3.2}
+### Prelab Question {#5.2}
 
 Calculate $|T_\text{high-pass}|$ and express it in terms of $f$ instead of $\omega$.
 
@@ -248,7 +247,7 @@ For both the low-pass and high-pass filter, you can take the magnitude of the tr
 $$f_0 = \frac{1}{2\pi RC}$$
 {@eq:cutoff-freq}
 
-### Prelab Question {#4.1}
+### Prelab Question {#6.1}
 
 Decibels is a "relative unit of measurement." In electronics, decibels are meant to describe how the power changes (sort of like a transfer function). You can calculate decibels with the following equation:
 
@@ -258,11 +257,11 @@ When you have negative decibels, it means the something is attenuated (gets smal
 
 Calculate the decibels for when the power is cut in half. Does it make sense that the half power point is also called the 3 dB point?
 
-### Prelab Question {#4.2}
+### Prelab Question {#6.2}
 
 Plug the cutoff frequency from Equation @eq:cutoff-freq into the equations you found for $|T_\text{low-pass}|$ and $|T_\text{high-pass}|$ to confirm this is the half power point.
 
-### Prelab Question {#4.3}
+### Prelab Question {#6.3}
 
 The cutoff frequency of these filters is related to the RC-time (resistance times capacitance has units of time) of the circuit: $f_0 = 1/(2\pi RC)$. This means that the cutoff frequency can be determined by measuring the RC-time constant related to the charging and discharging of the capacitor. For the low-pass filter, this can be done by applying a voltage long enough to fully charge the capacitor to the input voltage (i.e. when $V_\text{in}=V_\text{out}$), and then turning off the voltage to allow the capacitor to discharge. This discharge will be an exponential decay over time
 
@@ -292,11 +291,11 @@ $$|T_\text{bandpass}| = \frac{\omega L}{\sqrt{(R-\omega^2 LRC)^2+(\omega L)^2}}$
 
 $$\delta = \tan^{-1}\bigg(\frac{R-\omega^2LRC}{\omega L}\bigg)$$
 
-### Prelab Question {#5.1}
+### Prelab Question {#7.1}
 
 As the name suggests, this filter passes a "band" of frequencies. This means that it should "cut" both low and high frequencies. Show that at $\omega=0$ and $\omega\rightarrow\infty$ the magnitude of $T$ goes is zero.
 
-### Prelab Question {#5.2}
+### Prelab Question {#7.2}
 
 The *center frequency* is defined by the frequency that maximizes the transfer function (this is the frequency it passes "strongest"). For these simple LRC bandpass filters, this happens when 
 
@@ -335,7 +334,7 @@ $$\omega_{c_\pm} = \frac{\pm1+\sqrt{1+4\frac{R^2C}{L}}}{2RC}$$
 
 $$\Delta\omega = \omega_{c_+}-\omega_{c_-} = \frac{1}{RC}$$
 
-### Prelab Question {#5.3}
+### Prelab Question {#8.1}
 
 Express the quality factor $Q$ with respect to $L$, $R$, and $C$.
 
@@ -373,15 +372,15 @@ LogLogPlot[FunctionToPlot[f], {f, 1, 10^8}]
 
 In both cases, these will plot from $10^0$ to $10^8$. Don't forget to label your axes and title your plots! 
 
-### Prelab question {#6.1}
+### Prelab question {#9.1}
 
 Create a Bode plot for $|T|$ and $\delta$ as a function of $f$ (from $1\text{ Hz}$ to $100\text{ kHz}$) for the low pass filter with $R=10\text{ k}\Omega$ and $C=1\text{ nF}$. Both of these should be on the same plot. Make sure to take the absolute value of $\delta$ in your code, so that the log-log plot will work (log of negative numbers undefined as far as we're concerned here). To make your Bode plots consistent with LTSpice, you should make the phase dashed; if you don't know how, [check out this page of matplotlib's documentation](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html).
 
-### Prelab question {#6.2}
+### Prelab question {#9.2}
 
 Create a new Bode plot for $|T|$ and $\delta$ as a function of $f$ (from $1\text{ Hz}$ to $100\text{ kHz}$) for the high pass filter with $R=10\text{ k}\Omega$ and $C=1\text{ nF}$. Both of these should be on the same plot.
 
-### Prelab question {#6.3}
+### Prelab question {#9.3}
 
 Create a new Bode plot for $|T|$ and $\delta$ as a function of $f$ (from $1\text{ Hz}$ to $100\text{ kHz}$) for the bandpass filter with $R=10\text{ k}\Omega$, $C=10\text{ nF}$, and $L=10\text{ mH}$. Both of these should be on the same plot.
 
@@ -389,7 +388,7 @@ Create a new Bode plot for $|T|$ and $\delta$ as a function of $f$ (from $1\text
 
 Draw the 3 circuits in your lab notebook with the values labeled (the ones you used for the Bode plots). You will build these circuits in lab.-->
 
-### Prelab question {#6.4}
+### Prelab question {#9.4}
 
 During the lab section, you will enter your measurements into your Mathematica or Jupyter notebook and plot them with your model predictions. To prepare for this, create a list of "fake data" and plot it on your Bode plots. This will allow you to compare your model and measurements in real time avoiding lost time taking lots of data when something is wrong with your circuit. The point of this part is just to have you create working code to enter a list of data and plot it along with the function. The numerical values of the fake date are unimportant. There is a helpful guide about plotting data and theory together in Mathematica on the [Mathematica Resources page](/PHYS-3330/mathematica-resources).
 
@@ -438,10 +437,10 @@ Both C-like and Fortran-like data have their pros and cons, but Fortran-like is 
 
 ## Lab activities
 
-### Prelab question {#7.1}
+### Prelab question {#10.1}
 Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
 
-### Prelab question {#7.2}
+### Prelab question {#10.2}
 List at least one question you have about the lab activity.
 
 # Useful Readings
@@ -602,7 +601,6 @@ You can read more on passive elements and passive filters in the follow sections
 
 Inductors often have considerable resistance as they are just wires wrapped around a ferrite core. One can include this resistance as a resistor in series with the inductor. The refined model of the Q of this system is
 
-$$Q_\text{refined} = \frac{\frac{R}{R_{L}}}{R\sqrt{\frac{C}{L}} + \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}$$
-{#eq:10}
+$$Q_\text{refined} = \frac{\frac{R}{R_{L}}}{R\sqrt{\frac{C}{L}} + \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}$${#eq:10}
 
 where $R_L$ is the equivalent series resistance of the inductor. This is non-trivial to derive.

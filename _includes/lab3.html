@@ -7,13 +7,6 @@
 Colorado Boulder">
       
       <title>PHYS 3330</title>
-            
-            <!-- pandoc-eqnos: equation style -->
-            <style>
-              .eqnos { display: inline-block; position: relative; width: 100%; }
-              .eqnos br { display: none; }
-              .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
-            </style>
          </head>
    <body>
             <div>
@@ -246,14 +239,12 @@ Colorado Boulder">
          waves is discussed in Steck 2.3.5 &amp; 2.3.7, H&amp;H
          1.18--1.19, and Fischer-Cripps 3.9--3.10. For these circuits,
          the magnitudes of the transfer functions are:</p>
-         <p><span id="eq:1" class="eqnos"><span
-         class="math display">\[\left| T(f) \right| = \frac{1}{\sqrt{1 +
-         (2\pi fRC)^{2}}}~
-         \mbox{(low-pass)}\]</span><span class="eqnos-number">(1)</span></span></p>
-         <p><span id="eq:2" class="eqnos"><span
-         class="math display">\[\left| T(f) \right| = \frac{2\pi
-         fRC}{\sqrt{1 + (2\pi fRC)^{2}}}
-         ~\mbox{(high-pass)}\]</span><span class="eqnos-number">(2)</span></span></p>
+         <p><span class="math display">\[\left| T(f) \right| =
+         \frac{1}{\sqrt{1 + (2\pi fRC)^{2}}}~
+         \mbox{(low-pass)}\]</span>{#eq:1}</p>
+         <p><span class="math display">\[\left| T(f) \right| =
+         \frac{2\pi fRC}{\sqrt{1 + (2\pi fRC)^{2}}}
+         ~\mbox{(high-pass)}\]</span>{#eq:2}</p>
          <p>For both filters: <span class="math inline">\(f_{C} =
          1/{2\pi RC} = 1/(2\pi RC) = \frac{1}{2\pi RC}\ \)</span>, where
          <span class="math inline">\(f_{C}\)</span> is the frequency at
@@ -286,22 +277,15 @@ Colorado Boulder">
          <em>serial</em> LCR circuit so the concepts are the same but
          the details are different). As this is another generalized
          voltage divider,</p>
-         <p><span id="eq:3" class="eqnos"><span
-         class="math display">\[V_{out} = IZ_{2} =
-         V_{in}\frac{Z_{2}}{Z_{1} +
-         Z_{2}}\]</span><span class="eqnos-number">(3)</span></span>
-         </p>
-         <p><span id="eq:4" class="eqnos"><span
-         class="math display">\[Z_{1} =
-         R\]</span><span class="eqnos-number">(4)</span></span></p>
-         <p><span id="eq:5" class="eqnos"><span
-         class="math display">\[Z_{2} = \frac{j\omega L}{1 -
-         \omega^{2}LC}\]</span><span class="eqnos-number">(5)</span></span></p>
+         <p><span class="math display">\[V_{out} = IZ_{2} =
+         V_{in}\frac{Z_{2}}{Z_{1} + Z_{2}}\]</span> {#eq:3}</p>
+         <p><span class="math display">\[Z_{1} = R\]</span>{#eq:4}</p>
+         <p><span class="math display">\[Z_{2} = \frac{j\omega L}{1 -
+         \omega^{2}LC}\]</span>{#eq:5}</p>
          <p>The magnitude of the transfer function can then be
          calculated as:</p>
-         <p><span id="eq:6" class="eqnos"><span
-         class="math display">\[\left| T(\omega) \right| =
-         \sqrt{\frac{V_{out}V_{out}^{*}}{V_{in}V_{in}^{*}}}\]</span><span class="eqnos-number">(6)</span></span></p>
+         <p><span class="math display">\[\left| T(\omega) \right| =
+         \sqrt{\frac{V_{out}V_{out}^{*}}{V_{in}V_{in}^{*}}}\]</span>{#eq:6}</p>
          <p>where <span class="math inline">\(*\)</span> indicates the
          complex conjugate. The algebra is left for you as a prelab
          exercise.</p>
@@ -309,13 +293,11 @@ Colorado Boulder">
          class="math inline">\(f_0\)</span>, and quality factor, or
          <span class="math inline">\(Q\)</span> factor, are given
          by:</p>
-         <p><span id="eq:7" class="eqnos"><span
-         class="math display">\[f_{0} =
-         \frac{1}{2\pi\sqrt{LC}}\]</span><span class="eqnos-number">(7)</span></span></p>
-         <p><span id="eq:8" class="eqnos"><span class="math display">\[Q
-         = \omega_{0}RC = \frac{R\sqrt{C}}{\sqrt{L}} =
-         \frac{f_{0}}{\Delta
-         f}\]</span><span class="eqnos-number">(8)</span></span></p>
+         <p><span class="math display">\[f_{0} =
+         \frac{1}{2\pi\sqrt{LC}}\]</span>{#eq:7}</p>
+         <p><span class="math display">\[Q = \omega_{0}RC =
+         \frac{R\sqrt{C}}{\sqrt{L}} = \frac{f_{0}}{\Delta
+         f}\]</span>{#eq:8}</p>
          <p>The resonant frequency, <span
          class="math inline">\(f_{0}\)</span>, is the center frequency
          of the pass band, and <span class="math inline">\(Q\)</span> is
@@ -327,10 +309,9 @@ Colorado Boulder">
          <span class="math inline">\(Z_0\)</span>, is the magnitude of
          the impedance of the inductor or the capacitor at the resonant
          frequency:</p>
-         <p><span id="eq:9" class="eqnos"><span
-         class="math display">\[Z_{0} = \omega_{0}L =
+         <p><span class="math display">\[Z_{0} = \omega_{0}L =
          \frac{1}{\omega_{0}C} =
-         \frac{\sqrt{L}}{\sqrt{C}}\]</span><span class="eqnos-number">(9)</span></span></p>
+         \frac{\sqrt{L}}{\sqrt{C}}\]</span>{#eq:9}</p>
          <h1 data-number="5" id="useful-readings"><span
          class="header-section-number">5</span> Useful Readings</h1>
          <ol type="1">
@@ -349,56 +330,55 @@ Colorado Boulder">
          electronic copy of your notebook to lab, preferably on your own
          laptop. You will use it to plot your data during the lab
          session.</strong></p>
-         <div id="fig:low-pass-1" class="fignos">
          <figure>
          <img src="../resources/lab3fig/low-pass-1.png"
-         style="width:10cm" alt="Figure 1: Low-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Low-pass
-         filter</figcaption>
+         id="fig:low-pass-1" style="width:10cm" alt="Low-pass filter" />
+         <figcaption aria-hidden="true">Low-pass filter</figcaption>
          </figure>
-         </div>
-         <div id="fig:high-pass-1" class="fignos">
          <figure>
          <img src="../resources/lab3fig/high-pass-1.png"
-         style="width:10cm" alt="Figure 2: High-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> High-pass
-         filter</figcaption>
+         id="fig:high-pass-1" style="width:10cm"
+         alt="High-pass filter" />
+         <figcaption aria-hidden="true">High-pass filter</figcaption>
          </figure>
-         </div>
-         <div id="fig:band-pass-1" class="fignos">
          <figure>
          <img src="../resources/lab3fig/band-pass-1.png"
-         style="width:10cm" alt="Figure 3: Band-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Band-pass
-         filter</figcaption>
+         id="fig:band-pass-1" style="width:10cm"
+         alt="Band-pass filter" />
+         <figcaption aria-hidden="true">Band-pass filter</figcaption>
          </figure>
-         </div>
          <h2 data-number="6.1" id="low--and-high-pass-filters"><span
          class="header-section-number">6.1</span> Low- and high-pass
          filters</h2>
          <ol type="1">
          <li><p>Define functions in Mathematica to calculate the cut-off
          or 3 dB frequency, <span class="math inline">\(f_c\)</span>,
-         for the low- and high-pass filters in Figures <a
-         href="#fig:low-pass-1">1</a> and <a
-         href="#fig:high-pass-1">2</a>. The input parameters to this
-         function should be the resistance and capacitance of your
-         circuit. Evaluate the functions using the nominal values shown
-         in the schematic. During the lab, you can input the exact
-         values of your components and thus quickly predict the 3 dB
-         frequency you expect for your circuit.</p></li>
+         for the low- and high-pass filters in Figures <span
+         class="citation"
+         data-cites="fig:low-pass-1">@fig:low-pass-1</span> and <span
+         class="citation"
+         data-cites="fig:high-pass-1">@fig:high-pass-1</span>. The input
+         parameters to this function should be the resistance and
+         capacitance of your circuit. Evaluate the functions using the
+         nominal values shown in the schematic. During the lab, you can
+         input the exact values of your components and thus quickly
+         predict the 3 dB frequency you expect for your
+         circuit.</p></li>
          <li><p>Create two Bode plots (one for each filter) of the
          frequency response of the low-pass and high-pass filters in
-         Figures <a href="#fig:low-pass-1">1</a> and <a
-         href="#fig:high-pass-1">2</a>. A Bode plot is a log-log plot of
-         the gain (<span class="math inline">\(V_{out}/V_{in}\)</span>)
-         versus frequency, similar to what is on pages 61 &amp; 62 of
-         Steck (although the Steck plots have the x-axis in units of
-         <span class="math inline">\(2\pi RC\)</span> and you should use
-         units of Hz). Make sure to include a large enough range in
-         frequency to see both the pass and attenuation bands. Make sure
-         to label your axes! Details about making plots nice are
-         included in Lab Skills Activity 2.</p></li>
+         Figures <span class="citation"
+         data-cites="fig:low-pass-1">@fig:low-pass-1</span> and <span
+         class="citation"
+         data-cites="fig:high-pass-1">@fig:high-pass-1</span>. A Bode
+         plot is a log-log plot of the gain (<span
+         class="math inline">\(V_{out}/V_{in}\)</span>) versus
+         frequency, similar to what is on pages 61 &amp; 62 of Steck
+         (although the Steck plots have the x-axis in units of <span
+         class="math inline">\(2\pi RC\)</span> and you should use units
+         of Hz). Make sure to include a large enough range in frequency
+         to see both the pass and attenuation bands. Make sure to label
+         your axes! Details about making plots nice are included in Lab
+         Skills Activity 2.</p></li>
          <li><p>During the lab section, you will enter your measurements
          into your Mathematica notebook and plot them with your model
          predictions. To prepare for this, create a list of “fake data”
@@ -421,8 +401,9 @@ Colorado Boulder">
          the characteristic impedance <span
          class="math inline">\(Z_0\)</span>, and the quality factor
          <span class="math inline">\(Q\)</span> for the band-pass filter
-         in Figure <a href="#fig:band-pass-1">3</a>. Evaluate the
-         functions using the nominal values shown in the
+         in Figure <span class="citation"
+         data-cites="fig:band-pass-1">@fig:band-pass-1</span>. Evaluate
+         the functions using the nominal values shown in the
          schematic.</p></li>
          <li><p>Create a Bode plot showing the predicted gain (<span
          class="math inline">\(|V_{out}/V_{in}|\)</span>) versus
@@ -448,48 +429,44 @@ Colorado Boulder">
          id="building-the-circuits-and-predicting-their-behavior"><span
          class="header-section-number">7</span> Building the Circuits
          and Predicting Their Behavior</h1>
-         <div id="fig:r-divider" class="fignos">
          <figure>
          <img src="../resources/lab3fig/r-divider.png"
-         style="width:10cm" alt="Figure 4: Resistive divider" />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> Resistive
-         divider</figcaption>
+         id="fig:r-divider" style="width:10cm"
+         alt="Resistive divider" />
+         <figcaption aria-hidden="true">Resistive divider</figcaption>
          </figure>
-         </div>
-         <div id="fig:low-pass-2" class="fignos">
          <figure>
          <img src="../resources/lab3fig/low-pass-2.png"
-         style="width:10cm" alt="Figure 5: Low-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> Low-pass
-         filter</figcaption>
+         id="fig:low-pass-2" style="width:10cm" alt="Low-pass filter" />
+         <figcaption aria-hidden="true">Low-pass filter</figcaption>
          </figure>
-         </div>
-         <div id="fig:high-pass-2" class="fignos">
          <figure>
          <img src="../resources/lab3fig/high-pass-2.png"
-         style="width:10cm" alt="Figure 6: High-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> High-pass
-         filter</figcaption>
+         id="fig:high-pass-2" style="width:10cm"
+         alt="High-pass filter" />
+         <figcaption aria-hidden="true">High-pass filter</figcaption>
          </figure>
-         </div>
-         <div id="fig:band-pass-2" class="fignos">
          <figure>
          <img src="../resources/lab3fig/band-pass-2.png"
-         style="width:10cm" alt="Figure 7: Band-pass filter" />
-         <figcaption aria-hidden="true"><span>Figure 7:</span> Band-pass
-         filter</figcaption>
+         id="fig:band-pass-2" style="width:10cm"
+         alt="Band-pass filter" />
+         <figcaption aria-hidden="true">Band-pass filter</figcaption>
          </figure>
-         </div>
          <h2 data-number="7.1" id="building-the-circuits"><span
          class="header-section-number">7.1</span> Building the
          Circuits</h2>
          <ol type="1">
          <li><p>Gather all the components to be able to build the four
-         circuits shown in Figures <a href="#fig:r-divider">4</a>, <a
-         href="#fig:low-pass-2">5</a>, <a href="#fig:high-pass-2">6</a>,
-         and <a href="#fig:band-pass-2">7</a>. If you cannot find
-         components in stock with the specified values, take the nearest
-         in value that you can find.</p>
+         circuits shown in Figures <span class="citation"
+         data-cites="fig:r-divider">@fig:r-divider</span>, <span
+         class="citation"
+         data-cites="fig:low-pass-2">@fig:low-pass-2</span>, <span
+         class="citation"
+         data-cites="fig:high-pass-2">@fig:high-pass-2</span>, and <span
+         class="citation"
+         data-cites="fig:band-pass-2">@fig:band-pass-2</span>. If you
+         cannot find components in stock with the specified values, take
+         the nearest in value that you can find.</p>
          <ul>
          <li><p>Resistive divider: <span class="math inline">\(R_1 =
          10~k\Omega, R_2 = 6.8~k\Omega\)</span></p></li>
@@ -548,21 +525,18 @@ Colorado Boulder">
          <p><em>HINT: You should have already made these plots in your
          prelab. Just enter the measured values of your
          components.</em></p>
-         <div id="fig:setup" class="fignos">
          <figure>
-         <img src="../resources/lab3fig/equip-setup.png"
+         <img src="../resources/lab3fig/equip-setup.png" id="fig:setup"
          style="width:10cm"
-         alt="Figure 8: Test and Measurement Set-up. Channel 1 will “pick off” the function generator signal on its way to the circuit board. You can do this using a BNC “T” connector mounted directly on the oscilloscope input. When you connect the oscilloscope like this, you need to make sure the channel impedance is set to high impedance (not 50 \Omega)." />
-         <figcaption aria-hidden="true"><span>Figure 8:</span> Test and
-         Measurement Set-up. Channel 1 will “pick off” the function
-         generator signal on its way to the circuit board. You can do
-         this using a BNC “T” connector mounted directly on the
-         oscilloscope input. When you connect the oscilloscope like
-         this, you need to make sure the channel impedance is set to
-         high impedance (not <span class="math inline">\(50
-         \Omega\)</span>).</figcaption>
+         alt="Test and Measurement Set-up. Channel 1 will “pick off” the function generator signal on its way to the circuit board. You can do this using a BNC “T” connector mounted directly on the oscilloscope input. When you connect the oscilloscope like this, you need to make sure the channel impedance is set to high impedance (not 50 \Omega)." />
+         <figcaption aria-hidden="true">Test and Measurement Set-up.
+         Channel 1 will “pick off” the function generator signal on its
+         way to the circuit board. You can do this using a BNC “T”
+         connector mounted directly on the oscilloscope input. When you
+         connect the oscilloscope like this, you need to make sure the
+         channel impedance is set to high impedance (not <span
+         class="math inline">\(50 \Omega\)</span>).</figcaption>
          </figure>
-         </div>
          <h1 data-number="8"
          id="setting-up-test-and-measurement-equipment-and-testing-your-circuits"><span
          class="header-section-number">8</span> Setting Up Test and
@@ -572,9 +546,10 @@ Colorado Boulder">
          circuits</h2>
          <ol type="1">
          <li><p>Connect the circuit board to the function generator and
-         the oscilloscope as shown in Figure <a href="#fig:setup">8</a>.
-         It is always helpful to display both the input voltage as well
-         as the output voltage on the scope at the same time.</p></li>
+         the oscilloscope as shown in Figure <span class="citation"
+         data-cites="fig:setup">@fig:setup</span>. It is always helpful
+         to display both the input voltage as well as the output voltage
+         on the scope at the same time.</p></li>
          <li><p>Test your setup by creating a 1 kHz sine wave at 1 V p-p
          using the function generator and confirm the waveform frequency
          and amplitude by measuring the signal on the scope. Trigger the
@@ -618,12 +593,12 @@ Colorado Boulder">
          physical system instead by using a scope probe (see
          definitions) in place of the coax cable to reduce the
          capacitance of the measurement probe. Repeat the measurements
-         (and record them in your lab notebook) from <a
-         href="#sec:vd-freq">8.2</a>.1 using the 10x probe to measure
-         the output of the circuit. Note that the oscilloscope should
-         know when the 10X probe is attached and should automatically
-         adjust the scale to give the correct value, but it’s a good
-         idea to verify this.</li>
+         (and record them in your lab notebook) from <span
+         class="citation" data-cites="sec:vd-freq">@sec:vd-freq</span>.1
+         using the 10x probe to measure the output of the circuit. Note
+         that the oscilloscope should know when the 10X probe is
+         attached and should automatically adjust the scale to give the
+         correct value, but it’s a good idea to verify this.</li>
          <li>Does you original model of just two resistors now predict
          the behavior of the circuit when you use a 10X probe?</li>
          </ol>
@@ -730,10 +705,9 @@ Colorado Boulder">
          just wires wrapped around a ferrite core. One can include this
          resistance as a resistor in series with the inductor. The
          refined model of the Q of this system is</p>
-         <p><span id="eq:10" class="eqnos"><span
-         class="math display">\[Q_{refined} =
+         <p><span class="math display">\[Q_{refined} =
          \frac{\frac{R}{R_{L}}}{R\sqrt{\frac{C}{L}} +
-         \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}\]</span><span class="eqnos-number">(10)</span></span></p>
+         \frac{1}{R_{L}}\sqrt{\frac{L}{C}}}\]</span>{#eq:10}</p>
          <p>where <span class="math inline">\(R_L\)</span> is the
          equivalent series resistance of the inductor. This is
          non-trivial to derive.</p>

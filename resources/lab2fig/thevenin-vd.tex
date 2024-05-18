@@ -1,0 +1,37 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+\begin{circuitikz}[american voltages]
+\draw (0,0)
+    to [V, invert, *-, l=$V$] (0, 4)
+    to ++(2,0)
+    to [R=$R_1$, -*] ++(0,-2)
+    to [R=$R_2$, -*] ++(0,-2)--(0,0) node[ground]{};
+    \draw (2,2) to ++(1.5,0);
+    \draw (2,0) to ++(1.5,0);
+    %\draw (2,0) to [short, -o] (4.5,0) node[anchor = west]{$0~V$};
+    \draw (3.5,2) to [R=$R_3$, *-*] ++(0,-2);
+
+    \draw (8,3) coordinate (O2) to [V,l=$V_T$] ++(0, -3)
+
+    (O2) to [R=$R_o$] ++(2,0) to ++(.5,0) to [R=$R_3$] ++(0,-3) to [short,-*] ++(0,0) coordinate(gnd) to [short,-*] ++(-2.5,0) node[ground]{}
+    ;
+    \draw[->, thick] (4.25,2.25) -- ++ (2,0) node[midway, above,yshift=1] {Thevenin's Equivalent};
+    
+    \draw [rounded corners,dashed] (O2) ++ (-0.75,0.75)--++(0,-4)--++(2.75,0)--++(0,4)--cycle;
+
+\end{circuitikz}
+
+\end{document}

@@ -381,17 +381,15 @@ Colorado Boulder">
          </ol>
          <h2 data-number="3.3" id="arduinos"><span
          class="header-section-number">3.3</span> Arduinos</h2>
-         <div id="fig:arduino" class="fignos">
          <figure>
-         <img src="../resources/lab10fig/arduino.png"
-         alt="Figure 1: The actual MCU is an IC (ATMEL ATmega328P) on the Arduino board. It comes in two styles: a DIP (dual in-line package) style and SMD (surface mount device). The DIP chip MCU can be pulled out and used in other circuits." />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> The
-         actual MCU is an IC (ATMEL ATmega328P) on the Arduino board. It
-         comes in two styles: a DIP (dual in-line package) style and SMD
-         (surface mount device). The DIP chip MCU can be pulled out and
-         used in other circuits.</figcaption>
+         <img src="../resources/lab10fig/arduino.png" id="fig:arduino"
+         alt="The actual MCU is an IC (ATMEL ATmega328P) on the Arduino board. It comes in two styles: a DIP (dual in-line package) style and SMD (surface mount device). The DIP chip MCU can be pulled out and used in other circuits." />
+         <figcaption aria-hidden="true">The actual MCU is an IC (ATMEL
+         ATmega328P) on the Arduino board. It comes in two styles: a DIP
+         (dual in-line package) style and SMD (surface mount device).
+         The DIP chip MCU can be pulled out and used in other
+         circuits.</figcaption>
          </figure>
-         </div>
          <p>In this lab, we will take a look at what microcontrollers
          can do by working with the Arduino Uno board.</p>
          <blockquote>
@@ -417,8 +415,9 @@ Colorado Boulder">
          online community around Arduino development.</p>
          <p>The heart of the Arduino Uno is the 28 pin ATMEL <a
          href="https://en.wikipedia.org/wiki/ATmega328">ATmega328P</a>
-         MCU chip (see Figure <a href="#fig:arduino">1</a>). It is a
-         member of the ATMEL 8-bit <a
+         MCU chip (see Figure <span class="citation"
+         data-cites="fig:arduino">@fig:arduino</span>). It is a member
+         of the ATMEL 8-bit <a
          href="https://en.wikipedia.org/wiki/AVR_microcontrollers">AVR
          microcontroller family</a>, with</p>
          <ul>
@@ -526,23 +525,22 @@ Colorado Boulder">
          Arduino to Earth ground. You have connected all of your
          circuits to Earth ground up to this point. You will power your
          Arduino via the USB cable from your computer.</p>
-         <div id="fig:grounds" class="fignos">
          <figure>
-         <img src="../resources/lab10fig/grounds.png"
-         alt="Figure 2: Common ground is a point at which you are arbitrarily calling 0\text{ V}. Earth ground is a connection to the Earth." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Common
-         ground is a point at which you are arbitrarily calling <span
+         <img src="../resources/lab10fig/grounds.png" id="fig:grounds"
+         alt="Common ground is a point at which you are arbitrarily calling 0\text{ V}. Earth ground is a connection to the Earth." />
+         <figcaption aria-hidden="true">Common ground is a point at
+         which you are arbitrarily calling <span
          class="math inline">\(0\text{ V}\)</span>. Earth ground is a
          connection to the Earth.</figcaption>
          </figure>
-         </div>
          <p>In this lab, all the circuit diagrams show a common ground
-         symbol (see Figure <a href="#fig:grounds">2</a>) for
-         connections to the <strong>GND</strong> pin of the Arduino
-         board. Connections to the ground of the power supply,
-         oscilliscope, and/or function generator are connections to
-         Earth ground, and will be labeled with the Earth ground symbol
-         in circuit diagrams.</p>
+         symbol (see Figure <span class="citation"
+         data-cites="fig:grounds">@fig:grounds</span>) for connections
+         to the <strong>GND</strong> pin of the Arduino board.
+         Connections to the ground of the power supply, oscilliscope,
+         and/or function generator are connections to Earth ground, and
+         will be labeled with the Earth ground symbol in circuit
+         diagrams.</p>
          <p>When you draw your diagrams, make sure to use the right
          ground symbol when appropriate. We will take care to separate
          and isolate the Arduino circuit from the power supply, and the
@@ -571,23 +569,22 @@ Colorado Boulder">
          <p>In many microcontroller applications, LEDs are used as
          indicators to alert users what might be happening in the
          system. When multiple LEDs are being used, there are two ways
-         to limit the current through them as seen in Figure <a
-         href="#fig:led-limiting">3</a>. In the lab you will be using
-         the MV57164 LED bank of 10 LEDs. This LED bank has a similar
-         design to a DIP chip with 10 LEDs running down chip with all
-         the anodes on one side and cathodes on the other side. The
-         forward voltage of these LEDs is about <span
+         to limit the current through them as seen in Figure <span
+         class="citation"
+         data-cites="fig:led-limiting">@fig:led-limiting</span>. In the
+         lab you will be using the MV57164 LED bank of 10 LEDs. This LED
+         bank has a similar design to a DIP chip with 10 LEDs running
+         down chip with all the anodes on one side and cathodes on the
+         other side. The forward voltage of these LEDs is about <span
          class="math inline">\(2\text{ V}\)</span>.</p>
-         <div id="fig:led-limiting" class="fignos">
          <figure>
-         <img src="../resources/lab10fig/leds.png"
-         alt="Figure 3: LEDs linked in parallel (these could be connected to different GPIO pins) can either have a) individual current limiting resistors or b) a single current limiting restance." />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> LEDs
-         linked in parallel (these could be connected to different GPIO
-         pins) can either have a) individual current limiting resistors
-         or b) a single current limiting restance.</figcaption>
+         <img src="../resources/lab10fig/leds.png" id="fig:led-limiting"
+         alt="LEDs linked in parallel (these could be connected to different GPIO pins) can either have a) individual current limiting resistors or b) a single current limiting restance." />
+         <figcaption aria-hidden="true">LEDs linked in parallel (these
+         could be connected to different GPIO pins) can either have a)
+         individual current limiting resistors or b) a single current
+         limiting restance.</figcaption>
          </figure>
-         </div>
          <p>Assuming you have <span class="math inline">\(N\)</span>
          LEDs with current limiting resistors <span
          class="math inline">\(R\)</span>, for both circuits a) and
@@ -685,18 +682,17 @@ Colorado Boulder">
          (aka optoisolators) are used to isolate microcontrollers from
          circuits they control. These are simple ICs, very similar to
          the optical-link you built in lab 6, that contains an LED and a
-         phototransistor (see Figure <a
-         href="#fig:optocoupler">4</a>).</p>
-         <div id="fig:optocoupler" class="fignos">
+         phototransistor (see Figure <span class="citation"
+         data-cites="fig:optocoupler">@fig:optocoupler</span>).</p>
          <figure>
          <img src="../resources/lab10fig/optocoupler.png"
-         alt="Figure 4: An optocoupler has an internal infrared LED. When the LED is on, it activates a phototransistor and allows current to flow from the collector to the emitter." />
-         <figcaption aria-hidden="true"><span>Figure 4:</span> An
-         optocoupler has an internal infrared LED. When the LED is on,
-         it activates a phototransistor and allows current to flow from
-         the collector to the emitter.</figcaption>
+         id="fig:optocoupler"
+         alt="An optocoupler has an internal infrared LED. When the LED is on, it activates a phototransistor and allows current to flow from the collector to the emitter." />
+         <figcaption aria-hidden="true">An optocoupler has an internal
+         infrared LED. When the LED is on, it activates a
+         phototransistor and allows current to flow from the collector
+         to the emitter.</figcaption>
          </figure>
-         </div>
          <p><span style="color: red;"><strong>TO ISOLATE THE CIRCUIT
          FROM THE ARDUINO, THE ARDUINO COMMON GROUND MUST <em>NOT</em>
          BE CONNECTED TO THE CIRCUIT’S GROUND</strong></span></p>
@@ -738,22 +734,22 @@ Colorado Boulder">
          contact</em>.</figcaption>
          </figure>
          <p>The coil can be modeled as a resistor and inductor in series
-         (see Figure <a href="#fig:relay-circuit">5</a>). A diode must
-         be placed in parallel with the coil to allow stored energy to
-         discharge safely when the coil is switched off. Diodes used in
-         this way are referred to as “flyback diodes,” and without them,
-         the inductor can cause unwanted voltage spikes in your
-         cicuit.</p>
-         <div id="fig:relay-circuit" class="fignos">
+         (see Figure <span class="citation"
+         data-cites="fig:relay-circuit">@fig:relay-circuit</span>). A
+         diode must be placed in parallel with the coil to allow stored
+         energy to discharge safely when the coil is switched off.
+         Diodes used in this way are referred to as “flyback diodes,”
+         and without them, the inductor can cause unwanted voltage
+         spikes in your cicuit.</p>
          <figure>
          <img src="../resources/lab10fig/relay-circuit.png"
-         alt="Figure 5: The coil of the relay can be modeled with an inductor and resistor in series. It is necessary to place a diode in parallel with the coil to protect the rest of the circuit." />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> The coil
-         of the relay can be modeled with an inductor and resistor in
-         series. It is necessary to place a diode in parallel with the
-         coil to protect the rest of the circuit.</figcaption>
+         id="fig:relay-circuit"
+         alt="The coil of the relay can be modeled with an inductor and resistor in series. It is necessary to place a diode in parallel with the coil to protect the rest of the circuit." />
+         <figcaption aria-hidden="true">The coil of the relay can be
+         modeled with an inductor and resistor in series. It is
+         necessary to place a diode in parallel with the coil to protect
+         the rest of the circuit.</figcaption>
          </figure>
-         </div>
          <h3 data-number="3.7.1" id="6.1"><span
          class="header-section-number">3.7.1</span> Prelab Question</h3>
          <p>Apart from the moments when the relay is switched, the
@@ -789,21 +785,20 @@ Colorado Boulder">
          <h2 data-number="3.8" id="opto-isalated-relay-switch"><span
          class="header-section-number">3.8</span> Opto-isalated Relay
          Switch</h2>
-         <div id="fig:opto-isolated-relay" class="fignos">
          <figure>
          <img src="../resources/lab10fig/relay-control-circuit2.png"
-         alt="Figure 6: Relay control with an optocoupler isolating the Arduino and an NPN transistor used as a switch." />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> Relay
-         control with an optocoupler isolating the Arduino and an NPN
-         transistor used as a switch.</figcaption>
+         id="fig:opto-isolated-relay"
+         alt="Relay control with an optocoupler isolating the Arduino and an NPN transistor used as a switch." />
+         <figcaption aria-hidden="true">Relay control with an
+         optocoupler isolating the Arduino and an NPN transistor used as
+         a switch.</figcaption>
          </figure>
-         </div>
-         <p>The circuit shown in Figure <a
-         href="#fig:opto-isolated-relay">6</a> shows a fully
-         opto-isolated relay switch that can safely be operated without
-         risk of damaging the Arduino. You already calculated <span
-         class="math inline">\(R_{cl}\)</span> to limit the current
-         through the optocoupler’s LED and <span
+         <p>The circuit shown in Figure <span class="citation"
+         data-cites="fig:opto-isolated-relay">@fig:opto-isolated-relay</span>
+         shows a fully opto-isolated relay switch that can safely be
+         operated without risk of damaging the Arduino. You already
+         calculated <span class="math inline">\(R_{cl}\)</span> to limit
+         the current through the optocoupler’s LED and <span
          class="math inline">\(R_1\)</span> to get the correct voltage
          across the relay’s coil. Now it is important to understand the
          role of the base resistor <span
@@ -1076,16 +1071,17 @@ Colorado Boulder">
          <h2 data-number="5.4" id="opto-isolated-relay-control"><span
          class="header-section-number">5.4</span> Opto-isolated Relay
          Control</h2>
-         <p>Now you will build the circuit in <a
-         href="#fig:opto-isolated-relay">6</a> with the values of
-         resistors you calculated in the prelab (you may want to
-         corroborate with your peers or check with an instructor to
-         confirm your calculations make sense).</p>
+         <p>Now you will build the circuit in <span class="citation"
+         data-cites="fig:opto-isolated-relay">@fig:opto-isolated-relay</span>
+         with the values of resistors you calculated in the prelab (you
+         may want to corroborate with your peers or check with an
+         instructor to confirm your calculations make sense).</p>
          <ul>
          <li><p>The datasheet for the optocoupler (SFH615) has incorrect
-         information on the orientation of the DIP chip. Figure <a
-         href="#fig:opto-dip">7</a> shows the correct orientation with a
-         notch cut out of the left side of the DIP chip.</p></li>
+         information on the orientation of the DIP chip. Figure <span
+         class="citation" data-cites="fig:opto-dip">@fig:opto-dip</span>
+         shows the correct orientation with a notch cut out of the left
+         side of the DIP chip.</p></li>
          <li><p>Determine how you will test that the relay
          switches?</p></li>
          <li><p><span style="color: red;"><strong>IN ORDER TO KEEP THE
@@ -1093,17 +1089,15 @@ Colorado Boulder">
          BE CONNECTED TO THE CIRCUIT’S GROUND</strong></span></p></li>
          <li><p>Build and test the circuit.</p></li>
          </ul>
-         <div id="fig:opto-dip" class="fignos">
          <figure>
          <img src="../resources/lab10fig/optocoupler-dip.png"
-         style="width:10cm"
-         alt="Figure 7: The optocoupler has a knotch taken out of the left side of the DIP chip. The left pins (1 and 2) are to the LED and the right pins (3 and 4) are to the phototransistor." />
-         <figcaption aria-hidden="true"><span>Figure 7:</span> The
-         optocoupler has a knotch taken out of the left side of the DIP
-         chip. The left pins (1 and 2) are to the LED and the right pins
-         (3 and 4) are to the phototransistor.</figcaption>
+         id="fig:opto-dip" style="width:10cm"
+         alt="The optocoupler has a knotch taken out of the left side of the DIP chip. The left pins (1 and 2) are to the LED and the right pins (3 and 4) are to the phototransistor." />
+         <figcaption aria-hidden="true">The optocoupler has a knotch
+         taken out of the left side of the DIP chip. The left pins (1
+         and 2) are to the LED and the right pins (3 and 4) are to the
+         phototransistor.</figcaption>
          </figure>
-         </div>
          <h2 data-number="5.5"
          id="explore---choose-your-own-project"><span
          class="header-section-number">5.5</span> Explore - Choose Your

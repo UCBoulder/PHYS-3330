@@ -174,18 +174,18 @@ I</h1>
          preserving as accurately as possible the original waveform. In
          real physics experiments, transducers are used to convert basic
          physical quantities into electric signals, as shown in Figure
-         <a href="#fig:lab-measurement">1</a>. An amplifier is usually
-         needed to raise the small transducer voltage (μV to mV) to a
-         useful level (mV to V) for the signal to be measured
-         reliably.</p>
-         <div id="fig:lab-measurement" class="fignos">
+         <span class="citation"
+         data-cites="fig:lab-measurement">@fig:lab-measurement</span>.
+         An amplifier is usually needed to raise the small transducer
+         voltage (μV to mV) to a useful level (mV to V) for the signal
+         to be measured reliably.</p>
          <figure>
          <img src="../resources/lab4fig/lab-measurement.png"
-         alt="Figure 1: Typical laboratory measurement system" />
-         <figcaption aria-hidden="true"><span>Figure 1:</span> Typical
-         laboratory measurement system</figcaption>
+         id="fig:lab-measurement"
+         alt="Typical laboratory measurement system" />
+         <figcaption aria-hidden="true">Typical laboratory measurement
+         system</figcaption>
          </figure>
-         </div>
          <p>Even though there are commercial amplifiers available for
          purchase, they are often very expensive (&gt;$1000) and have
          many features that may not be needed. Meanwhile, you can design
@@ -252,25 +252,24 @@ I</h1>
          analysis.</p>
          <h2 data-number="2.2" id="open-loop-gain"><span
          class="header-section-number">2.2</span> Open Loop Gain</h2>
-         <div id="fig:opamp-man" class="fignos">
          <figure>
          <img src="../resources/lab4fig/op-amp-man.png"
-         style="width:15cm"
-         alt="Figure 2: Op-amp “black-box” schematic. We can imagine someone inside the op-amp looking at the the voltage difference between the inputs and using this to set V_\text{out}^\text{(internal)}." />
-         <figcaption aria-hidden="true"><span>Figure 2:</span> Op-amp
-         “black-box” schematic. We can imagine someone inside the op-amp
-         looking at the the voltage difference between the inputs and
-         using this to set <span
+         id="fig:opamp-man" style="width:15cm"
+         alt="Op-amp “black-box” schematic. We can imagine someone inside the op-amp looking at the the voltage difference between the inputs and using this to set V_\text{out}^\text{(internal)}." />
+         <figcaption aria-hidden="true">Op-amp “black-box” schematic. We
+         can imagine someone inside the op-amp looking at the the
+         voltage difference between the inputs and using this to set
+         <span
          class="math inline">\(V_\text{out}^\text{(internal)}.\)</span></figcaption>
          </figure>
-         </div>
          <p>The op-amp has two inputs (inverting and non-inverting) and
          one output. It can be thought of as a “black-box” (as seen in
-         Figure <a href="#fig:opamp-man">2</a>) which has an internal
-         voltage source that is controlled by the potential difference
-         between the non-inverting input and the inverting input. The
-         op-amp’s output is the difference between the inputs times
-         <strong>the open-loop gain</strong> <span
+         Figure <span class="citation"
+         data-cites="fig:opamp-man">@fig:opamp-man</span>) which has an
+         internal voltage source that is controlled by the potential
+         difference between the non-inverting input and the inverting
+         input. The op-amp’s output is the difference between the inputs
+         times <strong>the open-loop gain</strong> <span
          class="math inline">\(A\)</span>.</p>
          <p><span class="math display">\[V_\text{out} = A
          (V_+-V_-)\]</span></p>
@@ -340,14 +339,17 @@ I</h1>
          class="header-section-number">2.3</span> Input and output
          impedance</h2>
          <p>Op-amps are designed to have very large input impedance
-         (<span class="math inline">\(R_i\)</span> in Figure <a
-         href="#fig:opamp-man">2</a>) and very small output impedances
-         (<span class="math inline">\(R_o\)</span> in Figure <a
-         href="#fig:opamp-man">2</a>). The very small output impedance
-         allows it drive loads without voltage dividing much of its
-         output over its output impedance (consider taking <span
-         class="math inline">\(R_1\)</span> to zero in the voltage
-         divider transfer function where <span
+         (<span class="math inline">\(R_i\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:opamp-man">@fig:opamp-man</span>) and very
+         small output impedances (<span
+         class="math inline">\(R_o\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:opamp-man">@fig:opamp-man</span>). The very
+         small output impedance allows it drive loads without voltage
+         dividing much of its output over its output impedance (consider
+         taking <span class="math inline">\(R_1\)</span> to zero in the
+         voltage divider transfer function where <span
          class="math inline">\(R_1\)</span> is the output impedance and
          <span class="math inline">\(R_2\)</span> is a load). Even
          though op-amps have this advantage, they have a limit of how
@@ -502,21 +504,21 @@ I</h1>
          inverting input, and the signal <span
          class="math inline">\(V_\text{in}\)</span> is plugged directly
          into the non-inverting input.</p>
-         <div id="fig:buffer-intro" class="fignos">
          <figure>
          <img src="../resources/lab4fig/buffer-intro.png"
-         style="width:10cm"
-         alt="Figure 3: Voltage buffer/follower (with implied power)" />
-         <figcaption aria-hidden="true"><span>Figure 3:</span> Voltage
-         buffer/follower (with implied power)</figcaption>
+         id="fig:buffer-intro" style="width:10cm"
+         alt="Voltage buffer/follower (with implied power)" />
+         <figcaption aria-hidden="true">Voltage buffer/follower (with
+         implied power)</figcaption>
          </figure>
-         </div>
-         <p>Figure <a href="#fig:buffer-intro">3</a> shows a voltage
-         buffer circuit. First notice there is no power to the op-amp in
-         the diagram; often you’ll find op-amp example circuits without
-         power explicitly drawn in, but op-amps
+         <p>Figure <span class="citation"
+         data-cites="fig:buffer-intro">@fig:buffer-intro</span> shows a
+         voltage buffer circuit. First notice there is no power to the
+         op-amp in the diagram; often you’ll find op-amp example
+         circuits without power explicitly drawn in, but op-amps
          <strong><em>always</em></strong> need power (the power is
-         implied - see Figure <a href="#fig:pin-diagram">6</a> for a
+         implied - see Figure <span class="citation"
+         data-cites="fig:pin-diagram">@fig:pin-diagram</span> for a
          pinout of the LF356 Op-amp that includes the power info).</p>
          <h3 data-number="2.5.1" id="4.1"><span
          class="header-section-number">2.5.1</span> Prelab question</h3>
@@ -541,21 +543,19 @@ I</h1>
          <span class="math inline">\(R_F\)</span>, in the feedback loop
          and a resistor, <span class="math inline">\(R\)</span>, from
          the inverting input to ground. There are many ways you’ll see
-         this diagram drawn as seen in Figure <a
-         href="#fig:non-invert-var">4</a>. Note that sometimes people
-         draw the inverting input on top, and sometimes on bottom, but
-         the feedback resistor always goes to the inverting input.</p>
-         <div id="fig:non-invert-var" class="fignos">
+         this diagram drawn as seen in Figure <span class="citation"
+         data-cites="fig:non-invert-var">@fig:non-invert-var</span>.
+         Note that sometimes people draw the inverting input on top, and
+         sometimes on bottom, but the feedback resistor always goes to
+         the inverting input.</p>
          <figure>
          <img src="../resources/lab4fig/non-inv-amp-var.png"
-         style="width:20cm"
-         alt="Figure 4: Non-inverting amplifier diagram variations (all of these are the exact same circuit). Note that all of these have feedback to the negative pin." />
-         <figcaption aria-hidden="true"><span>Figure 4:</span>
-         Non-inverting amplifier diagram variations (all of these are
-         the exact same circuit). Note that all of these have feedback
-         to the negative pin.</figcaption>
+         id="fig:non-invert-var" style="width:20cm"
+         alt="Non-inverting amplifier diagram variations (all of these are the exact same circuit). Note that all of these have feedback to the negative pin." />
+         <figcaption aria-hidden="true">Non-inverting amplifier diagram
+         variations (all of these are the exact same circuit). Note that
+         all of these have feedback to the negative pin.</figcaption>
          </figure>
-         </div>
          <p>The two resistors form a voltage divider <em>feedback
          network</em> with a transfer function <span
          class="math inline">\(B\)</span> (think of <span
@@ -657,25 +657,23 @@ I</h1>
          measuring <span class="math inline">\(V_\text{in}\)</span>, you
          are putting a resistor <span
          class="math inline">\(R_\text{scope}\)</span> from the input to
-         ground (see Figure <a
-         href="#fig:non-invert-input-measure">5</a>). This will
-         inevitably reduce the input impedance of the amplifier. In the
-         case when <span class="math inline">\(R_F = 10\
-         k\Omega\)</span> and <span class="math inline">\(R = 100\
+         ground (see Figure <span class="citation"
+         data-cites="fig:non-invert-input-measure">@fig:non-invert-input-measure</span>).
+         This will inevitably reduce the input impedance of the
+         amplifier. In the case when <span class="math inline">\(R_F =
+         10\ k\Omega\)</span> and <span class="math inline">\(R = 100\
          \Omega\)</span>, what is the input impedance of the
          amplifier?</p>
          <p><em>Hint:</em> <span
          class="math inline">\(R_\text{scope}\)</span> is in parallel
          with <span class="math inline">\(R_o&#39;\)</span>.</p>
-         <div id="fig:non-invert-input-measure" class="fignos">
          <figure>
          <img src="../resources/lab4fig/measure-input-impedance.png"
-         style="width:10cm"
-         alt="Figure 5: Measuring the input changes the input impedance" />
-         <figcaption aria-hidden="true"><span>Figure 5:</span> Measuring
-         the input changes the input impedance</figcaption>
+         id="fig:non-invert-input-measure" style="width:10cm"
+         alt="Measuring the input changes the input impedance" />
+         <figcaption aria-hidden="true">Measuring the input changes the
+         input impedance</figcaption>
          </figure>
-         </div>
          <h3 data-number="2.7.3" id="6.3"><span
          class="header-section-number">2.7.3</span> Prelab question</h3>
          <p>Maybe you already noticed that the buffer is a non-inverting
@@ -700,16 +698,14 @@ I</h1>
          power pin <span class="math inline">\(V^-\)</span> (aka <span
          class="math inline">\(-V_{ee}\)</span> or <span
          class="math inline">\(-V_\text{supply}\)</span>).</p>
-         <div id="fig:pin-diagram" class="fignos">
          <figure>
          <img src="../resources/lab4fig/lf356-pins.png"
-         style="width:10cm"
-         alt="Figure 6: Pin diagram for LF356 (left). The numbers correspond to the corresponding pin on the DIP chip (right)" />
-         <figcaption aria-hidden="true"><span>Figure 6:</span> Pin
-         diagram for LF356 (left). The numbers correspond to the
-         corresponding pin on the DIP chip (right)</figcaption>
+         id="fig:pin-diagram" style="width:10cm"
+         alt="Pin diagram for LF356 (left). The numbers correspond to the corresponding pin on the DIP chip (right)" />
+         <figcaption aria-hidden="true">Pin diagram for LF356 (left).
+         The numbers correspond to the corresponding pin on the DIP chip
+         (right)</figcaption>
          </figure>
-         </div>
          <p>Here we can see the pin diagram for the LF356. Don’t confuse
          <span class="math inline">\(V_+\)</span> and <span
          class="math inline">\(V^+\)</span>. The subscripts <span
@@ -740,18 +736,15 @@ I</h1>
          class="math inline">\(dI/dt\)</span>, so the decoupling
          capacitors compensate with the energy stored and provide the
          current necessary to maintain constant voltage.</p>
-         <div id="fig:powering-with-decouple" class="fignos">
          <figure>
          <img src="../resources/lab4fig/powering-opamp.png"
-         style="width:8cm"
-         alt="Figure 7: Decoupling capacitors near the power pins are necessary for proper op-amp performance. Polarized capacitors are typically used because they can have large capacitances in a small form factor." />
-         <figcaption aria-hidden="true"><span>Figure 7:</span>
-         Decoupling capacitors near the power pins are necessary for
-         proper op-amp performance. Polarized capacitors are typically
-         used because they can have large capacitances in a small form
-         factor.</figcaption>
+         id="fig:powering-with-decouple" style="width:8cm"
+         alt="Decoupling capacitors near the power pins are necessary for proper op-amp performance. Polarized capacitors are typically used because they can have large capacitances in a small form factor." />
+         <figcaption aria-hidden="true">Decoupling capacitors near the
+         power pins are necessary for proper op-amp performance.
+         Polarized capacitors are typically used because they can have
+         large capacitances in a small form factor.</figcaption>
          </figure>
-         </div>
          <p>Each op-amp design has limits to how much voltage you can
          apply to the power pins (before something breaks), and
          typically there is a recommended voltage that is less than this
@@ -771,12 +764,12 @@ I</h1>
          <strong>output voltage swing</strong>.</p>
          <h3 data-number="2.8.2" id="7.2"><span
          class="header-section-number">2.8.2</span> Prelab question</h3>
-         <p>Look back at your calculations in prelab question <a
-         href="#5.3">2.6.3</a>; when supplying the LF356 with <span
-         class="math inline">\(\pm 15\ \text{V}\)</span>, what do you
-         expect happens when the predicted <span
-         class="math inline">\(V_\text{out}\)</span> is greater than the
-         output voltage swing?</p>
+         <p>Look back at your calculations in prelab question <span
+         class="citation" data-cites="sec:5.3">@sec:5.3</span>; when
+         supplying the LF356 with <span class="math inline">\(\pm 15\
+         \text{V}\)</span>, what do you expect happens when the
+         predicted <span class="math inline">\(V_\text{out}\)</span> is
+         greater than the output voltage swing?</p>
          <h2 data-number="2.9" id="lab-activities"><span
          class="header-section-number">2.9</span> Lab activities</h2>
          <h3 data-number="2.9.1" id="8.1"><span
@@ -979,23 +972,22 @@ I</h1>
          them all</strong> (likely more than once) before you begin
          using any IC chips. You should refer back to this section in
          future labs to remind yourself of these useful tips.</p>
-         <div id="fig:power-example" class="fignos">
          <figure>
          <img src="../resources/lab4fig/power-example.jpg"
-         style="width:15cm"
-         alt="Figure 8: The LF356 op-amp DIP chip powered with plus (red) and minus (blue) voltages with decoupling capacitors. Also notice the wire jumping ground to both sides of the chip." />
-         <figcaption aria-hidden="true"><span>Figure 8:</span> The LF356
-         op-amp DIP chip powered with plus (red) and minus (blue)
-         voltages with decoupling capacitors. Also notice the wire
-         jumping ground to both sides of the chip.</figcaption>
+         id="fig:power-example" style="width:15cm"
+         alt="The LF356 op-amp DIP chip powered with plus (red) and minus (blue) voltages with decoupling capacitors. Also notice the wire jumping ground to both sides of the chip." />
+         <figcaption aria-hidden="true">The LF356 op-amp DIP chip
+         powered with plus (red) and minus (blue) voltages with
+         decoupling capacitors. Also notice the wire jumping ground to
+         both sides of the chip.</figcaption>
          </figure>
-         </div>
          <ol type="1">
          <li>Always unplug the power supply from your circuit while
          you’re wiring it.</li>
          <li>Chips sit across the groove on the breadboard (see Figure
-         <a href="#fig:power-example">8</a>). Any other placement will
-         cause legs to short together.
+         <span class="citation"
+         data-cites="fig:power-example">@fig:power-example</span>). Any
+         other placement will cause legs to short together.
          <ul>
          <li>Before inserting a chip, ensure the pins are straight
          (using a needle-nose pliers or something similar).</li>
@@ -1020,21 +1012,22 @@ I</h1>
          ground</p></li>
          </ul></li>
          <li>Connect capacitors between the power pin(s) of the IC (as
-         close to the pin as possible as in Figure <a
-         href="#fig:power-example">8</a>) to ground. These are called
-         decoupling or bypass capacitors and are critical for
-         maintaining constant voltage at the pin as the current needs
-         change. Use nice, big polarized (electrolytic) capacitors
-         (<span class="math inline">\(&gt;1\ \mu\text{F}\)</span>) so
-         that they’re able to collect enough charge to deliver the
-         necessary current when needed.</li>
+         close to the pin as possible as in Figure <span
+         class="citation"
+         data-cites="fig:power-example">@fig:power-example</span>) to
+         ground. These are called decoupling or bypass capacitors and
+         are critical for maintaining constant voltage at the pin as the
+         current needs change. Use nice, big polarized (electrolytic)
+         capacitors (<span class="math inline">\(&gt;1\
+         \mu\text{F}\)</span>) so that they’re able to collect enough
+         charge to deliver the necessary current when needed.</li>
          <li>Measure all your passive elements (resistors, capacitors,
          inductors, diodes) before putting them in the circuits; trying
          to measure while they are plugged into the breadboard can lead
          to mistakes.</li>
          <li>Always have a diagram of your circuit with pin numbers
-         labeled (like the left side of Figure <a
-         href="#fig:pin-diagram">6</a>).</li>
+         labeled (like the left side of Figure <span class="citation"
+         data-cites="fig:pin-diagram">@fig:pin-diagram</span>).</li>
          <li>Make sure any polarized (electrolytic) capacitors are
          oriented such that the higher voltage is applied to the correct
          lead of the capacitor. Remember: <strong>ground</strong> is a
@@ -1177,16 +1170,13 @@ I</h1>
          somewhere on your breadboard so that you can quickly pop in an
          LF356 chip to test it (keep it compact and leave plenty of
          space on your protoboard for future work).</p>
-         <div id="fig:voltage-follower-gnd" class="fignos">
          <figure>
          <img src="../resources/lab4fig/voltage-follower-gnd.png"
-         style="width:10cm"
-         alt="Figure 9: The test circuit is voltage buffer (follower) with a grounded input." />
-         <figcaption aria-hidden="true"><span>Figure 9:</span> The test
-         circuit is voltage buffer (follower) with a grounded
-         input.</figcaption>
+         id="fig:voltage-follower-gnd" style="width:10cm"
+         alt="The test circuit is voltage buffer (follower) with a grounded input." />
+         <figcaption aria-hidden="true">The test circuit is voltage
+         buffer (follower) with a grounded input.</figcaption>
          </figure>
-         </div>
          <p>The test circuit resembles the buffer, but with <span
          class="math inline">\(V_\text{in}=0\)</span>.</p>
          <ol type="1">
@@ -1205,15 +1195,13 @@ I</h1>
          grab an instructor and have them take a look with you.</p>
          <h2 data-number="7.3" id="voltage-buffer"><span
          class="header-section-number">7.3</span> Voltage Buffer</h2>
-         <div id="fig:voltage-follower" class="fignos">
          <figure>
          <img src="../resources/lab4fig/voltage-follower.png"
-         style="width:10cm"
-         alt="Figure 10: Voltage buffer (aka voltage follower)" />
-         <figcaption aria-hidden="true"><span>Figure 10:</span> Voltage
-         buffer (aka voltage follower)</figcaption>
+         id="fig:voltage-follower" style="width:10cm"
+         alt="Voltage buffer (aka voltage follower)" />
+         <figcaption aria-hidden="true">Voltage buffer (aka voltage
+         follower)</figcaption>
          </figure>
-         </div>
          <p>A voltage buffer is the simplest op-amp circuit with
          negative feedback. The voltage buffer is essentially a
          non-inverting amplifier with a gain of 1, so it is often also
@@ -1232,25 +1220,24 @@ I</h1>
          generator (with a <span class="math inline">\(50\
          \Omega\)</span> output impedance) and reproduce (i.e. follow)
          the same voltage with a very small output impedance (we
-         calculated this in prelab question <a
-         href="#6.3">2.7.3</a>)</p>
-         <div id="fig:op-amp-test" class="fignos">
+         calculated this in prelab question <span class="citation"
+         data-cites="sec:6.3">@sec:6.3</span>)</p>
          <figure>
          <img src="../resources/lab4fig/op-amp-test.png"
-         style="width:15cm"
-         alt="Figure 11: Test and measurement setup for op-amp circuits" />
-         <figcaption aria-hidden="true"><span>Figure 11:</span> Test and
-         measurement setup for op-amp circuits</figcaption>
+         id="fig:op-amp-test" style="width:15cm"
+         alt="Test and measurement setup for op-amp circuits" />
+         <figcaption aria-hidden="true">Test and measurement setup for
+         op-amp circuits</figcaption>
          </figure>
-         </div>
          <ol type="1">
          <li><p>Build the voltage follower using the function generator
          as <span class="math inline">\(V_\text{in}\)</span>. Use the
          same settings as before (<span class="math inline">\(400\text{
          mV}_\text{pp}\)</span> sine wave at <span
-         class="math inline">\(261.63\text{ Hz}\)</span>). Figure <a
-         href="#fig:op-amp-test">11</a> shows a schematic of the full
-         set up using Channel 1 to measure <span
+         class="math inline">\(261.63\text{ Hz}\)</span>). Figure <span
+         class="citation"
+         data-cites="fig:op-amp-test">@fig:op-amp-test</span> shows a
+         schematic of the full set up using Channel 1 to measure <span
          class="math inline">\(V_\text{in}\)</span>, Channel 2 to
          measure <span class="math inline">\(V_\text{out}\)</span>, and
          Channel 4 to trigger on the <em>Sync</em> output.</p></li>
@@ -1304,21 +1291,21 @@ I</h1>
          <h2 data-number="7.4" id="non-inverting-amplifier-1"><span
          class="header-section-number">7.4</span> Non-Inverting
          Amplifier</h2>
-         <div id="fig:non-inv-amp" class="fignos">
          <figure>
          <img src="../resources/lab4fig/non-inv-amp.png"
-         style="width:15cm" alt="Figure 12: Non-inverting amplifier" />
-         <figcaption aria-hidden="true"><span>Figure 12:</span>
-         Non-inverting amplifier</figcaption>
+         id="fig:non-inv-amp" style="width:15cm"
+         alt="Non-inverting amplifier" />
+         <figcaption aria-hidden="true">Non-inverting
+         amplifier</figcaption>
          </figure>
-         </div>
          <ol type="1">
          <li><p>Grab a <span class="math inline">\(10\text{
          k}\Omega\)</span> and a <span class="math inline">\(100\
          \Omega\)</span> resistor and measure their
          resistances.</p></li>
          <li><p>Change the negative feedback loop in your circuit to the
-         one shown in Figure <a href="#fig:non-inv-amp">12</a>, with
+         one shown in Figure <span class="citation"
+         data-cites="fig:non-inv-amp">@fig:non-inv-amp</span>, with
          <span class="math inline">\(R_F = 10\text{ k}\Omega\)</span>
          and <span class="math inline">\(R = 100\ \Omega\)</span> (or
          build a new one elsewhere on your breadboard).</p></li>
@@ -1373,15 +1360,13 @@ I</h1>
          impedance. Do your measurements agree with your
          predictions?</p></li>
          </ol>
-         <div id="fig:non-inv-amp1" class="fignos">
          <figure>
          <img src="../resources/lab4fig/increasing-input-impedance.png"
-         style="width:15cm"
-         alt="Figure 13: Will this resistor affect the circuit?" />
-         <figcaption aria-hidden="true"><span>Figure 13:</span> Will
-         this resistor affect the circuit?</figcaption>
+         id="fig:non-inv-amp1" style="width:15cm"
+         alt="Will this resistor affect the circuit?" />
+         <figcaption aria-hidden="true">Will this resistor affect the
+         circuit?</figcaption>
          </figure>
-         </div>
          <ol start="12" type="1">
          <li><p>Consider driving a load with resistance <span
          class="math inline">\(R_L\)</span> with the output of your
