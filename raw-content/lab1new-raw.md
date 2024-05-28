@@ -3,6 +3,148 @@ title: "Lab 1 - Electronic Measurements"
 author: [Department of Physics | University of Colorado Boulder]
 ---
 
+# Goals
+Today you will learn to use equipment that are useful for building and testing electronic circuits. You will use all of these instruments extensively throughout the semester.
+
+-   Power supply
+    -   This is used to provide DC power to your circuits
+    -   It can be used as a voltage source (constant voltage) or a current source (constant current).
+    
+-   Function generator
+    -   This is used to create signals with various waveforms
+    -   This is an incredibly useful tool for characterizing, the frequency dependance of your circuits.
+
+-   Digital multimeter (DMM)
+    -   This is an extremely versatile tool that can measure DC and AC voltages and currents, resistances, and sometimes more (depending on the model)
+    -   It has a simple display that can only show single values such as a root-mean-square voltage *or* the frequency of an AC signal.
+
+-   Oscilloscope (aka scope)
+    -   This is a voltage meter that can "plot" voltage over time
+    -   This is a far more powerful tool for characterizing voltages than the DMM because you can characterize wave shapes and noise.
+
+<!--
+*** added "further" to imply continuation. some other minor edits 
+-->
+In this course you will continue to develop essential laboratory skills. Not only is the above equipment found in nearly every lab space, but you will practice keeping a lab notebook in a practical way and practice a model based approach to experimental design.
+
+<!-- 
+*** had difficulty parsing the feedback for this part, but I think I improved it
+-->
+In this course, you will practice implementing, testing, and refining models. Extremely accurate and nuanced models are often difficult to implement, so it can be desirable to adjust physical systems to accommodate simpler models. Balancing accuracy and simplicity is a skill and takes practice.
+
+Today, you will
+
+-   Connect your circuit to *Earth ground*,
+
+-   Set up the power supply so that you can get voltages both above and below ground (positive and negative voltages),
+
+-   Operate the power supply in constant voltage and constant current modes,
+
+-   Measure physical properties, such as voltage differences, current, and resistance,
+
+-   Trigger the oscilloscope,
+
+-   Operate the function generator,
+
+<!--
+*** added this 
+-->
+-   Use a micrometer to measure the diameter of a wire and estimate the resistivity,
+
+-   Measure resistors using 2-terminal and with 4-terminal measurement methods,
+
+-   Develop familiarity with the model-based approach to experiment.
+
+
+# Lab Notebook Guidelines
+
+Lab notebooks are an essential tool in research and development settings. They may seem tedious to maintain, but if you develop good habits now, you will avoid unnecessary headaches in the future. Poor notetaking can cause you to lose track of data or the meaning of data which can force you to unnecessarily repeat experiments and/or calculations.
+
+The lab notebook will play an essential role in this course and will be graded each week.  You will use your notebook for keeping records of many things including:
+
+-   Answering prelab questions from the lab guide to prepare you for upcoming lab activities,
+
+-   Answering in-lab questions,
+
+-   Measurements and data,
+
+-   Plots, diagrams, pictures, and sketches,
+
+-   Experimental procedures and designs,
+
+-   Analyses and results.
+
+The lab notebook will be an important part of your grade because learning to keep a good lab notebook is crucial for your professional development. Keeping a physical notebook is very common, but many people like to keep digital notebooks nowadays, usually as a supplement to a physical notebook. There are many popular tools; since the University now uses a Microsoft ecosystem, OneNote ends up being very convenient for integrating with other Microsoft tools such as Teams and OneDrive. Jupyter notebooks are another useful tool as they can integrate Python code with Markdown (with LaTeX compatibility) which can streamline your calculations and allow for nice and easy plots. Your lab notebook is the main mechanism for communicating your processes and results of the lab experiments. Each week, you will be responsible for turning in both your pre-lab work and your lab notebook / analyses via Canvas in scanned format. See the syllabus for more information.
+
+<!--You may find it helpful to write up many of your notes on the computer, for example, within Mathematica, Jupyter Notebooks. This is fine. However, before your notebook is turned in, the notes, plots, and analysis should be transferred to the lab notebook by printing and taping the pages or keeping them in a three-ring binder. This is standard practice in research labs. Your lab notebook is the main mechanism for communicating your process and results of the lab experiments. Each week, you will be responsible for turning in both your pre-laboratory work and your lab notebook / analysis via Canvas in scanned format. See the syllabus for more information.-->
+
+# Cables and Adapters
+
+There are many kinds of cables and adapters found in the lab. The following are some of the more common ones you will encounter.
+
+![**Banana cables** - wires with banana connectors at the end. The power supply and DMM have banana sockets to make connections to.](../resources/lab1fig/banana.jpg){#fig:banana width="8cm"}
+
+![**Coaxial (coax) cables** - this kind of cable is specially designed for sending signals through. It has two conductors: one is the inner conductor which is used to send the signal through, and the other is the outer conductor which is designed to be grounded. Gauss's law suggests this geometry will shield the inner conductor from external EM fields.](../resources/lab1fig/coax.png){#fig:coax width="10cm"}
+
+![**BNC plug connector** - there are many kinds of connectors used for coax cables. BNC is a large, robust, and popular connector.](../resources/lab1fig/bnc-plug.jpg){#fig:bnc width="10cm"}
+
+![**Mini-Grabber to BNC Socket Connector** - this allows you to make connections to exposed wires. The red grabber is connected to the inner conductor and the black grabber is connected to the outer conductor.](../resources/lab1fig/mini-grabber-to-bnc.png){#fig:grabber width="10cm"}
+
+![**BNC to double banana adapter** - this adapter allows you to connect coax cables to the DMM or power supply. The *"ground" tab* (labeled GND) lets you know which banana plug gets connected to the outer conductor of the coax. Well designed devices have banana sockets spaced just far enough for these adapters to fit.](<../resources/lab1fig/bnc banana adapter.png>){#fig:banana-to-coax width="10cm"}
+
+# Some Useful Definitions
+
+**Common ground** - there are many types of ground and people often confuse them and use the word "ground" to refer to any one of them. A common ground is any part of a circuit which is (arbitrarily) referred to as $0\text{ V}$ and that all other voltages are measured with respect to.
+
+**Earth ground** - a common ground which is ultimately connected to the Earth. The 3<sup>rd</sup> prong on wall outlets is Earth ground. Under buildings large metal plates are buried and are connected to via a *ground wire*. Earth ground allows for certain kinds of short circuit failures (and lightning strikes) to have the power diverted away and avoid excessive damage to devices, buildings, or **YOU**.
+
+**Chassis ground** - a common ground which is a metal frame around the circuit. If a device plugs into the wall with 3 prongs, it is likely that the chassis is also connected to **Earth ground**. Chassis grounding can help facilitate the safety of Earth grounding, but also acts a Faraday cage, shielding the circuit from external EM waves.
+
+**Electrical Load** - a load refers to the impedance (in ohms) connected from the output of a power source to the circuit's ground. This could be a speaker, a light bulb, a microwave oven, or anything else which is drawing power from the circuit.
+
+**RMS (Root Mean Square)** - the square root of the average of a periodic function squared over one period $V_\text{RMS}=\sqrt{\langle V(t)^{2}\rangle}$. Example: For the function $V(t) = V_0\sin(\omega t)$, the RMS value is $V_\text{RMS} = \large\frac{V_0}{\sqrt{2}}$.
+
+*Note:* $\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}\approx 0.707$. This number will come up **a lot** in this course, and is worth committing to memory!
+
+# Text Books
+
+This course does not require purchasing a textbook, but we recommend using an external resource to read as a supplement. Each prelab will point out sections in each of these books that are relevant to the content of the lab that week.
+
+1.  [Analog and Digital Electronics - D. A. Steck](https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf)
+    - This text is freely available as a PDF, so you may want to download it and keep it handy.
+
+2.  The Electronics Companion - A. C. Fischer-Cripps
+    - This is a great reference for quick information.
+    - There is a copy of the first edition in the lab.
+
+3.  The Art of Electronics - P. Horowitz and W. Hill 
+    - This is a very practical (and in depth) textbook
+    - This book is an invaluable resource for designing your final projects
+    - Very comprehensive discussions of advanced topics, but sparse on the introductory basics.
+    - There are 3 copies of the 2<sup>nd</sup> Edition in the lab.
+
+For today's lab, the following sections are useful and relevant readings
+
+1.  Steck Sections 1.1 -- 1.3.2
+
+2.  Fischer-Cripps Sections 1.1 -- 1.11, 2.1 -- 2.5, 3.1 -- 3.3
+    - Resistor color code chart on p. 247 (Here's a [Code calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code) and an [online chart](https://www.allaboutcircuits.com/textbook/reference/chpt-2/resistor-color-codes/))
+
+3.  Horowitz and Hill 2<sup>nd</sup> ed. Sections 1.01 -- 1.12
+
+4.  Horowitz and Hill 3<sup>rd</sup> ed. Sections 1.1 -- 1.2.2, 1.3 -- 1.3.1
+    - Multimeters on p. 10
+
+5.  The following [manuals](/PHYS-3330/manuals-data-sheets), which can be found on Canvas:
+
+    -   Keysight EDU33210 Series Waveform Generator User Guide and Data Sheet
+
+    -   Keysight EDU36311A Power Supply User Guide (p. 43-45) and Data Sheet
+
+    -   Tektronix TBS2000 Series Oscilloscope User Manual
+
+6.  There's also a [math review on complex numbers](/PHYS-3330/manuals-data-sheets)
+
 # Prelab
 
 Answer the following questions in your lab notebook and with Jupyter Notebooks. Scan the relevant pages and upload the PDF file to Canvas. Note that the lab prep activities are directly related to the lab and by completing them (and having them available during lab) you will be able to work through the lab more efficiently and be able to understand what you are doing during the lab.
@@ -114,7 +256,7 @@ Calculate the total capacitance of the combination of capacitors shown above.
 
 ## SPICE simulation
 
-SPICE (Simulation Program with Integrated Circuit Emphasis) is an open-source circuit simulation tool that is commonly used to help prototype and analyze circuits. There are many implementations of SPICE, but for this class, we will use Analog Devices' LTspice.
+SPICE (Simulation Program with Integrated Circuit Emphasis) is an open-source circuit simulation tool that is commonly used to help prototype and analyze circuits. There are many implementations of SPICE, but for this class, we will use Analog Devices' LTspice (because it's free!).
 
 - [Download and install LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html). Sometimes, the website changes; if the link is broken please let an instructor know, and search "site:analog.com LTspice download" to locate the download page.
 
@@ -139,6 +281,8 @@ SPICE (Simulation Program with Integrated Circuit Emphasis) is an open-source ci
 
 - Use the ground tool and place the ground somewhere along the wire connected to the $(-)$ terminal of the source. This tool tells the simulation what voltage your referencing from; all voltage measurements will be relative to this voltage (i.e. you can refer to this as "$0\text{ V}$").
 
+- **Take a screen shot of the circuit and include it in your prelab.**
+
 - Use Ohm's law to predict the current through the resistor. What is this current (don't forget units!).
 
 - Use the Joule heating equation to predict the power dissipated in the resistor (don't forget units!).
@@ -154,158 +298,13 @@ SPICE (Simulation Program with Integrated Circuit Emphasis) is an open-source ci
     - hover the mouse over the resistor so that the icon turns into a blue arrow through a loop. Click to measure the current through the resistor. What is this current? Does it match what you calculated using Ohm's law?
     - hold the **Alt** key to turn the current measuring tool to a power measuring tool (the icon should look like a mercury thermometer). While holding **Alt** click the resistor to measure the power dissipated in the resistor. What is the power? Does it match your calculation?
 
-
-# Goals
-<!--
-*** Decided to just remove most of this opening dialog to comply with the feedback
--->
-Today you will learn to use equipment that are useful for building and testing electronic circuits. You will use all of these instruments extensively throughout the semester.
-
--   Power supply
-    -   This is used to provide DC power to your circuits
-    -   It can be used as a voltage source (constant voltage) or a current source (constant current)
-    
--   Function generator
-    -   This is used to create signals with various waveforms
-    -   This is an incredibly useful tool for characterizing, testing, and prototyping circuits
-
--   Digital multimeter (DMM)
-    -   This is an extremely versatile tool that can measure DC and AC voltages and currents, resistances, and sometimes more (depending on the model)
-    -   It has a simple display that can only show single values such as a root-mean-square voltage of an AC signal.
-
--   Oscilloscope
-    -   This is a voltage meter that can "plot" voltage over time.
-    -   This is a far more powerful tool for characterizing voltages than the DMM because you can characterize wave shapes and noise
-
-<!--
-*** added "further" to imply continuation. some other minor edits 
--->
-In this course you will further develop essential laboratory skills. Not only is the above equipment found in nearly every lab space, but you will practice keeping a lab notebook in a practical way and practice a model based approach to experimental design.
-
-<!-- 
-*** had difficulty parsing the feedback for this part, but I think I improved it
--->
-In this course, you will practice implementing models, testing those models, and refining them when necessary. Extremely accurate and nuanced models are often difficult to implement because they rely on more complicated and difficult to solve mathematics. Balancing accuracy and simplicity is a skill and takes practice.
-
-Today, you will learn how to
-
--   Tie (connect) your circuit to *Earth ground*,
-
--   Set up the power supply so that you can get positive and negative voltages (relative to ground),
-
--   Operate the power supply in constant voltage and constant current modes,
-
--   Measure physical properties, such as voltages current, and resistance,
-
--   Trigger the oscilloscope,
-
--   Operate the function generator,
-
-<!--
-*** added this 
--->
--   Use a micrometer to measure the diameter of a wire and estimate the resistivity,
-
--   Measure resistors using 2-terminal and with 4-terminal measurement methods,
-
--   Develop familiarity with the model-based approach to experiment.
-
-
-# Lab Notebook Guidelines
-
-Lab notebooks are an essential tool in research and development settings. They may seem tedious to maintain, but if you develop good habits now, you will avoid unnecessary headaches in the future. Poor notetaking can force you to unnecessarily repeat experiments and/or calculations.
-
-In this course, the lab notebook will play an essential role and it will be graded each week.  You will use your notebook for keeping records of many things including:
-
--   Answering prelab questions from the lab guide to prepare you for upcoming lab activities,
-
--   Answering in-lab questions,
-
--   Measurements and data,
-
--   Plots, diagrams, pictures, and sketches,
-
--   Experimental procedures and designs,
-
--   Analyses and results.
-
-The lab notebook will be an important part of your grade because learning to keep a good lab notebook is crucial for your professional development. Keeping a physical notebook is very common, but many people like to keep digital notebooks nowadays. There are many popular tools; since the University now uses a Microsoft ecosystem, OneNote ends up being very convenient for integrating with other Microsoft tools such as Teams and OneDrive. Jupyter notebooks are another useful tool as they can integrate Python code which can streamline your calculations and allow for nice and easy plots. Your lab notebook is the main mechanism for communicating your processes and results of the lab experiments. Each week, you will be responsible for turning in both your pre-laboratory work and your lab notebook / analyses via Canvas in scanned format. See the syllabus for more information.
-
-<!--You may find it helpful to write up many of your notes on the computer, for example, within Mathematica, Jupyter Notebooks. This is fine. However, before your notebook is turned in, the notes, plots, and analysis should be transferred to the lab notebook by printing and taping the pages or keeping them in a three-ring binder. This is standard practice in research labs. Your lab notebook is the main mechanism for communicating your process and results of the lab experiments. Each week, you will be responsible for turning in both your pre-laboratory work and your lab notebook / analysis via Canvas in scanned format. See the syllabus for more information.-->
-
-# Cables and Adapters
-
-![**Banana cables** - wires with banana connectors at the end. The power supply and DMM have banana sockets to make connections to.](../resources/lab1fig/banana.jpg){#fig:banana width="8cm"}
-
-![**Coaxial (coax) cables** - this kind of cable is specially designed for sending signals through. It has two conductors: one is the inner conductor which is used to send the signal through, and the other is the outer conductor which is designed to be grounded. Gauss's law suggests this geometry will shield the inner conductor from external EM fields.](../resources/lab1fig/coax.png){#fig:coax width="10cm"}
-
-![**BNC plug connector** - there are many kinds of connectors used for coax cables. BNC is a large, robust, and popular connector.](../resources/lab1fig/bnc-plug.jpg){#fig:bnc width="10cm"}
-
-![**Mini-Grabber to BNC Socket Connector** - this allows you to make connections to exposed wires. The red grabber is connected to the inner conductor and the black grabber is connected to the outer conductor.](../resources/lab1fig/mini-grabber-to-bnc.png){#fig:grabber width="10cm"}
-
-![**BNC to double banana adapter** - this adapter allows you to connect coax cables to the DMM or power supply. The *"ground" tab* (labeled GND) lets you know which banana plug gets connected to the outer conductor of the coax. Well designed devices have banana sockets spaced just far enough for these adapters to fit.](<../resources/lab1fig/bnc banana adapter.png>){#fig:banana-to-coax width="10cm"}
-
-# Some Useful Definitions
-
-**Common ground** - there are many types of ground and people often confuse them and use the word "ground" to refer to any one of them. A common ground is any part of a circuit which is (arbitrarily) referred to as $0\text{ V}$ and that all other voltages are measured with respect to.
-
-**Earth ground** - a common ground which is ultimately connected to the Earth. The 3<sup>rd</sup> prong on wall outlets is Earth ground. Under buildings large metal plates are buried and are connected to via a *ground wire*. Earth ground allows for certain kinds of short circuit failures (and lightning strikes) to have the power diverted away and avoid excessive damage to devices, buildings, and people.
-
-**Chassis ground** - a common ground which is a metal frame around the circuit. If a device plugs into the wall with 3 prongs, it *should* have the chassis connect to **Earth ground**. Chassis grounding can help facilitate the safety of Earth grounding, but also acts a Faraday cage, shielding the circuit from external EM waves.
-
-**Electrical Load** - a load refers to the impedance (in ohms) connected to the output of a power source. This could be a speaker, a light bulb, a microwave oven, or anything else which is drawing power from the circuit.
-[//]: # (a load refers to the impedance (in ohms) connected from the output of a power source to the circuit's ground.)
-
-**RMS (Root Mean Square)** - the square root of the average of a periodic function squared over one period $V_\text{RMS}=\sqrt{\langle V(t)^{2}\rangle}$. Example: For the function $V(t) = V_0\sin(\omega t)$, the RMS value is $V_\text{RMS} = \large\frac{V_0}{\sqrt{2}}$.
-
-*Note:* $\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}\approx 0.707$. This number will come up **a lot** in this course, and is worth committing to memory!
-
-# Text Books
-
-This course does not require purchasing a textbook, but we recommend using an external resource to read as a supplement. Each prelab will point out sections in each of these books that are relevant to the content of the lab that week.
-
-1.  [Analog and Digital Electronics - D. A. Steck](https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf)
-    - This text is freely available as a PDF, so you may want to download it and keep it handy.
-
-2.  The Electronics Companion - A. C. Fischer-Cripps
-    - This is a great reference for quick information.
-    - There is a copy of the first edition in the lab.
-
-3.  The Art of Electronics - P. Horowitz and W. Hill 
-    - This is a very practical (and in depth) textbook
-    - This book is an invaluable resource for designing your final projects
-    - Very comprehensive discussions of advanced topics, but sparse on the introductory basics.
-    - There are 3 copies of the 2<sup>nd</sup> Edition in the lab.
-
-For today's lab, the following sections are useful and relevant readings
-
-1.  Steck Sections 1.1 -- 1.3.2
-
-2.  Fischer-Cripps Sections 1.1 -- 1.11, 2.1 -- 2.5, 3.1 -- 3.3
-    - Resistor color code chart on p. 247 (Here's a [Code calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code) and an [online chart](https://www.allaboutcircuits.com/textbook/reference/chpt-2/resistor-color-codes/))
-
-3.  Horowitz and Hill 2<sup>nd</sup> ed. Sections 1.01 -- 1.12
-
-4.  Horowitz and Hill 3<sup>rd</sup> ed. Sections 1.1 -- 1.2.2, 1.3 -- 1.3.1
-    - Multimeters on p. 10
-
-5.  The following [manuals](/PHYS-3330/manuals-data-sheets), which can be found on Canvas:
-
-    -   Keysight EDU33210 Series Waveform Generator User Guide and Data Sheet
-
-    -   Keysight EDU36311A Power Supply User Guide (p. 43-45) and Data Sheet
-
-    -   Tektronix TBS2000 Series Oscilloscope User Manual
-
-6.  There's also a [math review on complex numbers](/PHYS-3330/manuals-data-sheets)
-
 # Lab Activities
 
 *IMPORTANT NOTE:* In this course's lab manuals, "ground" refers to Earth ground; other kinds of ground will be explictly differentiated.
 
 ## Power Supply
 
-Your DC power supply will provide your circuits with the required power. Setting up the power supply will almost always be the first thing you do when you begin working with a circuit. The Keysight EDU36311A DC Power Supply has **three** outputs that can be independently controlled. Pages 43-45 of the User Guide (which can be found in the [Data Sheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets)) discuss this in detail.
+Your DC power supply will provide your circuits with the required power. The Keysight EDU36311A DC Power Supply has **three** outputs that can be independently controlled. Pages 43-45 of the User Guide (which can be found in the [Data Sheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets)) discuss this in detail.
 
 ### Set up the DC voltage bias
 
@@ -315,7 +314,7 @@ By default, all 3 outputs are ***FLOATING*** with respect to ground. You have to
 
 When you set $5\text{ V}$ on channel 2, the power supply will make the $(+)$ terminal $5\text{ V}$ above the $(-)$ terminal. In order to get $5\text{ V}$ **relative to ground**, you will need to connect one of these terminals to the ground terminal.
 
-1.  Get some <span style="color: green;">green</span> wire from the wire spool rack on the top of the blue tool cabinet to make these grounding connections. Connect channel 2's $(-)$ terminal to ground and channel 3's $(+)$ terminal to ground (see the green lines drawn on Figure @fig:ps). You can unscrew the input jacks on the power supply to expose a small hole where the jumper wires can be inserted.
+1.  Get some <span style="color: green;">green</span> or black wire (from the wire spool rack on the top of the blue tool cabinet) to make these grounding connections. Connect channel 2's $(-)$ terminal to ground and channel 3's $(+)$ terminal to ground (see the green lines drawn on Figure @fig:ps). You can unscrew the input jacks on the power supply to expose a small hole where the jumper wires can be inserted.
 <!--
 
 *** I hadn't considered this in detail, but now that you mention it: for single phase AC, hot is black, neutral is white, and ground is green. For DC red is positive, and black is negative: which I believe implies just 2 voltages. Since we use 3 voltages DC, I think the best way to comply with other standards would be for
@@ -335,7 +334,7 @@ Black - DC below ground
 [//]: # (We harp on that black is ground in this course - I'm not certain why that was historically done here and I'm certainly on board to converting to conventional standards (including shifting red to white and blue to black {I might have that backwords}). But, we should change all the proto board connections to be consistent? Buy a bunch of green banana cables? I'm genuinely in favor of this and it will require revisions to subsequent lab guides.)
 -->
 
-2. We will set the outputs of channel 2 and 3 to $15\text{ V}$. Predict what the voltages will be at each of the 4 output terminals (whenever someone refers to a voltage at a location, they always mean "relative to ground").
+2. You will set the outputs of channel 2 and 3 to $15\text{ V}$. Predict what the voltages will be at each of the 4 output terminals (whenever someone refers to a voltage at a location, they always mean "relative to ground").
 
 3. Using banana cables, how would you connect your DMM to the power supply to measure the voltage at these terminals? Sketch it in your notebook (*Hint:* don't use the mini-grabbers since there's no sensible place to grab with them).
 
@@ -349,7 +348,7 @@ Black - DC below ground
 
 $$\Delta V = IR$$
 
-But as the load $R$ changes, either the voltage or the current will have to adjust. A *voltage source* supplies a *constant voltage* (the current changes), and a *current source supplies a *constant current* (the voltage changes). Mathematically:
+But as the load $R$ changes, either the voltage or the current will have to adjust. A *voltage source* supplies a *constant voltage* (the current changes), and a *current source* supplies a *constant current* (the voltage changes). Mathematically:
 
 -   Voltage source: $I(R) = \frac{V}{R}$, where $V$ is a constant.
 
@@ -357,20 +356,17 @@ But as the load $R$ changes, either the voltage or the current will have to adju
 
 The power supply can be used either as a voltage or current source. When it is a voltage source, it will display **CV** for *constant voltage* in the top right corner of the channel's display, and when it is a current source, it will display **CC** for *constant current*. The power supply will automatically switch between these modes depending on the voltage and current limits you set as well as the load attached.
 
-1.  With no load attached, what mode is the channel in (CV or CC)? How can you quantify the value of the load $R$?
-<!--
-*** The point of this problem is to get them to think of the load as infinity. I think it's fine if they're confused by the question as long as they ask for help.
+1.  With no load attached, what mode is the channel in (CV or CC)? 
 
-[//]: # (Can we expound here? It's not clear to me what exactly you're looking for.)
--->
+2.  Try adjusting the value of the voltage limit and the current limit. Why is the current output always zero? What value could you reasonably assign as the load?
 
-2.  Try adjusting the value of the voltage limit and the current limit. Why is the current output always zero?
-
-3.  Use a banana cable to short the $(+)$ rail of Channel 2 to ground. What mode is the channel in now? Use Ohm's law to determine the load on this output. Why does the voltage output not reach the voltage limit?
+3.  Use a banana cable to short the $(+)$ rail of Channel 2 to ground. What mode is the channel in now? Use the voltage and current readings on the screen and Ohm's law to determine the load on the output. Why does the voltage output not reach the voltage limit?
 
 4.  Vary the value of the voltage limit and current limit again. Describe the behavior of the voltage and current readings and the mode (CV/CC) of the power supply. What happens when you short the output to ground (have too small a load)? What is the maximum output of current and voltage your supply can produce?
 
 5.  Given a known load of $50\ \Omega$, describe how you would set the voltage and current limits to get CV mode with $15\text{ V}$ or CC mode with $300\text{ mA}$ (this is a good place to check in with an instructor).
+
+CV and CC modes are not settings you select in a menu. They are modes inherent to the voltage and current limits set for given ranges of loads. Whichever limit the power supply reaches first (which depends on the load), will determine which mode the power supply is in. If this is not clear, please check in with an instructor.
 
 
 ## The Oscilloscope (Scope)
@@ -476,15 +472,15 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 
         1. **Auto (untriggered roll)**: This setting is needed to measure DC voltages that don't pass through a trigger level. It does a poor job of triggering on slower waves (less than a few hundred $\text{Hz}$).
 
-        2. **Normal:** If no trigger even occurs, nothing will be displayed (so measuring DC can't be done). But this setting allows you to trigger on slower waves.
+        2. **Normal:** If no trigger event occurs, nothing will be displayed (so measuring DC can't be done). But this setting allows you to trigger on slower waves.
 
 5.  Change the trigger channel. Since there is nothing to trigger on on other channels, you will see that the wave no longer displays in a measurable way (this is what "untriggered" looks like). Describe what you see. Change the trigger channel back to Channel 1.
 
-6.  Play with the trigger level. Describe what you see. Why does this happen? Get help if you don't understand.
+6.  Play with the trigger level. Describe what you see. Why does the wave move? Get help if you don't understand.
 
 7.  Press the slope button to change between rising and falling edge triggering. Describe what happens (*Hint:* the wave is **not** "flipping").
 
-8.  Set the trigger level to $-400\text{ mV}$. Is the wave still triggered? If not, increase the trigger level until it is.
+8.  Set the trigger level to $-400\text{ mV}$. Is the wave still triggered? If not, increase the trigger level a small amount until it is.
 
 9.  On the function generator, change the amplitude to $100\text{ mV}_\text{pp}$. The waveform should no longer be triggered. Why?
 
@@ -512,7 +508,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 
     - the wave shape?
 
-14. Why do you think the **Sync / Trigger out** is a square wave?
+14. Why is the **Sync / Trigger out** is a square wave?
 
 ## Measuring Waves with the Scope
 
@@ -530,7 +526,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 
 **The multimeter is a useful device to make quick and easy measurements of all sorts of things.**
 
-1.  The first thing you'll notice is the dial on the on the DMM. This allows you to select what kind of measurement you'd like to make. There is also a yellow button which allows you to cycle through different measurement settings on each of these dial positions. What is the difference between the voltage channel with the straight line over the $\~{\text{V}}$ and the squiggly line over over the $\overline{\text{V}}$?
+1.  The first thing you'll notice is the dial on the on the DMM. This allows you to select what kind of measurement you'd like to make. There is also a yellow button which allows you to cycle through different measurement settings on each of these dial positions. What is the difference between the voltage channel with the squiggly line over the $\~{\text{V}}$ and the straight line over over the $\overline{\text{V}}$?
 
 2.  The second thing you'll notice is the single **COM** port and separate ports for current measurements and for everything else (voltage, resistance, etc.). Why would there be separate ports for current?
 
@@ -581,7 +577,7 @@ In the previous section, you measured resistances using the ohmmeter in the DMM.
 
 1.  Use a ~$2\text{ m}$ length of magnet wire as your small resistor (this can be found on the wire spool rack on top of the blue tool cabinet next to the entrance of the lab - there should also be a 2m stick near the tool cabinet). Magnet wire has a very thin amber-colored insulating coating (about 0.001" in thickness). Make sure you remove the insulation from the ends of the wire to make a good electrical connection and measurement of the diameter of the wire. You can burn off the insulation with a flame or use sand paper to scratch it off.
 
-2.  Calculate the resistance based on the diameter, length, and resistivity (the resistivity, $\rho$, of copper at room temperature is $1.68\text{ μ}\Omega$-$\text{cm}$)? Remember that $R = \rho L/a$, where $L$ is length and $a$ is area. You'll find dial calipers and a micrometer in the "Measuring Tools" drawer of the blue tool cabinet. The spool of magnet wire should be 28-gauge. Look up a copper magnet wire gauge chart online and confirm that your diameter measurement agrees with what you find.
+2.  Calculate the resistance based on the diameter, length, and resistivity (the resistivity, $\rho$, of copper at room temperature is $1.68\text{ μ}\Omega$-$\text{cm}$)? Remember that $R = \rho \ell/A$, where $\ell$ is length and $A$ is cross-sectional area. You'll find dial calipers and a micrometer in the "Measuring Tools" drawer of the blue tool cabinet. The spool of magnet wire should be 28-gauge. Look up a copper magnet wire gauge chart online and confirm that your diameter measurement agrees with what you find.
 
 3.  Use the ohmmeter in the DMM to measure the resistance of the wire. **Document your setup, measurements, and calculations in your lab notebook.**
 

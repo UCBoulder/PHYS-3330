@@ -19,7 +19,7 @@ pandoc raw-content/lab10-raw.md -o _includes/lab10.html --toc --filter pandoc-xn
 # Lab Skill Activities
 pandoc raw-content/lsa1-raw.md -o _includes/lsa1.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 pandoc raw-content/lsa2-raw.md -o _includes/lsa2.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
-pandoc raw-content/ltspice-raw.md -o _includes/ltspice.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template Template.html 
+pandoc raw-content/ltspice-raw.md -o _includes/ltspice.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 
 # Other
 pandoc raw-content/complex-raw.md -o _includes/complex.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 

@@ -19,59 +19,59 @@ Colorado Boulder">
                   <h1 class="title">Contents</h1>
         <nav id="TOC">
             <ul>
+            <li><a href="#goals" id="toc-goals"><span
+            class="toc-section-number">1</span> Goals</a></li>
+            <li><a href="#lab-notebook-guidelines"
+            id="toc-lab-notebook-guidelines"><span
+            class="toc-section-number">2</span> Lab Notebook
+            Guidelines</a></li>
+            <li><a href="#cables-and-adapters"
+            id="toc-cables-and-adapters"><span
+            class="toc-section-number">3</span> Cables and
+            Adapters</a></li>
+            <li><a href="#some-useful-definitions"
+            id="toc-some-useful-definitions"><span
+            class="toc-section-number">4</span> Some Useful
+            Definitions</a></li>
+            <li><a href="#text-books" id="toc-text-books"><span
+            class="toc-section-number">5</span> Text Books</a></li>
             <li><a href="#prelab" id="toc-prelab"><span
-            class="toc-section-number">1</span> Prelab</a>
+            class="toc-section-number">6</span> Prelab</a>
             <ul>
             <li><a href="#physics-2-review-resistors"
             id="toc-physics-2-review-resistors"><span
-            class="toc-section-number">1.1</span> Physics 2 review:
+            class="toc-section-number">6.1</span> Physics 2 review:
             Resistors</a>
             <ul>
             <li><a href="#1.1" id="toc-1.1"><span
-            class="toc-section-number">1.1.1</span> Prelab
+            class="toc-section-number">6.1.1</span> Prelab
             question</a></li>
             <li><a href="#1.2" id="toc-1.2"><span
-            class="toc-section-number">1.1.2</span> Prelab
+            class="toc-section-number">6.1.2</span> Prelab
             question</a></li>
             </ul></li>
             <li><a href="#physics-2-review-joule-heating"
             id="toc-physics-2-review-joule-heating"><span
-            class="toc-section-number">1.2</span> Physics 2 review:
+            class="toc-section-number">6.2</span> Physics 2 review:
             Joule heating</a></li>
             <li><a href="#physics-2-review-capacitors"
             id="toc-physics-2-review-capacitors"><span
-            class="toc-section-number">1.3</span> Physics 2 review:
+            class="toc-section-number">6.3</span> Physics 2 review:
             Capacitors</a>
             <ul>
             <li><a href="#2.1" id="toc-2.1"><span
-            class="toc-section-number">1.3.1</span> Prelab
+            class="toc-section-number">6.3.1</span> Prelab
             question</a></li>
             </ul></li>
             <li><a href="#spice-simulation"
             id="toc-spice-simulation"><span
-            class="toc-section-number">1.4</span> SPICE simulation</a>
+            class="toc-section-number">6.4</span> SPICE simulation</a>
             <ul>
             <li><a href="#3.1" id="toc-3.1"><span
-            class="toc-section-number">1.4.1</span> Prelab
+            class="toc-section-number">6.4.1</span> Prelab
             Question</a></li>
             </ul></li>
             </ul></li>
-            <li><a href="#goals" id="toc-goals"><span
-            class="toc-section-number">2</span> Goals</a></li>
-            <li><a href="#lab-notebook-guidelines"
-            id="toc-lab-notebook-guidelines"><span
-            class="toc-section-number">3</span> Lab Notebook
-            Guidelines</a></li>
-            <li><a href="#cables-and-adapters"
-            id="toc-cables-and-adapters"><span
-            class="toc-section-number">4</span> Cables and
-            Adapters</a></li>
-            <li><a href="#some-useful-definitions"
-            id="toc-some-useful-definitions"><span
-            class="toc-section-number">5</span> Some Useful
-            Definitions</a></li>
-            <li><a href="#text-books" id="toc-text-books"><span
-            class="toc-section-number">6</span> Text Books</a></li>
             <li><a href="#lab-activities" id="toc-lab-activities"><span
             class="toc-section-number">7</span> Lab Activities</a>
             <ul>
@@ -152,264 +152,8 @@ Colorado Boulder">
             </ul>
         </nav>
         <hr/>
-         <h1 data-number="1" id="prelab"><span
-         class="header-section-number">1</span> Prelab</h1>
-         <p>Answer the following questions in your lab notebook and with
-         Jupyter Notebooks. Scan the relevant pages and upload the PDF
-         file to Canvas. Note that the lab prep activities are directly
-         related to the lab and by completing them (and having them
-         available during lab) you will be able to work through the lab
-         more efficiently and be able to understand what you are doing
-         during the lab.</p>
-         <p>For your calculations, you should write a reusable function
-         in a Python script that you can import into your Jupyter
-         Notebooks. This will allow you to easily update calculations
-         and recycle code in a practical way.</p>
-         <p>For example, with a script called <code>jlab.py</code></p>
-         <div class="sourceCode" id="cb1"><pre
-         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Python script to import useful functions for J-Lab</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parallel_resistance(resistors: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the parallel resistance of a list of resistor values</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Conductance is 1/Resistance</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    returns sum(R_i^(-1))^(-1)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    conductance <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># initialize result of sum</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> resistance <span class="kw">in</span> resistors:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        conductance <span class="op">+=</span> <span class="fl">1.0</span> <span class="op">/</span> resistance  <span class="co"># add each term to sum</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> conductance</span></code></pre></div>
-         <p>This function can be used in a Jupyter Notebook like
-         this</p>
-         <div class="sourceCode" id="cb2"><pre
-         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jlab <span class="im">as</span> jl</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> <span class="fl">2e3</span>  <span class="co"># 2 kOhm</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> <span class="dv">500</span>  <span class="co"># 500 Ohm</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> <span class="fl">1e3</span>  <span class="co"># 1 kOhm</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rp <span class="op">=</span> jl.parallel_restance( [r1, r2, r3] )</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="st">&quot;R_p = </span><span class="sc">{:.1f}</span><span class="st"> Ohm&quot;</span>.<span class="bu">format</span>(rp) )</span></code></pre></div>
-         <p>Throughout this course, there will be many calculations that
-         you will use repeatedly. It may seem like extra work now, but
-         adopting this practice early will help streamline your workflow
-         throughout the semester and make your life easier in the long
-         run.</p>
-         <h2 data-number="1.1" id="physics-2-review-resistors"><span
-         class="header-section-number">1.1</span> Physics 2 review:
-         Resistors</h2>
-         <p>In Physics 2, you learned introductory basics to circuits.
-         Metals have free electrons that can flow through the material
-         (current) when there is a difference in electric potential
-         across it (voltage applied). Ohm’s law describes the
-         relationship between current and voltage:</p>
-         <p><span class="math display">\[\Delta V = IR\]</span></p>
-         <p>where <span class="math inline">\(R\)</span> is resistance
-         with units of <span class="math inline">\(\Omega\)</span>
-         (Ohm’s). The resistance of a uniform piece of metal can be
-         described by</p>
-         <p><span class="math display">\[R =
-         \rho\frac{\ell}{A}\]</span></p>
-         <p>where <span class="math inline">\(\rho\)</span> is
-         resistivity (a property that depends on the type of metal),
-         <span class="math inline">\(\ell\)</span> is the length of the
-         metal in the direction the voltage is applied, and <span
-         class="math inline">\(A\)</span> is the cross-sectional area in
-         the other two directions.</p>
-         <figure>
-         <img src="../resources/lab1fig/resistivity.png"
-         id="fig:resistivity" style="width:14cm"
-         alt="A cylindrical metal (like a copper wire) with voltage difference of V_2-V_1 applied along its long axis will have a cross sectional area of \pi r^2." />
-         <figcaption aria-hidden="true">A cylindrical metal (like a
-         copper wire) with voltage difference of <span
-         class="math inline">\(V_2-V_1\)</span> applied along its long
-         axis will have a cross sectional area of <span
-         class="math inline">\(\pi r^2\)</span>.</figcaption>
-         </figure>
-         <p>Adding two resistors in series adds their lengths together,
-         so the resistance goes up. In general, <span
-         class="math inline">\(n\)</span> resistors in series will have
-         a total resistance of</p>
-         <p><span class="math display">\[R_\text{series} =
-         \sum_{i=1}^nR_i\]</span></p>
-         <p>However, adding resistors in parallel adds the
-         cross-sectional area, so the total resistance will decrease.
-         The total resistance of <span class="math inline">\(n\)</span>
-         resistors in parallel obeys</p>
-         <p><span class="math display">\[\frac{1}{R_\text{parallel}} =
-         \sum_{i=1}^n\frac{1}{R_i}\]</span></p>
-         <h3 data-number="1.1.1" id="1.1"><span
-         class="header-section-number">1.1.1</span> Prelab question</h3>
-         <p>What is the total resistance of two resistors in parallel
-         that each have a resistance of <span
-         class="math inline">\(R\)</span>?</p>
-         <h3 data-number="1.1.2" id="1.2"><span
-         class="header-section-number">1.1.2</span> Prelab question</h3>
-         <figure>
-         <img src="../resources/lab1fig/resistor-prob.png"
-         id="fig:resistor-prob" style="width:8cm"
-         alt="These resistors combine to have a total resistance." />
-         <figcaption aria-hidden="true">These resistors combine to have
-         a total resistance.</figcaption>
-         </figure>
-         <p>Find the total resistance of the combination of resistors
-         shown above.</p>
-         <h2 data-number="1.2" id="physics-2-review-joule-heating"><span
-         class="header-section-number">1.2</span> Physics 2 review:
-         Joule heating</h2>
-         <p>When current flows in the metal, there will be power
-         dissipated due to heat. This phenomena is known as Joule
-         heating, and the power (energy/time) can be calculated by</p>
-         <p><span class="math display">\[P=I\Delta V\]</span></p>
-         <p>where <span class="math inline">\(I\)</span> is the current
-         through the metal/resistor and <span
-         class="math inline">\(\Delta V\)</span> is the voltage across
-         it. This can be expressed in terms of the current and
-         resistance or the voltage and resistance using Ohm’s Law</p>
-         <p><span class="math display">\[P = I^2R = \frac{(\Delta
-         V)^2}{R}\]</span></p>
-         <h2 data-number="1.3" id="physics-2-review-capacitors"><span
-         class="header-section-number">1.3</span> Physics 2 review:
-         Capacitors</h2>
-         <p>A capacitor stores energy in the form of electric fields
-         that are generated by separated charge. In Physics 2 you
-         considered the parallel plate capacitor.</p>
-         <figure>
-         <img src="../resources/lab1fig/pp-cap.png" id="fig:pp-cap"
-         style="width:10cm" alt="A parallel plate capacitor." />
-         <figcaption aria-hidden="true">A parallel plate
-         capacitor.</figcaption>
-         </figure>
-         <p>When a voltage difference <span class="math inline">\(\Delta
-         V\)</span> is applied to the plates, equal and opposite charge
-         <span class="math inline">\(Q\)</span> will accumulate on each
-         plate according to</p>
-         <p><span class="math display">\[Q = C\Delta V\]</span></p>
-         <p>where <span class="math inline">\(C\)</span> is the
-         capacitance of the capacitor with units of F (Farads). The
-         capacitance can be determined through considering the electric
-         fields produces by the charged sheets. At some point, you’ve
-         worked this out using Gauss’s law. The result is</p>
-         <p><span class="math display">\[C =
-         \varepsilon_0\frac{A}{d}\]</span></p>
-         <p>Adding capacitors in series then increases the total gap
-         distance, decreasing the capacitance. The total capacitance of
-         <span class="math inline">\(n\)</span> capacitors in series
-         is</p>
-         <p><span class="math display">\[\frac{1}{C_\text{series}} =
-         \sum_{i=1}^n\frac{1}{C_i}\]</span></p>
-         <p>Adding capacitors in parallel is like adding more area to a
-         single capacitor. The total capacitance of <span
-         class="math inline">\(n\)</span> capacitors in parallel is</p>
-         <p><span class="math display">\[C_\text{parallel} =
-         \sum_{i=1}^nC_i\]</span></p>
-         <h3 data-number="1.3.1" id="2.1"><span
-         class="header-section-number">1.3.1</span> Prelab question</h3>
-         <figure>
-         <img src="../resources/lab1fig/capacitor-prob.png"
-         id="fig:cap-problem" style="width:8cm"
-         alt="These capacitors combine to have a total capacitance" />
-         <figcaption aria-hidden="true">These capacitors combine to have
-         a total capacitance</figcaption>
-         </figure>
-         <p>Calculate the total capacitance of the combination of
-         capacitors shown above.</p>
-         <h2 data-number="1.4" id="spice-simulation"><span
-         class="header-section-number">1.4</span> SPICE simulation</h2>
-         <p>SPICE (Simulation Program with Integrated Circuit Emphasis)
-         is an open-source circuit simulation tool that is commonly used
-         to help prototype and analyze circuits. There are many
-         implementations of SPICE, but for this class, we will use
-         Analog Devices’ LTspice.</p>
-         <ul>
-         <li><p><a
-         href="https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html">Download
-         and install LTspice</a>. Sometimes, the website changes; if the
-         link is broken please let an instructor know, and search
-         “site:analog.com LTspice download” to locate the download
-         page.</p>
-         <ul>
-         <li><p>Download and save this <a
-         href="https://www.analog.com/media/en/news-marketing-collateral/solutions-bulletins-brochures/ltspice_shortcutflyer.pdf">useful
-         PDF of shortcuts</a> (need to host it)</p></li>
-         <li><p><em>Note:</em> Mac users should keep these two
-         references handy</p>
-         <ul>
-         <li><a
-         href="https://ucboulder.github.io/PHYS-3330/resources/ltspice-resources/TipsForLTspiceOnMac.pdf">Tips
-         for LTspice on Mac</a></li>
-         <li><a
-         href="https://ucboulder.github.io/PHYS-3330/resources/ltspice-resources/LTspiceShortcutsForMacOSX">Shortcuts</a></li>
-         </ul></li>
-         </ul></li>
-         <li><p>On the download page there are several tutorials.</p>
-         <ul>
-         <li>Watch the <a
-         href="https://www.youtube.com/watch?v=JRcyHuyb1V0">LTSpice
-         Tutorial - EP1 Getting started</a> by FesZ Electronics.
-         <ul>
-         <li>Mac users should check out <a
-         href="https://www.youtube.com/watch?v=abyxz8jfgK4">LTspice -
-         Getting Started in 8 Minutes</a> by CircuitBread.</li>
-         </ul></li>
-         </ul></li>
-         </ul>
-         <h3 data-number="1.4.1" id="3.1"><span
-         class="header-section-number">1.4.1</span> Prelab Question</h3>
-         <ul>
-         <li><p>Start a new project and place a voltage source
-         somewhere. Right click on the element and set the voltage to
-         <span class="math inline">\(10\text{ V}\)</span> (you can just
-         type the number “10” in the text box). Leave the series
-         resistance blank.</p></li>
-         <li><p>Place a resistor next to the voltage source. Right click
-         it and set it’s value to <span class="math inline">\(1\text{
-         k}\Omega\)</span> (you can just type “1k” in the box)</p></li>
-         <li><p>Use the wire tool to connect the source to the resistor
-         to create a complete circuit.</p></li>
-         <li><p>Use the ground tool and place the ground somewhere along
-         the wire connected to the <span
-         class="math inline">\((-)\)</span> terminal of the source. This
-         tool tells the simulation what voltage your referencing from;
-         all voltage measurements will be relative to this voltage
-         (i.e. you can refer to this as “<span
-         class="math inline">\(0\text{ V}\)</span>”).</p></li>
-         <li><p>Use Ohm’s law to predict the current through the
-         resistor. What is this current (don’t forget units!).</p></li>
-         <li><p>Use the Joule heating equation to predict the power
-         dissipated in the resistor (don’t forget units!).</p></li>
-         <li><p>Configure the analysis:</p>
-         <ul>
-         <li>Select the “Transient” tab</li>
-         <li>Stop time: 1 (for 1 second)</li>
-         <li>Time to start taking data: 0</li>
-         <li>Click okay</li>
-         </ul></li>
-         <li><p>The simulation should now be running.</p>
-         <ul>
-         <li>hover the mouse over the wire connected to the <span
-         class="math inline">\((+)\)</span> terminal, so that the mouse
-         icon turns into a red probe-like object. Click on the wire to
-         measure the voltage. The voltage here should obviously be <span
-         class="math inline">\(10\text{ V}\)</span>.</li>
-         <li>hover the mouse over the resistor so that the icon turns
-         into a blue arrow through a loop. Click to measure the current
-         through the resistor. What is this current? Does it match what
-         you calculated using Ohm’s law?</li>
-         <li>hold the <strong>Alt</strong> key to turn the current
-         measuring tool to a power measuring tool (the icon should look
-         like a mercury thermometer). While holding <strong>Alt</strong>
-         click the resistor to measure the power dissipated in the
-         resistor. What is the power? Does it match your
-         calculation?</li>
-         </ul></li>
-         </ul>
-         <h1 data-number="2" id="goals"><span
-         class="header-section-number">2</span> Goals</h1>
-         <!--
-         *** Decided to just remove most of this opening dialog to comply with the feedback
-         -->
+         <h1 data-number="1" id="goals"><span
+         class="header-section-number">1</span> Goals</h1>
          <p>Today you will learn to use equipment that are useful for
          building and testing electronic circuits. You will use all of
          these instruments extensively throughout the semester.</p>
@@ -418,13 +162,13 @@ Colorado Boulder">
          <ul>
          <li>This is used to provide DC power to your circuits</li>
          <li>It can be used as a voltage source (constant voltage) or a
-         current source (constant current)</li>
+         current source (constant current).</li>
          </ul></li>
          <li>Function generator
          <ul>
          <li>This is used to create signals with various waveforms</li>
-         <li>This is an incredibly useful tool for characterizing,
-         testing, and prototyping circuits</li>
+         <li>This is an incredibly useful tool for characterizing, the
+         frequency dependance of your circuits.</li>
          </ul></li>
          <li>Digital multimeter (DMM)
          <ul>
@@ -432,44 +176,44 @@ Colorado Boulder">
          AC voltages and currents, resistances, and sometimes more
          (depending on the model)</li>
          <li>It has a simple display that can only show single values
-         such as a root-mean-square voltage of an AC signal.</li>
+         such as a root-mean-square voltage <em>or</em> the frequency of
+         an AC signal.</li>
          </ul></li>
-         <li>Oscilloscope
+         <li>Oscilloscope (aka scope)
          <ul>
          <li>This is a voltage meter that can “plot” voltage over
-         time.</li>
+         time</li>
          <li>This is a far more powerful tool for characterizing
          voltages than the DMM because you can characterize wave shapes
-         and noise</li>
+         and noise.</li>
          </ul></li>
          </ul>
          <!--
          *** added "further" to imply continuation. some other minor edits 
          -->
-         <p>In this course you will further develop essential laboratory
-         skills. Not only is the above equipment found in nearly every
-         lab space, but you will practice keeping a lab notebook in a
-         practical way and practice a model based approach to
-         experimental design.</p>
+         <p>In this course you will continue to develop essential
+         laboratory skills. Not only is the above equipment found in
+         nearly every lab space, but you will practice keeping a lab
+         notebook in a practical way and practice a model based approach
+         to experimental design.</p>
          <!-- 
          *** had difficulty parsing the feedback for this part, but I think I improved it
          -->
-         <p>In this course, you will practice implementing models,
-         testing those models, and refining them when necessary.
-         Extremely accurate and nuanced models are often difficult to
-         implement because they rely on more complicated and difficult
-         to solve mathematics. Balancing accuracy and simplicity is a
-         skill and takes practice.</p>
-         <p>Today, you will learn how to</p>
+         <p>In this course, you will practice implementing, testing, and
+         refining models. Extremely accurate and nuanced models are
+         often difficult to implement, so it can be desirable to adjust
+         physical systems to accommodate simpler models. Balancing
+         accuracy and simplicity is a skill and takes practice.</p>
+         <p>Today, you will</p>
          <ul>
-         <li><p>Tie (connect) your circuit to <em>Earth
-         ground</em>,</p></li>
-         <li><p>Set up the power supply so that you can get positive and
-         negative voltages (relative to ground),</p></li>
+         <li><p>Connect your circuit to <em>Earth ground</em>,</p></li>
+         <li><p>Set up the power supply so that you can get voltages
+         both above and below ground (positive and negative
+         voltages),</p></li>
          <li><p>Operate the power supply in constant voltage and
          constant current modes,</p></li>
-         <li><p>Measure physical properties, such as voltages current,
-         and resistance,</p></li>
+         <li><p>Measure physical properties, such as voltage
+         differences, current, and resistance,</p></li>
          <li><p>Trigger the oscilloscope,</p></li>
          <li><p>Operate the function generator,</p></li>
          </ul>
@@ -484,16 +228,17 @@ Colorado Boulder">
          <li><p>Develop familiarity with the model-based approach to
          experiment.</p></li>
          </ul>
-         <h1 data-number="3" id="lab-notebook-guidelines"><span
-         class="header-section-number">3</span> Lab Notebook
+         <h1 data-number="2" id="lab-notebook-guidelines"><span
+         class="header-section-number">2</span> Lab Notebook
          Guidelines</h1>
          <p>Lab notebooks are an essential tool in research and
          development settings. They may seem tedious to maintain, but if
          you develop good habits now, you will avoid unnecessary
-         headaches in the future. Poor notetaking can force you to
+         headaches in the future. Poor notetaking can cause you to lose
+         track of data or the meaning of data which can force you to
          unnecessarily repeat experiments and/or calculations.</p>
-         <p>In this course, the lab notebook will play an essential role
-         and it will be graded each week. You will use your notebook for
+         <p>The lab notebook will play an essential role in this course
+         and will be graded each week. You will use your notebook for
          keeping records of many things including:</p>
          <ul>
          <li><p>Answering prelab questions from the lab guide to prepare
@@ -508,20 +253,25 @@ Colorado Boulder">
          because learning to keep a good lab notebook is crucial for
          your professional development. Keeping a physical notebook is
          very common, but many people like to keep digital notebooks
-         nowadays. There are many popular tools; since the University
-         now uses a Microsoft ecosystem, OneNote ends up being very
-         convenient for integrating with other Microsoft tools such as
-         Teams and OneDrive. Jupyter notebooks are another useful tool
-         as they can integrate Python code which can streamline your
-         calculations and allow for nice and easy plots. Your lab
-         notebook is the main mechanism for communicating your processes
-         and results of the lab experiments. Each week, you will be
-         responsible for turning in both your pre-laboratory work and
-         your lab notebook / analyses via Canvas in scanned format. See
-         the syllabus for more information.</p>
+         nowadays, usually as a supplement to a physical notebook. There
+         are many popular tools; since the University now uses a
+         Microsoft ecosystem, OneNote ends up being very convenient for
+         integrating with other Microsoft tools such as Teams and
+         OneDrive. Jupyter notebooks are another useful tool as they can
+         integrate Python code with Markdown (with LaTeX compatibility)
+         which can streamline your calculations and allow for nice and
+         easy plots. Your lab notebook is the main mechanism for
+         communicating your processes and results of the lab
+         experiments. Each week, you will be responsible for turning in
+         both your pre-lab work and your lab notebook / analyses via
+         Canvas in scanned format. See the syllabus for more
+         information.</p>
          <!--You may find it helpful to write up many of your notes on the computer, for example, within Mathematica, Jupyter Notebooks. This is fine. However, before your notebook is turned in, the notes, plots, and analysis should be transferred to the lab notebook by printing and taping the pages or keeping them in a three-ring binder. This is standard practice in research labs. Your lab notebook is the main mechanism for communicating your process and results of the lab experiments. Each week, you will be responsible for turning in both your pre-laboratory work and your lab notebook / analysis via Canvas in scanned format. See the syllabus for more information.-->
-         <h1 data-number="4" id="cables-and-adapters"><span
-         class="header-section-number">4</span> Cables and Adapters</h1>
+         <h1 data-number="3" id="cables-and-adapters"><span
+         class="header-section-number">3</span> Cables and Adapters</h1>
+         <p>There are many kinds of cables and adapters found in the
+         lab. The following are some of the more common ones you will
+         encounter.</p>
          <figure>
          <img src="../resources/lab1fig/banana.jpg" id="fig:banana"
          style="width:8cm"
@@ -573,8 +323,8 @@ Colorado Boulder">
          banana sockets spaced just far enough for these adapters to
          fit.</figcaption>
          </figure>
-         <h1 data-number="5" id="some-useful-definitions"><span
-         class="header-section-number">5</span> Some Useful
+         <h1 data-number="4" id="some-useful-definitions"><span
+         class="header-section-number">4</span> Some Useful
          Definitions</h1>
          <p><strong>Common ground</strong> - there are many types of
          ground and people often confuse them and use the word “ground”
@@ -589,19 +339,18 @@ Colorado Boulder">
          wire</em>. Earth ground allows for certain kinds of short
          circuit failures (and lightning strikes) to have the power
          diverted away and avoid excessive damage to devices, buildings,
-         and people.</p>
+         or <strong>YOU</strong>.</p>
          <p><strong>Chassis ground</strong> - a common ground which is a
          metal frame around the circuit. If a device plugs into the wall
-         with 3 prongs, it <em>should</em> have the chassis connect to
-         <strong>Earth ground</strong>. Chassis grounding can help
+         with 3 prongs, it is likely that the chassis is also connected
+         to <strong>Earth ground</strong>. Chassis grounding can help
          facilitate the safety of Earth grounding, but also acts a
          Faraday cage, shielding the circuit from external EM waves.</p>
          <p><strong>Electrical Load</strong> - a load refers to the
-         impedance (in ohms) connected to the output of a power source.
-         This could be a speaker, a light bulb, a microwave oven, or
-         anything else which is drawing power from the circuit. [//]: #
-         (a load refers to the impedance (in ohms) connected from the
-         output of a power source to the circuit’s ground.)</p>
+         impedance (in ohms) connected from the output of a power source
+         to the circuit’s ground. This could be a speaker, a light bulb,
+         a microwave oven, or anything else which is drawing power from
+         the circuit.</p>
          <p><strong>RMS (Root Mean Square)</strong> - the square root of
          the average of a periodic function squared over one period
          <span class="math inline">\(V_\text{RMS}=\sqrt{\langle
@@ -613,8 +362,8 @@ Colorado Boulder">
          class="math inline">\(\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}\approx
          0.707\)</span>. This number will come up <strong>a lot</strong>
          in this course, and is worth committing to memory!</p>
-         <h1 data-number="6" id="text-books"><span
-         class="header-section-number">6</span> Text Books</h1>
+         <h1 data-number="5" id="text-books"><span
+         class="header-section-number">5</span> Text Books</h1>
          <p>This course does not require purchasing a textbook, but we
          recommend using an external resource to read as a supplement.
          Each prelab will point out sections in each of these books that
@@ -678,6 +427,261 @@ Colorado Boulder">
          href="/PHYS-3330/manuals-data-sheets">math review on complex
          numbers</a></p></li>
          </ol>
+         <h1 data-number="6" id="prelab"><span
+         class="header-section-number">6</span> Prelab</h1>
+         <p>Answer the following questions in your lab notebook and with
+         Jupyter Notebooks. Scan the relevant pages and upload the PDF
+         file to Canvas. Note that the lab prep activities are directly
+         related to the lab and by completing them (and having them
+         available during lab) you will be able to work through the lab
+         more efficiently and be able to understand what you are doing
+         during the lab.</p>
+         <p>For your calculations, you should write a reusable function
+         in a Python script that you can import into your Jupyter
+         Notebooks. This will allow you to easily update calculations
+         and recycle code in a practical way.</p>
+         <p>For example, with a script called <code>jlab.py</code></p>
+         <div class="sourceCode" id="cb1"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Python script to import useful functions for J-Lab</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parallel_resistance(resistors: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the parallel resistance of a list of resistor values</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Conductance is 1/Resistance</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    returns sum(R_i^(-1))^(-1)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    conductance <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># initialize result of sum</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> resistance <span class="kw">in</span> resistors:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        conductance <span class="op">+=</span> <span class="fl">1.0</span> <span class="op">/</span> resistance  <span class="co"># add each term to sum</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> conductance</span></code></pre></div>
+         <p>This function can be used in a Jupyter Notebook like
+         this</p>
+         <div class="sourceCode" id="cb2"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jlab <span class="im">as</span> jl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> <span class="fl">2e3</span>  <span class="co"># 2 kOhm</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> <span class="dv">500</span>  <span class="co"># 500 Ohm</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> <span class="fl">1e3</span>  <span class="co"># 1 kOhm</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rp <span class="op">=</span> jl.parallel_restance( [r1, r2, r3] )</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="st">&quot;R_p = </span><span class="sc">{:.1f}</span><span class="st"> Ohm&quot;</span>.<span class="bu">format</span>(rp) )</span></code></pre></div>
+         <p>Throughout this course, there will be many calculations that
+         you will use repeatedly. It may seem like extra work now, but
+         adopting this practice early will help streamline your workflow
+         throughout the semester and make your life easier in the long
+         run.</p>
+         <h2 data-number="6.1" id="physics-2-review-resistors"><span
+         class="header-section-number">6.1</span> Physics 2 review:
+         Resistors</h2>
+         <p>In Physics 2, you learned introductory basics to circuits.
+         Metals have free electrons that can flow through the material
+         (current) when there is a difference in electric potential
+         across it (voltage applied). Ohm’s law describes the
+         relationship between current and voltage:</p>
+         <p><span class="math display">\[\Delta V = IR\]</span></p>
+         <p>where <span class="math inline">\(R\)</span> is resistance
+         with units of <span class="math inline">\(\Omega\)</span>
+         (Ohm’s). The resistance of a uniform piece of metal can be
+         described by</p>
+         <p><span class="math display">\[R =
+         \rho\frac{\ell}{A}\]</span></p>
+         <p>where <span class="math inline">\(\rho\)</span> is
+         resistivity (a property that depends on the type of metal),
+         <span class="math inline">\(\ell\)</span> is the length of the
+         metal in the direction the voltage is applied, and <span
+         class="math inline">\(A\)</span> is the cross-sectional area in
+         the other two directions.</p>
+         <figure>
+         <img src="../resources/lab1fig/resistivity.png"
+         id="fig:resistivity" style="width:14cm"
+         alt="A cylindrical metal (like a copper wire) with voltage difference of V_2-V_1 applied along its long axis will have a cross sectional area of \pi r^2." />
+         <figcaption aria-hidden="true">A cylindrical metal (like a
+         copper wire) with voltage difference of <span
+         class="math inline">\(V_2-V_1\)</span> applied along its long
+         axis will have a cross sectional area of <span
+         class="math inline">\(\pi r^2\)</span>.</figcaption>
+         </figure>
+         <p>Adding two resistors in series adds their lengths together,
+         so the resistance goes up. In general, <span
+         class="math inline">\(n\)</span> resistors in series will have
+         a total resistance of</p>
+         <p><span class="math display">\[R_\text{series} =
+         \sum_{i=1}^nR_i\]</span></p>
+         <p>However, adding resistors in parallel adds the
+         cross-sectional area, so the total resistance will decrease.
+         The total resistance of <span class="math inline">\(n\)</span>
+         resistors in parallel obeys</p>
+         <p><span class="math display">\[\frac{1}{R_\text{parallel}} =
+         \sum_{i=1}^n\frac{1}{R_i}\]</span></p>
+         <h3 data-number="6.1.1" id="1.1"><span
+         class="header-section-number">6.1.1</span> Prelab question</h3>
+         <p>What is the total resistance of two resistors in parallel
+         that each have a resistance of <span
+         class="math inline">\(R\)</span>?</p>
+         <h3 data-number="6.1.2" id="1.2"><span
+         class="header-section-number">6.1.2</span> Prelab question</h3>
+         <figure>
+         <img src="../resources/lab1fig/resistor-prob.png"
+         id="fig:resistor-prob" style="width:8cm"
+         alt="These resistors combine to have a total resistance." />
+         <figcaption aria-hidden="true">These resistors combine to have
+         a total resistance.</figcaption>
+         </figure>
+         <p>Find the total resistance of the combination of resistors
+         shown above.</p>
+         <h2 data-number="6.2" id="physics-2-review-joule-heating"><span
+         class="header-section-number">6.2</span> Physics 2 review:
+         Joule heating</h2>
+         <p>When current flows in the metal, there will be power
+         dissipated due to heat. This phenomena is known as Joule
+         heating, and the power (energy/time) can be calculated by</p>
+         <p><span class="math display">\[P=I\Delta V\]</span></p>
+         <p>where <span class="math inline">\(I\)</span> is the current
+         through the metal/resistor and <span
+         class="math inline">\(\Delta V\)</span> is the voltage across
+         it. This can be expressed in terms of the current and
+         resistance or the voltage and resistance using Ohm’s Law</p>
+         <p><span class="math display">\[P = I^2R = \frac{(\Delta
+         V)^2}{R}\]</span></p>
+         <h2 data-number="6.3" id="physics-2-review-capacitors"><span
+         class="header-section-number">6.3</span> Physics 2 review:
+         Capacitors</h2>
+         <p>A capacitor stores energy in the form of electric fields
+         that are generated by separated charge. In Physics 2 you
+         considered the parallel plate capacitor.</p>
+         <figure>
+         <img src="../resources/lab1fig/pp-cap.png" id="fig:pp-cap"
+         style="width:10cm" alt="A parallel plate capacitor." />
+         <figcaption aria-hidden="true">A parallel plate
+         capacitor.</figcaption>
+         </figure>
+         <p>When a voltage difference <span class="math inline">\(\Delta
+         V\)</span> is applied to the plates, equal and opposite charge
+         <span class="math inline">\(Q\)</span> will accumulate on each
+         plate according to</p>
+         <p><span class="math display">\[Q = C\Delta V\]</span></p>
+         <p>where <span class="math inline">\(C\)</span> is the
+         capacitance of the capacitor with units of F (Farads). The
+         capacitance can be determined through considering the electric
+         fields produces by the charged sheets. At some point, you’ve
+         worked this out using Gauss’s law. The result is</p>
+         <p><span class="math display">\[C =
+         \varepsilon_0\frac{A}{d}\]</span></p>
+         <p>Adding capacitors in series then increases the total gap
+         distance, decreasing the capacitance. The total capacitance of
+         <span class="math inline">\(n\)</span> capacitors in series
+         is</p>
+         <p><span class="math display">\[\frac{1}{C_\text{series}} =
+         \sum_{i=1}^n\frac{1}{C_i}\]</span></p>
+         <p>Adding capacitors in parallel is like adding more area to a
+         single capacitor. The total capacitance of <span
+         class="math inline">\(n\)</span> capacitors in parallel is</p>
+         <p><span class="math display">\[C_\text{parallel} =
+         \sum_{i=1}^nC_i\]</span></p>
+         <h3 data-number="6.3.1" id="2.1"><span
+         class="header-section-number">6.3.1</span> Prelab question</h3>
+         <figure>
+         <img src="../resources/lab1fig/capacitor-prob.png"
+         id="fig:cap-problem" style="width:8cm"
+         alt="These capacitors combine to have a total capacitance" />
+         <figcaption aria-hidden="true">These capacitors combine to have
+         a total capacitance</figcaption>
+         </figure>
+         <p>Calculate the total capacitance of the combination of
+         capacitors shown above.</p>
+         <h2 data-number="6.4" id="spice-simulation"><span
+         class="header-section-number">6.4</span> SPICE simulation</h2>
+         <p>SPICE (Simulation Program with Integrated Circuit Emphasis)
+         is an open-source circuit simulation tool that is commonly used
+         to help prototype and analyze circuits. There are many
+         implementations of SPICE, but for this class, we will use
+         Analog Devices’ LTspice (because it’s free!).</p>
+         <ul>
+         <li><p><a
+         href="https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html">Download
+         and install LTspice</a>. Sometimes, the website changes; if the
+         link is broken please let an instructor know, and search
+         “site:analog.com LTspice download” to locate the download
+         page.</p>
+         <ul>
+         <li><p>Download and save this <a
+         href="https://www.analog.com/media/en/news-marketing-collateral/solutions-bulletins-brochures/ltspice_shortcutflyer.pdf">useful
+         PDF of shortcuts</a> (need to host it)</p></li>
+         <li><p><em>Note:</em> Mac users should keep these two
+         references handy</p>
+         <ul>
+         <li><a
+         href="https://ucboulder.github.io/PHYS-3330/resources/ltspice-resources/TipsForLTspiceOnMac.pdf">Tips
+         for LTspice on Mac</a></li>
+         <li><a
+         href="https://ucboulder.github.io/PHYS-3330/resources/ltspice-resources/LTspiceShortcutsForMacOSX">Shortcuts</a></li>
+         </ul></li>
+         </ul></li>
+         <li><p>On the download page there are several tutorials.</p>
+         <ul>
+         <li>Watch the <a
+         href="https://www.youtube.com/watch?v=JRcyHuyb1V0">LTSpice
+         Tutorial - EP1 Getting started</a> by FesZ Electronics.
+         <ul>
+         <li>Mac users should check out <a
+         href="https://www.youtube.com/watch?v=abyxz8jfgK4">LTspice -
+         Getting Started in 8 Minutes</a> by CircuitBread.</li>
+         </ul></li>
+         </ul></li>
+         </ul>
+         <h3 data-number="6.4.1" id="3.1"><span
+         class="header-section-number">6.4.1</span> Prelab Question</h3>
+         <ul>
+         <li><p>Start a new project and place a voltage source
+         somewhere. Right click on the element and set the voltage to
+         <span class="math inline">\(10\text{ V}\)</span> (you can just
+         type the number “10” in the text box). Leave the series
+         resistance blank.</p></li>
+         <li><p>Place a resistor next to the voltage source. Right click
+         it and set it’s value to <span class="math inline">\(1\text{
+         k}\Omega\)</span> (you can just type “1k” in the box)</p></li>
+         <li><p>Use the wire tool to connect the source to the resistor
+         to create a complete circuit.</p></li>
+         <li><p>Use the ground tool and place the ground somewhere along
+         the wire connected to the <span
+         class="math inline">\((-)\)</span> terminal of the source. This
+         tool tells the simulation what voltage your referencing from;
+         all voltage measurements will be relative to this voltage
+         (i.e. you can refer to this as “<span
+         class="math inline">\(0\text{ V}\)</span>”).</p></li>
+         <li><p><strong>Take a screen shot of the circuit and include it
+         in your prelab.</strong></p></li>
+         <li><p>Use Ohm’s law to predict the current through the
+         resistor. What is this current (don’t forget units!).</p></li>
+         <li><p>Use the Joule heating equation to predict the power
+         dissipated in the resistor (don’t forget units!).</p></li>
+         <li><p>Configure the analysis:</p>
+         <ul>
+         <li>Select the “Transient” tab</li>
+         <li>Stop time: 1 (for 1 second)</li>
+         <li>Time to start taking data: 0</li>
+         <li>Click okay</li>
+         </ul></li>
+         <li><p>The simulation should now be running.</p>
+         <ul>
+         <li>hover the mouse over the wire connected to the <span
+         class="math inline">\((+)\)</span> terminal, so that the mouse
+         icon turns into a red probe-like object. Click on the wire to
+         measure the voltage. The voltage here should obviously be <span
+         class="math inline">\(10\text{ V}\)</span>.</li>
+         <li>hover the mouse over the resistor so that the icon turns
+         into a blue arrow through a loop. Click to measure the current
+         through the resistor. What is this current? Does it match what
+         you calculated using Ohm’s law?</li>
+         <li>hold the <strong>Alt</strong> key to turn the current
+         measuring tool to a power measuring tool (the icon should look
+         like a mercury thermometer). While holding <strong>Alt</strong>
+         click the resistor to measure the power dissipated in the
+         resistor. What is the power? Does it match your
+         calculation?</li>
+         </ul></li>
+         </ul>
          <h1 data-number="7" id="lab-activities"><span
          class="header-section-number">7</span> Lab Activities</h1>
          <p><em>IMPORTANT NOTE:</em> In this course’s lab manuals,
@@ -686,9 +690,7 @@ Colorado Boulder">
          <h2 data-number="7.1" id="power-supply"><span
          class="header-section-number">7.1</span> Power Supply</h2>
          <p>Your DC power supply will provide your circuits with the
-         required power. Setting up the power supply will almost always
-         be the first thing you do when you begin working with a
-         circuit. The Keysight EDU36311A DC Power Supply has
+         required power. The Keysight EDU36311A DC Power Supply has
          <strong>three</strong> outputs that can be independently
          controlled. Pages 43-45 of the User Guide (which can be found
          in the <a href="/PHYS-3330/manuals-data-sheets">Data Sheets and
@@ -718,15 +720,16 @@ Colorado Boulder">
          <strong>relative to ground</strong>, you will need to connect
          one of these terminals to the ground terminal.</p>
          <ol type="1">
-         <li><p>Get some <span style="color: green;">green</span> wire
-         from the wire spool rack on the top of the blue tool cabinet to
-         make these grounding connections. Connect channel 2’s <span
-         class="math inline">\((-)\)</span> terminal to ground and
-         channel 3’s <span class="math inline">\((+)\)</span> terminal
-         to ground (see the green lines drawn on Figure <span
-         class="citation" data-cites="fig:ps">@fig:ps</span>). You can
-         unscrew the input jacks on the power supply to expose a small
-         hole where the jumper wires can be inserted. <!--
+         <li><p>Get some <span style="color: green;">green</span> or
+         black wire (from the wire spool rack on the top of the blue
+         tool cabinet) to make these grounding connections. Connect
+         channel 2’s <span class="math inline">\((-)\)</span> terminal
+         to ground and channel 3’s <span
+         class="math inline">\((+)\)</span> terminal to ground (see the
+         green lines drawn on Figure <span class="citation"
+         data-cites="fig:ps">@fig:ps</span>). You can unscrew the input
+         jacks on the power supply to expose a small hole where the
+         jumper wires can be inserted. <!--
 
          *** I hadn't considered this in detail, but now that you mention it: for single phase AC, hot is black, neutral is white, and ground is green. For DC red is positive, and black is negative: which I believe implies just 2 voltages. Since we use 3 voltages DC, I think the best way to comply with other standards would be for
 
@@ -744,7 +747,7 @@ Colorado Boulder">
 
          [//]: # (We harp on that black is ground in this course - I'm not certain why that was historically done here and I'm certainly on board to converting to conventional standards (including shifting red to white and blue to black {I might have that backwords}). But, we should change all the proto board connections to be consistent? Buy a bunch of green banana cables? I'm genuinely in favor of this and it will require revisions to subsequent lab guides.)
          --></p></li>
-         <li><p>We will set the outputs of channel 2 and 3 to <span
+         <li><p>You will set the outputs of channel 2 and 3 to <span
          class="math inline">\(15\text{ V}\)</span>. Predict what the
          voltages will be at each of the 4 output terminals (whenever
          someone refers to a voltage at a location, they always mean
@@ -774,8 +777,8 @@ Colorado Boulder">
          <p>But as the load <span class="math inline">\(R\)</span>
          changes, either the voltage or the current will have to adjust.
          A <em>voltage source</em> supplies a <em>constant voltage</em>
-         (the current changes), and a <em>current source supplies a
-         </em>constant current* (the voltage changes).
+         (the current changes), and a <em>current source</em> supplies a
+         <em>constant current</em> (the voltage changes).
          Mathematically:</p>
          <ul>
          <li><p>Voltage source: <span class="math inline">\(I(R) =
@@ -795,19 +798,16 @@ Colorado Boulder">
          you set as well as the load attached.</p>
          <ol type="1">
          <li><p>With no load attached, what mode is the channel in (CV
-         or CC)? How can you quantify the value of the load <span
-         class="math inline">\(R\)</span>? <!--
-         *** The point of this problem is to get them to think of the load as infinity. I think it's fine if they're confused by the question as long as they ask for help.
-
-         [//]: # (Can we expound here? It's not clear to me what exactly you're looking for.)
-         --></p></li>
+         or CC)?</p></li>
          <li><p>Try adjusting the value of the voltage limit and the
-         current limit. Why is the current output always zero?</p></li>
+         current limit. Why is the current output always zero? What
+         value could you reasonably assign as the load?</p></li>
          <li><p>Use a banana cable to short the <span
          class="math inline">\((+)\)</span> rail of Channel 2 to ground.
-         What mode is the channel in now? Use Ohm’s law to determine the
-         load on this output. Why does the voltage output not reach the
-         voltage limit?</p></li>
+         What mode is the channel in now? Use the voltage and current
+         readings on the screen and Ohm’s law to determine the load on
+         the output. Why does the voltage output not reach the voltage
+         limit?</p></li>
          <li><p>Vary the value of the voltage limit and current limit
          again. Describe the behavior of the voltage and current
          readings and the mode (CV/CC) of the power supply. What happens
@@ -821,6 +821,12 @@ Colorado Boulder">
          <span class="math inline">\(300\text{ mA}\)</span> (this is a
          good place to check in with an instructor).</p></li>
          </ol>
+         <p>CV and CC modes are not settings you select in a menu. They
+         are modes inherent to the voltage and current limits set for
+         given ranges of loads. Whichever limit the power supply reaches
+         first (which depends on the load), will determine which mode
+         the power supply is in. If this is not clear, please check in
+         with an instructor.</p>
          <h2 data-number="7.2" id="the-oscilloscope-scope"><span
          class="header-section-number">7.2</span> The Oscilloscope
          (Scope)</h2>
@@ -1064,7 +1070,7 @@ Colorado Boulder">
          trigger level. It does a poor job of triggering on slower waves
          (less than a few hundred <span
          class="math inline">\(\text{Hz}\)</span>).</p></li>
-         <li><p><strong>Normal:</strong> If no trigger even occurs,
+         <li><p><strong>Normal:</strong> If no trigger event occurs,
          nothing will be displayed (so measuring DC can’t be done). But
          this setting allows you to trigger on slower waves.</p></li>
          </ol></li>
@@ -1075,14 +1081,14 @@ Colorado Boulder">
          looks like). Describe what you see. Change the trigger channel
          back to Channel 1.</p></li>
          <li><p>Play with the trigger level. Describe what you see. Why
-         does this happen? Get help if you don’t understand.</p></li>
+         does the wave move? Get help if you don’t understand.</p></li>
          <li><p>Press the slope button to change between rising and
          falling edge triggering. Describe what happens (<em>Hint:</em>
          the wave is <strong>not</strong> “flipping”).</p></li>
          <li><p>Set the trigger level to <span
          class="math inline">\(-400\text{ mV}\)</span>. Is the wave
-         still triggered? If not, increase the trigger level until it
-         is.</p></li>
+         still triggered? If not, increase the trigger level a small
+         amount until it is.</p></li>
          <li><p>On the function generator, change the amplitude to <span
          class="math inline">\(100\text{ mV}_\text{pp}\)</span>. The
          waveform should no longer be triggered. Why?</p></li>
@@ -1112,8 +1118,8 @@ Colorado Boulder">
          <li><p>the phase offset,</p></li>
          <li><p>the wave shape?</p></li>
          </ul></li>
-         <li><p>Why do you think the <strong>Sync / Trigger out</strong>
-         is a square wave?</p></li>
+         <li><p>Why is the <strong>Sync / Trigger out</strong> is a
+         square wave?</p></li>
          </ol>
          <h2 data-number="7.5" id="measuring-waves-with-the-scope"><span
          class="header-section-number">7.5</span> Measuring Waves with
@@ -1144,8 +1150,8 @@ Colorado Boulder">
          like to make. There is also a yellow button which allows you to
          cycle through different measurement settings on each of these
          dial positions. What is the difference between the voltage
-         channel with the straight line over the <span
-         class="math inline">\(\~{\text{V}}\)</span> and the squiggly
+         channel with the squiggly line over the <span
+         class="math inline">\(\~{\text{V}}\)</span> and the straight
          line over over the <span
          class="math inline">\(\overline{\text{V}}\)</span>?</p></li>
          <li><p>The second thing you’ll notice is the single
@@ -1249,14 +1255,14 @@ Colorado Boulder">
          temperature is <span class="math inline">\(1.68\text{
          μ}\Omega\)</span>-<span
          class="math inline">\(\text{cm}\)</span>)? Remember that <span
-         class="math inline">\(R = \rho L/a\)</span>, where <span
-         class="math inline">\(L\)</span> is length and <span
-         class="math inline">\(a\)</span> is area. You’ll find dial
-         calipers and a micrometer in the “Measuring Tools” drawer of
-         the blue tool cabinet. The spool of magnet wire should be
-         28-gauge. Look up a copper magnet wire gauge chart online and
-         confirm that your diameter measurement agrees with what you
-         find.</p></li>
+         class="math inline">\(R = \rho \ell/A\)</span>, where <span
+         class="math inline">\(\ell\)</span> is length and <span
+         class="math inline">\(A\)</span> is cross-sectional area.
+         You’ll find dial calipers and a micrometer in the “Measuring
+         Tools” drawer of the blue tool cabinet. The spool of magnet
+         wire should be 28-gauge. Look up a copper magnet wire gauge
+         chart online and confirm that your diameter measurement agrees
+         with what you find.</p></li>
          <li><p>Use the ohmmeter in the DMM to measure the resistance of
          the wire. <strong>Document your setup, measurements, and
          calculations in your lab notebook.</strong></p></li>
