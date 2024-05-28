@@ -526,7 +526,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 
 **The multimeter is a useful device to make quick and easy measurements of all sorts of things.**
 
-1.  The first thing you'll notice is the dial on the on the DMM. This allows you to select what kind of measurement you'd like to make. There is also a yellow button which allows you to cycle through different measurement settings on each of these dial positions. What is the difference between the voltage channel with the squiggly line over the $\~{\text{V}}$ and the straight line over over the $\overline{\text{V}}$?
+1.  The first thing you'll notice is the dial on the on the DMM. This allows you to select what kind of measurement you'd like to make. There is also a yellow button which allows you to cycle through different measurement settings on each of these dial positions. What is the difference between the voltage channel with the squiggly line over the $\tilde{\text{V}}$ and the straight line over over the $\overline{\text{V}}$?
 
 2.  The second thing you'll notice is the single **COM** port and separate ports for current measurements and for everything else (voltage, resistance, etc.). Why would there be separate ports for current?
 
@@ -544,7 +544,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 [//]: # (How do you intend them to do this? Should we provide some direction given they'll have no clue where to start?)
 -->
 
-6.  Switch the DMM to the $\~V$ mode. What does the voltage read now? Does this meet your expectation?
+6.  Switch the DMM to the $\tilde{V}$ mode. What does the voltage read now? Does this meet your expectation?
 
 7.  To measure the current you will have to rearrange the circuit and change the DMM configuration. Set up the DMM properly so that current flows *through* the correct port of the DMM. Does the current measurement match the display on the power supply? Sketch a circuit diagram representing the arrangement of the supply, resistor, and DMM.
 <!--
@@ -553,7 +553,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 [//]: # (Same as above, do we instruct them?)
 -->
 
-8.  Switch the DMM to the $\~A$ mode. What does the current read now? Does this meet your expectation?
+8.  Switch the DMM to the $\tilde{A}$ mode. What does the current read now? Does this meet your expectation?
 
 <!-- 
 *** I have been working across a few computers and sometimes it seems to not sync. I don't remember what I did, so I will take another stab at it!
@@ -567,7 +567,7 @@ In order to view waves on the oscilloscope, it needs to redraw the wave in the r
 5.  Remember in the future that this is the usable frequency range for the AC setting of the multimeter. Record this frequency in your lab notebook for future reference.
 -->
 
-9.  It should be clear by now that, on the DMM, ~ is a symbol for AC and -- <!-- should render as a long dash --> is a symbol for DC. Use the $\~V$ mode to measure the AC voltage from the function generator. Set the function generator to $2\text{ V}_\text{pp}$ at $1\text{ kHz}$. Note: the DMM displays the RMS amplitude of the waveform. See Definitions at the beginning of the guide for an explanation of RMS. You will also need to consider how [“Amplitude” and “Peak-to-Peak”](https://en.wikipedia.org/wiki/Amplitude) are related. Is the measurement from the DMM consistent with your expectation?
+9.  It should be clear by now that, on the DMM, ~ is a symbol for AC and -- <!-- should render as a long dash --> is a symbol for DC. Use the $\tilde{V}$ mode to measure the AC voltage from the function generator. Set the function generator to $2\text{ V}_\text{pp}$ at $1\text{ kHz}$. Note: the DMM displays the RMS amplitude of the waveform. See Definitions at the beginning of the guide for an explanation of RMS. You will also need to consider how [“Amplitude” and “Peak-to-Peak”](https://en.wikipedia.org/wiki/Amplitude) are related. Is the measurement from the DMM consistent with your expectation?
 
 ## Measuring Small Resistances (4-Terminal Measurement)
 
