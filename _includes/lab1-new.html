@@ -167,7 +167,7 @@ Colorado Boulder">
          <li>Function generator
          <ul>
          <li>This is used to create signals with various waveforms</li>
-         <li>This is an incredibly useful tool for characterizing, the
+         <li>This is an incredibly useful tool for characterizing the
          frequency dependance of your circuits.</li>
          </ul></li>
          <li>Digital multimeter (DMM)
@@ -222,7 +222,7 @@ Colorado Boulder">
          -->
          <ul>
          <li><p>Use a micrometer to measure the diameter of a wire and
-         estimate the resistivity,</p></li>
+         estimate the resistance,</p></li>
          <li><p>Measure resistors using 2-terminal and with 4-terminal
          measurement methods,</p></li>
          <li><p>Develop familiarity with the model-based approach to
@@ -346,11 +346,11 @@ Colorado Boulder">
          to <strong>Earth ground</strong>. Chassis grounding can help
          facilitate the safety of Earth grounding, but also acts a
          Faraday cage, shielding the circuit from external EM waves.</p>
-         <p><strong>Electrical Load</strong> - a load refers to the
-         impedance (in ohms) connected from the output of a power source
-         to the circuit’s ground. This could be a speaker, a light bulb,
-         a microwave oven, or anything else which is drawing power from
-         the circuit.</p>
+         <p><strong>Electrical load</strong> - a load refers to the
+         impedance/resistance (in ohms) connected from the output of a
+         power source to the circuit’s ground. This could be a speaker,
+         a light bulb, a microwave oven, or anything else which is
+         drawing power from the circuit.</p>
          <p><strong>RMS (Root Mean Square)</strong> - the square root of
          the average of a periodic function squared over one period
          <span class="math inline">\(V_\text{RMS}=\sqrt{\langle
@@ -412,9 +412,8 @@ Colorado Boulder">
          <ul>
          <li>Multimeters on p. 10</li>
          </ul></li>
-         <li><p>The following <a
-         href="/PHYS-3330/manuals-data-sheets">manuals</a>, which can be
-         found on Canvas:</p>
+         <li><p>The following manuals, which can be found on on the <a
+         href="/PHYS-3330/manuals-data-sheets">lab manuals page</a>:</p>
          <ul>
          <li><p>Keysight EDU33210 Series Waveform Generator User Guide
          and Data Sheet</p></li>
@@ -552,7 +551,7 @@ Colorado Boulder">
          considered the parallel plate capacitor.</p>
          <figure>
          <img src="../resources/lab1fig/pp-cap.png" id="fig:pp-cap"
-         style="width:10cm" alt="A parallel plate capacitor." />
+         style="width:7cm" alt="A parallel plate capacitor." />
          <figcaption aria-hidden="true">A parallel plate
          capacitor.</figcaption>
          </figure>
@@ -601,7 +600,8 @@ Colorado Boulder">
          <li><p><a
          href="https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html">Download
          and install LTspice</a>. Sometimes, the website changes; if the
-         link is broken please let an instructor know, and search
+         link is broken <a href="/PHYS-3330/report-lab-issue">please
+         report the issue to the technical staff</a>, and search
          “site:analog.com LTspice download” to locate the download
          page.</p>
          <ul>
@@ -814,6 +814,7 @@ Colorado Boulder">
          when you short the output to ground (have too small a load)?
          What is the maximum output of current and voltage your supply
          can produce?</p></li>
+         <li><p>Remove the short.</p></li>
          <li><p>Given a known load of <span class="math inline">\(50\
          \Omega\)</span>, describe how you would set the voltage and
          current limits to get CV mode with <span
@@ -1005,22 +1006,28 @@ Colorado Boulder">
          connect any output of the EDU33212A directly to DC
          power</em></strong> or to the output of any other instrument or
          circuit. Doing so will burn out the output amplifier!</span> In
-         a later labs, we’ll learn how to use different tools to allow
+         a later lab, we’ll learn how to use different tools to allow
          you to safely interface the function generator with DC
          power.</p>
          <ol type="1">
          <li><p>The function generator has an output impedance of <span
-         class="math inline">\(50\ \Omega\)</span>, and it assumes, by
-         default, that you will use a <span class="math inline">\(50\
-         \Omega\)</span> load. This means that half of the voltage will
-         drop across the output impedance, and half will drop across the
-         load, so by default, the function generator displays only half
-         the voltage that it is actually trying to apply (because this
-         is how much “reaches” the load). <span
-         style="color: red;"><strong>Every time you turn on the function
-         generator, you have to set the output termination setting to
-         High-Z</strong></span> so that it displays the full voltage
-         (see the appendix or page 53 of the user manual).</p></li>
+         class="math inline">\(50\ \Omega\)</span> (there is a <span
+         class="math inline">\(50\ \Omega\)</span> resistor in series
+         with the output), and it assumes, by default, that you will use
+         a <span class="math inline">\(50\ \Omega\)</span> load. This
+         means that half of the voltage will drop across the output
+         impedance, and half will drop across the load, so by default,
+         the function generator displays only half the voltage that it
+         is actually trying to apply (because this is how much “reaches”
+         the load). <span style="color: red;"><strong>Every time you
+         turn on the function generator, you have to set the output
+         termination setting to High-Z</strong></span> so that it
+         displays the full voltage (see the appendix or page 53 of the
+         user manual).</p>
+         <ul>
+         <li>We will explore the idea of output impedance (and input
+         impedance) in much more detail next lab.</li>
+         </ul></li>
          <li><p>On Channel 1, create a <span
          class="math inline">\(1\text{ V}_\text{pp}\)</span> (volts
          peak-to-peak) sine wave at 1 kHz with no DC offset, and turn
@@ -1044,9 +1051,9 @@ Colorado Boulder">
          scope’s horizontal scale appropriately to avoid aliasing! Talk
          with an instructor to learn more about aliasing.</p></li>
          <li><p>The <strong>Trigger</strong> options are in the
-         top-right corner of the front panel. Open the <em>Trigger
-         Menu</em>. You should see that the Channel the scope is
-         triggering on is Channel 1.</p></li>
+         top-right corner of the oscilloscope’s front panel. Open the
+         <em>Trigger Menu</em>. You should see that the Channel the
+         scope is triggering on is Channel 1.</p></li>
          <li><p>There are 3 options that you will change most regularly.
          Paraphrase these in your lab notebook for future reference.</p>
          <ul>
@@ -1118,8 +1125,8 @@ Colorado Boulder">
          <li><p>the phase offset,</p></li>
          <li><p>the wave shape?</p></li>
          </ul></li>
-         <li><p>Why is the <strong>Sync / Trigger out</strong> is a
-         square wave?</p></li>
+         <li><p>Why is the <strong>Sync / Trigger out</strong> a square
+         wave?</p></li>
          </ol>
          <h2 data-number="7.5" id="measuring-waves-with-the-scope"><span
          class="header-section-number">7.5</span> Measuring Waves with
@@ -1145,9 +1152,9 @@ Colorado Boulder">
          <p><strong>The multimeter is a useful device to make quick and
          easy measurements of all sorts of things.</strong></p>
          <ol type="1">
-         <li><p>The first thing you’ll notice is the dial on the on the
-         DMM. This allows you to select what kind of measurement you’d
-         like to make. There is also a yellow button which allows you to
+         <li><p>The first thing you’ll notice is the dial on the DMM.
+         This allows you to select what kind of measurement you’d like
+         to make. There is also a yellow button which allows you to
          cycle through different measurement settings on each of these
          dial positions. What is the difference between the voltage
          channel with the squiggly line over the <span
@@ -1169,12 +1176,13 @@ Colorado Boulder">
          specification?</p></li>
          <li><p>Measure the voltage across the resistor. Why is it <span
          class="math inline">\(0\text{ V}\)</span>?</p></li>
-         <li><p>Connect the resistor to the power supply and set the
-         output to <span class="math inline">\(10\text{ V}\)</span>. Use
-         the DMM to measure the voltage across the resistor. Does the
-         DMM agree with the display on power supply? Sketch a circuit
-         diagram representing the arrangement of the supply, resistor,
-         and DMM.</p></li>
+         <li><p>Connect the resistor to the power supply using alligator
+         clips (these can attach to banana plugs) and set the output to
+         <span class="math inline">\(10\text{ V}\)</span>. Use the DMM
+         to measure the voltage across the resistor. Does the DMM
+         voltage reading agree with the voltage reading displayed on
+         power supply? Sketch a circuit diagram representing the
+         arrangement of the supply, resistor, and DMM.</p></li>
          </ol>
          <!-- 
          *** I was thinking of letting them flounder a bit here. The "correct" way I had in mind would be with the mini-grabbers. I think letting them try to be creative so that they can be told why it's a bad idea to jerry-rig connections.
@@ -1184,7 +1192,10 @@ Colorado Boulder">
          <ol start="6" type="1">
          <li><p>Switch the DMM to the <span
          class="math inline">\(\tilde{V}\)</span> mode. What does the
-         voltage read now? Does this meet your expectation?</p></li>
+         voltage read now? Does this meet your expectation? If not,
+         there is either a mistake in your reasoning or with your
+         experimental setup. Once you’re confident the measurement is
+         correct, explain why it is actually correct.</p></li>
          <li><p>To measure the current you will have to rearrange the
          circuit and change the DMM configuration. Set up the DMM
          properly so that current flows <em>through</em> the correct
@@ -1197,7 +1208,9 @@ Colorado Boulder">
          --></p></li>
          <li><p>Switch the DMM to the <span
          class="math inline">\(\tilde{A}\)</span> mode. What does the
-         current read now? Does this meet your expectation?</p></li>
+         current read now? Does this meet your expectation? If it does
+         not, this is a good time to get assistance from an
+         instructor.</p></li>
          </ol>
          <!-- 
          *** I have been working across a few computers and sometimes it seems to not sync. I don't remember what I did, so I will take another stab at it!
@@ -1222,7 +1235,9 @@ Colorado Boulder">
          explanation of RMS. You will also need to consider how <a
          href="https://en.wikipedia.org/wiki/Amplitude">“Amplitude” and
          “Peak-to-Peak”</a> are related. Is the measurement from the DMM
-         consistent with your expectation?</li>
+         consistent with your expectation? If your measurement does not
+         match your prediction, please review the definition of
+         root-mean-square and rework your prediction.</li>
          </ol>
          <h2 data-number="7.7"
          id="measuring-small-resistances-4-terminal-measurement"><span
@@ -1272,32 +1287,32 @@ Colorado Boulder">
          class="header-section-number">7.7.2</span> Measure a small
          resistance using a 4-terminal approach</h3>
          <p>The way the DMM makes a resistance measurement is by
-         delivering a very small, calibrated, current to the resistor,
-         and then it measures the voltage drop across it’s internal
-         resistor (in parallel with your resistor) and calculates <span
-         class="math inline">\(R\)</span> based on Ohm’s law. The issue
-         here is that the voltage doesn’t just drop across the resistor,
-         but also the contacts and all the leads. This is called a
-         2-terminal measurement because you are using the same 2
-         terminals to supply the current and measure the voltage. You
-         will now make a more accurate measurement using a 4-terminal
-         measurement.</p>
+         delivering a very small, calibrated, current to the magnet
+         wire, and then it measures the voltage drop across it’s
+         internal resistor (in parallel with your resistor) and
+         calculates <span class="math inline">\(R\)</span> based on
+         Ohm’s law. The issue here is that the voltage doesn’t just drop
+         across the resistance of the magnet wire, but also the contacts
+         and all the leads. This is called a 2-terminal measurement
+         because you are using the same 2 terminals to supply the
+         current and measure the voltage. You will now make a more
+         accurate measurement using a 4-terminal measurement.</p>
          <ol type="1">
          <li><p>Use your DC power supply in CC mode to deliver a
-         specified current. Connect this to the resistor. You now have 2
-         terminals connected to your resistor.</p></li>
+         specified current. Connect this to the magnet wire. You now
+         have 2 terminals connected to your wire.</p></li>
          <li><p>Use your DMM to make a voltage measurement of the
-         voltage drop across just the resistor (this adds another 2
-         terminals connected to your resistor).</p></li>
+         voltage drop across just the magnet wire (this adds another 2
+         terminals connected to your wire).</p></li>
          <li><p>Using the current reading on the power supply and the
          voltage reading on the DMM, use Ohm’s law to determine the
-         resistance of the resistor.</p></li>
+         resistance of the magnet wire.</p></li>
          <li><p>Draw a diagram of your experimental set up in your lab
          notebook.</p></li>
          <li><p>Consider how the amount of current flowing through your
-         resistor affects the sensitivity and accuracy of your
-         measurement (consider precision of your measurement devices as
-         well as heat/temperature dependances).</p></li>
+         wire affects the sensitivity and accuracy of your measurement
+         (consider precision of your measurement devices as well as
+         heat/temperature dependances).</p></li>
          </ol>
          <h3 data-number="7.7.3"
          id="compare-the-two-measurement-techniques"><span

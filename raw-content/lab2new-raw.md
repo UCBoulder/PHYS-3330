@@ -33,17 +33,17 @@ Breadboards allow you to quickly create and modify circuits without needing to s
 
 Breadboards are composed of several holes that you can stick wires into. The holes form rows of metallic connection (as seen in Figure @fig:breadpins). Each of these rows are constructed like little grabbers that allow for secure connections (as seen in Figure @fig:breadrow).
 
-![The breadboard is composed of many of these rows of grabbers. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-row.JPG){#fig:breadrow width="8cm"}
+![The breadboard is composed of many of these rows of grabbers. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-row.JPG){#fig:breadrow width="6cm"}
 
 Our breadboards have custom built headers (see Figure @fig:breadheader) to allow you to easily interface your equipment (scope, power supply, function generator, etc.) with the breadboard. All the connectors, switches, and potentiometers are connected to the green screw terminals that wires can be clamped in to connect to the breadboard.
 
-![A breadboard with a header attached (a second header is shown upside-down to reveal what's going on "under the hood")](../resources/lab2fig/breadboard-header.png){#fig:breadheader width="15cm"}
+![A breadboard with a header attached (a second header is shown upside-down to reveal what's going on "under the hood")](../resources/lab2fig/breadboard-header.png){#fig:breadheader width="13cm"}
 
 The far left and far right screw terminals are connected to switches and potentiometers (three terminal, variable resistors). The mid-left screw terminal is connected to banana ports, and the mid-right screw terminal is connected to the inner conductors of BNC ports.
 
 ### Prelab Question {#0.1}
 
-![Chassis ground.](../resources/lab2fig/cground.png)
+![Chassis ground.](../resources/lab2fig/cground.png){#fig:chassis-ground width="4cm"}
 
 The symbol shown above is chassis ground. This refers to a common connection to the case. Notice that this is labeled in a few places on the breadboard's header (suggesting connection to the metal case).
 
@@ -57,7 +57,7 @@ An ideal voltage source (no internal resistance) drives current around the loop 
 
 ### Prelab Question {#1.1}
 
-What is the current $I$ through each resistor? Represent these with respect to $V_\text{in}$, $R_1$ and $R_2$. *Hint:* the resistors are in series.
+What is the current $I$ through each resistor? Represent these with respect to $V_\text{in}$, $R_1$ and $R_2$. *Hint:* the resistors are in series, so the current through them is the same.
 
 ### Prelab Question {#1.2}
 
@@ -65,7 +65,9 @@ What is the voltage across $R_2$? Express this with respect to the current. Expl
 
 ### Prelab Question {#1.3}
 
-Express $V_\text{out}$ with respect to $V_\text{in}$, and the two resistors *Hint:* this expression should not depend on the current.
+Express $V_\text{out}$ with respect to $V_\text{in}$ and the two resistors *Hint:* this expression should not depend on the current.
+
+Make a Python function that computes $V_\text{out}$ that takes $V_\text{out}$, $R_1$, and $R_2$ as inputs. You will likely find this function useful throughout the semester.
 
 ### Prelab Question {#1.4}
 
@@ -74,7 +76,7 @@ Build the circuit shown in Figure @fig:ideal-vd in LTspice. Use these values
 - $R_1 = 1\text{ k}\Omega$
 - $R_2 = 3\text{ k}\Omega$
 
-First calculate $I$ and $V_\text{out}$. Then run a transient simulation and measure $I$ and $V_\text{out}$. If your calculations and simulation do not agree, resolve any issues (this could be due to a mistake in your calculations or in setting up your simulation).
+First calculate $I$ and $V_\text{out}$ using your results from the previous questions. Then run a transient simulation and measure $I$ and $V_\text{out}$. If your calculations and simulation do not agree, resolve any issues (this could be due to a mistake in your calculations or in setting up your simulation).
 
 ## Transfer Function
 
@@ -88,125 +90,134 @@ A voltage divider's output will always be less than the input, so the transfer f
 
 ### Prelab Question {#2.1}
 
-Calculate the transfer function of the voltage divider. *Hint:* use the result of problem @1.3.
+Write down the equation for the transfer function of the ideal voltage divider. *Hint:* use the result of problem @1.3. This should only depend on the values of the two resistors, and should be unitless.
 
 ### Prelab Question {#2.2}
 
-For $R_1 = 2\text{ k}\Omega$ and $R_2 = 1\text{ k}\Omega$, what is the transfer function?
+For $R_1 = 2\text{ k}\Omega$ and $R_2 = 1\text{ k}\Omega$, what is the value of the transfer function?
 
 ### Prelab Question {#2.3}
 
 For a $V_\text{in}$ of $10\text{ V}$, what will $V_\text{out}$ be (using the resistance values above)?
 
-Use LTspice to confirm this.
+Use LTspice to confirm this. Screen shot the circuit and result in LTspice.
 
-## Non-ideal voltage source driving a circuit
+## Input and Output Impedance
 
-![A real power source has an output impedance $R_o$ that can impact the output voltage](../resources/lab2fig/output-input-impedance.png){#fig:input-output-impedance height="7.5cm"}
+![Any circuit being powered can be modeled as a single impedance (input impedance) $R_i$. In general, real power sources have output impedance $R_o$ (modeled by a resistor in series)](../resources/lab2fig/output-input-impedance.png){#fig:input-output-impedance height="7.5cm"}
 
-A non-ideal power source has series resistance (aka output impedance) $R_o$. When your circuit draws current from the power source, current will pass through $R_o$, so voltage will drop across it. Even complicated circuits can often be modeled as a single resistor
+A *real* power source has series resistance (aka output impedance) $R_o$. When your circuit draws current from the power source, current will pass through $R_o$, so voltage will drop across it (according to Ohm's law). Even complicated circuits can often be modeled as a single resistor representing the "input impedance" of the circuit. The input impedance describes how the whole circuit opposes current. If the circuit being powered simply is a single resistor, then the input impedance is the same value as the resistor's resistance. Regardless, the input impedance can be thought of as the load on the circuit.
 
-When it drives a load (or a circuit with input impedance) $R_i$, the load is in series with the power source's output impedance. The two resistances in this case act like a voltage divider and the voltage across the load will never be the full voltage applied by the source.
+When the power source with output impedance $R_o$ drives the load with input impedance $R_i$, the output and input impedances form a voltage divider, where the input of the voltage divider is $V_\text{out}^\text{(internal)}$ and the output is $V_\text{out}^\text{(external)}$. The transfer function of this transfer function is then
 
-The relationship between the internal voltage of the voltage source $V_\text{out}^\text{(internal)}$ and the voltage seen at the output of the voltage source $V_\text{out}^\text{(external)}$ can be written as a transfer function based on the voltage divider
-
-$$T = \frac{V_\text{out}^\text{(external)}}{V_\text{out}^\text{(internal)}} = \frac{R_i}{R_o+R_i}$$
+$$T = \frac{V_\text{supply}^\text{(ext)}}{V_\text{supply}^\text{(ext)}} = \frac{R_i}{R_o+R_i}$$
 
 ### Prelab Question {#3.1}
 
-Confirm that your solution for the transfer function from problem {@2.1}
+Confirm that your solution for the transfer function from problem {@2.1} is consistent with the transfer function shown above. If it is not, resolve the discrepancy.
 
 ### Prelab Question {#3.2}
 
 The power delivered to the circuit or the load is determined by
 
-$$P = I V_\text{out}^\text{(external)} = \frac{(V_\text{out}^\text{(external)})^2}{R_i}$$
+$$P = I^2 R_i= I V_\text{supply}^\text{(ext)} = \frac{(V_\text{supply}^\text{(ext)})^2}{R_i}$$
 
 For a given $R_o$, find the $R_i$ that maximizes the power delivered.
 
-*Hint:* Express $P$ in terms of $V_\text{out}^\text{(internal)}$ instead of $V_\text{out}^\text{(external)}$, and then find the extrema by finding the value of $R_i$ that makes the derivative to zero:
+*Hint:* Express $P$ in terms of $V_\text{supply}^\text{(int)}$ instead of $V_\text{supply}^\text{(ext)}$, and then find the extrema (maximum) by finding the value of $R_i$ that makes the derivative zero; i.e. find $R_i$ such that
 
 $$\frac{\partial P}{\partial R_i} = 0$$
 
 ### Prelab Question {#3.3}
 
-Impedance matching is the process of matching load impedances with power source's output impedance. Use your result from the previous problem to justify why matching these two impedances can be important.
+Impedance matching is the process of matching load impedances with a power source's output impedance. For high frequency signals, impedance matching is very important, but it is also commonly done because for a given $R_o$, matching the impedance will allow for the maximum power delivered to the circuit. Is this consistent with your result for the $R_i$ that gives maximum power? If not, revise your calculation. 
 
 ### Prelab Question {#3.4}
 
-Plot $P$ vs $R_i$ from $R_i=0\ \Omega$ to $R_i=200\ \Omega$ using $V_\text{out}^\text{(internal)}=1\text{ V}$ with the following values of $R_o$ on the same plot (use a legend to label the different plots for each $R_o$):
+Plot $P$ vs $R_i$ from $R_i=0\ \Omega$ to $R_i=100\ \Omega$ using $V_\text{supply}^\text{(int)}=1\text{ V}$ with the following values of $R_o$ on the same plot (use a legend to label the different plots for each $R_o$):
 
 -  $R_o = 10\ \Omega$
 -  $R_o = 25\ \Omega$
 -  $R_o = 50\ \Omega$
 
-Notice that, even though the curves peak at $R_i=R_o$, that decreasing $R_o$ still increases the power at all $R_i$. To deliver a lot of power, having a low output impedance is best, but this isn't always a parameter we can control.
+Notice that, even though the curves peak at $R_i=R_o$, that decreasing $R_o$ still increases the power at all $R_i$. To deliver a lot of power, having a low output impedance is often the best choice, but this isn't always a parameter we can control.
 
 ## Voltage Divider with Non-ideal Power Supply
 
-![A real power source has an output impedance $R_o$ that can impact the circuit](../resources/lab2fig/nonideal-vd.png){#fig:nonideal-vd height="7.5cm"}
+![A real power source has an output impedance $R_o$ that can impact a voltage divider circuit](../resources/lab2fig/nonideal-vd.png){#fig:nonideal-vd height="7.5cm"}
 
-Real voltage sources have output impedances (modeled with a resistor in series with the voltage as seen in Figure @fig:nonideal-vd). The following questions will explore the potential impact the output impedance can have on a voltage divider circuit.
+Now consider a real voltage source (modeled with a resistor in series with the voltage as seen in Figure @fig:nonideal-vd) powering a voltage divider. The following questions will explore the potential impact the output impedance can have on a voltage divider circuit.
 
 ### Prelab Question {#4.1}
 
-What is the input impedance of the voltage divider circuit?
+What is the input impedance of the voltage divider circuit? *Hint:* the input impedance would be the resistance that $V_\text{supply}^\text{(ext)}$ "sees" to ground.
 
 ### Prelab Question {#4.2}
 
-The $V_\text{in}$ of the voltage divider will be the $V_\text{out}^\text{(external)}$ of the power supply (see figure @fig:input-output-impedance). Express $V_\text{in}$ as a function of $V_\text{out}^\text{(internal)}$ and the resistor values.
+The $V_\text{in}$ of the voltage divider will be the $V_\text{supply}^\text{(ext)}$ from the power supply (see figure @fig:input-output-impedance); i.e. $V_\text{in}=V_\text{supply}^\text{(ext)}$. Express $V_\text{in}$ as a function of $V_\text{supply}^\text{(int)}$ and the resistor values. *Hint:* the results from the input/output impedance section will be helpful here.
 
 ### Prelab Question {#4.3}
 
-Using the voltage divider equation (found in problem @1.3), express $V_\text{out}$ with respect to $V_\text{out}^\text{(internal)}$ (of the voltage supply) and the resistor values.
+Using the voltage divider equation (you found this in problem @1.3), express $V_\text{out}$ of the circuit with respect to $V_\text{supply}^\text{(int)}$ (of the voltage supply) and the resistor values.
 
-### Prelab Question {#4.4}
-
-Now consider the current $I$ through the circuit. Express the current $I$ with respect to the voltage source (internal), and all the impedances/resistances.
-
-### Prelab Question {#4.5}
-
-Express the voltage across $R_2$ ($V_\text{out}$) with respect to the current and the relevant impedances/resistances.
-
-### Prelab Question {#4.6}
-
-Use your results from problems @4.4 and @4.5 to show how they lead to the same result in problem @4.3.
+Write a Python function that computes the output voltage of a voltage divider with a non-ideal voltage supply that takes the following inputs: $V_\text{supply}^\text{(int)}$, $R_o$, $R_1$, and $R_2$.
 
 ### Prelab Question {#4.7}
 
 - For an ideal voltage divider $(R_o=0\text{ V})$, having $R_1=100\ \Omega$ and $R_2=50\ \Omega$ or $R_1=2\text{ k}\Omega$ and $R_2=1\text{ k}\Omega$ or $R_1=200\text{ k}\Omega$ and $R_2=100\text{ k}\Omega$ will have the same transfer function. Predict $V_\text{out}$ when the ideal voltage source is set to $10\text{ V}$
 
-- What is $V_\text{out}$ for each case if instead of an ideal voltage source, it had an output impedance of $R_o=50\ \Omega$
+- Build all 3 of these circuits side by side in an LTspice simulation (use a unique voltage source for each circuit). Screen shot your circuit and confirm that the simulation agrees with your calculations.
+
+### Prelab Question {#4.8}
+
+- What is $V_\text{out}$ for each circuit above if instead of using ideal voltage sources, they each had an output impedance of $R_o=50\ \Omega$?
     - $R_1=100\ \Omega\text{ and }R_2=50\ \Omega$
     - $R_1=2\text{ k}\Omega\text{ and }R_2=1\text{ k}\Omega$
     - $R_1=200\text{ k}\Omega\text{ and }R_2=100\text{ k}\Omega$
 
-### Prelab Question {#4.8}
+- Right click each voltage source in the simulation and change the series resistance (output impedance) to $50\ \Omega$.
 
-- Compare the output with a an ideal voltage source vs a non ideal voltage source.
+- Re-run the simulation and confirm your calculations are correct.
+
+### Prelab Question {#4.9}
+
+- Compare the output voltage of the voltage divider with an ideal voltage source vs a non ideal voltage source.
 - How does the input impedance of the voltage divider $(R_1+R_2)$ impact the non-ideal circuit compared to the ideal circuit?
-- What condition should be met for 
+- What condition should be met such that both the ideal and non-ideal voltage source models sufficiently agree?
 
 ## Impacts of Parallel Impedances
 
-![Modified Voltage Divider](../resources/lab2fig/modified-vd.png){#fig:modified-vd height="7cm"}
+![Voltage divider with a parallel impedance](../resources/lab2fig/modified-vd.png){#fig:modified-vd height="7cm"}
 
-In the lab activities we will discover that the circuit shown in Figure @fig:modified-vd will provide a more accurate model for certain situations. $R_3$ represents an impedance (resistance in parallel with $R_2$) which can be due to measurement impedance or trying to drive a load
+In the lab activities we will discover that the circuit shown in Figure @fig:modified-vd more accurately models a voltage divider being measured. $R_3$ is an impedance/resistance in parallel with $R_2$ which is due to the measurement impedance of a voltage measuring device. This model can also be used to predict the affects of placing an external load on a voltage divider.
 
 ### Prelab Question {#5.1}
 
-Express $V_\text{out}$ with respect to the input voltage and the 3 resistor values.
+Express $V_\text{out}$ with respect to the input voltage and the 3 resistor values. *Hint:* it may be convenient to first combine $R_2$ and $R_3$ in parallel.
 
 ### Prelab Question {#5.2}
 
-Rearrange the equation you just found to solve for $R_3$ given the other values. This equation will be useful when you do the lab.
+Rearrange the equation you just found to solve for $R_3$ given the other values. This equation will be used during the lab.
 
-### Prelab Question {#5.3}
+Make this a Python function.
 
-Thevenin's theorem says that any circuit (and therefore the voltage divider) can be modeled as an ideal voltage source with an output impedance $R_o$
+## Thevenin's Theorem and the Voltage Divider
 
- ![alt text](../resources/lab2fig/thevenin-vd.png){#fig:thev}
+Thevenin's theorem states that any circuit (and therefore the voltage divider) can be modeled as an ideal voltage source with an output impedance $R_o$ (see the figure below).
 
+ ![alt text](../resources/lab2fig/thevenin-vd.png){#fig:thev height="7cm"}
+
+For the voltage divider:
+
+$$V_T = V_\text{in} \frac{R_2}{R_1+R_2}$$
+
+$$R_o = \frac{R_1R_2}{R_1+R_2}$$
+
+Naively, one would think that when a load $R_3$ is attached to the voltage divider, you might expect the voltage applied will be the $V_\text{out}$ of the voltage divider: i.e. $V_\text{in} \frac{R_2}{R_1+R_2}$, and indeed, the Thevenin voltage $V_T$ *is* this. However, the Thevenin equivalent resistance is very significant, and the voltage that gets to $R_3$ won't be $V_T$.
+
+### Prelab Question {#6.1}
+
+Use your result of problem @5.1 to show that the voltage across $R_3$ is the same as the voltage predicted by the Thevenin equivalent circuit.
 
 
 ## Lab Activities
@@ -245,17 +256,17 @@ You can find more helpful information in the following sections of the text book
 
    -   Colored banana jacks to bring in DC power for transistors or chips from an external power supply.
    
-   -   A precision $10\text{ k}\Omega$ ten‑turn potentiometer with a fuse on the wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if you need a replacement).
+   -   Two precision $10\text{ k}\Omega$ ten‑turn potentiometers with fuses on the wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if you need a replacement).
    
    -   Four switches.
    
-   -   Screw terminals which will be used with jumper wires to bring power/signals from the interface panel to your breadboard.
+   -   Screw terminals which can be used to grab wires to connect the header components to your breadboard.
 
    <br>The components on the interface panel are pre-soldered to the screw terminals and a wiring diagram is printed on the panel. If you think there are any issues with your interface panel, please notify the [technical staff](/PHYS-3330/report-lab-issue).
 
 3.  The breadboard contains arrays of holes, interconnected by buried conductors. There is a pattern to how the the holes are connected: typically in the form of short rows and long columns (sometimes called rails). Use the DMM, mini-grabbers, and a couple short wires to test the connections of the breadboard.
 
-    - There are hundreds of holes, so testing every pair of holes would take many hours. Take a strategic approach to testing.
+    - There are hundreds of holes, so testing every pair of holes would take days. Take a strategic approach to testing.
 
     - Assume connections are in single rows or columns.
 
@@ -263,21 +274,25 @@ You can find more helpful information in the following sections of the text book
 
 4.  Draw a diagram of the basic pattern in your lab notebook of the connections. You can refer back to this diagram throughout the semester as you build new circuits.
 
-5.  Find a $1\text{ k}\Omega$ resistor and measure the resistor directly with the DMM. Now insert the resistor into two holes on the breadboard that you know are not connected and remeasure the resistance. Now insert the resistor into two holes on the breadboard that you know **are** connected and remeasure the resistance. Explain your results. What does this tell you about when you should measure resistors?
+5.  Find a $1\text{ k}\Omega$ resistor and measure the resistor directly with the DMM. Now insert the resistor into two holes on the breadboard that you know are not connected and remeasure the resistance. Now insert the resistor into two holes on the breadboard that you know **are** connected and remeasure the resistance. Explain your results. What does this tell you about when/where you should measure resistors?
 
 ### Making power connections to your protoboard
 
-1.  Many circuits require DC power connections (+15 V, -15V, ground). Connect the power supply to the interface panel using banana cables.
+1.  Many circuits require DC power connections. This semester, you will commonly use components that need $+15\text{ V}$ and $-15\text{ V}$. Connect the power supply to the breadboard header using banana cables, so that you can get $+15\text{ V}$ and $-15\text{ V}$ to your board.
 
-2.  **USE A COLOR CODE FOR THE POWER CONNECTIONS!** The convention used in this course is **black = ground**, <span style="color: red;">**red = +15 V**</span>, and <span style="color: blue;">**blue = -15 V**</span>. Using a consistent color code will allow you and others to debug your circuits quickly. You are also less likely to plug something in incorrectly and burn up a component. You should also have a white colored banana jack on your interface panel. You may find that this is useful during your final project phase if you require another voltage. Remember to write down your color code in your lab notebook. 
+2.  **USE A COLOR CODE FOR THE POWER CONNECTIONS!** The convention used in this course is **black = ground**, <span style="color: red;">**red = $+15\text{ V}$**</span>, and <span style="color: blue;">**blue = $-15\text{ V}$**</span>. Using a consistent color code will allow you and others to understand and debug your circuits quickly. You are also less likely to plug something in incorrectly and burn up a component. You should also have a white colored banana jack on your interface panel. You may find that this is useful during your final project phase if you require a 3rd voltage source. Remember to note your color code in your lab notebook. 
 
-3.  Once you have power connected to the interface panel, use jumper wires from the appropriate screw terminal to make connections to the breadboard (+15, -15, and ground). The long rails that run the length of the board are best for distributing power to all of your components. **Use these for only DC power or ground.**
+3.  Once you have power connected to the interface panel, use jumper wires (from the spools of wire) to connect the screw terminals to to the breadboard (+15, -15, and ground). The long rails that run the length of the board are best for distributing power to all of your components.
+
+    - ***Note:* Use these for only DC power or ground.**
+    - There is capacitance between all the breadboard connections, and the longer the row/column, the more capacitance there will be to a neighbor.
+    - We will learn in lab 4 that putting capacitance between power and ground is actually helpful.
 
 4.  Good electrical contact is essential when you plug in components or wires. Use only 22- or 24-gauge solid wire, not stranded wire. The 22- or 24-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Don't force larger wires into the protoboard. You can damage the connectors.**
 
 5.  Reliable ground connections (0 V), readily accessible from any point on the breadboard, are essential to the good functioning of most circuits. The interface panel is wired such that outer conductor on the BNC connectors are connected to the **black** banana jack, which forces a common chassis ground. This is indicated on the wiring diagram printed on the interface panel.
 
-![The outer conductor of the BNC connectors are all connected to the black banana port.](<../resources/lab2fig/grounding connections.png>){#fig:header}
+![The outer conductor of the BNC connectors are all connected to the black banana port.](<../resources/lab2fig/grounding connections.png>){#fig:header width="10cm"}
 
 ### Supplying power to your protoboard
 
