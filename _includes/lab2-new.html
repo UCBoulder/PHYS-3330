@@ -95,20 +95,14 @@ Voltage Dividers</h1>
             <li><a href="#4.3" id="toc-4.3"><span
             class="toc-section-number">2.5.3</span> Prelab
             Question</a></li>
-            <li><a href="#4.4" id="toc-4.4"><span
+            <li><a href="#4.7" id="toc-4.7"><span
             class="toc-section-number">2.5.4</span> Prelab
             Question</a></li>
-            <li><a href="#4.5" id="toc-4.5"><span
+            <li><a href="#4.8" id="toc-4.8"><span
             class="toc-section-number">2.5.5</span> Prelab
             Question</a></li>
-            <li><a href="#4.7" id="toc-4.7"><span
-            class="toc-section-number">2.5.6</span> Prelab
-            Question</a></li>
-            <li><a href="#4.8" id="toc-4.8"><span
-            class="toc-section-number">2.5.7</span> Prelab
-            Question</a></li>
             <li><a href="#4.9" id="toc-4.9"><span
-            class="toc-section-number">2.5.8</span> Prelab
+            class="toc-section-number">2.5.6</span> Prelab
             Question</a></li>
             </ul></li>
             <li><a href="#impacts-of-parallel-impedances"
@@ -122,18 +116,24 @@ Voltage Dividers</h1>
             <li><a href="#5.2" id="toc-5.2"><span
             class="toc-section-number">2.6.2</span> Prelab
             Question</a></li>
-            <li><a href="#5.3" id="toc-5.3"><span
-            class="toc-section-number">2.6.3</span> Prelab
-            Question</a></li>
             </ul></li>
-            <li><a href="#lab-activities" id="toc-lab-activities"><span
-            class="toc-section-number">2.7</span> Lab Activities</a>
+            <li><a href="#thevenins-theorem-and-the-voltage-divider"
+            id="toc-thevenins-theorem-and-the-voltage-divider"><span
+            class="toc-section-number">2.7</span> Thevenin’s Theorem and
+            the Voltage Divider</a>
             <ul>
             <li><a href="#6.1" id="toc-6.1"><span
             class="toc-section-number">2.7.1</span> Prelab
             Question</a></li>
-            <li><a href="#6.2" id="toc-6.2"><span
-            class="toc-section-number">2.7.2</span> Prelab
+            </ul></li>
+            <li><a href="#lab-activities" id="toc-lab-activities"><span
+            class="toc-section-number">2.8</span> Lab Activities</a>
+            <ul>
+            <li><a href="#7.1" id="toc-7.1"><span
+            class="toc-section-number">2.8.1</span> Prelab
+            Question</a></li>
+            <li><a href="#7.2" id="toc-7.2"><span
+            class="toc-section-number">2.8.2</span> Prelab
             Question</a></li>
             </ul></li>
             </ul></li>
@@ -178,10 +178,11 @@ Voltage Dividers</h1>
             id="toc-hidden-voltage-dividers-output-impedance"><span
             class="toc-section-number">4.5</span> Hidden Voltage
             Dividers (Output Impedance)</a></li>
-            <li><a href="#build-a-controllable-voltage-source"
-            id="toc-build-a-controllable-voltage-source"><span
+            <li><a
+            href="#build-a-controllable-voltage-source-volume-knob"
+            id="toc-build-a-controllable-voltage-source-volume-knob"><span
             class="toc-section-number">4.6</span> Build a Controllable
-            Voltage Source</a></li>
+            Voltage Source (Volume Knob)</a></li>
             <li><a href="#testing-the-potentiometer-pot"
             id="toc-testing-the-potentiometer-pot"><span
             class="toc-section-number">4.7</span> Testing the
@@ -348,6 +349,12 @@ Voltage Dividers</h1>
          class="math inline">\(V_\text{in}\)</span> and the two
          resistors <em>Hint:</em> this expression should not depend on
          the current.</p>
+         <p>Make a Python function that computes <span
+         class="math inline">\(V_\text{out}\)</span> that takes <span
+         class="math inline">\(V_\text{out}\)</span>, <span
+         class="math inline">\(R_1\)</span>, and <span
+         class="math inline">\(R_2\)</span> as inputs. You will likely
+         find this function useful throughout the semester.</p>
          <h3 data-number="2.2.4" id="1.4"><span
          class="header-section-number">2.2.4</span> Prelab Question</h3>
          <p>Build the circuit shown in Figure <span class="citation"
@@ -434,7 +441,7 @@ Voltage Dividers</h1>
          class="math inline">\(V_\text{out}^\text{(external)}\)</span>.
          The transfer function of this transfer function is then</p>
          <p><span class="math display">\[T =
-         \frac{V_\text{out}^\text{(external)}}{V_\text{out}^\text{(internal)}}
+         \frac{V_\text{supply}^\text{(ext)}}{V_\text{supply}^\text{(ext)}}
          = \frac{R_i}{R_o+R_i}\]</span></p>
          <h3 data-number="2.4.1" id="3.1"><span
          class="header-section-number">2.4.1</span> Prelab Question</h3>
@@ -447,16 +454,16 @@ Voltage Dividers</h1>
          <p>The power delivered to the circuit or the load is determined
          by</p>
          <p><span class="math display">\[P = I^2 R_i= I
-         V_\text{out}^\text{(external)} =
-         \frac{(V_\text{out}^\text{(external)})^2}{R_i}\]</span></p>
+         V_\text{supply}^\text{(ext)} =
+         \frac{(V_\text{supply}^\text{(ext)})^2}{R_i}\]</span></p>
          <p>For a given <span class="math inline">\(R_o\)</span>, find
          the <span class="math inline">\(R_i\)</span> that maximizes the
          power delivered.</p>
          <p><em>Hint:</em> Express <span
          class="math inline">\(P\)</span> in terms of <span
-         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span>
          instead of <span
-         class="math inline">\(V_\text{out}^\text{(external)}\)</span>,
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>,
          and then find the extrema (maximum) by finding the value of
          <span class="math inline">\(R_i\)</span> that makes the
          derivative zero; i.e. find <span
@@ -479,8 +486,8 @@ Voltage Dividers</h1>
          <p>Plot <span class="math inline">\(P\)</span> vs <span
          class="math inline">\(R_i\)</span> from <span
          class="math inline">\(R_i=0\ \Omega\)</span> to <span
-         class="math inline">\(R_i=200\ \Omega\)</span> using <span
-         class="math inline">\(V_\text{out}^\text{(internal)}=1\text{
+         class="math inline">\(R_i=100\ \Omega\)</span> using <span
+         class="math inline">\(V_\text{supply}^\text{(int)}=1\text{
          V}\)</span> with the following values of <span
          class="math inline">\(R_o\)</span> on the same plot (use a
          legend to label the different plots for each <span
@@ -520,21 +527,21 @@ Voltage Dividers</h1>
          <p>What is the input impedance of the voltage divider circuit?
          <em>Hint:</em> the input impedance would be the resistance that
          <span
-         class="math inline">\(V_\text{out}^\text{(external)}\)</span>
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>
          “sees” to ground.</p>
          <h3 data-number="2.5.2" id="4.2"><span
          class="header-section-number">2.5.2</span> Prelab Question</h3>
          <p>The <span class="math inline">\(V_\text{in}\)</span> of the
          voltage divider will be the <span
-         class="math inline">\(V_\text{out}^\text{(external)}\)</span>
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>
          from the power supply (see figure <span class="citation"
          data-cites="fig:input-output-impedance">@fig:input-output-impedance</span>);
          i.e. <span
-         class="math inline">\(V_\text{in}=V_\text{out}^\text{(external)}\)</span>.
+         class="math inline">\(V_\text{in}=V_\text{supply}^\text{(ext)}\)</span>.
          Express <span class="math inline">\(V_\text{in}\)</span> as a
          function of <span
-         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
-         and the resistor values. <em>Hint:</em> the results from the
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span> and
+         the resistor values. <em>Hint:</em> the results from the
          input/output impedance section will be helpful here.</p>
          <h3 data-number="2.5.3" id="4.3"><span
          class="header-section-number">2.5.3</span> Prelab Question</h3>
@@ -542,25 +549,17 @@ Voltage Dividers</h1>
          problem <span class="citation" data-cites="1.3">@1.3</span>),
          express <span class="math inline">\(V_\text{out}\)</span> of
          the circuit with respect to <span
-         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
-         (of the voltage supply) and the resistor values.</p>
-         <h3 data-number="2.5.4" id="4.4"><span
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span> (of
+         the voltage supply) and the resistor values.</p>
+         <p>Write a Python function that computes the output voltage of
+         a voltage divider with a non-ideal voltage supply that takes
+         the following inputs: <span
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span>,
+         <span class="math inline">\(R_o\)</span>, <span
+         class="math inline">\(R_1\)</span>, and <span
+         class="math inline">\(R_2\)</span>.</p>
+         <h3 data-number="2.5.4" id="4.7"><span
          class="header-section-number">2.5.4</span> Prelab Question</h3>
-         <p>Now consider the current <span
-         class="math inline">\(I\)</span> through the circuit. Express
-         the current <span class="math inline">\(I\)</span> with respect
-         to the voltage source (internal), and all the
-         impedances/resistances.</p>
-         <h3 data-number="2.5.5" id="4.5"><span
-         class="header-section-number">2.5.5</span> Prelab Question</h3>
-         <p>Express the voltage across <span
-         class="math inline">\(R_2\)</span> (<span
-         class="math inline">\(V_\text{out}\)</span>) with respect to
-         the current and the relevant impedances/resistances, and show
-         that this leads to the same result in problem <span
-         class="citation" data-cites="4.3">@4.3</span>.</p>
-         <h3 data-number="2.5.6" id="4.7"><span
-         class="header-section-number">2.5.6</span> Prelab Question</h3>
          <ul>
          <li><p>For an ideal voltage divider <span
          class="math inline">\((R_o=0\text{ V})\)</span>, having <span
@@ -579,8 +578,8 @@ Voltage Dividers</h1>
          Screen shot your circuit and confirm that the simulation agrees
          with your calculations.</p></li>
          </ul>
-         <h3 data-number="2.5.7" id="4.8"><span
-         class="header-section-number">2.5.7</span> Prelab Question</h3>
+         <h3 data-number="2.5.5" id="4.8"><span
+         class="header-section-number">2.5.5</span> Prelab Question</h3>
          <ul>
          <li><p>What is <span
          class="math inline">\(V_\text{out}\)</span> for each circuit
@@ -601,8 +600,8 @@ Voltage Dividers</h1>
          <li><p>Re-run the simulation and confirm your calculations are
          correct.</p></li>
          </ul>
-         <h3 data-number="2.5.8" id="4.9"><span
-         class="header-section-number">2.5.8</span> Prelab Question</h3>
+         <h3 data-number="2.5.6" id="4.9"><span
+         class="header-section-number">2.5.6</span> Prelab Question</h3>
          <ul>
          <li>Compare the output voltage of the voltage divider with an
          ideal voltage source vs a non ideal voltage source.</li>
@@ -618,47 +617,75 @@ Voltage Dividers</h1>
          <figure>
          <img src="../resources/lab2fig/modified-vd.png"
          id="fig:modified-vd" style="height:7cm"
-         alt="Modified Voltage Divider" />
-         <figcaption aria-hidden="true">Modified Voltage
-         Divider</figcaption>
+         alt="Voltage divider with a parallel impedance" />
+         <figcaption aria-hidden="true">Voltage divider with a parallel
+         impedance</figcaption>
          </figure>
          <p>In the lab activities we will discover that the circuit
          shown in Figure <span class="citation"
-         data-cites="fig:modified-vd">@fig:modified-vd</span> will
-         provide a more accurate model for certain situations. <span
-         class="math inline">\(R_3\)</span> represents an impedance
-         (resistance in parallel with <span
-         class="math inline">\(R_2\)</span>) which can be due to
-         measurement impedance or trying to drive a load</p>
+         data-cites="fig:modified-vd">@fig:modified-vd</span> more
+         accurately models a voltage divider being measured. <span
+         class="math inline">\(R_3\)</span> is an impedance/resistance
+         in parallel with <span class="math inline">\(R_2\)</span> which
+         is due to the measurement impedance of a voltage measuring
+         device. This model can also be used to predict the affects of
+         placing an external load on a voltage divider.</p>
          <h3 data-number="2.6.1" id="5.1"><span
          class="header-section-number">2.6.1</span> Prelab Question</h3>
          <p>Express <span class="math inline">\(V_\text{out}\)</span>
-         with respect to the input voltage and the 3 resistor
-         values.</p>
+         with respect to the input voltage and the 3 resistor values.
+         <em>Hint:</em> it may be convenient to first combine <span
+         class="math inline">\(R_2\)</span> and <span
+         class="math inline">\(R_3\)</span> in parallel.</p>
          <h3 data-number="2.6.2" id="5.2"><span
          class="header-section-number">2.6.2</span> Prelab Question</h3>
          <p>Rearrange the equation you just found to solve for <span
          class="math inline">\(R_3\)</span> given the other values. This
-         equation will be useful when you do the lab.</p>
-         <h3 data-number="2.6.3" id="5.3"><span
-         class="header-section-number">2.6.3</span> Prelab Question</h3>
-         <p>Thevenin’s theorem says that any circuit (and therefore the
-         voltage divider) can be modeled as an ideal voltage source with
-         an output impedance <span
-         class="math inline">\(R_o\)</span></p>
+         equation will be used during the lab.</p>
+         <p>Make this a Python function.</p>
+         <h2 data-number="2.7"
+         id="thevenins-theorem-and-the-voltage-divider"><span
+         class="header-section-number">2.7</span> Thevenin’s Theorem and
+         the Voltage Divider</h2>
+         <p>Thevenin’s theorem states that any circuit (and therefore
+         the voltage divider) can be modeled as an ideal voltage source
+         with an output impedance <span
+         class="math inline">\(R_o\)</span> (see the figure below).</p>
          <figure>
          <img src="../resources/lab2fig/thevenin-vd.png" id="fig:thev"
          style="height:7cm" alt="alt text" />
          <figcaption aria-hidden="true">alt text</figcaption>
          </figure>
-         <h2 data-number="2.7" id="lab-activities"><span
-         class="header-section-number">2.7</span> Lab Activities</h2>
+         <p>For the voltage divider:</p>
+         <p><span class="math display">\[V_T = V_\text{in}
+         \frac{R_2}{R_1+R_2}\]</span></p>
+         <p><span class="math display">\[R_o =
+         \frac{R_1R_2}{R_1+R_2}\]</span></p>
+         <p>Naively, one would think that when a load <span
+         class="math inline">\(R_3\)</span> is attached to the voltage
+         divider, you might expect the voltage applied will be the <span
+         class="math inline">\(V_\text{out}\)</span> of the voltage
+         divider: i.e. <span class="math inline">\(V_\text{in}
+         \frac{R_2}{R_1+R_2}\)</span>, and indeed, the Thevenin voltage
+         <span class="math inline">\(V_T\)</span> <em>is</em> this.
+         However, the Thevenin equivalent resistance is very
+         significant, and the voltage that gets to <span
+         class="math inline">\(R_3\)</span> won’t be <span
+         class="math inline">\(V_T\)</span>.</p>
          <h3 data-number="2.7.1" id="6.1"><span
          class="header-section-number">2.7.1</span> Prelab Question</h3>
+         <p>Use your result of problem <span class="citation"
+         data-cites="5.1">@5.1</span> to show that the voltage across
+         <span class="math inline">\(R_3\)</span> is the same as the
+         voltage predicted by the Thevenin equivalent circuit.</p>
+         <h2 data-number="2.8" id="lab-activities"><span
+         class="header-section-number">2.8</span> Lab Activities</h2>
+         <h3 data-number="2.8.1" id="7.1"><span
+         class="header-section-number">2.8.1</span> Prelab Question</h3>
          <p>Read through all of the lab steps and identify the step (or
          sub-step) that you think will be the most challenging.</p>
-         <h3 data-number="2.7.2" id="6.2"><span
-         class="header-section-number">2.7.2</span> Prelab Question</h3>
+         <h3 data-number="2.8.2" id="7.2"><span
+         class="header-section-number">2.8.2</span> Prelab Question</h3>
          <p>List at least one question you have about the lab
          activity.</p>
          <h1 data-number="3" id="useful-readings"><span
@@ -695,14 +722,13 @@ Voltage Dividers</h1>
          oscilloscope.</p></li>
          <li><p>Colored banana jacks to bring in DC power for
          transistors or chips from an external power supply.</p></li>
-         <li><p>A precision <span class="math inline">\(10\text{
-         k}\Omega\)</span> ten‑turn potentiometer with a fuse on the
+         <li><p>Two precision <span class="math inline">\(10\text{
+         k}\Omega\)</span> ten‑turn potentiometers with fuses on the
          wiper (the fuse is a 125 mA Type 2AG measuring 5 mm x 20 mm if
          you need a replacement).</p></li>
          <li><p>Four switches.</p></li>
-         <li><p>Screw terminals which will be used with jumper wires to
-         bring power/signals from the interface panel to your
-         breadboard.</p></li>
+         <li><p>Screw terminals which can be used to grab wires to
+         connect the header components to your breadboard.</p></li>
          </ul>
          <p><br>The components on the interface panel are pre-soldered
          to the screw terminals and a wiring diagram is printed on the
@@ -718,7 +744,7 @@ Voltage Dividers</h1>
          breadboard.</p>
          <ul>
          <li><p>There are hundreds of holes, so testing every pair of
-         holes would take many hours. Take a strategic approach to
+         holes would take days. Take a strategic approach to
          testing.</p></li>
          <li><p>Assume connections are in single rows or
          columns.</p></li>
@@ -734,53 +760,82 @@ Voltage Dividers</h1>
          resistance. Now insert the resistor into two holes on the
          breadboard that you know <strong>are</strong> connected and
          remeasure the resistance. Explain your results. What does this
-         tell you about when you should measure resistors?</p></li>
+         tell you about when/where you should measure
+         resistors?</p></li>
          </ol>
          <h3 data-number="4.1.1"
          id="making-power-connections-to-your-protoboard"><span
          class="header-section-number">4.1.1</span> Making power
          connections to your protoboard</h3>
          <ol type="1">
-         <li><p>Many circuits require DC power connections (+15 V, -15V,
-         ground). Connect the power supply to the interface panel using
-         banana cables.</p></li>
+         <li><p>Many circuits require DC power connections. This
+         semester, you will commonly use components that need <span
+         class="math inline">\(+15\text{ V}\)</span> and <span
+         class="math inline">\(-15\text{ V}\)</span>. Connect the power
+         supply to the breadboard header using banana cables, so that
+         you can get <span class="math inline">\(+15\text{ V}\)</span>
+         and <span class="math inline">\(-15\text{ V}\)</span> to your
+         board.</p></li>
          <li><p><strong>USE A COLOR CODE FOR THE POWER
          CONNECTIONS!</strong> The convention used in this course is
          <strong>black = ground</strong>, <span
-         style="color: red;"><strong>red = +15 V</strong></span>, and
-         <span style="color: blue;"><strong>blue = -15
-         V</strong></span>. Using a consistent color code will allow you
-         and others to debug your circuits quickly. You are also less
+         style="color: red;"><strong>red = <span
+         class="math inline">\(+15\text{ V}\)</span></strong></span>,
+         and <span style="color: blue;"><strong>blue = <span
+         class="math inline">\(-15\text{ V}\)</span></strong></span>.
+         Using a consistent color code will allow you and others to
+         understand and debug your circuits quickly. You are also less
          likely to plug something in incorrectly and burn up a
          component. You should also have a white colored banana jack on
          your interface panel. You may find that this is useful during
-         your final project phase if you require another voltage.
-         Remember to write down your color code in your lab
-         notebook.</p></li>
+         your final project phase if you require a 3rd voltage source.
+         Remember to note your color code in your lab notebook.</p></li>
          <li><p>Once you have power connected to the interface panel,
-         use jumper wires from the appropriate screw terminal to make
-         connections to the breadboard (+15, -15, and ground). The long
+         use jumper wires (from the spools of wire) to connect the screw
+         terminals to to the breadboard (+15, -15, and ground). The long
          rails that run the length of the board are best for
-         distributing power to all of your components. <strong>Use these
-         for only DC power or ground.</strong></p></li>
+         distributing power to all of your components.</p>
+         <ul>
+         <li><strong><em>Note:</em> Use these long columns for only DC
+         power or ground.</strong></li>
+         <li>There is capacitance between all the breadboard
+         connections, and the longer the row/column, the more
+         capacitance there will be to a neighbor.</li>
+         <li>We will learn in lab 4 that putting capacitance between
+         power and ground is actually helpful, so connecting ground next
+         to both your <span class="math inline">\(+15\text{ V}\)</span>
+         and <span class="math inline">\(-15\text{ V}\)</span> columns
+         is good.</li>
+         </ul></li>
          <li><p>Good electrical contact is essential when you plug in
          components or wires. Use only 22- or 24-gauge solid wire, not
          stranded wire. The 22- or 24-gauge wire should make a good
          connection with the conductors inside the board without
          slipping out easily. Push in each wire until you feel the
          contacts grip. <strong>Don’t force larger wires into the
-         protoboard. You can damage the connectors.</strong></p></li>
-         <li><p>Reliable ground connections (0 V), readily accessible
-         from any point on the breadboard, are essential to the good
-         functioning of most circuits. The interface panel is wired such
+         protoboard. You can damage the connectors.</strong></p>
+         <ul>
+         <li><em>Note:</em> rotating the screws counter-clockwise (like
+         loosening a screw) will lower/open the clamp of the terminal,
+         allowing you place wire in the terminal; you can then turn the
+         screw clockwise (like tightening a screw) to raise/close the
+         clamp onto the wire. You should inspect and tug on wires when
+         you clamp them to ensure they are connected securely.</li>
+         </ul></li>
+         <li><p>It is essential to have reliable access to ground from
+         any point on the breadboard. The interface panel is wired such
          that outer conductor on the BNC connectors are connected to the
          <strong>black</strong> banana jack, which forces a common
          chassis ground. This is indicated on the wiring diagram printed
-         on the interface panel.</p></li>
+         on the interface panel. To confirm this, measure the resistance
+         between the black banana socket and the outer conductors of the
+         BNC ports. They should read basically <span
+         class="math inline">\(0\ \Omega\)</span>. Record this in your
+         lab notebook.</p></li>
          </ol>
          <figure>
          <img src="../resources/lab2fig/grounding%20connections.png"
-         id="fig:header"
+         id="fig:header" style="width:10cm"
          alt="The outer conductor of the BNC connectors are all connected to the black banana port." />
          <figcaption aria-hidden="true">The outer conductor of the BNC
          connectors are all connected to the black banana
@@ -791,16 +846,15 @@ Voltage Dividers</h1>
          class="header-section-number">4.1.2</span> Supplying power to
          your protoboard</h3>
          <ol type="1">
-         <li><p>Turn on your DC power supply such that it produces +15 V
-         and -15 V. Set the current limit to about 100 mA. This will
-         reduce the amount of smoke released from your components when
-         you happen to plug in the power incorrectly. Describe the
-         procedure you followed to set the current limit.</p></li>
-         <li><p>Measure the voltage on your protoboard rails using a
-         DMM. You may need to use a wire to probe the voltage if your
-         DMM probes do not fit in the holes. Always remember to measure
-         voltages with respect to ground. Record the voltages in your
-         lab notebook.</p></li>
+         <li><p>Turn on your DC power supply; the red wire to your
+         breadboard should now be <span class="math inline">\(+15\text{
+         V}\)</span> and the blue wire to your breadboard should be
+         <span class="math inline">\(-15\text{ V}\)</span>. Use your DMM
+         to confirm this and record your results.</p></li>
+         <li><p>Set the current limit to about <span
+         class="math inline">\(100\text{ mA}\)</span>. This will reduce
+         the amount of smoke released from your components when you
+         happen to plug in the power incorrectly.</p></li>
          </ol>
          <h2 data-number="4.2"
          id="building-and-testing-voltage-dividers"><span
@@ -832,32 +886,19 @@ Voltage Dividers</h1>
          your input voltage and resistance measurements. Include your
          calculations and numerical predictions in your lab
          notebook.</p></li>
-         <li><p>Now, apply a DC voltage to the input and measure the
-         output voltage of your divider, first using your DMM and second
-         using your oscilloscope with the mini-grabbers. Record your
-         measurements. <em>Do not have the DMM and the oscilloscope
-         connected at the same time because each may perturb the
-         measurement differently.</em></p></li>
+         <li><p>Now, connect your voltage divider so that it divides the
+         <span class="math inline">\(+15\text{ V}\)</span>. Measure the
+         output voltage using your DMM and then using your oscilloscope.
+         Record your measurements. <em>Do not have the DMM and the
+         oscilloscope connected at the same time because each may
+         perturb the measurement differently.</em></p></li>
          <li><p>Compare the voltages you predicted to the voltages you
          measured. Does your model of the voltage divider agree with
          each of your measurements? Explicitly record what criteria you
          used to determine whether or not the model and measurements
          agreed.</p></li>
-         <li><p><em>Complete this step only if your model and
-         measurements did not agree.</em> If your model and measurements
-         did not agree, you will have to either refine your model or
-         your experiment. Lets start by refining your model. Consider
-         the input resistance of your measurement device. Draw a circuit
-         diagram that includes that resistance. <em>HINT: See Figure
-         <span class="citation"
-         data-cites="fig:modified-vd">@fig:modified-vd</span></em>.
-         Derive an expression for the output voltage now including the
-         unknown measurement device resistance. Use this new model to
-         determine the input resistance of measurement device. (that is,
-         rearrange your equation to solve for <span
-         class="math inline">\(R_3\)</span>.. You did this in the
-         prelab).</p></li>
          </ol>
+         <!--6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).-->
          <h2 data-number="4.4"
          id="fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"><span
          class="header-section-number">4.4</span> Fixed-value voltage
@@ -866,32 +907,49 @@ Voltage Dividers</h1>
          M}\Omega\)</span></h2>
          <ol type="1">
          <li><p>Complete the steps in the previous section for two
-         additional voltage dividers, one using resistors 1M<span
-         class="math inline">\(\Omega\)</span> and one with resistors
-         10M<span class="math inline">\(\Omega\)</span>.</p></li>
-         <li><p>Using your refined model, you have determined the input
-         resistance of both the DMM and scope. <a
-         href="/PHYS-3330/manuals-data-sheets">Specification (spec)
-         sheets or data sheets</a> can also be used to refine your
-         model.</p></li>
-         <li><p>Look up the input resistance of your DMM using the spec
-         sheet at the link above. Does the measured input resistance
-         agree with the instrument specs? Explicitly record what
-         criteria you used to determine whether or not the resistances
-         agree.</p></li>
-         <li><p>There is an easy way to determine the specified input
-         impedance of the scope. Where can you find that information?
-         Does the measured input resistance agree with the instrument
-         specs? Explicitly record what criteria you used to determine
-         whether or not the resistances agree.</p></li>
+         additional voltage dividers, one using resistors <span
+         class="math inline">\(1\text{ M}\Omega\)</span> and one with
+         resistors <span class="math inline">\(10\text{
+         M}\Omega\)</span> (with both the DMM and the scope).</p></li>
+         <li><p>Evaluate whether the results for these two voltage
+         dividers continue to agree with your model.</p></li>
+         <li><p>Describe why your model and experiment don’t agree.
+         <em>Hint:</em> think about how a voltage measurement
+         works.</p></li>
+         <li><p>Which model explored in the prelab will more accurately
+         represent your circuit while it is being measured? Draw this
+         circuit diagram and label any resistances you know (with the
+         measured resistances), and any resistances you don’t know (with
+         some <span class="math inline">\(R\)</span> with an appropriate
+         subscript). Somewhere with your diagram, describe what each
+         unknown resistance represents.</p></li>
+         <li><p>Use your model and your measurements to calculate the
+         unknown resistance when measuring with the DMM and with the
+         scope. <em>Hint:</em> you worked this function out in the
+         prelab.</p></li>
+         <li><p>Look at the <a
+         href="/PHYS-3330/manuals-data-sheets">specification (spec)
+         sheets or data sheets</a> for the DMM and the scope to find
+         their measurement impedances (input resistance). There is an
+         easy way to determine the specified measurement impedance of
+         the scope (this sort of thing is typically labeled near the
+         inputs on the scope).</p></li>
+         <li><p>Does the measured input resistance agree with the
+         instrument specs? Explicitly record what criteria you used to
+         determine whether or not the resistances agree.</p></li>
          </ol>
          <h2 data-number="4.5"
          id="hidden-voltage-dividers-output-impedance"><span
          class="header-section-number">4.5</span> Hidden Voltage
          Dividers (Output Impedance)</h2>
+         <p>In this section we will explore how a real voltage source
+         with an output impedance voltage divides with a load (input
+         impedance).</p>
          <ol type="1">
-         <li><p>Remember last week when we set the function generator to
-         an output termination of <em>High Z</em>? We want to do this
+         <li><p>Draw a diagram representing a real voltage source
+         powering a load.</p></li>
+         <li><p>Remember last week when you set the function generator
+         to an output termination of <em>High Z</em>? We want to do this
          EVERY TIME we use the function generator in this class. This
          does not change the output impedance of the function generator:
          it’s ALWAYS <span class="math inline">\(50\ \Omega\)</span>,
@@ -901,21 +959,26 @@ Voltage Dividers</h1>
          prelab). Turn on your function generator and set it to <em>High
          Z</em>. If you don’t remember how to change this setting, refer
          to Appendix B in Lab 1.</p></li>
-         <li><p>Write an expression for the transfer function for the
-         amount of the source voltage should actually be applied to the
-         load.</p></li>
          <li><p>Grab a speaker (this will be your load) and use your DMM
          to measure the resistance of the speaker. On your diagram label
          the resistances of the output impedance of the function
          generator (<span class="math inline">\(50\ \Omega\)</span>) and
          the impedance of your speaker.</p></li>
+         <li><p>What you program the function generator to deliver to
+         your load will be <span
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span>; if
+         the transfer function is <span
+         class="math inline">\(T=V_\text{supply}^\text{(ext)}/V_\text{supply}^\text{(int)}\)</span>,
+         calculate this transfer function. This will determine how much
+         of your function generator’s voltage will actually reach the
+         load.</p></li>
          <li><p>Set up the function generator and the oscilloscope.</p>
          <ol type="1">
          <li><p>Set up the function generator and the oscilloscope so
          that you can read Channel 1 from the function generator with
          Channel 1 of the oscilloscope (use a BNC T-connector so that
-         later you can eventually connect this to your breadboard as
-         well).</p></li>
+         later you can eventually connect this to your
+         speaker).</p></li>
          <li><p>Connect the <em>Sync</em> on the function generator with
          Channel 4 of the oscilloscope.</p></li>
          <li><p>Create a <span class="math inline">\(2\
@@ -929,7 +992,8 @@ Voltage Dividers</h1>
          </ol></li>
          <li><p>Confirm on the oscilloscope that the frequency and the
          amplitude of your wave match the settings on the function
-         generator (measure them).</p></li>
+         generator; i.e. measure and record the values and how you
+         determined them.</p></li>
          <li><p>Apply the signal from the function generator to the
          speaker (use the T-connector, so you can still see it on the
          oscilloscope). You can use mini grabbers to connect to the two
@@ -946,14 +1010,19 @@ Voltage Dividers</h1>
          is (virtually) no current, so no voltage drops across the <span
          class="math inline">\(50\ \Omega\)</span> output impedance of
          the function generator. In this case, we are measuring the
-         internal, source voltage (<span
-         class="math inline">\(V_\text{in}\)</span> of our voltage
-         divider model). When you apply the speaker, current flows and
-         voltage drops across the output impedance, so that the full
-         voltage doesn’t reach the load (<span
-         class="math inline">\(V_\text{out}\)</span> in our voltage
-         divider model). Using both measurements calculate the transfer
-         function.</p></li>
+         internal, source voltage <span
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span>
+         (<span class="math inline">\(V_\text{in}\)</span> of our
+         voltage divider model). When you apply the speaker, current
+         flows and voltage drops across the output impedance, so that
+         the full voltage doesn’t reach the load <span
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>
+         (<span class="math inline">\(V_\text{out}\)</span> in our
+         voltage divider model). Using both measurements calculate the
+         transfer function.</p></li>
+         <li><p>Compare the calculated result from the measurements to
+         the calculation from the model based on the
+         resistances.</p></li>
          </ol>
          <p>Since neither the impedance of the speaker nor the output
          impedance of the function generator can be changed, in order to
@@ -963,14 +1032,15 @@ Voltage Dividers</h1>
          learn to build a voltage buffer circuit that does just
          that.</p>
          <h2 data-number="4.6"
-         id="build-a-controllable-voltage-source"><span
+         id="build-a-controllable-voltage-source-volume-knob"><span
          class="header-section-number">4.6</span> Build a Controllable
-         Voltage Source</h2>
+         Voltage Source (Volume Knob)</h2>
          <p>You will now use your skills with building and testing
          voltage dividers to build a controllable voltage source using a
          potentiometer and a switch.</p>
          <figure>
          <img src="../resources/lab2fig/pot.png" id="fig:pot"
+         style="width:8cm"
          alt="A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where R_1+R_2 is a fixed value (in our case, 10\text{ k}\Omega)" />
          <figcaption aria-hidden="true">A potentiometer (symbol shown on
          the right), has a wiper which connects at a variable position
@@ -1009,6 +1079,7 @@ Voltage Dividers</h1>
          Switch</h2>
          <figure>
          <img src="../resources/lab2fig/switch.png" id="fig:switch"
+         style="width:7cm"
          alt="The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch." />
          <figcaption aria-hidden="true">The switches on your breadboard
          header have three terminals. Moving the position of the lever
@@ -1033,14 +1104,16 @@ Voltage Dividers</h1>
          <li><p>Check in with an instructor regarding your circuit
          diagram.</p></li>
          <li><p>Derive an expression for the output voltage based on the
-         input voltage and the two resistances. Are both resistances
-         independently variable or a function of the other?</p></li>
-         <li><p>Construct your voltage divider using any arbitrary
-         output from the function generator for <span
-         class="math inline">\(V_\text{in}\)</span> and use a scope to
-         measure the output voltage.</p>
+         input voltage and the two resistances. Since the two
+         resistances always add up to <span
+         class="math inline">\(10\text{ k}\Omega\)</span>, express it in
+         terms of this resistance and just one of the resistances of the
+         wiper.</p></li>
+         <li><p>Construct your voltage divider using the function
+         generator for <span class="math inline">\(V_\text{in}\)</span>
+         and use a scope to measure the output voltage.</p>
          <ul>
-         <li><p>Do you need to include the scope input resistance in
+         <li><p>Should you include the oscilliscope input resistance in
          your model? Explain why or why not.</p></li>
          <li><p>Do you need to include the function generator’s <span
          class="math inline">\(50\ \Omega\)</span> output impedance in
@@ -1054,16 +1127,20 @@ Voltage Dividers</h1>
          what criteria you used to determine whether or not the model
          and measurements agree.</p>
          <!--Now connect a low voltage light bulb to the output. Do not exceed a current limit of 120 mA or the fuse on your potentiometer will blow out (it is a 125 mA fuse). Describe qualitatively the brightness of the bulb as the pot knob is adjusted. What is the minimum voltage needed to see the light bulb turn on?--></li>
-         <li><p><strong>Bonus question:</strong> A good voltage source
-         has very little (a few ohms) output resistance and thus very
-         little power is dissipated in the supply. What is the output
-         resistance of the circuit (including your power supply and
-         external components) if it produces 10V? Would this circuit be
-         good for creating a variable voltage source in the range of
-         5-10 V? HINT: Consider the power dissipated in the source.
-         Explain using your diagram, model, and values of
-         resistance.</p></li>
+         <li><p><strong>Bonus question:</strong> Draw a diagram that
+         would accurately model the circuit if you try to power the
+         speaker with this volume knob. How will the impedance of the
+         load impact the model? Express <span
+         class="math inline">\(V_\text{out}\)</span> with respect to one
+         of the resistances (from the wiper to one end of the resistor)
+         of the potentiometer. The equation should include the <span
+         class="math inline">\(50\ \Omega\)</span> output impedance of
+         the function generator, <span class="math inline">\(10\text{
+         k}\Omega\)</span> of the total potentiometer resistance, and
+         the measured resistance of the speaker (you can round to the
+         nearest Ohm).</p></li>
          </ol>
+         <!--7. **Bonus question:** A good voltage source has very little (a few ohms) output resistance and thus very little power is dissipated in the supply. What is the output resistance of the circuit (including your power supply and external components) if it produces 10V? Would this circuit be good for creating a variable voltage source in the range of 5-10 V? HINT: Consider the power dissipated in the source. Explain using your diagram, model, and values of resistance.-->
          <h1 class="unnumbered"
          id="appendix-a-calibrating-the-10-turn-potentiometer-if-needed">Appendix
          A: Calibrating the 10-turn Potentiometer (If Needed)</h1>

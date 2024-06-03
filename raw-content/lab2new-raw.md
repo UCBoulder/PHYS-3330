@@ -222,11 +222,11 @@ Use your result of problem @5.1 to show that the voltage across $R_3$ is the sam
 
 ## Lab Activities
 
-### Prelab Question {#6.1}
+### Prelab Question {#7.1}
 
 Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
 
-### Prelab Question {#6.2}
+### Prelab Question {#7.2}
 
 List at least one question you have about the lab activity.
 
