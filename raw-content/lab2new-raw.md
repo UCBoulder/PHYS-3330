@@ -284,21 +284,23 @@ You can find more helpful information in the following sections of the text book
 
 3.  Once you have power connected to the interface panel, use jumper wires (from the spools of wire) to connect the screw terminals to to the breadboard (+15, -15, and ground). The long rails that run the length of the board are best for distributing power to all of your components.
 
-    - ***Note:* Use these for only DC power or ground.**
+    - ***Note:* Use these long columns for only DC power or ground.**
     - There is capacitance between all the breadboard connections, and the longer the row/column, the more capacitance there will be to a neighbor.
-    - We will learn in lab 4 that putting capacitance between power and ground is actually helpful.
+    - We will learn in lab 4 that putting capacitance between power and ground is actually helpful, so connecting ground next to both your $+15\text{ V}$ and $-15\text{ V}$ columns is good.
 
 4.  Good electrical contact is essential when you plug in components or wires. Use only 22- or 24-gauge solid wire, not stranded wire. The 22- or 24-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Don't force larger wires into the protoboard. You can damage the connectors.**
 
-5.  Reliable ground connections (0 V), readily accessible from any point on the breadboard, are essential to the good functioning of most circuits. The interface panel is wired such that outer conductor on the BNC connectors are connected to the **black** banana jack, which forces a common chassis ground. This is indicated on the wiring diagram printed on the interface panel.
+    - *Note:* rotating the screws counter-clockwise (like loosening a screw) will lower/open the clamp of the terminal, allowing you place wire in the terminal; you can then turn the screw clockwise (like tightening a screw) to raise/close the clamp onto the wire. You should inspect and tug on wires when you clamp them to ensure they are connected securely.
+
+5.  It is essential to have reliable access to ground from any point on the breadboard. The interface panel is wired such that outer conductor on the BNC connectors are connected to the **black** banana jack, which forces a common chassis ground. This is indicated on the wiring diagram printed on the interface panel. To confirm this, measure the resistance between the black banana socket and the outer conductors of the BNC ports. They should read basically $0\ \Omega$. Record this in your lab notebook.
 
 ![The outer conductor of the BNC connectors are all connected to the black banana port.](<../resources/lab2fig/grounding connections.png>){#fig:header width="10cm"}
 
 ### Supplying power to your protoboard
 
-1.  Turn on your DC power supply such that it produces +15 V and -15 V. Set the current limit to about 100 mA. This will reduce the amount of smoke released from your components when you happen to plug in the power incorrectly. Describe the procedure you followed to set the current limit.
+1.  Turn on your DC power supply; the red wire to your breadboard should now be $+15\text{ V}$ and the blue wire to your breadboard should be $-15\text{ V}$. Use your DMM to confirm this and record your results.
 
-2.  Measure the voltage on your protoboard rails using a DMM. You may need to use a wire to probe the voltage if your DMM probes do not fit in the holes. Always remember to measure voltages with respect to ground. Record the voltages in your lab notebook.
+2.  Set the current limit to about $100\text{ mA}$. This will reduce the amount of smoke released from your components when you happen to plug in the power incorrectly.
 
 ## Building and Testing Voltage Dividers
 
@@ -312,55 +314,67 @@ Components (resistors, capacitors, transistors, etc.) are available from the com
 
 3.  Predict the output voltage you should measure based on your input voltage and resistance measurements. Include your calculations and numerical predictions in your lab notebook.
 
-4.  Now, apply a DC voltage to the input and measure the output voltage of your divider, first using your DMM and second using your oscilloscope with the mini-grabbers. Record your measurements. *Do not have the DMM and the oscilloscope connected at the same time because each may perturb the measurement differently.*
+4.  Now, connect your voltage divider so that it divides the $+15\text{ V}$. Measure the output voltage using your DMM and then using your oscilloscope. Record your measurements. *Do not have the DMM and the oscilloscope connected at the same time because each may perturb the measurement differently.*
 
 5.  Compare the voltages you predicted to the voltages you measured. Does your model of the voltage divider agree with each of your measurements? Explicitly record what criteria you used to determine whether or not the model and measurements agreed.
 
-6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).
+<!--6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).-->
 
 ## Fixed-value voltage dividers of $1\text{ M}\Omega$ and $10\text{ M}\Omega$
 
-1.  Complete the steps in the previous section for two additional voltage dividers, one using resistors 1M$\Omega$ and one with resistors 10M$\Omega$.
+1.  Complete the steps in the previous section for two additional voltage dividers, one using resistors $1\text{ M}\Omega$ and one with resistors $10\text{ M}\Omega$ (with both the DMM and the scope).
 
-2.  Using your refined model, you have determined the input resistance of both the DMM and scope. [Specification (spec) sheets or data sheets](/PHYS-3330/manuals-data-sheets) can also be used to refine your model.
+2.  Evaluate whether the results for these two voltage dividers continue to agree with your model.
 
-3.  Look up the input resistance of your DMM using the spec sheet at the link above. Does the measured input resistance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
+3.  Describe why your model and experiment don't agree. *Hint:* think about how a voltage measurement works.
 
-4.  There is an easy way to determine the specified input impedance of the scope. Where can you find that information? Does the measured input resistance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
+4.  Which model explored in the prelab will more accurately represent your circuit while it is being measured? Draw this circuit diagram and label any resistances you know (with the measured resistances), and any resistances you don't know (with some $R$ with an appropriate subscript). Somewhere with your diagram, describe what each unknown resistance represents.
+
+5.  Use your model and your measurements to calculate the unknown resistance when measuring with the DMM and with the scope. *Hint:* you worked this function out in the prelab.
+
+6.  Look at the [specification (spec) sheets or data sheets](/PHYS-3330/manuals-data-sheets) for the DMM and the scope to find their measurement impedances (input resistance). There is an easy way to determine the specified measurement impedance of the scope (this sort of thing is typically labeled near the inputs on the scope).
+
+7.  Does the measured input resistance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
 
 ## Hidden Voltage Dividers (Output Impedance)
 
-1. Remember last week when we set the function generator to an output termination of *High Z*? We want to do this EVERY TIME we use the function generator in this class. This does not change the output impedance of the function generator: it's ALWAYS $50\ \Omega$, but by default, it *assumes* you are impedance matching everything with $50\ \Omega$ (you worked out why this might be important to do in the prelab). Turn on your function generator and set it to *High Z*. If you don't remember how to change this setting, refer to Appendix B in Lab 1.
+In this section we will explore how a real voltage source with an output impedance voltage divides with a load (input impedance).
 
-2.  Write an expression for the transfer function for the amount of the source voltage should actually be applied to the load.
+1.  Draw a diagram representing a real voltage source powering a load.
+
+2.  Remember last week when you set the function generator to an output termination of *High Z*? We want to do this EVERY TIME we use the function generator in this class. This does not change the output impedance of the function generator: it's ALWAYS $50\ \Omega$, but by default, it *assumes* you are impedance matching everything with $50\ \Omega$ (you worked out why this might be important to do in the prelab). Turn on your function generator and set it to *High Z*. If you don't remember how to change this setting, refer to Appendix B in Lab 1. 
 
 3.  Grab a speaker (this will be your load) and use your DMM to measure the resistance of the speaker. On your diagram label the resistances of the output impedance of the function generator ($50\ \Omega$) and the impedance of your speaker.
 
-4.  Set up the function generator and the oscilloscope.
+4.  What you program the function generator to deliver to your load will be $V_\text{supply}^\text{(int)}$; if the transfer function is $T=V_\text{supply}^\text{(ext)}/V_\text{supply}^\text{(int)}$, calculate this transfer function. This will determine how much of your function generator's voltage will actually reach the load.
 
-    1.  Set up the function generator and the oscilloscope so that you can read Channel 1 from the function generator with Channel 1 of the oscilloscope (use a BNC T-connector so that later you can eventually connect this to your breadboard as well).
+5.  Set up the function generator and the oscilloscope.
+
+    1.  Set up the function generator and the oscilloscope so that you can read Channel 1 from the function generator with Channel 1 of the oscilloscope (use a BNC T-connector so that later you can eventually connect this to your speaker).
 
     2.  Connect the *Sync* on the function generator with Channel 4 of the oscilloscope.
 
     3.  Create a $2\ \text{V}_\text{pp}$ sine wave with a $261.63\ \text{Hz}$ frequency and trigger on the *Sync* (in the trigger menu, change the channel to Channel 4). This will provide a nice lower frequency tone (a $\text{C}_4$ note) at a volume that won't be too obnoxious to your neighbors.
 
-3.  Confirm on the oscilloscope that the frequency and the amplitude of your wave match the settings on the function generator (measure them).
+6.  Confirm on the oscilloscope that the frequency and the amplitude of your wave match the settings on the function generator; i.e. measure and record the values and how you determined them.
 
-3.  Apply the signal from the function generator to the speaker (use the T-connector, so you can still see it on the oscilloscope). You can use mini grabbers to connect to the two ends of the speaker.
+7.  Apply the signal from the function generator to the speaker (use the T-connector, so you can still see it on the oscilloscope). You can use mini grabbers to connect to the two ends of the speaker.
 
     1.  Now what is the amplitude of the sine wave on Channel 1 of the oscilliscope?
 
     2.  Why did the amplitude change after applying the load to the function generator's output? Disconnect the speaker: did the amplitude recover? Why? Reconnect the function generator to your circuit and confirm the voltage changes.
 
-4.  When you measure the voltage without the speaker, there is (virtually) no current, so no voltage drops across the $50\ \Omega$ output impedance of the function generator. In this case, we are measuring the internal, source voltage ($V_\text{in}$ of our voltage divider model). When you apply the speaker, current flows and voltage drops across the output impedance, so that the full voltage doesn't reach the load ($V_\text{out}$ in our voltage divider model). Using both measurements calculate the transfer function.
+4.  When you measure the voltage without the speaker, there is (virtually) no current, so no voltage drops across the $50\ \Omega$ output impedance of the function generator. In this case, we are measuring the internal, source voltage $V_\text{supply}^\text{(int)}$ ($V_\text{in}$ of our voltage divider model). When you apply the speaker, current flows and voltage drops across the output impedance, so that the full voltage doesn't reach the load $V_\text{supply}^\text{(ext)}$ ($V_\text{out}$ in our voltage divider model). Using both measurements calculate the transfer function.
+
+5.  Compare the calculated result from the measurements to the calculation from the model based on the resistances.
 
 Since neither the impedance of the speaker nor the output impedance of the function generator can be changed, in order to get more power to the speaker, you will have to design more circuitry to deliver the signal in a way that draws little to no current from the function generator. In Lab 4, you will learn to build a voltage buffer circuit that does just that.
 
-## Build a Controllable Voltage Source
+## Build a Controllable Voltage Source (Volume Knob)
 
 You will now use your skills with building and testing voltage dividers to build a controllable voltage source using a potentiometer and a switch.
 
-![A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where $R_1+R_2$ is a fixed value (in our case, $10\text{ k}\Omega$)](../resources/lab2fig/pot.png){#fig:pot}
+![A potentiometer (symbol shown on the right), has a wiper which connects at a variable position along a length of wire with a fixed resistance per length. The potentiometer acts like two variable resistors (as shown on the right) where $R_1+R_2$ is a fixed value (in our case, $10\text{ k}\Omega$)](../resources/lab2fig/pot.png){#fig:pot width="8cm"}
 
 ## Testing the Potentiometer (pot)
 
@@ -372,7 +386,7 @@ You will now use your skills with building and testing voltage dividers to build
 
 ## Testing the Switch
 
-![The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch.](../resources/lab2fig/switch.png){#fig:switch}
+![The switches on your breadboard header have three terminals. Moving the position of the lever changes which terminal the center terminal connects to. The left and right of the figure show the two possible states of the switch.](../resources/lab2fig/switch.png){#fig:switch width="7cm"}
 
 1. Connect wires to screw terminals of a switch and test with your DMM which lever position corresponds to which connections.
 
@@ -382,11 +396,11 @@ You will now use your skills with building and testing voltage dividers to build
 
 2. Check in with an instructor regarding your circuit diagram.
 
-3. Derive an expression for the output voltage based on the input voltage and the two resistances. Are both resistances independently variable or a function of the other?
+3. Derive an expression for the output voltage based on the input voltage and the two resistances. Since the two resistances always add up to $10\text{ k}\Omega$, express it in terms of this resistance and just one of the resistances of the wiper.
 
-4. Construct your voltage divider using any arbitrary output from the function generator for $V_\text{in}$ and use a scope to measure the output voltage.
+4. Construct your voltage divider using the function generator for $V_\text{in}$ and use a scope to measure the output voltage.
 
-    - Do you need to include the scope input resistance in your model? Explain why or why not.
+    - Should you include the oscilliscope input resistance in your model? Explain why or why not.
 
     - Do you need to include the function generator's $50\ \Omega$ output impedance in your model? Explain why or why not.
 
@@ -396,7 +410,9 @@ You will now use your skills with building and testing voltage dividers to build
 
    <!--Now connect a low voltage light bulb to the output. Do not exceed a current limit of 120 mA or the fuse on your potentiometer will blow out (it is a 125 mA fuse). Describe qualitatively the brightness of the bulb as the pot knob is adjusted. What is the minimum voltage needed to see the light bulb turn on?-->
 
-7. **Bonus question:** A good voltage source has very little (a few ohms) output resistance and thus very little power is dissipated in the supply. What is the output resistance of the circuit (including your power supply and external components) if it produces 10V? Would this circuit be good for creating a variable voltage source in the range of 5-10 V? HINT: Consider the power dissipated in the source. Explain using your diagram, model, and values of resistance.
+7. **Bonus question:** Draw a diagram that would accurately model the circuit if you try to power the speaker with this volume knob. How will the impedance of the load impact the model? Express $V_\text{out}$ with respect to one of the resistances (from the wiper to one end of the resistor) of the potentiometer. The equation should include the $50\ \Omega$ output impedance of the function generator, $10\text{ k}\Omega$ of the total potentiometer resistance, and the measured resistance of the speaker (you can round to the nearest Ohm).
+
+<!--7. **Bonus question:** A good voltage source has very little (a few ohms) output resistance and thus very little power is dissipated in the supply. What is the output resistance of the circuit (including your power supply and external components) if it produces 10V? Would this circuit be good for creating a variable voltage source in the range of 5-10 V? HINT: Consider the power dissipated in the source. Explain using your diagram, model, and values of resistance.-->
 
 # Appendix A: Calibrating the 10-turn Potentiometer (If Needed) {#appendix-a-calibrating-the-10-turn-potentiometer-if-needed .unnumbered}
 
