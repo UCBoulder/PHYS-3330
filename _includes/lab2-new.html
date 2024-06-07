@@ -113,9 +113,6 @@ Voltage Dividers</h1>
             <li><a href="#5.1" id="toc-5.1"><span
             class="toc-section-number">2.6.1</span> Prelab
             Question</a></li>
-            <li><a href="#5.2" id="toc-5.2"><span
-            class="toc-section-number">2.6.2</span> Prelab
-            Question</a></li>
             </ul></li>
             <li><a href="#thevenins-theorem-and-the-voltage-divider"
             id="toc-thevenins-theorem-and-the-voltage-divider"><span
@@ -131,9 +128,6 @@ Voltage Dividers</h1>
             <ul>
             <li><a href="#7.1" id="toc-7.1"><span
             class="toc-section-number">2.8.1</span> Prelab
-            Question</a></li>
-            <li><a href="#7.2" id="toc-7.2"><span
-            class="toc-section-number">2.8.2</span> Prelab
             Question</a></li>
             </ul></li>
             </ul></li>
@@ -211,12 +205,14 @@ Voltage Dividers</h1>
          <li><p>familiarize yourself with the prototyping boards
          (breadboards). You will use this tool extensively for the rest
          of the semester.</p></li>
-         <li><p>build, test, and explore refined models of voltage
-         divider circuits to include the effects of measurements and
-         loads.</p></li>
          <li><p>learn how to interface your equipment with the
          prototyping board through the header attached to the
          board.</p></li>
+         <li><p>build, test, and explore refined models of voltage
+         divider circuits to include the effects of measurements and
+         loads.</p></li>
+         <li><p>get first exposure to the impact of input and output
+         impedance.</p></li>
          <li><p>learn how to use the switches and potentiometers on the
          header.</p></li>
          <li><p>build a volume knob using your knowledge of voltage
@@ -258,11 +254,11 @@ Voltage Dividers</h1>
          </figure>
          <p>Breadboards are composed of several holes that you can stick
          wires into. The holes form rows of metallic connection (as seen
-         in Figure <span class="citation"
-         data-cites="fig:breadpins">@fig:breadpins</span>). Each of
+         in Figure {<span class="citation"
+         data-cites="fig:breadpins">@fig:breadpins</span>}). Each of
          these rows are constructed like little grabbers that allow for
-         secure connections (as seen in Figure <span class="citation"
-         data-cites="fig:breadrow">@fig:breadrow</span>).</p>
+         secure connections (as seen in Figure {<span class="citation"
+         data-cites="fig:breadrow">@fig:breadrow</span>}).</p>
          <figure>
          <img src="../resources/lab2fig/breadboard-row.JPG"
          id="fig:breadrow" style="width:6cm"
@@ -320,11 +316,12 @@ Voltage Dividers</h1>
          circuit!</figcaption>
          </figure>
          <p>An ideal voltage source (no internal resistance) drives
-         current around the loop of two resistors shown in Figure <span
-         class="citation" data-cites="fig:ideal-vd">@fig:ideal-vd</span>
-         (all three circuits in this figure are equivalent!). Each
-         resistor has a voltage drop across it due to the current
-         running through them, so the voltage difference labeled <span
+         current around the loop of two resistors shown in Figure {<span
+         class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span>} (all three
+         circuits in this figure are equivalent!). Each resistor has a
+         voltage drop across it due to the current running through them,
+         so the voltage difference labeled <span
          class="math inline">\(V_\text{out}\)</span> will be less than
          the voltage applied to the whole circuit.</p>
          <h3 data-number="2.2.1" id="1.1"><span
@@ -351,18 +348,23 @@ Voltage Dividers</h1>
          the current.</p>
          <p>Make a Python function that computes <span
          class="math inline">\(V_\text{out}\)</span> that takes <span
-         class="math inline">\(V_\text{out}\)</span>, <span
+         class="math inline">\(V_\text{in}\)</span>, <span
          class="math inline">\(R_1\)</span>, and <span
          class="math inline">\(R_2\)</span> as inputs. You will likely
          find this function useful throughout the semester.</p>
          <h3 data-number="2.2.4" id="1.4"><span
          class="header-section-number">2.2.4</span> Prelab Question</h3>
-         <p>Build the circuit shown in Figure <span class="citation"
-         data-cites="fig:ideal-vd">@fig:ideal-vd</span> in LTspice. Use
-         these values - <span class="math inline">\(V_\text{in} =
-         10\text{ V}\)</span> - <span class="math inline">\(R_1 =
-         1\text{ k}\Omega\)</span> - <span class="math inline">\(R_2 =
-         3\text{ k}\Omega\)</span></p>
+         <p>Build the circuit shown in Figure {<span class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span>} in LTspice. Use
+         these values</p>
+         <ul>
+         <li><p><span class="math inline">\(V_\text{in} = 10\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(R_1 = 1\text{
+         k}\Omega\)</span></p></li>
+         <li><p><span class="math inline">\(R_2 = 3\text{
+         k}\Omega\)</span></p></li>
+         </ul>
          <p>First calculate <span class="math inline">\(I\)</span> and
          <span class="math inline">\(V_\text{out}\)</span> using your
          results from the previous questions. Then run a transient
@@ -380,15 +382,15 @@ Voltage Dividers</h1>
          <p><span class="math display">\[\begin{equation}
          T = \frac{V_\text{out}}{V_\text{in}}
          \end{equation}\]</span></p>
-         <p>A voltage divider’s output will always be less than the
-         input, so the transfer function will range between <span
-         class="math inline">\(0\)</span> and <span
+         <p>A <strong><em>voltage divider’s</em></strong> output will
+         always be less than the input, so the transfer function will
+         range between <span class="math inline">\(0\)</span> and <span
          class="math inline">\(1\)</span>.</p>
          <h3 data-number="2.3.1" id="2.1"><span
          class="header-section-number">2.3.1</span> Prelab Question</h3>
          <p>Write down the equation for the transfer function of the
          ideal voltage divider. <em>Hint:</em> use the result of problem
-         <span class="citation" data-cites="1.3">@1.3</span>. This
+         {<span class="citation" data-cites="1.3">@1.3</span>}. This
          should only depend on the values of the two resistors, and
          should be unitless.</p>
          <h3 data-number="2.3.2" id="2.2"><span
@@ -403,8 +405,11 @@ Voltage Dividers</h1>
          <span class="math inline">\(10\text{ V}\)</span>, what will
          <span class="math inline">\(V_\text{out}\)</span> be (using the
          resistance values above)?</p>
-         <p>Use LTspice to confirm this. Screen shot the circuit and
-         result in LTspice.</p>
+         <p>In LTspice, build this circuit and run a transient
+         simulation. Measure the output voltage in the simulation to
+         confirm that your calculation is correct. If not, resolve any
+         mistakes in either your simulation or calculation. Screen shot
+         the circuit and result in LTspice.</p>
          <h2 data-number="2.4" id="input-and-output-impedance"><span
          class="header-section-number">2.4</span> Input and Output
          Impedance</h2>
@@ -427,19 +432,19 @@ Voltage Dividers</h1>
          complicated circuits can often be modeled as a single resistor
          representing the “input impedance” of the circuit. The input
          impedance describes how the whole circuit opposes current. If
-         the circuit being powered simply is a single resistor, then the
-         input impedance is the same value as the resistor’s resistance.
-         Regardless, the input impedance can be thought of as the load
-         on the circuit.</p>
+         the circuit being powered is just a resistor, then the input
+         impedance is just the resistance of this resistor. Regardless,
+         the input impedance can be thought of as the load on the
+         circuit.</p>
          <p>When the power source with output impedance <span
          class="math inline">\(R_o\)</span> drives the load with input
          impedance <span class="math inline">\(R_i\)</span>, the output
          and input impedances form a voltage divider, where the input of
          the voltage divider is <span
-         class="math inline">\(V_\text{out}^\text{(internal)}\)</span>
-         and the output is <span
-         class="math inline">\(V_\text{out}^\text{(external)}\)</span>.
-         The transfer function of this transfer function is then</p>
+         class="math inline">\(V_\text{supply}^\text{(int)}\)</span> and
+         the output is <span
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>.
+         The transfer function of this voltage divider is then</p>
          <p><span class="math display">\[T =
          \frac{V_\text{supply}^\text{(ext)}}{V_\text{supply}^\text{(ext)}}
          = \frac{R_i}{R_o+R_i}\]</span></p>
@@ -475,10 +480,11 @@ Voltage Dividers</h1>
          <p>Impedance matching is the process of matching load
          impedances with a power source’s output impedance. For high
          frequency signals, impedance matching is very important, but it
-         is also commonly done because for a given <span
-         class="math inline">\(R_o\)</span>, matching the impedance will
-         allow for the maximum power delivered to the circuit. Is this
-         consistent with your result for the <span
+         is also commonly done because, for a given <span
+         class="math inline">\(R_o\)</span>, matching the input
+         impedance to the same value will allow for the maximum amount
+         of power to be delivered to the circuit. Is this consistent
+         with your result for the <span
          class="math inline">\(R_i\)</span> that gives maximum power? If
          not, revise your calculation.</p>
          <h3 data-number="2.4.4" id="3.4"><span
@@ -503,6 +509,49 @@ Voltage Dividers</h1>
          all <span class="math inline">\(R_i\)</span>. To deliver a lot
          of power, having a low output impedance is often the best
          choice, but this isn’t always a parameter we can control.</p>
+         <p>Here is some sample code for plotting. You can use
+         <code>%matplotlib widget</code> to allow you to interact with
+         the inline plot. Otherwise, the default should be
+         <code>%matplotlib inline</code>, and this might be preferable
+         to you. To use the widget you will need to install have <a
+         href="https://matplotlib.org/ipympl/">ipympl</a> installed.
+         This can be done with <code>pip install ipympl</code> in your
+         Anaconda prompt with your environment activated.</p>
+         <div class="sourceCode" id="cb1"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">&#39;mathtext.fontset&#39;</span>] <span class="op">=</span> <span class="st">&#39;cm&#39;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">&#39;font.family&#39;</span>] <span class="op">=</span> <span class="st">&#39;STIXGeneral&#39;</span></span></code></pre></div>
+         <p>The above imports the necessary libraries and then
+         configures matplotlib to look nice with LaTeX.</p>
+         <div class="sourceCode" id="cb2"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power(r_o, r_i, v):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># your code here</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="co"># result</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>volt <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Ri <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">1000</span>)  <span class="co"># input impedance</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>output_impedances <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.subplot()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> Ro <span class="kw">in</span> output_impedances:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    ax.plot(Ri, power(Ro, Ri, volt), label<span class="op">=</span><span class="ss">f&#39;</span><span class="sc">{</span>Ro<span class="sc">}</span><span class="ss"> $</span><span class="ch">\\</span><span class="ss">Omega$&#39;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;Input Impedance ($</span><span class="ch">\\</span><span class="st">Omega$)&#39;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&#39;Power (W)&#39;</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&#39;Power delivered from non-ideal voltage source&#39;</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(np.arange(<span class="dv">0</span>, <span class="dv">101</span>, <span class="dv">10</span>))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(np.arange(<span class="dv">0</span>, <span class="dv">101</span>, <span class="dv">2</span>), minor<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">.026</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">&#39;both&#39;</span>, which<span class="op">=</span><span class="st">&#39;both&#39;</span>,direction<span class="op">=</span><span class="st">&#39;in&#39;</span>, top<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">&#39;Output Impedance&#39;</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&#39;impedance_matching_plot.png&#39;</span>, dpi<span class="op">=</span><span class="dv">600</span>)</span></code></pre></div>
          <h2 data-number="2.5"
          id="voltage-divider-with-non-ideal-power-supply"><span
          class="header-section-number">2.5</span> Voltage Divider with
@@ -516,9 +565,9 @@ Voltage Dividers</h1>
          can impact a voltage divider circuit</figcaption>
          </figure>
          <p>Now consider a real voltage source (modeled with a resistor
-         in series with the voltage as seen in Figure <span
+         in series with the voltage as seen in Figure {<span
          class="citation"
-         data-cites="fig:nonideal-vd">@fig:nonideal-vd</span>) powering
+         data-cites="fig:nonideal-vd">@fig:nonideal-vd</span>}) powering
          a voltage divider. The following questions will explore the
          potential impact the output impedance can have on a voltage
          divider circuit.</p>
@@ -526,16 +575,16 @@ Voltage Dividers</h1>
          class="header-section-number">2.5.1</span> Prelab Question</h3>
          <p>What is the input impedance of the voltage divider circuit?
          <em>Hint:</em> the input impedance would be the resistance that
-         <span
-         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>
-         “sees” to ground.</p>
+         you would measure from <span
+         class="math inline">\(V_\text{supply}^\text{(ext)}\)</span> to
+         ground.</p>
          <h3 data-number="2.5.2" id="4.2"><span
          class="header-section-number">2.5.2</span> Prelab Question</h3>
          <p>The <span class="math inline">\(V_\text{in}\)</span> of the
          voltage divider will be the <span
          class="math inline">\(V_\text{supply}^\text{(ext)}\)</span>
-         from the power supply (see figure <span class="citation"
-         data-cites="fig:input-output-impedance">@fig:input-output-impedance</span>);
+         from the power supply (see figure {<span class="citation"
+         data-cites="fig:input-output-impedance">@fig:input-output-impedance</span>});
          i.e. <span
          class="math inline">\(V_\text{in}=V_\text{supply}^\text{(ext)}\)</span>.
          Express <span class="math inline">\(V_\text{in}\)</span> as a
@@ -546,7 +595,7 @@ Voltage Dividers</h1>
          <h3 data-number="2.5.3" id="4.3"><span
          class="header-section-number">2.5.3</span> Prelab Question</h3>
          <p>Using the voltage divider equation (you found this in
-         problem <span class="citation" data-cites="1.3">@1.3</span>),
+         problem {<span class="citation" data-cites="1.3">@1.3</span>}),
          express <span class="math inline">\(V_\text{out}\)</span> of
          the circuit with respect to <span
          class="math inline">\(V_\text{supply}^\text{(int)}\)</span> (of
@@ -622,27 +671,49 @@ Voltage Dividers</h1>
          impedance</figcaption>
          </figure>
          <p>In the lab activities we will discover that the circuit
-         shown in Figure <span class="citation"
-         data-cites="fig:modified-vd">@fig:modified-vd</span> more
+         shown in Figure {<span class="citation"
+         data-cites="fig:modified-vd">@fig:modified-vd</span>} more
          accurately models a voltage divider being measured. <span
          class="math inline">\(R_3\)</span> is an impedance/resistance
          in parallel with <span class="math inline">\(R_2\)</span> which
-         is due to the measurement impedance of a voltage measuring
-         device. This model can also be used to predict the affects of
-         placing an external load on a voltage divider.</p>
+         is due to the impedance of a voltage measuring device. This
+         model can also be used to predict the affects of placing an
+         external load on a voltage divider.</p>
+         <p>The transfer function for this circuit can be solved by
+         adding <span class="math inline">\(R_2\)</span> and <span
+         class="math inline">\(R_3\)</span> in parallel; we can call
+         this parallel resistance <span
+         class="math inline">\(R_p\)</span>. The circuit with these two
+         combined is just a voltage divider with a transfer
+         function:</p>
+         <p><span class="math display">\[T = \frac{R_p}{R_1 +
+         R_p}\]</span></p>
+         <p>where</p>
+         <p><span
+         class="math display">\[R_p=\frac{R_2R_3}{R_2+R_3}\]</span></p>
+         <p>Before plugging in <span class="math inline">\(R_p\)</span>,
+         it is helpful to divide the top and bottom by <span
+         class="math inline">\(R_p\)</span> to make the transfer
+         function only have one <span class="math inline">\(R_p\)</span>
+         in its equation</p>
+         <p><span class="math display">\[T = \frac{1}{\frac{R_1}{R_p}+1}
+         = \frac{1}{\frac{R_1(R_2+R_3)}{R_2R_3}+1} =
+         \frac{R_2R_3}{R_1(R_2+R_3)+R_2R_3}\]</span></p>
+         <p>As a final step, the <span
+         class="math inline">\(R_1\)</span> can be distributed in the
+         denominator to put this in a nice form</p>
+         <p><span class="math display">\[T =
+         \frac{R_2R_3}{R_1R_2+R_1R_3+R_2R_3}\]</span></p>
          <h3 data-number="2.6.1" id="5.1"><span
          class="header-section-number">2.6.1</span> Prelab Question</h3>
-         <p>Express <span class="math inline">\(V_\text{out}\)</span>
-         with respect to the input voltage and the 3 resistor values.
-         <em>Hint:</em> it may be convenient to first combine <span
-         class="math inline">\(R_2\)</span> and <span
-         class="math inline">\(R_3\)</span> in parallel.</p>
-         <h3 data-number="2.6.2" id="5.2"><span
-         class="header-section-number">2.6.2</span> Prelab Question</h3>
          <p>Rearrange the equation you just found to solve for <span
          class="math inline">\(R_3\)</span> given the other values. This
          equation will be used during the lab.</p>
-         <p>Make this a Python function.</p>
+         <p>Make this a Python function; the inputs of the function
+         should be <span class="math inline">\(V_\text{in}\)</span>,
+         <span class="math inline">\(V_\text{out}\)</span>, <span
+         class="math inline">\(R_1\)</span>, and <span
+         class="math inline">\(R_2\)</span>.</p>
          <h2 data-number="2.7"
          id="thevenins-theorem-and-the-voltage-divider"><span
          class="header-section-number">2.7</span> Thevenin’s Theorem and
@@ -674,20 +745,16 @@ Voltage Dividers</h1>
          class="math inline">\(V_T\)</span>.</p>
          <h3 data-number="2.7.1" id="6.1"><span
          class="header-section-number">2.7.1</span> Prelab Question</h3>
-         <p>Use your result of problem <span class="citation"
-         data-cites="5.1">@5.1</span> to show that the voltage across
+         <p>Use your result of problem {<span class="citation"
+         data-cites="5.1">@5.1</span>} to show that the voltage across
          <span class="math inline">\(R_3\)</span> is the same as the
          voltage predicted by the Thevenin equivalent circuit.</p>
          <h2 data-number="2.8" id="lab-activities"><span
          class="header-section-number">2.8</span> Lab Activities</h2>
          <h3 data-number="2.8.1" id="7.1"><span
          class="header-section-number">2.8.1</span> Prelab Question</h3>
-         <p>Read through all of the lab steps and identify the step (or
-         sub-step) that you think will be the most challenging.</p>
-         <h3 data-number="2.8.2" id="7.2"><span
-         class="header-section-number">2.8.2</span> Prelab Question</h3>
-         <p>List at least one question you have about the lab
-         activity.</p>
+         <p>Please review the lab activities so that you’re better
+         prepared when you arrive to your lab section.</p>
          <h1 data-number="3" id="useful-readings"><span
          class="header-section-number">3</span> Useful Readings</h1>
          <p>You can find more helpful information in the following
@@ -808,12 +875,12 @@ Voltage Dividers</h1>
          is good.</li>
          </ul></li>
          <li><p>Good electrical contact is essential when you plug in
-         components or wires. Use only 22- or 24-gauge solid wire, not
-         stranded wire. The 22- or 24-gauge wire should make a good
-         connection with the conductors inside the board without
-         slipping out easily. Push in each wire until you feel the
-         contacts grip. <strong>Don’t force larger wires into the
-         protoboard. You can damage the connectors.</strong></p>
+         components or wires. Use 22-gauge solid wire, not stranded
+         wire. The 22-gauge wire should make a good connection with the
+         conductors inside the board without slipping out easily. Push
+         in each wire until you feel the contacts grip. <strong>Don’t
+         force larger wires into the protoboard. You can damage the
+         connectors.</strong></p>
          <ul>
          <li><em>Note:</em> rotating the screws counter-clockwise (like
          loosening a screw) will lower/open the clamp of the terminal,
@@ -873,8 +940,8 @@ Voltage Dividers</h1>
          k}\Omega\)</span></h2>
          <ol type="1">
          <li><p>Build a voltage divider similar to the one shown in
-         Figure <span class="citation"
-         data-cites="fig:ideal-vd">@fig:ideal-vd</span> using resistors
+         Figure {<span class="citation"
+         data-cites="fig:ideal-vd">@fig:ideal-vd</span>} using resistors
          of around <span class="math inline">\(1\text{
          k}\Omega\)</span>. Draw a diagram of the circuit in your lab
          notebook. Make sure to label the resistors and record all

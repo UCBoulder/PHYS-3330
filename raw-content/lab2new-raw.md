@@ -9,9 +9,11 @@ The goals of this lab are to
 
 -  familiarize yourself with the prototyping boards (breadboards). You will use this tool extensively for the rest of the semester. 
 
+-  learn how to interface your equipment with the prototyping board through the header attached to the board.
+
 -  build, test, and explore refined models of voltage divider circuits to include the effects of measurements and loads.
 
--  learn how to interface your equipment with the prototyping board through the header attached to the board.
+-  get first exposure to the impact of input and output impedance.
 
 -  learn how to use the switches and potentiometers on the header.
 
@@ -31,7 +33,7 @@ Breadboards allow you to quickly create and modify circuits without needing to s
 
 ![Example of breadboard with rows of holes. (left) The front of the breadboard, and (right) the backside of the breadboard. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-pins.jpg){#fig:breadpins width="10cm"}
 
-Breadboards are composed of several holes that you can stick wires into. The holes form rows of metallic connection (as seen in Figure @fig:breadpins). Each of these rows are constructed like little grabbers that allow for secure connections (as seen in Figure @fig:breadrow).
+Breadboards are composed of several holes that you can stick wires into. The holes form rows of metallic connection (as seen in Figure {@fig:breadpins}). Each of these rows are constructed like little grabbers that allow for secure connections (as seen in Figure {@fig:breadrow}).
 
 ![The breadboard is composed of many of these rows of grabbers. [Image from Sparkfun.](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard)](../resources/lab2fig/breadboard-row.JPG){#fig:breadrow width="6cm"}
 
@@ -53,7 +55,7 @@ Which screw terminal (there's just one) should be used to access the outer condu
 
 ![Three equivalent *Ideal Voltage Divider* circuits. (a), (b), and (c) are all equivalent diagrams representing the exact same circuit!](../resources/lab2fig/ideal-vd.png){#fig:ideal-vd height="7cm"}
 
-An ideal voltage source (no internal resistance) drives current around the loop of  two resistors shown in Figure @fig:ideal-vd (all three circuits in this figure are equivalent!). Each resistor has a voltage drop across it due to the current running through them, so the voltage difference labeled $V_\text{out}$ will be less than the voltage applied to the whole circuit.
+An ideal voltage source (no internal resistance) drives current around the loop of  two resistors shown in Figure {@fig:ideal-vd} (all three circuits in this figure are equivalent!). Each resistor has a voltage drop across it due to the current running through them, so the voltage difference labeled $V_\text{out}$ will be less than the voltage applied to the whole circuit.
 
 ### Prelab Question {#1.1}
 
@@ -67,13 +69,16 @@ What is the voltage across $R_2$? Express this with respect to the current. Expl
 
 Express $V_\text{out}$ with respect to $V_\text{in}$ and the two resistors *Hint:* this expression should not depend on the current.
 
-Make a Python function that computes $V_\text{out}$ that takes $V_\text{out}$, $R_1$, and $R_2$ as inputs. You will likely find this function useful throughout the semester.
+Make a Python function that computes $V_\text{out}$ that takes $V_\text{in}$, $R_1$, and $R_2$ as inputs. You will likely find this function useful throughout the semester.
 
 ### Prelab Question {#1.4}
 
-Build the circuit shown in Figure @fig:ideal-vd in LTspice. Use these values
+Build the circuit shown in Figure {@fig:ideal-vd} in LTspice. Use these values
+
 - $V_\text{in} = 10\text{ V}$
+
 - $R_1 = 1\text{ k}\Omega$
+
 - $R_2 = 3\text{ k}\Omega$
 
 First calculate $I$ and $V_\text{out}$ using your results from the previous questions. Then run a transient simulation and measure $I$ and $V_\text{out}$. If your calculations and simulation do not agree, resolve any issues (this could be due to a mistake in your calculations or in setting up your simulation).
@@ -86,11 +91,11 @@ $$\begin{equation}
 T = \frac{V_\text{out}}{V_\text{in}}
 \end{equation}$$
 
-A voltage divider's output will always be less than the input, so the transfer function will range between $0$ and $1$.
+A ***voltage divider's*** output will always be less than the input, so the transfer function will range between $0$ and $1$.
 
 ### Prelab Question {#2.1}
 
-Write down the equation for the transfer function of the ideal voltage divider. *Hint:* use the result of problem @1.3. This should only depend on the values of the two resistors, and should be unitless.
+Write down the equation for the transfer function of the ideal voltage divider. *Hint:* use the result of problem {@1.3}. This should only depend on the values of the two resistors, and should be unitless.
 
 ### Prelab Question {#2.2}
 
@@ -100,15 +105,15 @@ For $R_1 = 2\text{ k}\Omega$ and $R_2 = 1\text{ k}\Omega$, what is the value of 
 
 For a $V_\text{in}$ of $10\text{ V}$, what will $V_\text{out}$ be (using the resistance values above)?
 
-Use LTspice to confirm this. Screen shot the circuit and result in LTspice.
+In LTspice, build this circuit and run a transient simulation. Measure the output voltage in the simulation to confirm that your calculation is correct. If not, resolve any mistakes in either your simulation or calculation. Screen shot the circuit and result in LTspice.
 
 ## Input and Output Impedance
 
 ![Any circuit being powered can be modeled as a single impedance (input impedance) $R_i$. In general, real power sources have output impedance $R_o$ (modeled by a resistor in series)](../resources/lab2fig/output-input-impedance.png){#fig:input-output-impedance height="7.5cm"}
 
-A *real* power source has series resistance (aka output impedance) $R_o$. When your circuit draws current from the power source, current will pass through $R_o$, so voltage will drop across it (according to Ohm's law). Even complicated circuits can often be modeled as a single resistor representing the "input impedance" of the circuit. The input impedance describes how the whole circuit opposes current. If the circuit being powered simply is a single resistor, then the input impedance is the same value as the resistor's resistance. Regardless, the input impedance can be thought of as the load on the circuit.
+A *real* power source has series resistance (aka output impedance) $R_o$. When your circuit draws current from the power source, current will pass through $R_o$, so voltage will drop across it (according to Ohm's law). Even complicated circuits can often be modeled as a single resistor representing the "input impedance" of the circuit. The input impedance describes how the whole circuit opposes current. If the circuit being powered is just a resistor, then the input impedance is just the resistance of this resistor. Regardless, the input impedance can be thought of as the load on the circuit.
 
-When the power source with output impedance $R_o$ drives the load with input impedance $R_i$, the output and input impedances form a voltage divider, where the input of the voltage divider is $V_\text{out}^\text{(internal)}$ and the output is $V_\text{out}^\text{(external)}$. The transfer function of this transfer function is then
+When the power source with output impedance $R_o$ drives the load with input impedance $R_i$, the output and input impedances form a voltage divider, where the input of the voltage divider is $V_\text{supply}^\text{(int)}$ and the output is $V_\text{supply}^\text{(ext)}$. The transfer function of this voltage divider is then
 
 $$T = \frac{V_\text{supply}^\text{(ext)}}{V_\text{supply}^\text{(ext)}} = \frac{R_i}{R_o+R_i}$$
 
@@ -130,7 +135,7 @@ $$\frac{\partial P}{\partial R_i} = 0$$
 
 ### Prelab Question {#3.3}
 
-Impedance matching is the process of matching load impedances with a power source's output impedance. For high frequency signals, impedance matching is very important, but it is also commonly done because for a given $R_o$, matching the impedance will allow for the maximum power delivered to the circuit. Is this consistent with your result for the $R_i$ that gives maximum power? If not, revise your calculation. 
+Impedance matching is the process of matching load impedances with a power source's output impedance. For high frequency signals, impedance matching is very important, but it is also commonly done because, for a given $R_o$, matching the input impedance to the same value will allow for the maximum amount of power to be delivered to the circuit. Is this consistent with your result for the $R_i$ that gives maximum power? If not, revise your calculation. 
 
 ### Prelab Question {#3.4}
 
@@ -142,23 +147,64 @@ Plot $P$ vs $R_i$ from $R_i=0\ \Omega$ to $R_i=100\ \Omega$ using $V_\text{suppl
 
 Notice that, even though the curves peak at $R_i=R_o$, that decreasing $R_o$ still increases the power at all $R_i$. To deliver a lot of power, having a low output impedance is often the best choice, but this isn't always a parameter we can control.
 
+Here is some sample code for plotting. You can use `%matplotlib widget` to allow you to interact with the inline plot. Otherwise, the default should be `%matplotlib inline`, and this might be preferable to you. To use the widget you will need to install have [ipympl](https://matplotlib.org/ipympl/) installed. This can be done with `pip install ipympl` in your Anaconda prompt with your environment activated.
+
+```python
+import numpy as np
+import matplotlib.pylab as plt
+import matplotlib
+%matplotlib widget
+matplotlib.rcParams['mathtext.fontset'] = 'cm'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+```
+
+The above imports the necessary libraries and then configures matplotlib to look nice with LaTeX.
+
+```python
+def power(r_o, r_i, v):
+    # your code here
+    return # result
+
+volt = 1
+Ri = np.linspace(0, 100, 1000)  # input impedance
+output_impedances = (10, 25, 50)
+
+plt.figure(figsize=(4, 3))
+ax = plt.subplot()
+for Ro in output_impedances:
+    ax.plot(Ri, power(Ro, Ri, volt), label=f'{Ro} $\\Omega$')
+ax.set_xlabel('Input Impedance ($\\Omega$)')
+ax.set_ylabel('Power (W)')
+ax.set_title('Power delivered from non-ideal voltage source')
+ax.set_xticks(np.arange(0, 101, 10))
+ax.set_xticks(np.arange(0, 101, 2), minor=True)
+ax.set_xlim(0, 100)
+ax.set_ylim(0, .026)
+ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+ax.tick_params(axis='both', which='both',direction='in', top=True, right=True)
+ax.legend(title='Output Impedance')
+plt.tight_layout()
+plt.grid()
+plt.savefig('impedance_matching_plot.png', dpi=600)
+```
+
 ## Voltage Divider with Non-ideal Power Supply
 
 ![A real power source has an output impedance $R_o$ that can impact a voltage divider circuit](../resources/lab2fig/nonideal-vd.png){#fig:nonideal-vd height="7.5cm"}
 
-Now consider a real voltage source (modeled with a resistor in series with the voltage as seen in Figure @fig:nonideal-vd) powering a voltage divider. The following questions will explore the potential impact the output impedance can have on a voltage divider circuit.
+Now consider a real voltage source (modeled with a resistor in series with the voltage as seen in Figure {@fig:nonideal-vd}) powering a voltage divider. The following questions will explore the potential impact the output impedance can have on a voltage divider circuit.
 
 ### Prelab Question {#4.1}
 
-What is the input impedance of the voltage divider circuit? *Hint:* the input impedance would be the resistance that $V_\text{supply}^\text{(ext)}$ "sees" to ground.
+What is the input impedance of the voltage divider circuit? *Hint:* the input impedance would be the resistance that you would measure from $V_\text{supply}^\text{(ext)}$ to ground.
 
 ### Prelab Question {#4.2}
 
-The $V_\text{in}$ of the voltage divider will be the $V_\text{supply}^\text{(ext)}$ from the power supply (see figure @fig:input-output-impedance); i.e. $V_\text{in}=V_\text{supply}^\text{(ext)}$. Express $V_\text{in}$ as a function of $V_\text{supply}^\text{(int)}$ and the resistor values. *Hint:* the results from the input/output impedance section will be helpful here.
+The $V_\text{in}$ of the voltage divider will be the $V_\text{supply}^\text{(ext)}$ from the power supply (see figure {@fig:input-output-impedance}); i.e. $V_\text{in}=V_\text{supply}^\text{(ext)}$. Express $V_\text{in}$ as a function of $V_\text{supply}^\text{(int)}$ and the resistor values. *Hint:* the results from the input/output impedance section will be helpful here.
 
 ### Prelab Question {#4.3}
 
-Using the voltage divider equation (you found this in problem @1.3), express $V_\text{out}$ of the circuit with respect to $V_\text{supply}^\text{(int)}$ (of the voltage supply) and the resistor values.
+Using the voltage divider equation (you found this in problem {@1.3}), express $V_\text{out}$ of the circuit with respect to $V_\text{supply}^\text{(int)}$ (of the voltage supply) and the resistor values.
 
 Write a Python function that computes the output voltage of a voltage divider with a non-ideal voltage supply that takes the following inputs: $V_\text{supply}^\text{(int)}$, $R_o$, $R_1$, and $R_2$.
 
@@ -189,17 +235,29 @@ Write a Python function that computes the output voltage of a voltage divider wi
 
 ![Voltage divider with a parallel impedance](../resources/lab2fig/modified-vd.png){#fig:modified-vd height="7cm"}
 
-In the lab activities we will discover that the circuit shown in Figure @fig:modified-vd more accurately models a voltage divider being measured. $R_3$ is an impedance/resistance in parallel with $R_2$ which is due to the measurement impedance of a voltage measuring device. This model can also be used to predict the affects of placing an external load on a voltage divider.
+In the lab activities we will discover that the circuit shown in Figure {@fig:modified-vd} more accurately models a voltage divider being measured. $R_3$ is an impedance/resistance in parallel with $R_2$ which is due to the impedance of a voltage measuring device. This model can also be used to predict the affects of placing an external load on a voltage divider.
+
+The transfer function for this circuit can be solved by adding $R_2$ and $R_3$ in parallel; we can call this parallel resistance $R_p$. The circuit with these two combined is just a voltage divider with a transfer function:
+
+$$T = \frac{R_p}{R_1 + R_p}$$
+
+where
+
+$$R_p=\frac{R_2R_3}{R_2+R_3}$$
+
+Before plugging in $R_p$, it is helpful to divide the top and bottom by $R_p$ to make the transfer function only have one $R_p$ in its equation
+
+$$T = \frac{1}{\frac{R_1}{R_p}+1} = \frac{1}{\frac{R_1(R_2+R_3)}{R_2R_3}+1} = \frac{R_2R_3}{R_1(R_2+R_3)+R_2R_3}$$
+
+As a final step, the $R_1$ can be distributed in the denominator to put this in a nice form
+
+$$T = \frac{R_2R_3}{R_1R_2+R_1R_3+R_2R_3}$$
 
 ### Prelab Question {#5.1}
 
-Express $V_\text{out}$ with respect to the input voltage and the 3 resistor values. *Hint:* it may be convenient to first combine $R_2$ and $R_3$ in parallel.
-
-### Prelab Question {#5.2}
-
 Rearrange the equation you just found to solve for $R_3$ given the other values. This equation will be used during the lab.
 
-Make this a Python function.
+Make this a Python function; the inputs of the function should be $V_\text{in}$, $V_\text{out}$, $R_1$, and $R_2$.
 
 ## Thevenin's Theorem and the Voltage Divider
 
@@ -217,18 +275,14 @@ Naively, one would think that when a load $R_3$ is attached to the voltage divid
 
 ### Prelab Question {#6.1}
 
-Use your result of problem @5.1 to show that the voltage across $R_3$ is the same as the voltage predicted by the Thevenin equivalent circuit.
+Use your result of problem {@5.1} to show that the voltage across $R_3$ is the same as the voltage predicted by the Thevenin equivalent circuit.
 
 
 ## Lab Activities
 
 ### Prelab Question {#7.1}
 
-Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
-
-### Prelab Question {#7.2}
-
-List at least one question you have about the lab activity.
+Please review the lab activities so that you're better prepared when you arrive to your lab section.
 
 # Useful Readings
 
@@ -288,7 +342,7 @@ You can find more helpful information in the following sections of the text book
     - There is capacitance between all the breadboard connections, and the longer the row/column, the more capacitance there will be to a neighbor.
     - We will learn in lab 4 that putting capacitance between power and ground is actually helpful, so connecting ground next to both your $+15\text{ V}$ and $-15\text{ V}$ columns is good.
 
-4.  Good electrical contact is essential when you plug in components or wires. Use only 22- or 24-gauge solid wire, not stranded wire. The 22- or 24-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Don't force larger wires into the protoboard. You can damage the connectors.**
+4.  Good electrical contact is essential when you plug in components or wires. Use 22-gauge solid wire, not stranded wire. The 22-gauge wire should make a good connection with the conductors inside the board without slipping out easily. Push in each wire until you feel the contacts grip. **Don't force larger wires into the protoboard. You can damage the connectors.**
 
     - *Note:* rotating the screws counter-clockwise (like loosening a screw) will lower/open the clamp of the terminal, allowing you place wire in the terminal; you can then turn the screw clockwise (like tightening a screw) to raise/close the clamp onto the wire. You should inspect and tug on wires when you clamp them to ensure they are connected securely.
 
@@ -304,11 +358,11 @@ You can find more helpful information in the following sections of the text book
 
 ## Building and Testing Voltage Dividers
 
-Components (resistors, capacitors, transistors, etc.) are available from the community stock. Take what components you need for your experiments. If you notice the inventory getting low, please let the [technical staff](/PHYS-3330/report-lab-issue) know.
+Components (resistors, capacitors, transistors, etc.) are available from the community stock. Take what components you need for your experiments, and put things back when you're done with them. If you notice the inventory getting low, please let the [technical staff](/PHYS-3330/report-lab-issue) know.
 
 ## Fixed-value voltage divider - $1\text{ k}\Omega$
 
-1.  Build a voltage divider similar to the one shown in Figure @fig:ideal-vd using resistors of around $1\text{ k}\Omega$. Draw a diagram of the circuit in your lab notebook. Make sure to label the resistors and record all measured component values and voltages.
+1.  Build a voltage divider similar to the one shown in Figure {@fig:ideal-vd} using resistors of around $1\text{ k}\Omega$. Draw a diagram of the circuit in your lab notebook. Make sure to label the resistors and record all measured component values and voltages.
 
 2.  Measure each resistor with your DMM before inserting it into your circuit and record the value. Why should you measure component values before placing them in the circuit?
 
@@ -320,7 +374,7 @@ Components (resistors, capacitors, transistors, etc.) are available from the com
 
 <!--6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).-->
 
-## Fixed-value voltage dividers of $1\text{ M}\Omega$ and $10\text{ M}\Omega$
+## Fixed-value voltage dividers of $1\text{ M}\Omega$ and $10\text{ M}\Omega$ {#sec:parallel-model}
 
 1.  Complete the steps in the previous section for two additional voltage dividers, one using resistors $1\text{ M}\Omega$ and one with resistors $10\text{ M}\Omega$ (with both the DMM and the scope).
 
@@ -334,7 +388,9 @@ Components (resistors, capacitors, transistors, etc.) are available from the com
 
 6.  Look at the [specification (spec) sheets or data sheets](/PHYS-3330/manuals-data-sheets) for the DMM and the scope to find their measurement impedances (input resistance). There is an easy way to determine the specified measurement impedance of the scope (this sort of thing is typically labeled near the inputs on the scope).
 
-7.  Does the measured input resistance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
+7.  Does the measured input impedance agree with the instrument specs? Explicitly record what criteria you used to determine whether or not the resistances agree.
+
+We just practiced changing our model to better represent our experiment. Next week we will practice changing our experiment to better be represented by our model.
 
 ## Hidden Voltage Dividers (Output Impedance)
 
@@ -396,13 +452,13 @@ You will now use your skills with building and testing voltage dividers to build
 
 2. Check in with an instructor regarding your circuit diagram.
 
-3. Derive an expression for the output voltage based on the input voltage and the two resistances. Since the two resistances always add up to $10\text{ k}\Omega$, express it in terms of this resistance and just one of the resistances of the wiper.
+3. Derive an expression for the output voltage based on the input voltage and the two resistances. Since the two resistances always add up to $10\text{ k}\Omega$, express it in terms of this resistance and just one of the resistances of an end of the pot to the wiper.
 
 4. Construct your voltage divider using the function generator for $V_\text{in}$ and use a scope to measure the output voltage.
 
-    - Should you include the oscilliscope input resistance in your model? Explain why or why not.
+    - Should you include the oscilliscope input impedance in your model? Explain why or why not. Compare the scope input impedance to the resistance of the 10k pot. Consider the situation where $R_1\approx 0\ \Omega$ and $R_2\approx 10\text{ k}\Omega$; when you combine $R_2$ and the scope in parallel, does the resistance significantly deviate from when there is no scope (think back to section {#sec:parallel-model}).
 
-    - Do you need to include the function generator's $50\ \Omega$ output impedance in your model? Explain why or why not.
+    - Do you need to include the function generator's $50\ \Omega$ output impedance in your model? Explain why or why not. Consider the extreme ends of having the pot turned all the way one way and all the way the other way.
 
 5. Predict the maximum and minimum output voltage (when the wiper is at one end and then the other).
 
