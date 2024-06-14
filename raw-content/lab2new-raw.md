@@ -169,8 +169,7 @@ volt = 1
 Ri = np.linspace(0, 100, 1000)  # input impedance
 output_impedances = (10, 25, 50)
 
-plt.figure(figsize=(4, 3))
-ax = plt.subplot()
+fig, ax = plt.subplots(1, 1, figsize=(4, 3))
 for Ro in output_impedances:
     ax.plot(Ri, power(Ro, Ri, volt), label=f'{Ro} $\\Omega$')
 ax.set_xlabel('Input Impedance ($\\Omega$)')
@@ -181,11 +180,11 @@ ax.set_xticks(np.arange(0, 101, 2), minor=True)
 ax.set_xlim(0, 100)
 ax.set_ylim(0, .026)
 ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
-ax.tick_params(axis='both', which='both',direction='in', top=True, right=True)
-ax.legend(title='Output Impedance')
-plt.tight_layout()
-plt.grid()
-plt.savefig('impedance_matching_plot.png', dpi=600)
+ax.tick_params(axis='both', which='both', direction='in', top=True, right=True)
+ax.legend(title="Output Impedance")
+ax.grid(linestyle="dotted")
+fig.tight_layout()
+fig.savefig('impedance_matching_plot.png', dpi=600, bbox_inches='tight')
 ```
 
 ## Voltage Divider with Non-ideal Power Supply

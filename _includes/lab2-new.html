@@ -161,9 +161,8 @@ Voltage Dividers</h1>
             class="toc-section-number">4.3</span> Fixed-value voltage
             divider - <span class="math inline">\(1\text{
             k}\Omega\)</span></a></li>
-            <li><a
-            href="#fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"
-            id="toc-fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"><span
+            <li><a href="#sec:parallel-model"
+            id="toc-sec:parallel-model"><span
             class="toc-section-number">4.4</span> Fixed-value voltage
             dividers of <span class="math inline">\(1\text{
             M}\Omega\)</span> and <span class="math inline">\(10\text{
@@ -929,9 +928,9 @@ Voltage Dividers</h1>
          Voltage Dividers</h2>
          <p>Components (resistors, capacitors, transistors, etc.) are
          available from the community stock. Take what components you
-         need for your experiments. If you notice the inventory getting
-         low, please let the <a
-         href="/PHYS-3330/report-lab-issue">technical staff</a>
+         need for your experiments, and put things back when you’re done
+         with them. If you notice the inventory getting low, please let
+         the <a href="/PHYS-3330/report-lab-issue">technical staff</a>
          know.</p>
          <h2 data-number="4.3"
          id="fixed-value-voltage-divider---1text-komega"><span
@@ -966,8 +965,7 @@ Voltage Dividers</h1>
          agreed.</p></li>
          </ol>
          <!--6.  *Complete this step only if your model and measurements did not agree.* If your model and measurements did not agree, you will have to either refine your model or your experiment. Lets start by refining your model. Consider the input resistance of your measurement device. Draw a circuit diagram that includes that resistance. *HINT: See Figure @fig:modified-vd*. Derive an expression for the output voltage now including the unknown measurement device resistance. Use this new model to determine the input resistance of measurement device. (that is, rearrange your equation to solve for $R_3$.. You did this in the prelab).-->
-         <h2 data-number="4.4"
-         id="fixed-value-voltage-dividers-of-1text-momega-and-10text-momega"><span
+         <h2 data-number="4.4" id="sec:parallel-model"><span
          class="header-section-number">4.4</span> Fixed-value voltage
          dividers of <span class="math inline">\(1\text{
          M}\Omega\)</span> and <span class="math inline">\(10\text{
@@ -1001,10 +999,13 @@ Voltage Dividers</h1>
          easy way to determine the specified measurement impedance of
          the scope (this sort of thing is typically labeled near the
          inputs on the scope).</p></li>
-         <li><p>Does the measured input resistance agree with the
+         <li><p>Does the measured input impedance agree with the
          instrument specs? Explicitly record what criteria you used to
          determine whether or not the resistances agree.</p></li>
          </ol>
+         <p>We just practiced changing our model to better represent our
+         experiment. Next week we will practice changing our experiment
+         to better be represented by our model.</p>
          <h2 data-number="4.5"
          id="hidden-voltage-dividers-output-impedance"><span
          class="header-section-number">4.5</span> Hidden Voltage
@@ -1174,17 +1175,26 @@ Voltage Dividers</h1>
          input voltage and the two resistances. Since the two
          resistances always add up to <span
          class="math inline">\(10\text{ k}\Omega\)</span>, express it in
-         terms of this resistance and just one of the resistances of the
-         wiper.</p></li>
+         terms of this resistance and just one of the resistances of an
+         end of the pot to the wiper.</p></li>
          <li><p>Construct your voltage divider using the function
          generator for <span class="math inline">\(V_\text{in}\)</span>
          and use a scope to measure the output voltage.</p>
          <ul>
-         <li><p>Should you include the oscilliscope input resistance in
-         your model? Explain why or why not.</p></li>
+         <li><p>Should you include the oscilliscope input impedance in
+         your model? Explain why or why not. Compare the scope input
+         impedance to the resistance of the 10k pot. Consider the
+         situation where <span class="math inline">\(R_1\approx 0\
+         \Omega\)</span> and <span class="math inline">\(R_2\approx
+         10\text{ k}\Omega\)</span>; when you combine <span
+         class="math inline">\(R_2\)</span> and the scope in parallel,
+         does the resistance significantly deviate from when there is no
+         scope (think back to section {#sec:parallel-model}).</p></li>
          <li><p>Do you need to include the function generator’s <span
          class="math inline">\(50\ \Omega\)</span> output impedance in
-         your model? Explain why or why not.</p></li>
+         your model? Explain why or why not. Consider the extreme ends
+         of having the pot turned all the way one way and all the way
+         the other way.</p></li>
          </ul></li>
          <li><p>Predict the maximum and minimum output voltage (when the
          wiper is at one end and then the other).</p></li>
