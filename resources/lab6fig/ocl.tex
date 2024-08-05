@@ -7,13 +7,14 @@
 
 \documentclass[border=0.2cm]{standalone}
 \usepackage{circuitikz}
+\usepackage{amsmath}
 
 \standaloneenv{circuitikz}
 \begin{document}
 
 
     \begin{circuitikz}[american voltages]
-    \draw (0,0) to [short, o-] (0,0)  node[anchor = east]{$V_{in}$} to (1,0) to [R,l=$R_s$] ++(0,-2) to [short, -*] ++(0,0) to ++(1,0) to [led,l=HLMP-C625] ++(0,-2) to ++(-1,0) node[ground]{} to ++(-1,0) to [D,l=$1N4002$] ++(0,2) to ++(1,0)
+    \draw (0,0) to [short, o-] (0,0)  node[anchor = east]{$V_\text{in}$} to (1,0) to [R,l=$R_s$] ++(0,-2) to [short, -*] ++(0,0) to ++(1,0) to [led,l=HLMP-C625] ++(0,-2) to ++(-1,0) node[ground]{} to ++(-1,0) to [D,l=1N4002] ++(0,2) to ++(1,0)
     ;
     \end{circuitikz}
 

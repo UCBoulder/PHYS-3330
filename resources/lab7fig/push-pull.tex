@@ -1,0 +1,38 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+    \begin{circuitikz}[american voltages]
+    \draw (0,0) node[npn](npn) {NPN}
+    (0,-2) node[pnp](pnp) {PNP}
+    (npn.E) to (pnp.E) (npn.E) to ++(0,-.25) to [short,*-*] ++(1.5,0) coordinate(vout) to [short,-o] ++(.75,0) node[anchor=west]{$V_\text{out}$}
+    (vout) to ++(0,-.5) to [R,l=$R_L$] ++(0,-1.5) node[ground]{}
+    (npn.C) to [short,-o] ++(0,.25) node[anchor=south]{$V_{S,+}$}
+    (pnp.C) to [short,-o] ++(0,-.25) node[anchor=north]{$V_{S,-}$}
+    (npn.B) to ++(-.25,0) coordinate(b1) (pnp.B) to ++(-.25,0) to (b1)
+    (-2.5,-1) node[op amp](op){}
+    (op.out) to [short,-*] ++(.22,0);
+    \draw (vout) to ++(0,3) to ++(-5.5,0) to ++(0,-2.49) to (op.-)
+    (-6,-1.49) node[op amp](op2){} (op2.out) to (op.+) (op2.out) to [short,*-] ++(0,2) to [R,l_=$R_F$,-*] ++(-2.5,0) coordinate(v-) to ++(0,-1.51) to (op2.-)
+    (op.up) to ++(0,1.1125) coordinate(c+) to [short,-*] ++(2.58,0) (op.down) to ++(0,-1.1125) coordinate(c-) to [short,-*] ++(2.58,0) (c-) to [short,*-] ++(-3.5,0) to (op2.down) (op2.up) to [short,-o] ++(0,.25) node[anchor=south] {$V_{S,+}$}
+    (v-) to [R,l_=$R$] ++(-2.5,0) node[ground]{}
+    (op2.+) to [short,-o] ++(-1,0) node[anchor=east]{$V_\text{in}$}
+    ;
+    \end{circuitikz}
+
+
+\end{document}
+
+
+ 

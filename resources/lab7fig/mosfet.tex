@@ -1,0 +1,48 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+    \begin{circuitikz}[american voltages]
+    \draw (0,0) node[nigfete](nmos) {N-channel}
+    (nmos.G) to [short,-o] ++(-.2,0) node[anchor=east] {gate}
+    (nmos.D) to [short,-o] ++(0,.2) node[anchor=south] {drain}
+    (nmos.S) to [short,-o] ++(0,-.2) node[anchor=north] {source}
+    (4.5,0) node[pigfete](pmos) {P-channel}
+    (pmos.G) to [short,-o] ++(-.2,0) node[anchor=east] {gate}
+    (pmos.D) to [short,-o] ++(0,-.2) node[anchor=north] {drain}
+    (pmos.S) to [short,-o] ++(0,.2) node[anchor=south] {source}
+    (-3.5,0) node{MOSFET};
+    \draw[->,>=latex,line width=1] (.5,1) --++(0,-.75) node[midway,right]{$I_D$};
+    \draw[->,>=latex,line width=1] (.5,1-3.5) --++(0,-.75) node[midway,right]{$I_D$};
+    \draw[->,>=latex,line width=1] (5,-.25) --++(0,-.75) node[midway,right]{$I_D$};
+    \draw[->,>=latex,line width=1] (5,-.25-3.5) --++(0,-.75) node[midway,right]{$I_D$};
+    \draw[white] (6,.5) node[]{.};
+
+    \draw (0,-3.5) node[njfet](nmos) {N-channel}
+    (nmos.G) to [short,-o] ++(-.2,0) node[anchor=east] {gate}
+    (nmos.D) to [short,-o] ++(0,.2) node[anchor=south] {drain}
+    (nmos.S) to [short,-o] ++(0,-.2) node[anchor=north] {source}
+    (4.5,-3.5) node[pjfet](pmos) {P-channel}
+    (pmos.G) to [short,-o] ++(-.2,0) node[anchor=east] {gate}
+    (pmos.D) to [short,-o] ++(0,-.2) node[anchor=north] {drain}
+    (pmos.S) to [short,-o] ++(0,.2) node[anchor=south] {source}
+    (-3.5,-3.5) node{JFET};
+    \draw[white] (6,.5) node[]{.};
+    \end{circuitikz}
+
+
+\end{document}
+
+
+ 

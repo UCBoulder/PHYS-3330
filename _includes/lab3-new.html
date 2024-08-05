@@ -566,7 +566,9 @@ Colorado Boulder">
          roughly 1.1 mm and a dielectric with a diameter of roughly 4.5
          mm. The dielectric, Teflon, has a relative dielectric constant
          of roughly 2. Estimate the capacitance per unit length of this
-         cable (report it in pF/m).</p>
+         cable (report it in pF/m). <em>Note:</em> the electric
+         permitivity of free space in picofarad per meter is <span
+         class="math inline">\(8.85\text{ pF/m}\)</span>.</p>
          <h2 data-number="5.3" id="inductors"><span
          class="header-section-number">5.3</span> Inductors</h2>
          <p>The inductor is an element that stores energy in the form of
@@ -995,13 +997,13 @@ Colorado Boulder">
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># this will range from 10^0 to 10^8</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>frequency <span class="op">=</span> np.logspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">1000</span>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.loglog(frequency, function_to_plot(frequency))</span></code></pre></div>
          <p>The <code>loglog</code> function plots with both the x and y
          axes on a log scale; you can set an individual axis to log
          scale with</p>
          <div class="sourceCode" id="cb3"><pre
-         class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.sublots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+         class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.sublots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">&#39;log&#39;</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ax.set_yscale(<span class="st">&#39;log&#39;</span>)</span></code></pre></div>
@@ -1054,7 +1056,7 @@ Colorado Boulder">
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>gain <span class="op">=</span> low_pass_gain(r, c, frequency)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>phase_shift <span class="op">=</span> low_pass_phase(r, c, frequency)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fig, ax1 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fig, ax1 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">&#39;Frequency (Hz)&#39;</span>)</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">&#39;gain&#39;</span>)</span>
@@ -1069,7 +1071,7 @@ Colorado Boulder">
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax1.twinx()</span>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">&#39;y&#39;</span>, which<span class="op">=</span><span class="st">&#39;both&#39;</span>, direction<span class="op">=</span><span class="st">&#39;in&#39;</span>, top<span class="op">=</span><span class="va">True</span>, right<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks(np.arange(<span class="op">-</span><span class="dv">90</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks(np.arange(<span class="op">-</span><span class="dv">90</span>, <span class="dv">1</span>, <span class="dv">1</span>), minor<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks(np.arange(<span class="op">-</span><span class="dv">90</span>, <span class="dv">1</span>, <span class="dv">2</span>), minor<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">&#39;phase shift $(</span><span class="ch">\\</span><span class="st">degree)$&#39;</span>)</span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>ax2.plot(frequency, phase_shift, color<span class="op">=</span><span class="st">&#39;b&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;dashed&#39;</span>, label<span class="op">=</span><span class="st">&quot;phase&quot;</span>)</span>
@@ -1097,8 +1099,8 @@ Colorado Boulder">
          <li><p>You will also need to change these two lines to change
          the phase shift axis ticks:</p>
          <ul>
-         <li><p><code>ax2.set_yticks(np.arange(-90, 1, 10))</code></p></li>
-         <li><p><code>ax2.set_yticks(np.arange(-90, 1, 1), minor=True)</code></p></li>
+         <li><p><code>ax2.set_yticks(np.arange(0, 91, 20))</code></p></li>
+         <li><p><code>ax2.set_yticks(np.arange(0, 91, 5), minor=True)</code></p></li>
          </ul></li>
          <li><p>You can move the legend by altering the <code>loc</code>
          command (<a

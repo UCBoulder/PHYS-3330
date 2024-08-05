@@ -181,17 +181,41 @@ If $V_\text{in}$ is coming from the function generator, there is a $50\ \Omega$ 
 
 2.  $R=10\text{ k}\Omega$ and $R_F=100\text{ k}\Omega$
 
-*Hint 1:* The same voltage is across $R$ and the $1\text{ M}\Omega$ of the oscilliscope, so these resistors are in parallel.
+*Hint 1:* The same voltage is across $R$ and the $1\text{ M}\Omega$ of the oscilloscope, so these resistors are in parallel.
 
 *Hint 2:* Consider the voltage division between the output impedance (of the function generator) and the input impedance (of the amplifier).
 
-### Prelab Quesiton {#3.3}
+### Prelab Question {#3.3}
 
 Between the two options for resistor values, do you think it is it more reasonable to choose the lower resistances, or the higher resistances for the same gain? Why?
 
+### Prelab Question {#3.4}
+
+In LTspice, make an inverting amplifier. You will need to power the op-amp (Use the "Net Label" tool to avoid clutter).
+
+- Screen shot your circuit.
+
+- Make $V_\text{in}$ a $1\text{ V}$ sine wave at $1\text{ kHz}$.
+
+- Run the simulation with $R=100\ \Omega$ and $R_F=1\text{ k}\Omega$ and measure $V_\text{out}$.
+
+- Change the resistors to $R=10\text{ k}\Omega$ and $R_F=100\text{ k}\Omega$ and re-run the simulation. Measure $V_\text{out}$.
+
+- Do your measurements depend on the input impedance? Why?
+
+- Edit $V_\text{in}$ so that it has $50\ \Omega$ of output impedance (series resistance). You can do this by right clicking the source and finding the "series resistance option."
+
+- Repeat the simulation and measurements for
+
+    - $R=100\ \Omega$ and $R_F=1\text{ k}\Omega$
+
+    - $R=10\text{ k}\Omega$ and $R_F=100\text{ k}\Omega$
+
+- Do you get the same result compared to when the voltage source was ideal? Explain what causes the discrepancy.
+
 ## Frequency Dependance of the Inverting Amplifier
 
-The frequency dependances of the non-inverting amplifier and the inverting amplifier are the same
+The frequency dependence of the non-inverting amplifier and the inverting amplifier are the same
 
 $$A(f)=\frac{A_\text{VOL}}{1+j\frac{f}{f_0}}$$
 
@@ -396,15 +420,11 @@ Design an integrator that would have
 -   an input impedance of $10\text{ k}\Omega$
 -   an $RC$ value that you calculated in Prelab Question @sec:7.1
 
-## Lab Activities
+## Lab activities
 
 ### Prelab Question {#9.1}
 
-Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
-
-### Prelab Question {#9.2}
-
-List at least one question you have about the lab activity.
+Please review the lab activities so that you're better prepared when you arrive to your lab section.
 
 # Useful Readings
 

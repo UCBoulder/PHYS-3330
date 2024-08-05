@@ -1,0 +1,1249 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="generator" content="pandoc">
+      <meta name="author" content="Department of Physics | University of
+Colorado Boulder">
+      
+      <title>PHYS 3330</title>
+         </head>
+   <body>
+            <div>
+         <style>
+            .eqnos { display: inline-block; position: relative; width: 100%; }
+            .eqnos br { display: none; }
+            .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
+         </style>
+         <h1 class="title">Lab 7 - Transistors</h1>
+                  <h1 class="title">Contents</h1>
+        <nav id="TOC">
+            <ul>
+            <li><a href="#goals" id="toc-goals"><span
+            class="toc-section-number">1</span> Goals</a></li>
+            <li><a href="#spice-activities"
+            id="toc-spice-activities"><span
+            class="toc-section-number">2</span> SPICE Activities</a>
+            <ul>
+            <li><a href="#intro-to-bipolar-junction-transistors-bjt"
+            id="toc-intro-to-bipolar-junction-transistors-bjt"><span
+            class="toc-section-number">2.1</span> Intro to Bipolar
+            Junction Transistors (BJT)</a>
+            <ul>
+            <li><a href="#1.1" id="toc-1.1"><span
+            class="toc-section-number">2.1.1</span> Question</a></li>
+            </ul></li>
+            <li><a href="#basic-bjt-operation"
+            id="toc-basic-bjt-operation"><span
+            class="toc-section-number">2.2</span> Basic BJT
+            Operation</a>
+            <ul>
+            <li><a href="#2.1" id="toc-2.1"><span
+            class="toc-section-number">2.2.1</span> Question</a></li>
+            <li><a href="#2.2" id="toc-2.2"><span
+            class="toc-section-number">2.2.2</span> Question</a></li>
+            <li><a href="#2.3" id="toc-2.3"><span
+            class="toc-section-number">2.2.3</span> Question</a></li>
+            <li><a href="#2.4" id="toc-2.4"><span
+            class="toc-section-number">2.2.4</span> Question</a></li>
+            </ul></li>
+            <li><a href="#bjt-switch" id="toc-bjt-switch"><span
+            class="toc-section-number">2.3</span> BJT Switch</a>
+            <ul>
+            <li><a href="#3.1" id="toc-3.1"><span
+            class="toc-section-number">2.3.1</span> Question</a></li>
+            </ul></li>
+            <li><a href="#pnps" id="toc-pnps"><span
+            class="toc-section-number">2.4</span> PNPs</a>
+            <ul>
+            <li><a href="#4.1" id="toc-4.1"><span
+            class="toc-section-number">2.4.1</span> Question</a></li>
+            </ul></li>
+            <li><a href="#improving-the-push-pull-amplifier"
+            id="toc-improving-the-push-pull-amplifier"><span
+            class="toc-section-number">2.5</span> Improving the
+            Push-Pull Amplifier</a>
+            <ul>
+            <li><a href="#5.1" id="toc-5.1"><span
+            class="toc-section-number">2.5.1</span> Question</a></li>
+            </ul></li>
+            <li><a href="#fet-basics" id="toc-fet-basics"><span
+            class="toc-section-number">2.6</span> FET Basics</a>
+            <ul>
+            <li><a href="#6.1" id="toc-6.1"><span
+            class="toc-section-number">2.6.1</span> Question</a></li>
+            </ul></li>
+            </ul></li>
+            <li><a href="#mosfet-current-voltage-relations"
+            id="toc-mosfet-current-voltage-relations"><span
+            class="toc-section-number">3</span> MOSFET Current-Voltage
+            Relations</a>
+            <ul>
+            <li><a href="#7.1" id="toc-7.1"><span
+            class="toc-section-number">3.0.1</span> Question</a></li>
+            <li><a href="#7.2" id="toc-7.2"><span
+            class="toc-section-number">3.0.2</span> Question</a></li>
+            <li><a href="#a-dial-controlled-current"
+            id="toc-a-dial-controlled-current"><span
+            class="toc-section-number">3.1</span> A dial controlled
+            current</a>
+            <ul>
+            <li><a href="#7.3" id="toc-7.3"><span
+            class="toc-section-number">3.1.1</span> Question</a></li>
+            <li><a href="#7.3" id="toc-7.3"><span
+            class="toc-section-number">3.1.2</span> Question</a></li>
+            </ul></li>
+            <li><a href="#op-amp-design" id="toc-op-amp-design"><span
+            class="toc-section-number">3.2</span> Op-amp design</a>
+            <ul>
+            <li><a href="#8.1" id="toc-8.1"><span
+            class="toc-section-number">3.2.1</span> Question</a></li>
+            </ul></li>
+            </ul></li>
+            </ul>
+        </nav>
+        <hr/>
+         <h1 data-number="1" id="goals"><span
+         class="header-section-number">1</span> Goals</h1>
+         <p>Transistors are 3 terminal devices that control the flow of
+         current as a function of small electrical signals (voltage or
+         current). The vacuum tube predecessor for transistors were
+         called <a
+         href="https://en.wikipedia.org/wiki/Triode">triodes</a>.
+         Transistors are incredibly useful devices that are involved in
+         almost every electronic technology made today. For example, the
+         op-amps you have been using the past few weeks are made of
+         several transistors, and whatever device you’re using to read
+         this has billions of transistors in it.</p>
+         <p>There are two general categories of transistors: bipolar and
+         field-effect. Bipolar transistors control the flow of current
+         as a function of small currents, and field-effect transistors
+         control the flow of current as a function of applied voltage.
+         In this lab, you will learn how to model, analyze, and simulate
+         simple circuits containing both kinds of transistors.</p>
+         <p>The physics of transistors is very interesting, and we could
+         easily spend an entire semester learning about them. In this
+         class, we will focus on how they are used at a basic level.</p>
+         <!--The difference between these two types is that for bipolar devices an *input current* controls the large current flow through the device, while for field-effect transistors an *input voltage* provides the current control. In this lab, you explore using the FET type transistors as a current controller to create an electromagnet. In the next week's lab, you will use the transistor as a voltage amplifier. 
+
+
+         # Definitions
+
+         **Threshold voltage, V~th~** -- minimum gate-to-source voltage to allow current to flow.
+
+         **V~GS~** -- Gate to Source voltage difference
+
+         **V~DS~** -- Drain to Source voltage difference-->
+         <h1 data-number="2" id="spice-activities"><span
+         class="header-section-number">2</span> SPICE Activities</h1>
+         <h2 data-number="2.1"
+         id="intro-to-bipolar-junction-transistors-bjt"><span
+         class="header-section-number">2.1</span> Intro to Bipolar
+         Junction Transistors (BJT)</h2>
+         <p>The kind of bipolar transistor we will use this week and
+         next are bipolar junction transistors (BJT). BJTs have two
+         PN-junctions; this can be done by sandwiching a p-type region
+         with two n-type regions (NPN) or by sandwiching a n-type region
+         with two p-type regions (PNP).</p>
+         <figure>
+         <img src="../resources/lab7fig/bjt.png" id="fig:bjt"
+         style="width:16cm"
+         alt="There are two types of BJTs: NPNs and PNPs. Note these diagrams do not represent the physical shape of the BJTs" />
+         <figcaption aria-hidden="true">There are two types of BJTs:
+         NPNs and PNPs. Note these diagrams do not represent the
+         physical shape of the BJTs</figcaption>
+         </figure>
+         <p>The symbols for NPNs and PNPs are shown above. The BJT is
+         similar to two diodes pointing in opposite directions; however,
+         the doping of the emitter and the collector are not
+         symmetrical. <a
+         href="https://www.youtube.com/watch?v=2uowMENwiHQ&amp;t=55s">This
+         video does a nice job of describing this</a>.</p>
+         <p>The arrow in the diagram (as seen in Figure <span
+         class="citation" data-cites="fig:bjt">@fig:bjt</span>) for each
+         the NPN and the PNP describes the direction current will flow
+         and which junction you should think of as “diode-like.” Notice
+         that the arrow is between the emitter and the base for both
+         kinds.</p>
+         <p>We will consider the <strong>NPN</strong> in the following
+         discussion:</p>
+         <p>The “control current” for a BJT is the current that goes
+         into the base. The base current <span
+         class="math inline">\(I_B\)</span> will cause a much larger
+         current to flow through into the collector <span
+         class="math inline">\(I_C\)</span>. This is typically
+         represented by a current gain <span
+         class="math inline">\(h_{FE}\)</span> (sometimes written <span
+         class="math inline">\(\beta\)</span>):</p>
+         <p><span class="math display">\[I_C = h_{FE} I_B\]</span></p>
+         <p>With current flowing into the base and collector, all of
+         this current will have to flow out of the emitter, such
+         that</p>
+         <p><span class="math display">\[I_E = I_C + I_B =
+         \bigg(\frac{1}{h_{FE}}+1\bigg)I_C\]</span></p>
+         <p>In many use cases, the current gain is quite large, such
+         that it is safe to assume</p>
+         <p><span class="math display">\[I_E\approx I_C\]</span></p>
+         <p>There are a lot of great resources for learning more about
+         how BJTs work. <a
+         href="https://www.youtube.com/watch?v=7ukDKVHnac4">Here is a
+         video</a> discussing more of the physics.</p>
+         <h3 data-number="2.1.1" id="1.1"><span
+         class="header-section-number">2.1.1</span> Question</h3>
+         <p>The current gain for a BJT depends on a lot of factors. Look
+         for the <a href="/PHYS-3330/manuals-data-sheets">datasheet</a>
+         for the 2N3904 BJT and find the section for current gain under
+         “On Characteristics” in the tables. Notice that it gives
+         current gains for different conditions.</p>
+         <ol type="1">
+         <li><p>What parameters does the current gain depend
+         on?</p></li>
+         <li><p>What is the maximum possible current gain for this
+         transistor?</p></li>
+         <li><p>On the first page, there are some “Absolute Maximum
+         Ratings.” The “Collector Current - Continuous” represents the
+         maximum current that the transistor can have continuously
+         running through it. What is this value for the 2N3904?</p></li>
+         </ol>
+         <h2 data-number="2.2" id="basic-bjt-operation"><span
+         class="header-section-number">2.2</span> Basic BJT
+         Operation</h2>
+         <p>In order to push current into the base of an NPN, it must be
+         biased with voltages. The two important voltages to consider
+         are (1) the voltage measured at the base relative to the
+         emitter (base-emitter voltage) <span
+         class="math inline">\(V_{BE}\)</span> and (2) the voltage
+         measured at the collector relative to the emitter
+         (collector-emitter voltage) voltage <span
+         class="math inline">\(V_{CE}\)</span>.</p>
+         <figure>
+         <img src="../resources/lab7fig/npn-biasing.png"
+         id="fig:bjt-bias" style="width:6cm"
+         alt="The two important voltages to consider are the base-emitter voltage V_{BE} and the collector-emitter voltage V_{CE}." />
+         <figcaption aria-hidden="true">The two important voltages to
+         consider are the base-emitter voltage <span
+         class="math inline">\(V_{BE}\)</span> and the collector-emitter
+         voltage <span
+         class="math inline">\(V_{CE}\)</span>.</figcaption>
+         </figure>
+         <p>Typically the <span class="math inline">\(V_{CE}\)</span> is
+         some power source that is powering your circuit, and <span
+         class="math inline">\(V_{BE}\)</span> could be some signal that
+         controls the collector current. However, due to the diode like
+         nature of the base-emitter junction, in order to get current to
+         flow into the base, this junction needs to be forward biased.
+         This means that <span class="math inline">\(I_B&gt;0\)</span>
+         only if <span class="math inline">\(V_{BE} &gt; V_{th}\)</span>
+         where <span class="math inline">\(V_{th}\)</span> is a
+         threshold voltage. For silicon BJTs, <span
+         class="math inline">\(V_{th}\approx 0.6\text{ V}\)</span> (just
+         like for silicon diodes).</p>
+         <h3 data-number="2.2.1" id="2.1"><span
+         class="header-section-number">2.2.1</span> Question</h3>
+         <p>Consider the following circuit</p>
+         <figure>
+         <img src="../resources/lab7fig/bjt-switch1.png"
+         id="fig:bjt-simple" style="width:8cm"
+         alt="Simple BJT circuit (with an NPN) with resistors connected to the base and the collector (R_B and R_C respectively). A supply voltage V_S powers the circuit (this is similar to the supply voltages we apply to op-amps) and a signal voltage V_\text{in} provides a base current I_B to control the collector voltage I_C." />
+         <figcaption aria-hidden="true">Simple BJT circuit (with an NPN)
+         with resistors connected to the base and the collector (<span
+         class="math inline">\(R_B\)</span> and <span
+         class="math inline">\(R_C\)</span> respectively). A supply
+         voltage <span class="math inline">\(V_S\)</span> powers the
+         circuit (this is similar to the supply voltages we apply to
+         op-amps) and a signal voltage <span
+         class="math inline">\(V_\text{in}\)</span> provides a base
+         current <span class="math inline">\(I_B\)</span> to control the
+         collector voltage <span
+         class="math inline">\(I_C\)</span>.</figcaption>
+         </figure>
+         <p>When <span class="math inline">\(V_\text{in}=0\text{
+         V}\)</span>, clearly, there won’t be a voltage across <span
+         class="math inline">\(R_B\)</span> and <span
+         class="math inline">\(I_B\)</span> will be zero. However, if
+         <span class="math inline">\(V_\text{in} &gt; V_{th}\)</span>,
+         it should be expected that current flows, so <span
+         class="math inline">\(V_{BE}=V_{th}\)</span>.</p>
+         <p>For the following, assume <span
+         class="math inline">\(V_\text{in} &gt; V_{th}\)</span>:</p>
+         <ol type="1">
+         <li><p>What is the voltage at the base relative to
+         ground?</p></li>
+         <li><p>What is the voltage across the resistor <span
+         class="math inline">\(R_B\)</span>? Consider the voltage at one
+         side of the resistor <span
+         class="math inline">\((V_\text{in})\)</span> and the other side
+         of the resistor (the voltage at the base).</p></li>
+         <li><p>Use Ohm’s law to determine the current through <span
+         class="math inline">\(R_B\)</span>. This will be the current
+         going into the base.</p></li>
+         <li><p>If the current gain is <span
+         class="math inline">\(h_{FE}\)</span>, write <span
+         class="math inline">\(I_C\)</span> with respect to <span
+         class="math inline">\(V_\text{in}\)</span>, <span
+         class="math inline">\(V_{th}\)</span>, <span
+         class="math inline">\(R_B\)</span>, and <span
+         class="math inline">\(h_{FE}\)</span>?</p></li>
+         <li><p>Since <span class="math inline">\(I_C\)</span> flows
+         through <span class="math inline">\(R_C\)</span>, what will be
+         the voltage drop across <span
+         class="math inline">\(R_C\)</span>? Considering this drop in
+         voltage, what will the voltage be at the collector relative to
+         ground?</p></li>
+         <li><p>Write <span class="math inline">\(V_{CE}\)</span> as a
+         function of <span class="math inline">\(R_C\)</span>, <span
+         class="math inline">\(R_B\)</span>, <span
+         class="math inline">\(V_\text{in}\)</span>, <span
+         class="math inline">\(V_{th}\)</span>, and <span
+         class="math inline">\(V_S\)</span>.</p></li>
+         </ol>
+         <h3 data-number="2.2.2" id="2.2"><span
+         class="header-section-number">2.2.2</span> Question</h3>
+         <p>Make the circuit above in LTspice with <span
+         class="math inline">\(V_S=9\text{ V}\)</span>, <span
+         class="math inline">\(R_B=1\text{ k}\Omega\)</span>, and <span
+         class="math inline">\(R_C=8\ \Omega\)</span>. We can consider
+         this circuit being used to control the current through an <span
+         class="math inline">\(8\ \Omega\)</span> load as a function of
+         <span class="math inline">\(V_\text{in}\)</span>. To create a
+         BJT, in the components menu, search “NPN” (or “PNP” if that’s
+         the kind of BJT you want).</p>
+         <p>We will do a new kind of simulation: a “DC sweep”. In the
+         Configure Analysis menu, select the “DC sweep” tab and under
+         “1st Source” enter:</p>
+         <ul>
+         <li><p>“Name of 1st source:” The name of your <span
+         class="math inline">\(V_\text{in}\)</span> voltage; if you
+         haven’t explicitly named it, it will likely be V1 or V2
+         (depending on what order you placed the two voltages).</p></li>
+         <li><p>“Type of sweep:” Linear.</p></li>
+         <li><p>“Start Value:” 0</p></li>
+         <li><p>“Stop Value:” 5</p></li>
+         <li><p>“Increment:” 0.1</p></li>
+         </ul>
+         <p>This will configure a voltage sweep from <span
+         class="math inline">\(0\text{ V}\)</span> to <span
+         class="math inline">\(5\text{ V}\)</span> for the input
+         voltage. Run the simulation.</p>
+         <ol type="1">
+         <li><p>Click to measure the <span
+         class="math inline">\(V_\text{in}\)</span> voltage. You should
+         see a y=x plot from <span class="math inline">\(0\text{
+         V}\)</span> to <span class="math inline">\(5\text{ V}\)</span>.
+         The <span class="math inline">\(x\)</span>-axis of a DC sweep
+         will be the sweep of voltages you configured. Since you are
+         measuring this voltage, you should expect to see this
+         relationship.</p></li>
+         <li><p>Now measure the voltage at the base. Approximately what
+         is the threshold voltage of this transistor?</p></li>
+         <li><p>Measure the base current. You can do this by measuring
+         the current through <span class="math inline">\(R_B\)</span> or
+         by clicking on the base of the transistor. If the current
+         measurement is wanting ot measure the current in the wrong
+         direction (such that it’s saying the current is negative), you
+         can use the “move” tool to select the resistor, and rotate it
+         with Ctrl+R (twice to rotate 180 degrees) and the current will
+         now read in the direction you want (you’ll have to re-run the
+         simulation after the rotation). Use this measurement to
+         determine the minimum <span
+         class="math inline">\(V_\text{in}\)</span> needed to start to
+         drive any current.</p></li>
+         <li><p>Come up with a method to determine the current gain of
+         this transistor. You can do this in any way you wish, and may
+         configure a new simulation to do so. Please record your
+         methodology and results.</p></li>
+         </ol>
+         <h3 data-number="2.2.3" id="2.3"><span
+         class="header-section-number">2.2.3</span> Question</h3>
+         <p>In the same simulation, remove the <span
+         class="math inline">\(8\ \Omega\)</span> resistor so that the
+         <span class="math inline">\(9\text{ V}\)</span> is directly
+         applied to the collector. Fix the input voltage to <span
+         class="math inline">\(1\text{ V}\)</span> and change the DC
+         sweep to sweep the supply voltage <span
+         class="math inline">\(V_S\)</span> from <span
+         class="math inline">\(0\text{ V}\)</span> to <span
+         class="math inline">\(9\text{ V}\)</span> in <span
+         class="math inline">\(0.005\text{ V}\)</span> increments.</p>
+         <ol type="1">
+         <li><p>Run the simulation and measure the collector current
+         (the current that would have gone through the <span
+         class="math inline">\(8\ \Omega\)</span> load) by clicking on
+         the corner of the collector.</p></li>
+         <li><p>Right click the graph “File &gt; Export Data as text”
+         and save the data in a data directory where you have your
+         Jupyter Notebook.</p></li>
+         <li><p>Repeat with:</p>
+         <ul>
+         <li><p><span class="math inline">\(V_\text{ in} = 2\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_\text{ in} = 3\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_\text{ in} = 4\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_\text{ in} = 5\text{
+         V}\)</span></p></li>
+         </ul></li>
+         <li><p>You can load the data into python with the following
+         code (assuming your files are in a directory called
+         “simulated_data” and the file names are such. You can name your
+         data the same as below or modify the code to accomadate your
+         naming scheme)</p></li>
+         </ol>
+         <div class="sourceCode" id="cb1"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> Path(<span class="st">&quot;simulated_data&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data_1V <span class="op">=</span> np.loadtxt(data_dir <span class="op">/</span> <span class="st">&quot;ICvsVCE-data-1V.txt&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data_2V <span class="op">=</span> np.loadtxt(data_dir <span class="op">/</span> <span class="st">&quot;ICvsVCE-data-2V.txt&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data_3V <span class="op">=</span> np.loadtxt(data_dir <span class="op">/</span> <span class="st">&quot;ICvsVCE-data-3V.txt&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data_4V <span class="op">=</span> np.loadtxt(data_dir <span class="op">/</span> <span class="st">&quot;ICvsVCE-data-4V.txt&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data_5V <span class="op">=</span> np.loadtxt(data_dir <span class="op">/</span> <span class="st">&quot;ICvsVCE-data-5V.txt&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+         <p>The <code>data_xV</code> values will be numpy arrays with as
+         many rows as data points in your data and 2 columns (the input
+         voltage, and the corresponding collector currents). You can
+         “slice” the collector voltages for each array with
+         <code>data_xV[:, 0]</code> and you can “slice” the collector
+         currents with <code>data_xV[:, 1]</code>. Plot all 5 of these
+         on the same <span class="math inline">\(I_C\)</span> vs <span
+         class="math inline">\(V_{CE}\)</span> plot with a legend
+         labeling the <span class="math inline">\(V_\text{in}\)</span>
+         of each curve.</p>
+         <p>The plot you just created is the classic way people
+         represent the <span
+         class="math inline">\(IV\)</span>-characteristics of a BJT.</p>
+         <h3 data-number="2.2.4" id="2.4"><span
+         class="header-section-number">2.2.4</span> Question</h3>
+         <p>Now re-consider the <span class="math inline">\(8\
+         \Omega\)</span> load (<span class="math inline">\(R_C\)</span>
+         in the circuit). When a collector current flows through the
+         resistor, voltage will drop across it and <span
+         class="math inline">\(V_{CE}\)</span> will then be less than
+         the supply voltage <span class="math inline">\(V_S\)</span>.
+         The voltage drop across <span
+         class="math inline">\(R_C\)</span> is</p>
+         <p><span class="math display">\[\Delta V = V_S-V_{CE}= I_C
+         R_C\]</span></p>
+         <p>This can be rearranged to be a function <span
+         class="math inline">\(I_C(V_{CE})\)</span> that we can plot on
+         your graph from the previous question.</p>
+         <ol type="1">
+         <li><p>Write the function <span
+         class="math inline">\(I_C(V_{CE})\)</span> and make a Python
+         function that calculates <span
+         class="math inline">\(I_C\)</span> using <span
+         class="math inline">\(V_{CE}\)</span>, <span
+         class="math inline">\(R_C\)</span>, and <span
+         class="math inline">\(V_S\)</span> as inputs.</p></li>
+         <li><p>Use this Python function to plot this <span
+         class="math inline">\(I_C(V_{CE})\)</span> on the same graph
+         you made above using <span class="math inline">\(R_C=8\
+         \Omega\)</span> and <span class="math inline">\(V_S=5\text{
+         V}\)</span>. This line is referred to as a <a
+         href="https://en.wikipedia.org/wiki/Load_line_(electronics)">load
+         line</a> and represents a constraint on the <span
+         class="math inline">\(IV\)</span>-characteristics.</p></li>
+         <li><p>One way to predict the behavior of a BJT in this
+         configuration is to pick the correct curve on the plot
+         corresponding to the input voltage, then find where it
+         intersects the load line. This intersection will represent the
+         collector current and collector-emitter voltage for this
+         particular choice of <span class="math inline">\(V_S\)</span>
+         and <span class="math inline">\(R_C\)</span>. Use your plot to
+         record <span class="math inline">\(I_C\)</span> for each choice
+         of <span class="math inline">\(V_\text{in}\)</span>.</p></li>
+         <li><p>Compare the <span class="math inline">\(I_C\)</span> vs
+         <span class="math inline">\(V_\text{in}\)</span> from the graph
+         to the equations you derived in Question <span class="citation"
+         data-cites="2.1">@2.1</span> (you should use these equations to
+         calculate <span class="math inline">\(I_C\)</span> for each
+         <span class="math inline">\(V_\text{in}\)</span>).</p></li>
+         </ol>
+         <h2 data-number="2.3" id="bjt-switch"><span
+         class="header-section-number">2.3</span> BJT Switch</h2>
+         <p>A common application for a transistor is as a voltage
+         controlled switch. Consider the circuit in <span
+         class="citation" data-cites="fig:bjt-simp">@fig:bjt-simp</span>
+         where <span class="math inline">\(R_C\)</span> is some device,
+         like an electromagnet (that is used to move the bolt of a
+         lock), that can be turned on with some large current. Often in
+         electronic systems that control things (like the magnetic lock
+         we’re considering), the control voltages/currents are small,
+         but the things they control may need much more power to
+         operate. We will use Arduino microcontrollers for this purpose
+         in Lab 10.</p>
+         <p>The BJT switch is a classic way to operate the on/off state
+         of a device that requires more power than the control voltages
+         or currents that can be provided by a controller. Often these
+         switches are designed in a way so that the collector current
+         <span class="math inline">\(I_C\)</span> saturates at the
+         desired operating current for running the device.</p>
+         <h3 data-number="2.3.1" id="3.1"><span
+         class="header-section-number">2.3.1</span> Question</h3>
+         <p>In the following steps, you will design a BJT switch to
+         operate an electromagnet with a series resistance of <span
+         class="math inline">\(600\ \Omega\)</span> (this is <span
+         class="math inline">\(R_C\)</span>). The recommended operating
+         voltage for the electromagnet is <span
+         class="math inline">\(12\text{ V}\)</span>.</p>
+         <ol type="1">
+         <li><p>What is the current in the electromagnet when the
+         operating voltage is applied (consider applying this voltage
+         directly to the electromagnet)?</p></li>
+         <li><p>How much base current is needed to get this much
+         collector current (use <span
+         class="math inline">\(h_{FE}=100\)</span>).</p></li>
+         <li><p>As we saw in the data sheet, <span
+         class="math inline">\(h_{FE}\)</span> is not a constant value
+         in real BJTs, so we don’t want to design the switch to rely on
+         a particular value of the current gain. This can be done by
+         selecting <span class="math inline">\(V_S\)</span> such that it
+         can’t possibly supply more current than desired. When a BJT has
+         a saturated collector current (i.e. <span
+         class="math inline">\(V_S\)</span> can’t supply any more
+         current), <span class="math inline">\(V_{CE}\approx 0\)</span>.
+         If <span class="math inline">\(V_{CE}=0\)</span>, and one side
+         of the electromagnet is at <span
+         class="math inline">\(V_S\)</span>, what is the voltage across
+         the electromagnet? What choice of <span
+         class="math inline">\(V_S\)</span> will result in <span
+         class="math inline">\(12\text{ V}\)</span> across the
+         electromagnet when <span
+         class="math inline">\(V_{CE}=0\)</span> (i.e. when the
+         collector current is saturated)?</p></li>
+         <li><p>Assuming the worst possible current gain is <span
+         class="math inline">\(h_{FE}=30\)</span> for this transistor,
+         how much base current is needed to saturate <span
+         class="math inline">\(I_C\)</span>?</p></li>
+         <li><p>If the controller supplies a <span
+         class="math inline">\(5\text{ V}\)</span> signal, what choice
+         of <span class="math inline">\(R_B\)</span> will result in this
+         current (don’t forget to consider <span
+         class="math inline">\(V_{th}=0.9\text{ V}\)</span>)?</p></li>
+         </ol>
+         <p>This design no longer depends on <span
+         class="math inline">\(h_{FE}\)</span> as long as it is above
+         30. When <span class="math inline">\(h_{FE}\)</span> does
+         exceed 30, it is impossible for the BJT to supply more
+         collector current because it is limited by the supply voltage
+         <span class="math inline">\(V_S\)</span>.</p>
+         <h2 data-number="2.4" id="pnps"><span
+         class="header-section-number">2.4</span> PNPs</h2>
+         <p>We have been looking at NPN BJTs where a positive current
+         into the base controls a positive current into the collector
+         (such that all the current leaves the emitter). A PNP operates
+         almost identically to the NPN, except for the fact that a
+         negative current (current flowing out of the base) controls a
+         current out of the collector (such that all the current enters
+         through the emitter).</p>
+         <p>Each kind of BJT only works with current in one direction,
+         so to amplify both positive and negative currents, an NPN and a
+         PNP are needed in what’s referred to as a push-pull
+         configuration</p>
+         <figure>
+         <img src="../resources/lab7fig/push-pull-basic.png"
+         id="fig:push-pull-basic" style="width:10cm"
+         alt="A push pull amplifier uses both an NPN and a PNP to access positive and negative voltages." />
+         <figcaption aria-hidden="true">A push pull amplifier uses both
+         an NPN and a PNP to access positive and negative
+         voltages.</figcaption>
+         </figure>
+         <p>The circuit above is an example of a push-pull amplifier.
+         When <span
+         class="math inline">\(V_\text{in}&gt;V_{th}\)</span>, current
+         will flow into the base of the NPN and “push” current into the
+         load <span class="math inline">\(R_L\)</span>, and <span
+         class="math inline">\(V_\text{out}\)</span> will be <span
+         class="math inline">\(V_\text{in}-V_{th}\)</span>. When <span
+         class="math inline">\(V_\text{in}&lt;-V_{th}\)</span>, current
+         will flow out of the PNP and “pull” current from the load, and
+         <span class="math inline">\(V_\text{out}\)</span> will be <span
+         class="math inline">\(V_\text{in}+V_{th}\)</span>. However,
+         when <span
+         class="math inline">\(-V_{th}&lt;V_\text{in}&lt;V_{th}\)</span>,
+         no current will flow and <span
+         class="math inline">\(V_\text{out}=0\)</span>. This means that
+         the output voltage won’t follow exactly the input voltage, and
+         there will be what’s called crossover distortion. In the
+         following questions, you will explore this crossover distortion
+         and a solution to it.</p>
+         <!--Horowitz and Hill 2.15 details push-pull amplifiers, the crossover distortion, and how to design around it. This section could prove valuable for your final project.-->
+         <h3 data-number="2.4.1" id="4.1"><span
+         class="header-section-number">2.4.1</span> Question</h3>
+         <p>Build the circuit shown in <span class="citation"
+         data-cites="fig:push-pull-basic">@fig:push-pull-basic</span> in
+         LTspice with</p>
+         <ul>
+         <li><p><span class="math inline">\(V_{S,+}=15\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_{S,-}=-15\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(R_L=8\
+         \Omega\)</span></p></li>
+         </ul>
+         <p>Make <span class="math inline">\(V_\text{in}\)</span> a sine
+         wave with</p>
+         <ul>
+         <li><p><span class="math inline">\(f=1\text{
+         kHz}\)</span></p></li>
+         <li><p>an amplitude of <span class="math inline">\(5\text{
+         V}\)</span></p></li>
+         <li><p>an output impedance of <span class="math inline">\(50\
+         \Omega\)</span> (to emulate the function generator)</p></li>
+         </ul>
+         <p>Configure a transient analysis with a stop time of <span
+         class="math inline">\(5\text{ ms}\)</span>.</p>
+         <ol type="1">
+         <li><p>Measure <span class="math inline">\(V_\text{in}\)</span>
+         and <span class="math inline">\(V_\text{out}\)</span> and save
+         the plot.</p></li>
+         <li><p>Describe the crossover distortion you are seeing and why
+         it occurs.</p></li>
+         </ol>
+         <h2 data-number="2.5"
+         id="improving-the-push-pull-amplifier"><span
+         class="header-section-number">2.5</span> Improving the
+         Push-Pull Amplifier</h2>
+         <p>The push-pull amplifier in Figure <span class="citation"
+         data-cites="fig:push-pull-basic">@fig:push-pull-basic</span>
+         may seem relatively useless since it just attempts to reproduce
+         a voltage, but distorts it. However, this amplifier can be
+         incredibly useful in overcoming current limits of op-amps.
+         Recall, in lab 4, when you built a buffer (a.k.a. follower) and
+         a non-inverting amplifier. You found that the buffer was useful
+         as an output stage because it’s able to drive the voltage with
+         a near zero output impedance; however, the LF356 is limited in
+         that it can only output about <span
+         class="math inline">\(27\text{ mA}\)</span> (which isn’t a
+         lot). The push-pull amplifier is capable of driving lots of
+         current (remember, the output current of the op-amp will have
+         the current gain of the active BJT applied to it). There are
+         even current limitations here, and there are further solutions
+         to get more and more current (with Darlington pairs: this can
+         all be found in chapter 2 of Horowitz and Hill). However, there
+         are also heat management considerations that need to be made
+         with large current applications.</p>
+         <figure>
+         <img src="../resources/lab7fig/push-pull.png"
+         id="fig:push-pull" style="width:17cm"
+         alt="A non-inverting amplifier with an output stage." />
+         <figcaption aria-hidden="true">A non-inverting amplifier with
+         an output stage.</figcaption>
+         </figure>
+         <p>Consider the circuit above (it may look complicated, but
+         we’ll break it down). Starting left to right, you’ll notice an
+         op-amp with negative feedback. The input is going into the
+         <span class="math inline">\(V_+\)</span> input, so this is a
+         non-inverting amplifier. The voltage gain of the amplifier, as
+         you know, is</p>
+         <p><span class="math display">\[G = 1 +
+         \frac{R_F}{R}\]</span></p>
+         <p>The rest of the circuit is a push-pull amplifier that uses
+         an op-amp with negative feedback to mitigate crossover
+         distortion. The output of the push-pull amplifier is fed back
+         into the <span class="math inline">\(V_-\)</span> input of the
+         op-amp, and the output of the op-amp feeds into the input of
+         the push-pull amplifier. Having the op-amp in the circuit in
+         this way helps make <span
+         class="math inline">\(V_\text{out}=V_\text{in}\)</span> instead
+         of <span class="math inline">\(V_\text{out}=V_\text{in}\pm
+         V_{th}\)</span> because the feedback of the op-amp will drive
+         the system toward <span class="math inline">\(V_+=V_-\)</span>;
+         since <span class="math inline">\(V_\text{out}=V_-\)</span>,
+         the output voltage will now be <span
+         class="math inline">\(V_\text{in}\)</span>.</p>
+         <p>Since the push-pull amplifier (with the second op-amp) has a
+         voltage gain of 1, the total voltage gain of the circuit will
+         be the voltage gain of the non-inverting amplifier. The
+         advantage of this circuit over a non-inverting amplifier
+         followed by just an op-amp buffer, is that the amount of
+         current the BJTs can supply is much greater than the LF356.</p>
+         <h3 data-number="2.5.1" id="5.1"><span
+         class="header-section-number">2.5.1</span> Question</h3>
+         <p>Build the circuit shown in Figure <span class="citation"
+         data-cites="fig:push-pull">@fig:push-pull</span> in LTspice
+         with</p>
+         <ul>
+         <li><p>OP113 op-amps</p></li>
+         <li><p><span class="math inline">\(R_F=100\text{
+         k}\Omega\)</span></p></li>
+         <li><p><span class="math inline">\(R=1\text{
+         k}\Omega\)</span></p></li>
+         <li><p><span class="math inline">\(V_{S,+}=15\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_{S,-}=-15\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(R_L=8\
+         \Omega\)</span></p></li>
+         </ul>
+         <p>Make <span class="math inline">\(V_\text{in}\)</span> a sine
+         wave with</p>
+         <ul>
+         <li><p><span class="math inline">\(f=1\text{
+         kHz}\)</span></p></li>
+         <li><p>an amplitude of <span class="math inline">\(50\text{
+         mV}\)</span></p></li>
+         <li><p>an output impedance of <span class="math inline">\(50\
+         \Omega\)</span> (to emulate the function generator)</p></li>
+         </ul>
+         <p>Configure a transient analysis with a stop time of <span
+         class="math inline">\(5\text{ ms}\)</span>.</p>
+         <ol type="1">
+         <li><p>Before running the simulation, calculate the predicted
+         voltage gain and <span
+         class="math inline">\(V_\text{out}\)</span>.</p></li>
+         <li><p>Run the simulation and measure the input voltage and the
+         voltage at the output of the non-inverting amplifier. Is the
+         voltage gain what you predicted?</p></li>
+         <li><p>Measure the voltage at the output of the circuit,
+         compare this to the output of the non-inverting amplifier. Is
+         there any crossover distortion?</p></li>
+         <li><p>Measure the current in the load, what is the maximum
+         current? Would the LF356 be able to supply this current without
+         the BJTs?</p></li>
+         </ol>
+         <h2 data-number="2.6" id="fet-basics"><span
+         class="header-section-number">2.6</span> FET Basics</h2>
+         <p>Field effect transistors (FET) differ from bipolar
+         transistors in that they are controlled by an applied voltage
+         instead of an applied current. Since voltage and current are
+         often related, functionally they are very similar and often can
+         be exchanged in various applications. Instead of having a base,
+         collector, and emitter, a FET has a gate, source, and drain. <a
+         href="https://www.youtube.com/watch?v=IcrBqCFLHIY">This video
+         describes how FETs work</a>.</p>
+         <p>A commonly used FET is a metal-oxide semiconductor FET
+         (MOSFET), where a small insulating layer separates the gate
+         terminal from the semiconductor. This creates a capacitor-like
+         structure that insulates DC currents, and when the gate
+         terminal is charged, it will generate electric fields across
+         the insulator and influence the behavior of the doped
+         semiconductor on the other side. In integrated digital
+         circuits, small MOSFETs are ubiquitous and are used in
+         everything from simple logic circuits to the billions of
+         transistors found in Intel and AMD central processor chips
+         (CPUs). Small MOSFETs are also used in some op-amps,
+         particularly when very low supply current is needed, as in
+         portable battery-powered circuits. Small discrete (single)
+         MOSFETs are not normally used because they are extremely
+         fragile. Large discrete MOSFETs are used in all sorts of high
+         power applications, including commercial radio transmitters.
+         The primary advantages of MOSFETs are that they are extremely
+         simple to manufacture at scale (in a process called CMOS), and
+         because the active state involves essentially charging a
+         capacitor, there is no passive power consumption (for a BJT, to
+         keep it on, you have to continue to sink current into the base
+         which costs energy). A disadvantage of MOSFETs is in high
+         frequency applications where the capacitive coupling in the
+         metal-oxide starts to act like a short circuit.</p>
+         <p>Junction FETs (JFETs) are also very common. JFETs add very
+         little intrinsic noise to a circuit and have very large input
+         impedance. Op-amps that use JFETs for the input stage are often
+         the first choice for low-noise amplification (such as the
+         LF356). Discrete JFETs are commonly seen in scientific
+         instruments. Consider using a JFET when low-noise is critical.
+         We will not cover JFETs in this activity, but you can read
+         about them in Chapter 3 of Horowitz and Hill (either edition)
+         and they may be useful in your final project.</p>
+         <figure>
+         <img src="../resources/lab7fig/mosfet.png" id="fig:mosfetchar"
+         style="width:10cm"
+         alt="Two common types of FETs are MOSFETs and JFETs. These are the circuit diagrams for the N-channel and the P-channel. The direction of positive drain current is labeled." />
+         <figcaption aria-hidden="true">Two common types of FETs are
+         MOSFETs and JFETs. These are the circuit diagrams for the
+         N-channel and the P-channel. The direction of positive drain
+         current is labeled.</figcaption>
+         </figure>
+         <p>FETS are similar to BJTs. The table below relates the
+         two:</p>
+         <table>
+         <thead>
+         <tr class="header">
+         <th style="text-align: center;"></th>
+         <th style="text-align: center;">BJT</th>
+         <th style="text-align: center;">FET</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr class="odd">
+         <td style="text-align: center;">Type of control</td>
+         <td style="text-align: center;">Current <span
+         class="math inline">\((I_B)\)</span></td>
+         <td style="text-align: center;">Voltage <span
+         class="math inline">\((V_{GS})\)</span></td>
+         </tr>
+         <tr class="even">
+         <td style="text-align: center;">Positive control</td>
+         <td style="text-align: center;">NPN</td>
+         <td style="text-align: center;">N-channel</td>
+         </tr>
+         <tr class="odd">
+         <td style="text-align: center;">Negative control</td>
+         <td style="text-align: center;">PNP</td>
+         <td style="text-align: center;">P-channel</td>
+         </tr>
+         <tr class="even">
+         <td style="text-align: center;">Pins:</td>
+         <td style="text-align: center;">Base</td>
+         <td style="text-align: center;">Gate</td>
+         </tr>
+         <tr class="odd">
+         <td style="text-align: center;"></td>
+         <td style="text-align: center;">Collector</td>
+         <td style="text-align: center;">Drain</td>
+         </tr>
+         <tr class="even">
+         <td style="text-align: center;"></td>
+         <td style="text-align: center;">Emitter</td>
+         <td style="text-align: center;">Source</td>
+         </tr>
+         </tbody>
+         </table>
+         <p>A voltage from the gate to the source (gate-source voltage
+         <span class="math inline">\(V_{GS}\)</span>) controls current
+         from drain to source (drain current <span
+         class="math inline">\(I_D\)</span>). For an N-channel, a
+         positive <span class="math inline">\(V_{GS}\)</span> drives a
+         positive <span class="math inline">\(I_D\)</span> (current
+         flows from drain to source), and for a P-channel, a negative
+         <span class="math inline">\(V_{GS}\)</span> drives a negative
+         <span class="math inline">\(I_D\)</span> (current flows from
+         source to drain).</p>
+         <h3 data-number="2.6.1" id="6.1"><span
+         class="header-section-number">2.6.1</span> Question</h3>
+         <p>State whether a BJT, MOSFET, or JFET is most ideal for the
+         following applications:</p>
+         <ol type="1">
+         <li><p>You wish to fabricate a microcontroller chip with
+         hundreds of thousands of transistors to perform digital
+         logic.</p></li>
+         <li><p>You wish to design an amplifier for <span
+         class="math inline">\(1\text{ MHz}\)</span> signals.</p></li>
+         <li><p>You wish to design a low noise amplifier.</p></li>
+         </ol>
+         <h1 data-number="3" id="mosfet-current-voltage-relations"><span
+         class="header-section-number">3</span> MOSFET Current-Voltage
+         Relations</h1>
+         <p>MOSFETs can operate in three distinct regions. The first
+         region is where the gate-to-source voltage, <span
+         class="math inline">\(V_{GS}\)</span>, is less than the
+         threshold voltage, <span class="math inline">\(V_{th}\)</span>.
+         In this region, the MOSFET is turned off and no drain current
+         can flow. The second region (the linear region) is when <span
+         class="math inline">\(V_{GS} &gt; V_{th}\)</span> and <span
+         class="math inline">\(V_{DS} &lt; (V_{GS} - V_{th})\)</span>,
+         where <span class="math inline">\(V_{DS}\)</span> is the
+         drain-to-source voltage. In this linear region, the transistor
+         is turned on, and a channel has been created that allows
+         current to flow between the drain and the source. In this
+         region, the MOSFET operates like a voltage controlled resistor,
+         controlled by the gate voltage relative to both the source and
+         drain voltages. In the third region (the saturation region),
+         <span class="math inline">\(V_{GS} &gt; V_{th}\)</span> and
+         <span class="math inline">\(V_{DS} \ge (V_{GS} -
+         V_{th})\)</span>. In the saturation region, the current is
+         controlled by the gate voltage and is nearly independent of
+         <span class="math inline">\(V_{DS}\)</span>. One of the most
+         common applications of a MOSFET is as a switch (for binary
+         logic for example), where it is operated in the saturation
+         region. The linear and saturation regions are separated by the
+         dotted line in Figure <span class="citation"
+         data-cites="fig:mosfetchar">@fig:mosfetchar</span>. In the
+         saturation region, the dependence of current on <span
+         class="math inline">\(V_{GS}\)</span> is modeled by <span
+         class="math inline">\(I_D = k(V_{GS} - V_{th})^2\)</span>,
+         where <span class="math inline">\(k\)</span> is a constant that
+         depends on the device.</p>
+         <figure>
+         <img src="../resources/lab8fig/mosfetchar.png"
+         id="fig:mosfetchar" style="width:15cm"
+         alt="Typical output characteristics of a MOSFET. These vary greatly between different types of MOSFETs. Always check the data sheet for your exact part." />
+         <figcaption aria-hidden="true">Typical output characteristics
+         of a MOSFET. These vary greatly between different types of
+         MOSFETs. Always check the data sheet for your exact
+         part.</figcaption>
+         </figure>
+         <h3 data-number="3.0.1" id="7.1"><span
+         class="header-section-number">3.0.1</span> Question</h3>
+         <p>Create a simple n-channel MOSFET circuit with the source
+         grounded and individual voltages applied at the gate and the
+         drain (see the figure below). You can create a n-channel MOSFET
+         by searching “nmos” in the components menu.</p>
+         <figure>
+         <img src="../resources/lab7fig/mostfet-SPICE.png"
+         id="fig:mosfetchar" style="width:6cm"
+         alt="The circuit to simulate in LTspice. V_{DS} is labeled V_DS and V_{GS} is labeled V_GS" />
+         <figcaption aria-hidden="true">The circuit to simulate in
+         LTspice. <span class="math inline">\(V_{DS}\)</span> is labeled
+         V_DS and <span class="math inline">\(V_{GS}\)</span> is labeled
+         V_GS</figcaption>
+         </figure>
+         <p>Configure a linear DC sweep on <span
+         class="math inline">\(V_{DS}\)</span> from <span
+         class="math inline">\(0\)</span> to <span
+         class="math inline">\(10\text{ V}\)</span> with an increment of
+         <span class="math inline">\(0.1\text{ V}\)</span> for the
+         following values of <span
+         class="math inline">\(V_{GS}\)</span>, measure the current into
+         the drain <span class="math inline">\((I_D)\)</span> and export
+         the data as you did for the BJT in question <span
+         class="citation" data-cites="2.3">@2.3</span> (so that you can
+         import it into your Jupyter Notebook)</p>
+         <ul>
+         <li><p><span class="math inline">\(V_{GS} = 2\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_{GS} = 4\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_{GS} = 6\text{
+         V}\)</span></p></li>
+         <li><p><span class="math inline">\(V_{GS} = 8\text{
+         V}\)</span></p></li>
+         </ul>
+         <ol type="1">
+         <li><p>Import the four sets of data and plot them on one graph
+         with a legend labeling the value of <span
+         class="math inline">\(V_{GS}\)</span> for each curve. Make the
+         units of <span class="math inline">\(y\)</span>-axis in <span
+         class="math inline">\(\text{mA}\)</span> by multiplying <span
+         class="math inline">\(I_D\)</span> by <span
+         class="math inline">\(1000\)</span> (LTspice exports in
+         Amps).</p></li>
+         <li><p>Does your plot generally resemble the one shown in
+         Figure <span class="citation"
+         data-cites="fig:mosfetchar">@fig:mosfetchar</span> (if not,
+         identify the mistake and resolve it)?</p></li>
+         </ol>
+         <h3 data-number="3.0.2" id="7.2"><span
+         class="header-section-number">3.0.2</span> Question</h3>
+         <ol type="1">
+         <li>Identify the <span class="math inline">\(I_D\)</span> in
+         the saturation region for each <span
+         class="math inline">\(V_{GS}\)</span> (where <span
+         class="math inline">\(I_D\)</span> is constant with respect to
+         <span class="math inline">\(V_{DS}\)</span>). Record this data
+         as NumPy arrays. Record <span
+         class="math inline">\(I_D\)</span> in
+         <strong>MICROAMPS</strong> <span
+         class="math inline">\(\mu\text{A}\)</span>.</li>
+         </ol>
+         <div class="sourceCode" id="cb2"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>v_gs <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>i_d <span class="op">=</span> np.array([i0, i1, i2, i3])</span></code></pre></div>
+         <p>We will fit this data to</p>
+         <p><span class="math display">\[I_D =
+         k(V_{GS}-V_{th})^2\]</span></p>
+         <p>The threshold voltage for this simulated MOSFET is <span
+         class="math inline">\(0\text{ V}\)</span>. (You can convince
+         yourself of this by doing a DC sweep of <span
+         class="math inline">\(V_{GS}\)</span> at a fixed <span
+         class="math inline">\(V_{DS}\)</span>). We can then define the
+         fitting function as</p>
+         <div class="sourceCode" id="cb3"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fitting_function_mosfet(V_GS, k):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">   :param V_GS: array of gate-source voltages</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">   :param k: device dependent constant</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">   :return: drain current</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">   &quot;&quot;&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> k <span class="op">*</span> V_GS <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+         <ol start="2" type="1">
+         <li>Fit the data to the fitting function to determine the
+         constant <span class="math inline">\(k\)</span>. You can
+         utilize <code>curve_fit</code> function (<a
+         href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">Documentation
+         can be found here</a>). You can access this function with
+         <code>from scipy.optimize import cure_fit</code>.</li>
+         </ol>
+         <div class="sourceCode" id="cb4"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>initial_guess <span class="op">=</span> (<span class="dv">1</span>,) <span class="co"># the initial guess for fitting parameters.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>popt, pcov <span class="op">=</span> curve_fit(fitting_function_mosfet, v_gs, i_d, initial_guess)</span></code></pre></div>
+         <p>If there are <span class="math inline">\(n\)</span> fitting
+         parameters, then the <code>initial_guess</code> needs to be a
+         tuple (or list) with <span class="math inline">\(n\)</span>
+         elements. <code>popt</code> will be a list with elements
+         representing the results of the fit (so it will be <span
+         class="math inline">\(n\)</span>-long), and <code>pcov</code>
+         is a covariance matrix (of size <span
+         class="math inline">\(n\times n\)</span>). The estimate of the
+         error can be determined with
+         <code>perr = np.sqrt(np.diag(pcov))</code>.</p>
+         <ol start="3" type="1">
+         <li>Fit the data and plot the data with the fit</li>
+         </ol>
+         <div class="sourceCode" id="cb5"><pre
+         class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(v_gs, i_d, color<span class="op">=</span><span class="st">&#39;k&#39;</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>v_gs_fit <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ax.plot(v_gs_fit, function(v_gs_fit, popt[<span class="dv">0</span>]), <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&quot;$V_</span><span class="sc">{{</span><span class="st">GS</span><span class="sc">}}</span><span class="st">$ (V)&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&quot;$I_D$ (mA)&quot;</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;$I_D = k(V_</span><span class="sc">{{</span><span class="st">GS</span><span class="sc">}}</span><span class="st">-V_</span><span class="sc">{{</span><span class="st">th</span><span class="sc">}}</span><span class="st">)^2$&quot;</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">850</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="ss">f&quot;$(k=</span><span class="sc">{</span>popt[<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss"> \pm </span><span class="sc">{</span>perr[<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss">)$&quot;</span>, loc)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div>
+         <ol start="4" type="1">
+         <li>The annotation will print your fitting result on the plot.
+         However, it’s missing units. Determine the units of <span
+         class="math inline">\(k\)</span> and include these units in the
+         annotation, also adjust the number of significant figures (by
+         editing the <code>4</code> in <code>:.4f</code>) so that the
+         digits displayed are correct. As a refresher, there should only
+         be one significant digit in the error (unless it starts with 1,
+         then you can take two), and the number of digits past the
+         decimal should match in both the parameter and the error.</li>
+         </ol>
+         <h2 data-number="3.1" id="a-dial-controlled-current"><span
+         class="header-section-number">3.1</span> A dial controlled
+         current</h2>
+         <p>Consider the circuit below:</p>
+         <figure>
+         <img src="../resources/lab7fig/mosfet-circuit.png"
+         id="fig:mosfet-cir" style="width:7cm"
+         alt="A simple MOSFET circuit that utilizes a potentiometer as a voltage divider to set a V_{GS} to control the current through the load R_L." />
+         <figcaption aria-hidden="true">A simple MOSFET circuit that
+         utilizes a potentiometer as a voltage divider to set a <span
+         class="math inline">\(V_{GS}\)</span> to control the current
+         through the load <span
+         class="math inline">\(R_L\)</span>.</figcaption>
+         </figure>
+         <p>The potentiometer with total resistance <span
+         class="math inline">\(R_p\)</span> acts as a voltage divider to
+         set a gate-source voltage <span
+         class="math inline">\(V_{GS}\)</span>. We can consider the
+         resistance from the wiper to ground as <span
+         class="math inline">\(R_{GS}\)</span>, such that the transfer
+         function is <span class="math inline">\(R_{GS}/R_p\)</span>
+         (since <span class="math inline">\(R_p\)</span> is <span
+         class="math inline">\(R_{GS}\)</span> plus the resistance from
+         the gate to the supply voltage <span
+         class="math inline">\(V_S\)</span>). This leads to</p>
+         <p><span class="math display">\[V_{GS} =
+         \frac{R_{GS}}{R_p}V_S\]</span></p>
+         <p>The potentiometer then simply sets the gate-source voltage,
+         giving you a way of controlling it through a dial. The load
+         (with resistance <span class="math inline">\(R_L\)</span>) will
+         have current <span class="math inline">\(I_D\)</span> run
+         through it depending on the dial position then. This will lead
+         to a voltage drop, such that the voltage at the drain (and
+         therefore <span class="math inline">\(V_{DS}\)</span>) is less
+         than <span class="math inline">\(V_S\)</span>. This idea should
+         be familiar from the BJT analysis you did.</p>
+         <h3 data-number="3.1.1" id="7.3"><span
+         class="header-section-number">3.1.1</span> Question</h3>
+         <p>One way to determine the behavior of this circuit is using a
+         load line on the plot you made using LTspice to determine what
+         value of <span class="math inline">\(V_{GS}\)</span> you need
+         to get a desired <span class="math inline">\(I_D\)</span>.
+         Recall, that the plot is specific to each individual MOSFET
+         design, so you would use the plots supplied by the manufacturer
+         in a datasheet in general; however, we will consider the MOSFET
+         in your simulation since you already have that loaded into your
+         Jupyter Notebook.</p>
+         <ol type="1">
+         <li><p>Use Ohm’s law to write down <span
+         class="math inline">\(I_D\)</span> as a function of <span
+         class="math inline">\(R_L\)</span>, <span
+         class="math inline">\(V_S\)</span>, and <span
+         class="math inline">\(V_{DS}\)</span> (this is your load line
+         equation). Implement it as a Python function that returns the
+         drain current in <span class="math inline">\(\text{mA}\)</span>
+         (by multiplying by <span class="math inline">\(1000\)</span>)
+         and takes <span class="math inline">\(V_S\)</span> and <span
+         class="math inline">\(V_{DS}\)</span> in Volts and <span
+         class="math inline">\(R_L\)</span> in Ohms.</p></li>
+         <li><p>Plot your load line on a graph with your <span
+         class="math inline">\(I_D\)</span> vs <span
+         class="math inline">\(V_{DS}\)</span> curves using <span
+         class="math inline">\(V_S=9\text{ V}\)</span> and <span
+         class="math inline">\(R_L = 10\text{ k}\Omega\)</span>.
+         <em>Hint:</em> You’ll want to make an <span
+         class="math inline">\(x\)</span>-axis array with something like
+         <code>v_ds = np.linspace(0, 10, 100)</code> and plug this into
+         your function to get the <span
+         class="math inline">\(y\)</span>-axis.</p></li>
+         <li><p>Which values of <span
+         class="math inline">\(V_{GS}\)</span> result in the MOSFET
+         operating in the <em>linear region</em> and which values result
+         in the MOSFET operating in the <em>saturation
+         region</em>?</p></li>
+         <li><p>What value of <span
+         class="math inline">\(V_{GS}\)</span> get you closest to <span
+         class="math inline">\(0.5\text{ mA}\)</span>?</p></li>
+         </ol>
+         <h3 data-number="3.1.2" id="7.3"><span
+         class="header-section-number">3.1.2</span> Question</h3>
+         <p>With a supply voltage of <span class="math inline">\(9\text{
+         V}\)</span> and a load of <span class="math inline">\(10\text{
+         k}\Omega\)</span>, the MOSFET operated in the linear region or
+         the saturation region depending on the choice of <span
+         class="math inline">\(V_{GS}\)</span>; however, for a load of
+         <span class="math inline">\(R_L=100\ \Omega\)</span>, the
+         MOSFET will operate in the saturation region for all four
+         choices of <span class="math inline">\(V_{GS}\)</span>.</p>
+         <ol type="1">
+         <li><p>Show that the MOSFET is in the saturation region for all
+         the <span class="math inline">\(V_{GS}\)</span> on your graph
+         by plotting the new load line with <span
+         class="math inline">\(V_S=9\text{ V}\)</span> and <span
+         class="math inline">\(R_L = 100\ \Omega\)</span> (on a new
+         plot). Adjust the axes with <code>ax.ylim()</code> to show the
+         plot nicely.</p></li>
+         <li><p>Looking at your plot, is it consistent with the <span
+         class="math inline">\(I_D\)</span> vs <span
+         class="math inline">\(V_{GS}\)</span> plot you made in Question
+         <span class="citation" data-cites="7.2">@7.2</span>?</p></li>
+         </ol>
+         <p>Since we are in the saturation region, the value of <span
+         class="math inline">\(k\)</span> you determined from your fit
+         can be used to determine the value of <span
+         class="math inline">\(V_{GS}\)</span> needed to get a
+         particular current <span class="math inline">\(I_D\)</span>
+         through the load.</p>
+         <ol start="3" type="1">
+         <li><p>Using the value of <span
+         class="math inline">\(k\)</span> you determined from the fit,
+         what <span class="math inline">\(V_{GS}\)</span> would you need
+         to get a drain current of <span class="math inline">\(0.5\text{
+         mA}\)</span>? <em>Hint:</em> remember that <span
+         class="math inline">\(V_{th}=0\text{ V}\)</span>.</p></li>
+         <li><p>Notice that the <span
+         class="math inline">\(V_{GS}\)</span> needed to get the same
+         current of <span class="math inline">\(I_D=0.5\text{
+         mA}\)</span> differs depending on the load. As the load
+         decreases the load line will become steeper, so it will
+         continue to intersect the <span
+         class="math inline">\(I_D\)</span> vs <span
+         class="math inline">\(V_{DS}\)</span> curves in the
+         <em>saturation region</em>. Considering this, what <span
+         class="math inline">\(V_{GS}\)</span> would achieve <span
+         class="math inline">\(I_D=0.5\text{ mA}\)</span> for a <span
+         class="math inline">\(8\ \Omega\)</span> load?</p></li>
+         </ol>
+         <h2 data-number="3.2" id="op-amp-design"><span
+         class="header-section-number">3.2</span> Op-amp design</h2>
+         <p>Op-amps are made of several transistors (often a mix of BJTs
+         and JFETs). Op-amp design involves combining many kinds of
+         transistor circuits like differential pairs (aka long-tail
+         pairs), emitter amplifiers, current mirrors, darlington pairs,
+         and push-pull amplifiers. Chapter 3 in Horowitz and Hill has a
+         lot of great information on all of these (and more). It is
+         worth thumbing through this chapter for ideas to incorporate in
+         your final project.</p>
+         <p>A great final project idea is to build an op-amp from
+         discrete transistors! This op-amp, without doubt, will under
+         perform compared to the LF365, but it will be a great learning
+         experience. You can even implement it as an audio amplifier to
+         drive a large speaker to make it more interesting. The
+         following resources are a good starting point to starting off
+         on a project like this.</p>
+         <ul>
+         <li><p><a
+         href="https://www.allaboutcircuits.com/video-tutorials/op-amp-basics-internal-circuitry/">Architecture
+         and Design Techniques of Op-Amps</a></p></li>
+         <li><p><a href="https://sound-au.com/project07.htm">Discrete
+         Operational Amplifier</a></p></li>
+         <li><p><a
+         href="https://www.psaudio.com/blogs/pauls-posts/being-discrete">Being
+         discrete</a></p></li>
+         <li><p><a
+         href="https://www.nutsvolts.com/magazine/article/op-amp-cookbook">Op-amp
+         Cookbook</a></p></li>
+         </ul>
+         <h3 data-number="3.2.1" id="8.1"><span
+         class="header-section-number">3.2.1</span> Question</h3>
+         <p>Read through the first article. What are the 3 primary
+         stages of an op-amp? Describe the function of each one.</p>
+         <!--# Useful Readings
+
+         1.  [Steck](https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf) Sections 5.2, 5.3, and 5.4.1
+
+         2.  Horowitz and Hill 2^nd^ Ed. Sections 3.01-3.10
+
+         3.  The data sheet for the IRF710PBF, the n-channel MOSFET we will be using (on Canvas).
+
+         # Prelab
+
+         Answer the following questions using Mathematica for the plots. You can use either Mathematica for the rest of the questions as well or do them by hand. **Make sure to have the Mathematica notebook for your lab section as well. You will use it to plot and fit your data during the lab session.**
+
+         ## Characterizing the MOSFET {#sec:fetcharpre}
+
+         1. What is the range of the Gate-Source threshold voltage for the IRF710PBF transistor? The data sheet is on the [Data Sheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets).
+         2. Plot $I_D$ vs. $V_{DS}$ for a value of $V_{GS}$ that will give you about 0.5 A in the saturation regime. You can do this by plotting a bunch of points obtained from Figure 1 on the data sheet. This can give you an idea about where in the saturation region we can operate.
+         3.  Plot $I_D$ vs. $V_{GS}$ for $V_{DS} = 10 ~V$ using the data available in Figure 1 on the data sheet. Just plot the points in the saturation region. In this region, the drain current dependence on $V_{GS}$ can be modeled as $I_D = k(V_{GS} ~–~ V_{th})^2$. Fit your data points using this model to obtain values for the constant, $k$, and the threshold voltage, $V_{th}$, along with their associated uncertainties. You can refer to your work in [Lab Skills Activity 2](/PHYS-3330/lab-guides/lsa2) for an example of fitting data to a function. Be sure to enter your best estimate of the uncertainties on the input data points. Also, be sure to include the resulting uncertainties when reporting the fitted values of $k$ and $V_{th}$.
+
+         ## MOSFET controlled electromagnet {#sec:fetmagpre}
+
+         1. What is an equation for the magnetic field on axis from a loop of current carrying wire in terms of the radius of the loop, current through the loop, number of turns, and distance from the plane of the loop?
+         2. Come up with a way of qualitatively measuring the strength of the electromagnet you are going to create and ways of testing at least two of the parameters of the model that determine magnetic field strength.
+
+         ## Lab activities
+
+         1. Read through all of the lab steps and identify the step (or sub-step) that you think will be the most challenging.
+         2.  List at least one question you have about the lab activity.
+
+         # IRF710PBF Pin-Out and Schematic
+
+         ![MOSFET schematic symbol and pin out configuration.](../resources/lab8fig/mosfetpo.png){#fig:mosfetpo width="15cm"}
+
+         **CAUTION!**
+
+         1. These transistors are vulnerable to static discharges. Discharge yourself before handling the device. Also, never apply power to a MOSFET before the gate is properly terminated. If the gate is left open, it will turn on when the power supply is connected to the circuit.
+         2. As you may dissipate lots of power in your transistor, make sure you have a heat-sink attached to your MOSFET. Also, do not touch the FET until you are sure it has cooled off after use.
+         3. Note that the drain is connected to the back flange of the transistors as well as the center pin.
+
+         # Device Characterization
+
+         ![Test circuit to determine the MOSFET I-V curves.](../resources/lab8fig/testcir.png){#fig:testcir width="15cm"}
+
+         ## Characterizing the MOSFET {#sec:fetchar}
+
+         1. Build the test circuit for the MOSFET shown in Figure @fig:testcir. Make sure to attach a heat sink fin to the FET. (See notes of caution above.) You can use the 10-turn pot on the interface panel of your protoboard. The 10-turn pot allows more intuitive control of the $V_{GS}$ than the knobs on the DC power supply. You can measure the resistance between pairs of the three leads to make sure you have it wired correctly. 
+         2. Devise a quick way to determine the approximate threshold voltage for your device and write down your method. Proceed with finding the approximate threshold voltage. Is this value within the specified range for the IRF710PBF? 
+         3. Measure the characteristic $I_D$ vs. $V_{DS}$ curve for a value of $V_{GS}$ that will give you about 0.5 A in the saturation regime (see @sec:fetcharpre\.2). Plot the measurements on the same graph as your prelab predictions. Do your measurements agree qualitatively with the predictions from the data sheet?
+         4. Measure the relationship between $I_D$ and $V_{GS}$ for one value of $V_{DS}$. Use your measurements from @sec:fetchar\.3 and the data sheet to determine the $V_{DS}$ value so as to operate in the saturated regime. Describe how you determined the value of $V_{DS}$ to use. Plot $I_D$ vs. $V_{GS}$ on the same graph as your prelab predictions. Do your measurements agree qualitatively with the predictions from the data sheet? If there is a difference, what could account for the discrepancy? Fit your data to obtain values for $k$ and $V_{th}$, including uncertainties. Do these match your predictions from @sec:fetcharpre\.3? Does the value for $V_{th}$ agree with your result from @sec:fetchar\.2?  
+
+         # Voltage Controlled Electromagnet
+
+         ![Circuit diagram for a voltage-controlled electromagnet.](../resources/lab8fig/magcircuit.png){#fig:magcircuit width="15cm"}
+
+         ## Electromagnetic coil
+
+         1. Build, or find in the lab, a 25-turn coil (about 1 inch in diameter) made from magnet wire. Note that you will need to strip insulating varnish off the ends of the wire. You can do this with a lighter and/or sandpaper.
+         2. Measure the resistance of the coil using the 4-terminal measurement as you did in Lab 1 (run a large current through the wire and measure the voltage across it). Describe your procedure and measurements.
+         3. Modify your model of the magnetic field you developed in the prelab to include the actual number of turns and diameter of your coil.
+
+         ## Electromagnet 
+
+         1. Build the circuit shown in Figure @fig:magcircuit using your coil.
+         2. Using the data you acquired in section @sec:fetchar, determine $V_{supply}$ and $V_{GS}$ to operate your electromagnet with 1 A of current in the saturation region. Remember to include the voltage drop across your coil in your calculations (HINT: $V_{DS} = V_{supply} ~–~ I_DR_{coil}$). To reduce the heat load on the FET, you should use the minimum $V_{supply}$ that fulfills the requirements.
+         3. Test out your electromagnet. Choose a way to test your model of the magnetic field produced. Explain the model you are testing and what your predictions are (even qualitative, such as how things scale).
+         4. Describe your procedures, results/measurements, and refinements to your model. Some starter suggestions are listed below. Be creative! You should try a few different things:
+            - Measure the magnetic field as a function of distance from the plane of the loop using the Gaussmeter in lab (or a magnetometer app on your phone). You can also slide the wire loops off-center and see the dependence. 
+            - Look at the force applied by a permanent magnet on the coil and see how that scales with current or number of turns.
+            - By changing $V_{GS}$, you can vary the current through the coil. Measure the field strength as a function of the current. 
+            - Vary the number of turns on your loop of wire and verify the dependence.
+            - Slide a screwdriver (steel) or another steel rod into the coil and report what happens.
+            - Check the effect of your coil on a compass and compare to the known magnetic field of the Earth. 
+            - Get a power supply that can supply more current and pick up objects, test how the number or weight of objects you can pick up depends on the current. 
+            - Wrap your coil around an iron core and test how the magnetic field changes, refine your model to include the iron.
+         -->
+               </div>
+            <!-- Mathjax -->
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script>
+
+      </script>
+   </body>
+</html>

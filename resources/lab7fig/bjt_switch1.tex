@@ -14,12 +14,10 @@
 
 
     \begin{circuitikz}[american voltages]
-    \draw (0,0)
-        to [V, invert, l=$V_\text{in}$] (0,4)
-        to [rmeter, t=A] ++(2,0) to [R, l=$33\ \Omega$] ++(0,-2) coordinate(FB) 
-        to [D,l=1N4002] ++(0,-2) to ++(-1,0) node[ground]{} to (0,0);
-    \draw (FB) to [short, *-] ++(0,0) to [short, -o] ++(1,0) node[anchor = west]{$V_\text{out}$}  
-    ;
+    \draw (0,0) node[npn](npn) {}
+    (npn.B) to [R,l_=$R_B$] ++(-1.5,0) to [short,-o] ++(-.25,0) node[anchor=east] {$V_\text{in}$}
+    (npn.E) node[ground]{}
+    (npn.C) to [R,l_=$R_C$] ++(0,1.5) to [short,-o] ++(0,.25) node[anchor=south] {$9\text{ V}$};
     \end{circuitikz}
 
 

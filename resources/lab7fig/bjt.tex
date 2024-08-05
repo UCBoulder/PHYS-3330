@@ -1,0 +1,35 @@
+% Process for creating PNG:
+% 1 - Compile this document
+% 2 - Download PDF
+% 3 - Upload to https://cloudconvert.com/pdf-to-png
+% 4 - Set Pixel Density to 600
+% 5 - Download PNG file and upload to Overleaf
+
+\documentclass[border=0.2cm]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\standaloneenv{circuitikz}
+\begin{document}
+
+
+    \begin{circuitikz}[american voltages]
+    \draw (-3.25,1) node[]{(a)} (1.5,1) node[]{(b)}; 
+    \draw (-2.75,-.75) rectangle ++(.75,.6) node[pos=.5] {N} (-2.75,-.75) ++(0,.6) rectangle ++(.75,.3) node[pos=.5] {P} (-2.75,-.75) ++(0,.6+.3) rectangle ++(.75,.6) node[pos=.5] {N};
+    \draw (0,0) node[npn](npn) {NPN}
+    (npn.B) node[anchor=east] {base}
+    (npn.C) node[anchor=south] {collector}
+    (npn.E) node[anchor=north] {emitter};
+    \draw (2,-.75) rectangle ++(.75,.6) node[pos=.5] {P} (2,-.75) ++(0,.6) rectangle ++(.75,.3) node[pos=.5] {N} (2,-.75) ++(0,.6+.3) rectangle ++(.75,.6) node[pos=.5] {P};
+    \draw (4.75,0) node[pnp](pnp) {PNP}
+    (pnp.B) node[anchor=east] {base}
+    (pnp.C) node[anchor=north] {collector}
+    (pnp.E) node[anchor=south] {emitter};
+    \draw[white] (5.75,0) node[]{.};
+    \end{circuitikz}
+
+
+\end{document}
+
+
+ 
