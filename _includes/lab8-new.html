@@ -1,0 +1,1137 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="generator" content="pandoc">
+      <meta name="author" content="Department of Physics | University of
+Colorado Boulder">
+      
+      <title>PHYS 3330</title>
+         </head>
+   <body>
+            <div>
+         <style>
+            .eqnos { display: inline-block; position: relative; width: 100%; }
+            .eqnos br { display: none; }
+            .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
+         </style>
+         <h1 class="title">Lab 8 - Discrete Amplifier</h1>
+                  <h1 class="title">Contents</h1>
+        <nav id="TOC">
+            <ul>
+            <li><a href="#goals" id="toc-goals"><span
+            class="toc-section-number">1</span> Goals</a>
+            <ul>
+            <li><a href="#definitions" id="toc-definitions"><span
+            class="toc-section-number">1.1</span> Definitions</a></li>
+            <li><a href="#bipolar-junction-transistors---review"
+            id="toc-bipolar-junction-transistors---review"><span
+            class="toc-section-number">1.2</span> Bipolar Junction
+            Transistors - Review</a></li>
+            </ul></li>
+            <li><a href="#prelab" id="toc-prelab"><span
+            class="toc-section-number">2</span> Prelab</a>
+            <ul>
+            <li><a href="#emitter-follower"
+            id="toc-emitter-follower"><span
+            class="toc-section-number">2.1</span> Emitter Follower</a>
+            <ul>
+            <li><a href="#1.1" id="toc-1.1"><span
+            class="toc-section-number">2.1.1</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#common-emitter-amplifier"
+            id="toc-common-emitter-amplifier"><span
+            class="toc-section-number">2.2</span> Common Emitter
+            Amplifier</a>
+            <ul>
+            <li><a href="#2.1" id="toc-2.1"><span
+            class="toc-section-number">2.2.1</span> Prelab
+            Question</a></li>
+            <li><a href="#2.2" id="toc-2.2"><span
+            class="toc-section-number">2.2.2</span> Prelab
+            Question</a></li>
+            <li><a href="#2.3" id="toc-2.3"><span
+            class="toc-section-number">2.2.3</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a
+            href="#input-and-output-impedances-of-the-common-emitter-amplifier-and-emitter-follower"
+            id="toc-input-and-output-impedances-of-the-common-emitter-amplifier-and-emitter-follower"><span
+            class="toc-section-number">2.3</span> Input and Output
+            Impedances of the Common Emitter Amplifier and Emitter
+            Follower</a></li>
+            <li><a
+            href="#quiescent-voltage-and-biasing-a-transistor-amplifier"
+            id="toc-quiescent-voltage-and-biasing-a-transistor-amplifier"><span
+            class="toc-section-number">2.4</span> Quiescent Voltage and
+            Biasing a Transistor Amplifier</a>
+            <ul>
+            <li><a href="#3.1" id="toc-3.1"><span
+            class="toc-section-number">2.4.1</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#completing-the-common-emitter-amplifier"
+            id="toc-completing-the-common-emitter-amplifier"><span
+            class="toc-section-number">2.5</span> Completing the Common
+            Emitter Amplifier</a>
+            <ul>
+            <li><a href="#4.1" id="toc-4.1"><span
+            class="toc-section-number">2.5.1</span> Prelab
+            Question</a></li>
+            </ul></li>
+            </ul></li>
+            <li><a href="#ebers-moll-model-of-a-bipolar-transistor"
+            id="toc-ebers-moll-model-of-a-bipolar-transistor"><span
+            class="toc-section-number">3</span> Ebers-Moll Model of a
+            Bipolar Transistor</a></li>
+            <li><a href="#useful-readings"
+            id="toc-useful-readings"><span
+            class="toc-section-number">4</span> Useful Readings</a></li>
+            <li><a href="#prelab-1" id="toc-prelab-1"><span
+            class="toc-section-number">5</span> Prelab</a>
+            <ul>
+            <li><a href="#biasing-the-transistor"
+            id="toc-biasing-the-transistor"><span
+            class="toc-section-number">5.1</span> Biasing the
+            transistor</a></li>
+            <li><a href="#sec:cea" id="toc-sec:cea"><span
+            class="toc-section-number">5.2</span> Common emitter
+            amplifier</a></li>
+            <li><a href="#sec:dsa" id="toc-sec:dsa"><span
+            class="toc-section-number">5.3</span> Dual stage
+            amplifier</a></li>
+            <li><a href="#audio-amplifier"
+            id="toc-audio-amplifier"><span
+            class="toc-section-number">5.4</span> Audio
+            amplifier</a></li>
+            <li><a href="#lab-activities" id="toc-lab-activities"><span
+            class="toc-section-number">5.5</span> Lab
+            activities</a></li>
+            </ul></li>
+            <li><a href="#common-emitter-amplifier-1"
+            id="toc-common-emitter-amplifier-1"><span
+            class="toc-section-number">6</span> Common Emitter
+            Amplifier</a>
+            <ul>
+            <li><a href="#quiescent-scale"
+            id="toc-quiescent-scale"><span
+            class="toc-section-number">6.1</span> Quiescent
+            scale</a></li>
+            <li><a href="#check-limits-with-ac-signal"
+            id="toc-check-limits-with-ac-signal"><span
+            class="toc-section-number">6.2</span> Check limits with AC
+            signal</a></li>
+            <li><a href="#measuring-the-ac-gain"
+            id="toc-measuring-the-ac-gain"><span
+            class="toc-section-number">6.3</span> Measuring the AC
+            gain</a></li>
+            <li><a href="#output-impedance"
+            id="toc-output-impedance"><span
+            class="toc-section-number">6.4</span> Output
+            impedance</a></li>
+            </ul></li>
+            <li><a href="#dual-stage-amplifier"
+            id="toc-dual-stage-amplifier"><span
+            class="toc-section-number">7</span> Dual Stage Amplifier</a>
+            <ul>
+            <li><a href="#quiescent-scale-1"
+            id="toc-quiescent-scale-1"><span
+            class="toc-section-number">7.1</span> Quiescent
+            scale</a></li>
+            <li><a href="#low-frequency-ac-gain"
+            id="toc-low-frequency-ac-gain"><span
+            class="toc-section-number">7.2</span> Low frequency AC
+            gain</a></li>
+            <li><a href="#output-impedance-1"
+            id="toc-output-impedance-1"><span
+            class="toc-section-number">7.3</span> Output
+            impedance</a></li>
+            </ul></li>
+            </ul>
+        </nav>
+        <hr/>
+         <h1 data-number="1" id="goals"><span
+         class="header-section-number">1</span> Goals</h1>
+         <p>In this lab, you will continue learning how transistors work
+         by creating a dual-stage amplifier out of discrete transistors.
+         The two stages of the amplifier can each be made from a single
+         transistor; one stage will be a common emitter amplifier, and
+         the other will be an emitter follower. We will use this as an
+         audio amplifier.</p>
+         <p>Last week you learned some basics about bipolar junction
+         transistors (BJT) and used LTspice to build some basic BJT
+         circuits. This week we will get hands on experience with BJTs.
+         You will also refine your ability to model and predict the
+         behavior of BJTs.</p>
+         <h2 data-number="1.1" id="definitions"><span
+         class="header-section-number">1.1</span> Definitions</h2>
+         <p><strong>AC component of a voltage</strong>: <span
+         class="math inline">\(v\)</span> - A voltage <span
+         class="math inline">\(V\)</span> which has an AC signal riding
+         on a DC offset can be defined as <span
+         class="math inline">\(V=v+V_{DC}\)</span>, where <span
+         class="math inline">\(v\)</span> defines the amplitude of the
+         AC signal and <span class="math inline">\(V_{DC}\)</span> is
+         the DC offset.</p>
+         <p><strong>NPN</strong> - A BJT where positive current (current
+         into the base) pulls current into the collector and out of the
+         emitter.</p>
+         <p><strong>PNP</strong> - A BJT where a negative current
+         (current out of the base) pulls current into the emitter and
+         out of the collector. It is simplest to think of a PNP as an
+         NPN where all the currents are negative relative to an NPN.</p>
+         <p><strong>Base current</strong>: <span
+         class="math inline">\(I_B\)</span> - The amount of current that
+         flows into the base. This current controls the BJT.</p>
+         <p><strong>Collector current</strong>: <span
+         class="math inline">\(I_C\)</span> - the current that is
+         controlled by the base current.</p>
+         <p><strong>Emitter current</strong>: <span
+         class="math inline">\(I_E\)</span> - The collector current and
+         base current combine, such that <span
+         class="math inline">\(I_E=I_C+I_B\)</span>.</p>
+         <p><strong>Current gain</strong>: <span
+         class="math inline">\(h_{FE}\)</span> <strong>or</strong> <span
+         class="math inline">\(\beta\)</span> - The control current
+         <span class="math inline">\(I_B\)</span> is related to the
+         controlled current <span class="math inline">\(I_C\)</span> by
+         the current gain, such that <span class="math inline">\(I_C =
+         h_{FE}I_B\)</span>. This value generally depends on current and
+         temperature.</p>
+         <p><strong>Base voltage</strong>: <span
+         class="math inline">\(V_B\)</span> - the voltage at the base
+         relative to ground.</p>
+         <p><strong>Collector voltage</strong>: <span
+         class="math inline">\(V_C\)</span> - the voltage at the
+         collector relative to ground.</p>
+         <p><strong>Emitter voltage</strong>: <span
+         class="math inline">\(V_E\)</span> - the voltage at the emitter
+         relative to ground.</p>
+         <p><strong>Collector-emitter voltage</strong>: <span
+         class="math inline">\(V_{CE}\)</span> - The voltage difference
+         between the collector and emitter.</p>
+         <p><strong>Base-emitter voltage</strong>: <span
+         class="math inline">\(V_{BE}\)</span> - The voltage difference
+         from the base to the emitter; when the transistor is active,
+         this will be a diode-like voltage drop (about 0.6 V for
+         silicon).</p>
+         <p><strong>Coupling capacitor</strong> - A capacitor in series
+         with a signal that essentially acts as a short for high
+         frequencies and an open circuit for DC. This allows you to
+         “couple” a signal into a circuit in a way that DC currents
+         can’t flow back into the signal source.</p>
+         <p><strong>Decoupling capacitor</strong> - A capacitor between
+         a supply voltage and ground. This compensates for a power
+         supply’s inductance and acts as a power reservoir. You have
+         used these for powering your op-amp circuits.</p>
+         <h2 data-number="1.2"
+         id="bipolar-junction-transistors---review"><span
+         class="header-section-number">1.2</span> Bipolar Junction
+         Transistors - Review</h2>
+         <p>You have seen how a BJT is a current amplifier. However
+         because currents and voltages are related, it is possible to
+         use current amplification to make a voltage amplifier. In this
+         experiment we will build a simple two-stage voltage amplifier
+         using two BJTs.</p>
+         <p>In many practical applications it is easier to use an op-amp
+         as a source of gain rather than to build an amplifier from
+         discrete transistors. A good understanding of transistor
+         fundamentals is nevertheless essential because op-amps are
+         built from transistors. We will learn later about digital
+         circuits, which are also made from transistors. In addition to
+         the importance of transistors as components of op-amps, digital
+         circuits, and an enormous variety of other integrated circuits,
+         single transistors (usually called “discrete” transistors) are
+         used in many applications. They are important as interface
+         devices between integrated circuits and sensors, indicators,
+         and other devices used to communicate with the outside world.
+         High-performance amplifiers operating from DC through microwave
+         frequencies use discrete transistor “front-ends” to achieve the
+         lowest possible noise. Discrete transistors can also be much
+         faster than op-amps; for example, the device we will use this
+         week has a gain-bandwidth product of 300 MHz (compared to 5 MHz
+         for the LF356 op-amp you have been using).</p>
+         <p>As a refresher, the three terminals of a bipolar transistor
+         are called the collector, base, and emitter (Figure <span
+         class="citation" data-cites="fig:NPN-PNP">@fig:NPN-PNP</span>).
+         A small current into the base controls a large current flow
+         from the collector to the emitter. This means that the
+         transistor acts as a current amplifier with a current gain
+         <span class="math inline">\(h_{FE}\)</span> (or <span
+         class="math inline">\(\beta\)</span>). Moreover, the large
+         collector current flow is almost independent of the voltage
+         across the transistor from collector to emitter <span
+         class="math inline">\(V_{CE}\)</span>. This makes it possible
+         to obtain a large amplification of voltage by having the
+         collector current flow through a resistor.</p>
+         <figure>
+         <img src="../resources/lab7fig/bjt.png" id="fig:NPN-PNP"
+         style="width:16cm"
+         alt="(a) An NPN is the “positive” BJT and (b) a PNP is the “negative” BJT." />
+         <figcaption aria-hidden="true">(a) An NPN is the “positive” BJT
+         and (b) a PNP is the “negative” BJT.</figcaption>
+         </figure>
+         <p>From the simplest point of view a bipolar transistor is a
+         current amplifier. The current flowing from collector to
+         emitter is equal to the base current multiplied by a factor. An
+         NPN transistor like the 2N3904 operates with the collector
+         voltage at least a few tenths of a volt above the emitter, and
+         with a current flowing into the base. There are also PNP
+         transistors with opposite polarity voltages and currents. The
+         base-emitter junction acts like a forward-biased diode with a
+         <span class="math inline">\(0.6\text{ V}\)</span> drop:</p>
+         <p><span class="math display">\[V_E \approx V_B-0.6\text{
+         V}\]</span></p>
+         <p><span class="math display">\[V_{BE} \approx 0.6\text{
+         V}\]</span></p>
+         <p>Under these conditions, the collector current is
+         proportional to the base current:</p>
+         <p><span class="math display">\[I_C = h_{FE}I_B\]</span></p>
+         <p>The constant of proportionality (‘current gain’) is called
+         <span class="math inline">\(h_{FE}\)</span> because it is one
+         of the "h-parameters", which are a set of numbers that give a
+         complete description of the small-signal properties of a
+         transistor. It is important to keep in mind that <span
+         class="math inline">\(h_{FE}\)</span> is not a constant. It
+         depends on collector current, and it can vary by 50% or more
+         from device to device.</p>
+         <p>The emitter current can be determined by current
+         conservation:</p>
+         <p><span class="math display">\[I_E = I_B+I_C =
+         I_C\left(\frac{1}{h_{fe}}+1\right)\]</span></p>
+         <p>The difference between <span
+         class="math inline">\(I_C\)</span> and <span
+         class="math inline">\(I_E\)</span> is almost never important
+         since <span class="math inline">\(h_{FE}\)</span> is normally
+         in the range between <span class="math inline">\(50\)</span>
+         and <span class="math inline">\(1000\)</span>, so you can
+         generally assume that <span class="math inline">\(I_E =
+         I_C\)</span>. Another way to say this is that the base current
+         is very small compared to the collector and emitter
+         currents.</p>
+         <h1 data-number="2" id="prelab"><span
+         class="header-section-number">2</span> Prelab</h1>
+         <figure>
+         <img src="../resources/lab7fig/npn.png" id="fig:NPN"
+         alt="Diagram of an NPN bipolar junction transistor (left) and schematic symbol (right)" />
+         <figcaption aria-hidden="true">Diagram of an NPN bipolar
+         junction transistor (left) and schematic symbol
+         (right)</figcaption>
+         </figure>
+         <h2 data-number="2.1" id="emitter-follower"><span
+         class="header-section-number">2.1</span> Emitter Follower</h2>
+         <figure>
+         <img src="../resources/lab8fig/emitterf.png" id="fig:emitterf"
+         style="width:7cm" alt="Emitter follower transistor circuit" />
+         <figcaption aria-hidden="true">Emitter follower transistor
+         circuit</figcaption>
+         </figure>
+         <p>The emitter follower (EF) is a very simple BJT circuit that
+         just involves a single BJT and a single resistor. This looks
+         similar to the switch you designed last week. However, because
+         the emitter is not directly grounded, it is not necessary to
+         have a base limiting resistor (between <span
+         class="math inline">\(V_\text{in}\)</span> and the base); the
+         emitter resistor <span class="math inline">\(R_E\)</span> will
+         limit the current.</p>
+         <p>The fact this circuit is called a follower should clue you
+         in to what its function is, which you will solve in the
+         following questions.</p>
+         <h3 data-number="2.1.1" id="1.1"><span
+         class="header-section-number">2.1.1</span> Prelab Question</h3>
+         <ol type="1">
+         <li><p>When <span
+         class="math inline">\(V_\text{in}&gt;V_{th}\)</span>, what will
+         the base-emitter voltage <span
+         class="math inline">\(V_{BE}\)</span> be?</p></li>
+         <li><p>Use <span class="math inline">\(V_{BE}\)</span> to
+         determine <span
+         class="math inline">\(V_\text{out}\)</span>.</p></li>
+         <li><p>Use <span class="math inline">\(V_\text{out}\)</span> to
+         determine the current through <span
+         class="math inline">\(R_E\)</span>.</p></li>
+         </ol>
+         <h2 data-number="2.2" id="common-emitter-amplifier"><span
+         class="header-section-number">2.2</span> Common Emitter
+         Amplifier</h2>
+         <figure>
+         <img src="../resources/lab8fig/emittera.png" id="fig:emittera"
+         style="width:7cm" alt="Emitter amplifier transistor circuit" />
+         <figcaption aria-hidden="true">Emitter amplifier transistor
+         circuit</figcaption>
+         </figure>
+         <p>In the lab, you will begin by constructing a common emitter
+         amplifier (CEA), which operates on the principle of a current
+         amplifier. However, a major fault of the common emitter
+         amplifier is its high output impedance. This problem can be
+         fixed by adding an emitter follower as a second stage. The
+         common-emitter amplifier and the emitter follower are two
+         common bipolar transistor circuits.</p>
+         <p>The common emitter amplifier is similar to the emitter
+         follower but with the output at the collector instead of the
+         emitter and with a collector resistor <span
+         class="math inline">\(R_C\)</span>. Again the base-emitter
+         voltage <span class="math inline">\(V_{BC}\)</span> will be
+         <span class="math inline">\(V_{th}\)</span> when active, so
+         <span class="math inline">\(V_E = V_\text{in} -
+         V_{th}\)</span>, and therefore</p>
+         <p><span class="math display">\[I_E =
+         \frac{V_\text{in}-V_{th}}{R_E}\]</span></p>
+         <p>Since <span class="math inline">\(I_C\approx I_E\)</span>,
+         we can then consider this as the current through <span
+         class="math inline">\(R_C\)</span>, then the voltage drop
+         across <span class="math inline">\(R_C\)</span> can be used to
+         determine <span class="math inline">\(V_\text{out}\)</span></p>
+         <p><span class="math display">\[V_\text{supply}-V_\text{out} =
+         I_C R_C \approx I_E R_C\]</span></p>
+         <p><span class="math display">\[V_\text{out} = V_\text{supply}
+         - \frac{R_C}{R_E}(V_\text{in}-V_{th}) \]</span></p>
+         <p>This analysis suggests that the output rides on a DC offset
+         of <span class="math inline">\((V_\text{supply}+V_{th}
+         R_C/R_E)\)</span>. Trying to define the gain as <span
+         class="math inline">\(V_\text{out}/V_\text{in}\)</span> clearly
+         leads to a weird result. It is better to define it in terms of
+         only the AC component of the signal.</p>
+         <p><span class="math display">\[G =
+         \frac{v_\text{out}}{v_\text{in}}\]</span></p>
+         <p>where</p>
+         <p><span class="math display">\[v_\text{out} =
+         -v_\text{in}\frac{R_C}{R_E}\]</span></p>
+         <p>so</p>
+         <p><span class="math display">\[G =
+         -\frac{R_C}{R_E}\]</span></p>
+         <p>Notice how none of this depended on the specific value of
+         <span class="math inline">\(h_{FE}\)</span>. This is a good
+         thing because <span class="math inline">\(h_{FE}\)</span> is
+         not a constant, so the amplifier can act stable under various
+         conditions.</p>
+         <h3 data-number="2.2.1" id="2.1"><span
+         class="header-section-number">2.2.1</span> Prelab Question</h3>
+         <ol type="1">
+         <li><p>When <span
+         class="math inline">\(V_\text{in}&lt;V_{th}\)</span>, is the
+         transistor active?</p></li>
+         <li><p>When <span
+         class="math inline">\(V_\text{in}&lt;V_{th}\)</span>, what is
+         <span class="math inline">\(I_C\)</span>?</p></li>
+         <li><p>When <span
+         class="math inline">\(V_\text{in}&lt;V_{th}\)</span>, what is
+         <span class="math inline">\(V_\text{out}\)</span>?</p></li>
+         </ol>
+         <h3 data-number="2.2.2" id="2.2"><span
+         class="header-section-number">2.2.2</span> Prelab Question</h3>
+         <p>Consider the common emitter amplifier with</p>
+         <ul>
+         <li><p><span class="math inline">\(V_\text{supply}=15\text{
+         V}\)</span>,</p></li>
+         <li><p><span class="math inline">\(R_C=2.74\text{
+         k}\Omega\)</span>,</p></li>
+         <li><p><span class="math inline">\(R_E=1\text{
+         k}\Omega\)</span>.</p></li>
+         </ul>
+         <ol type="1">
+         <li>What is the voltage gain?</li>
+         </ol>
+         <p>Consider an input signal that is a sine wave that oscillates
+         around <span class="math inline">\(0\text{ V}\)</span> with an
+         amplitude of <span class="math inline">\(4\text{ V}\)</span>
+         (<span class="math inline">\(8\text{ V}\)</span>
+         peak-to-peak)</p>
+         <ol start="2" type="1">
+         <li>Sketch a plot (you can use Python) with <span
+         class="math inline">\(V_\text{in}\)</span> and <span
+         class="math inline">\(V_\text{out}\)</span>. <em>Hint:</em>
+         consider your solutions in Question <span class="citation"
+         data-cites="2.1">@2.1</span>.</li>
+         </ol>
+         <h3 data-number="2.2.3" id="2.3"><span
+         class="header-section-number">2.2.3</span> Prelab Question</h3>
+         <p>We found that the output will clip at a maximum of <span
+         class="math inline">\(V_\text{max} = V_\text{supply}\)</span>
+         when <span
+         class="math inline">\(V_\text{in}&lt;V_{th}\)</span>. Now
+         consider the clipping for the minimum value of <span
+         class="math inline">\(V_\text{out}\)</span>; i.e. <span
+         class="math inline">\(V_\text{min}\)</span>. The equation for
+         he output voltage can be rewritten</p>
+         <p><span class="math display">\[V_C =
+         V_\text{supply}-\frac{R_C}{R_E}(V_B-V_{th}) =
+         V_\text{supply}-\frac{R_C}{R_E}V_E\]</span></p>
+         <p>by recognizing that <span
+         class="math inline">\(V_\text{out}\)</span> is the collector
+         voltage <span class="math inline">\(V_C\)</span> and <span
+         class="math inline">\(V_\text{in}\)</span> is the base voltage
+         <span class="math inline">\(V_B\)</span>. We can determine the
+         lower clipping value by knowing that it is impossible for <span
+         class="math inline">\(V_{CE}\)</span> to be negative. This can
+         also be stated that <span class="math inline">\(V_C\)</span>
+         must be greater than <span
+         class="math inline">\(V_E\)</span>:</p>
+         <p><span class="math display">\[V_C\ge V_E\]</span></p>
+         <ol type="1">
+         <li><p>You can determine the minimum <span
+         class="math inline">\(V_C\)</span> <span
+         class="math inline">\((V_\text{out})\)</span> by finding the
+         value of <span class="math inline">\(V_C\)</span> that occurs
+         when <span class="math inline">\(V_C=V_E\)</span>. Use this
+         condition to express the minimum <span
+         class="math inline">\(V_C\)</span> with respect to <span
+         class="math inline">\(V_\text{supply}\)</span>, <span
+         class="math inline">\(R_C\)</span>, and <span
+         class="math inline">\(R_E\)</span>.</p></li>
+         <li><p>Determine the minimum output voltage for <span
+         class="math inline">\(V_\text{supply}=15\text{ V}\)</span>,
+         <span class="math inline">\(R_C=2.74\text{ k}\Omega\)</span>,
+         and <span class="math inline">\(R_E=1\text{
+         k}\Omega\)</span>.</p></li>
+         <li><p>What is the maximum input voltage that corresponds to
+         this minimum output voltage (recall this is an inverting
+         amplifier)? <em>Hint:</em> Express the equation above under the
+         <span class="math inline">\(V_C=V_E\)</span> condition in terms
+         of <span class="math inline">\(V_E\)</span> instead of <span
+         class="math inline">\(V_C\)</span> and then express it in terms
+         of <span class="math inline">\(V_B\)</span>. <em>Recall:</em>
+         <span class="math inline">\(V_B=V_C-V_{th}\)</span>.</p></li>
+         </ol>
+         <h2 data-number="2.3"
+         id="input-and-output-impedances-of-the-common-emitter-amplifier-and-emitter-follower"><span
+         class="header-section-number">2.3</span> Input and Output
+         Impedances of the Common Emitter Amplifier and Emitter
+         Follower</h2>
+         <p>The input impedance is defined by</p>
+         <p><span class="math display">\[R_\text{in} =
+         \frac{V_\text{in}}{I_\text{in}}\]</span></p>
+         <p>Since the the input current <span
+         class="math inline">\(I_\text{in}\)</span> goes into the base,
+         <span class="math inline">\(I_\text{in}=I_B\)</span>, so</p>
+         <p><span class="math display">\[I_\text{in}=
+         \frac{I_C}{h_{FE}}\]</span></p>
+         <p>Since <span class="math inline">\(I_C\approx
+         I_C=V_\text{in}\)</span></p>
+         <p>The input impedance is the same for both the emitter
+         follower and the common emitter amplifier. The input
+         impedance</p>
+         <p>The input impedance looking into the base of the common
+         emitter amplifier is</p>
+         <p><span class="math display">\[r_\text{in} = R_E
+         h_{FE}\]</span></p>
+         <p>where <span class="math inline">\(R_E\)</span> is whatever
+         impedance is connected to the emitter. If there is no load
+         attached, it is just the emitter resistor. However, if there is
+         a load attached, <span class="math inline">\(R_E\)</span> will
+         be the emitter resistor in parallel with the input impedance of
+         the load (or the next stage). This input impedance is for the
+         base of the transistor. If there is a biasing network in place,
+         then the input impedance of the <em>circuit</em> will be <span
+         class="math inline">\(r_{in}\)</span> in parallel with the base
+         bias resistors.</p>
+         <p>The output impedance of the common emitter amplifier (Figure
+         <span class="citation"
+         data-cites="fig:emittera">@fig:emittera</span>) is just equal
+         to the collector resistor <span
+         class="math inline">\(R_C\)</span>:</p>
+         <p><span class="math display">\[r_{out} = R_C ~~\text{(common
+         emitter)}\]</span></p>
+         <p>The output impedance of the emitter follower is found to
+         be:</p>
+         <p><span class="math display">\[r_{out} = \frac{R_B}{h_{fe}
+         +1}~~ \text{(emitter follower)}\]</span></p>
+         <p>where <span class="math inline">\(R_B\)</span> indicates
+         whatever impedance is connected to the base. To be more
+         precise, one should also include the emitter resistor in
+         parallel with rout for the true output impedance of the
+         circuit, but this is usually not necessary as rout is usually
+         much smaller than <span class="math inline">\(R_E\)</span>.
+         Also, please note the next section gives a more precise
+         estimate of <span class="math inline">\(r_{out}\)</span>.</p>
+         <h2 data-number="2.4"
+         id="quiescent-voltage-and-biasing-a-transistor-amplifier"><span
+         class="header-section-number">2.4</span> Quiescent Voltage and
+         Biasing a Transistor Amplifier</h2>
+         <p>Your plot in Question <span class="citation"
+         data-cites="2.2">@2.2</span> shows that the common emitter
+         amplifier is unable to effectively amplify signals that
+         oscillate around <span class="math inline">\(0\text{
+         V}\)</span> due to the fact that the output signal gets clipped
+         at <span class="math inline">\(V_\text{supply}\)</span>. One
+         solution to this issue is to ‘bias’ the input of the amplifier
+         so that the input oscillates around a DC offset instead of
+         around <span class="math inline">\(0\text{ V}\)</span>. You
+         found above that when the input voltage is less than the
+         threshold voltage, <span
+         class="math inline">\(V_\text{out}=V_\text{supply}\)</span>. We
+         can define the <em>quiescent voltage</em> as:</p>
+         <p><strong>DEFINITION: Quiescent voltage</strong>: <span
+         class="math inline">\(V_Q\)</span> - the DC voltage at an
+         output terminal with reference to ground when no signal is
+         applied. <em>Note:</em> quiescent means ‘at rest’.</p>
+         <p>So the common emitter amplifier we considered above has a
+         quiescent voltage <span
+         class="math inline">\(V_Q=V_\text{supply}\)</span>. This
+         clearly is a major issue since the maximum clipping voltage is
+         also <span class="math inline">\(V_\text{supply}\)</span>. In
+         order to amplify signals that oscillate around zero, the
+         quiescent voltage needs to be lowered (to roughly halfway
+         between the clipping voltages). Consider the circuit below:</p>
+         <figure>
+         <img src="../resources/lab8fig/biased-transistor.png"
+         id="fig:emitter-biased" style="width:13cm"
+         alt="A transistor biased by the resistor network formed by R_1 and R_2.." />
+         <figcaption aria-hidden="true">A transistor biased by the
+         resistor network formed by <span
+         class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span>..</figcaption>
+         </figure>
+         <p><span class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span> form a voltage divider to
+         set a ‘static state’ voltage at the base of the BJT. The
+         transfer function of the bias network is</p>
+         <p><span class="math display">\[T_\text{bias} =
+         \frac{R_2}{R_1+R_2}\]</span></p>
+         <p>This makes the ‘static state’ base voltage</p>
+         <p><span class="math display">\[V_B =
+         \frac{R_2}{R_1+R_2}V_\text{supply}\]</span></p>
+         <p>The base voltage should be above the threshold voltage such
+         that the transistor is active in the ‘static state,’ so</p>
+         <p><span class="math display">\[V_E =
+         \frac{R_2}{R_1+R_2}V_\text{supply} - V_{th}\]</span></p>
+         <p>The ‘static state’ current through <span
+         class="math inline">\(R_E\)</span> is then</p>
+         <p><span class="math display">\[I_E = \frac{V_E}{R_E} =
+         \frac{1}{R_E}\bigg(\frac{R_2}{R_1+R_2}V_\text{supply} -
+         V_{th}\bigg)\]</span></p>
+         <p>Assuming <span class="math inline">\(I_C=I_E\)</span>, the
+         collector voltage, and therefore the quiescent voltage, can be
+         determined</p>
+         <p><span class="math display">\[V_Q = V_C = V_\text{supply} -
+         I_CR_C
+         =  \bigg(1-\frac{R_CR_2}{R_E(R_1+R_2)}\bigg)V_\text{supply} +
+         \frac{R_C}{R_E}V_{th}\]</span></p>
+         <h3 data-number="2.4.1" id="3.1"><span
+         class="header-section-number">2.4.1</span> Prelab Question</h3>
+         <p>The circuit you will build will use a supply voltage of
+         <span class="math inline">\(V_\text{supply}=15\text{
+         V}\)</span> and collector and emitter resistors of <span
+         class="math inline">\(R_C=2.74\text{ k}\Omega\)</span> and
+         <span class="math inline">\(R_E = 1\text{ k}\Omega\)</span>
+         (you already determined the AC voltage gain for these
+         resistance values). We need to set a quiescent voltage that is
+         roughly half way between the two clipping voltages.</p>
+         <ol type="1">
+         <li><p>What quiescent voltage is halfway between the two
+         clipping voltages?</p></li>
+         <li><p>Determine the ‘static state’ base voltage value that
+         will result in the quiescent voltage you determined.</p></li>
+         <li><p>If <span class="math inline">\(R_2=10\text{
+         k}\Omega\)</span>, what value of <span
+         class="math inline">\(R_1\)</span> will result in the desired
+         quiescent voltage?</p></li>
+         </ol>
+         <h2 data-number="2.5"
+         id="completing-the-common-emitter-amplifier"><span
+         class="header-section-number">2.5</span> Completing the Common
+         Emitter Amplifier</h2>
+         <p>A simple way to add a DC voltage and an AC voltage is to
+         simply connect them together; however, this can lead to
+         currents flowing into the source of the AC voltage (the
+         function generator), which can lead to issues (like breaking
+         the function generator). To mitigate this, a coupling capacitor
+         should be used to couple the AC signal into the circuit. Since
+         a capacitor acts as an open circuit to DC currents, the bias
+         network will be unable to send a current back into the function
+         generator.</p>
+         <figure>
+         <img src="../resources/lab8fig/emitter-biased.png"
+         id="fig:emitter-biased" style="width:13cm"
+         alt="Common emitter amplifier with biasing network and input coupling capacitor." />
+         <figcaption aria-hidden="true">Common emitter amplifier with
+         biasing network and input coupling capacitor.</figcaption>
+         </figure>
+         <p>The signal at the base then will be the addition of the DC
+         bias set by the biasing network and the AC signal set by <span
+         class="math inline">\(V_\text{in}\)</span>. If <span
+         class="math inline">\(v_\text{in}\)</span> is the AC component
+         of <span class="math inline">\(V_\text{in}\)</span>, then</p>
+         <p><span class="math display">\[V_B = v_\text{in} +
+         \frac{R_2}{R_1+R_2}V_\text{supply}\]</span></p>
+         <p><em>Note:</em> If <span
+         class="math inline">\(V_\text{in}\)</span> is purely an AC
+         signal, then <span
+         class="math inline">\(V_\text{in}=v_\text{in}\)</span>.</p>
+         <p>Another issue we haven’t considered, yet, is the fact that
+         the power supply has series impedance, this makes it so that
+         the current through <span class="math inline">\(R_C\)</span>
+         (which is responsible for setting <span
+         class="math inline">\(V_\text{out}\)</span>) cannot change
+         without disrupting the voltage supplied to the circuit (we
+         discussed this in detail for lab 4). The solution is to add a
+         decoupling capacitor between the supply voltage and ground.</p>
+         <figure>
+         <img src="../resources/lab8fig/emittera-decoupled.png"
+         id="fig:emitter-decoupling" style="width:13cm"
+         alt="The decoupling capacitor is necessary for the same reasons it is needed for operating op-amps." />
+         <figcaption aria-hidden="true">The decoupling capacitor is
+         necessary for the same reasons it is needed for operating
+         op-amps.</figcaption>
+         </figure>
+         <p>Finally, the output of the circuit will oscillate around the
+         quiescent voltage. We can show this by solving the circuit:</p>
+         <p><span class="math display">\[V_E = V_B - V_{th} =
+         v_\text{in} + \frac{R_2}{R_1+R_2}V_\text{supply} -
+         V_{th}\]</span></p>
+         <p>So</p>
+         <p><span class="math display">\[I_C=I_E =
+         \frac{v_\text{in}}{R_E} +
+         \frac{R_2}{R_E(R_1+R_2)}V_\text{supply} -
+         \frac{V_{th}}{R_E}\]</span></p>
+         <p>And finally</p>
+         <p><span class="math display">\[V_\text{out} =
+         \bigg(1-\frac{R_CR_2}{R_E(R_1+R_2)}\bigg)V_\text{supply} +
+         \frac{R_C}{R_E}V_{th} - \frac{R_C}{R_E}v_\text{in} = V_Q -
+         \frac{R_C}{R_E}v_\text{in}\]</span></p>
+         <p>The AC component of <span
+         class="math inline">\(V_\text{out}\)</span> is</p>
+         <p><span class="math display">\[v_\text{out} =
+         -\frac{R_C}{R_E}v_\text{in}\]</span></p>
+         <p>To access just the AC component, you can simply use the AC
+         coupling feature on the oscilloscope to remove the quiescent
+         voltage from the measurement. However, in order to only send
+         the AC component to a load, you will need to use a coupling
+         capacitor to send the AC signal across while blocking the
+         quiescent voltage.</p>
+         <figure>
+         <img src="../resources/lab8fig/emittera-full.png"
+         id="fig:emittera-full" style="width:13cm"
+         alt="The coupling capacitor C_\text{out} passes the v_\text{out} while blocking V_Q" />
+         <figcaption aria-hidden="true">The coupling capacitor <span
+         class="math inline">\(C_\text{out}\)</span> passes the <span
+         class="math inline">\(v_\text{out}\)</span> while blocking
+         <span class="math inline">\(V_Q\)</span></figcaption>
+         </figure>
+         <p>This circuit above is a "complete" common emitter amplifier.
+         The resistors <span class="math inline">\(R_C\)</span> and
+         <span class="math inline">\(R_E\)</span> set the AC voltage
+         gain. The resistors <span class="math inline">\(R_1\)</span>
+         and <span class="math inline">\(R_2\)</span> bias the
+         transistor and set the quiescent voltage <span
+         class="math inline">\(V_Q\)</span>. The input coupling
+         capacitor <span class="math inline">\(C_\text{in}\)</span>
+         allows you to safely add <span
+         class="math inline">\(v_\text{in}\)</span> (the AC component of
+         <span class="math inline">\(V_\text{in}\)</span>) to the
+         voltage set by the biasing network formed by <span
+         class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span>. The decoupling capacitor
+         provides a power reservoir and offsets the effects of the power
+         supply’s series inductance. And finally the output coupling
+         capacitor <span class="math inline">\(C_\text{out}\)</span>
+         blocks the DC offset (quiescent voltage) while passing the AC
+         signal to the load <span
+         class="math inline">\(R_L\)</span>.</p>
+         <h3 data-number="2.5.1" id="4.1"><span
+         class="header-section-number">2.5.1</span> Prelab Question</h3>
+         <p>Notice that the output coupling capacitor and the load form
+         a RC filter (like the ones we studied in lab 3).</p>
+         <ol type="1">
+         <li><p>Is this a low pass or a high pass filter?</p></li>
+         <li><p>Write an expression for the cutoff frequency of the
+         filter.</p></li>
+         <li><p>Explain, from the perspective of the filter, how the
+         coupling capacitor "blocks" the quiescent voltage from getting
+         to the load.</p></li>
+         </ol>
+         <h1 data-number="3"
+         id="ebers-moll-model-of-a-bipolar-transistor"><span
+         class="header-section-number">3</span> Ebers-Moll Model of a
+         Bipolar Transistor</h1>
+         <p>Instead of using the current amplifier model, one can take
+         the view that the collector current <span
+         class="math inline">\(I_C\)</span> is controlled by the
+         base-emitter voltage <span
+         class="math inline">\(V_{BE}\)</span>. For our purposes, the
+         Ebers-Moll model modifies our current amplifier model of the
+         transistor in only one important way. For small variations
+         about the quiescent point, the transistor now acts as if it has
+         a small internal resistor, <span
+         class="math inline">\(r_e\)</span>, in series with the emitter.
+         The magnitude of the intrinsic emitter resistance, <span
+         class="math inline">\(r_e\)</span>, depends on the collector
+         current <span class="math inline">\(I_C\)</span>:</p>
+         <p><span class="math display">\[r_e = 25~\Omega
+         \left(\frac{1~mA}{I_C}\right)\]</span></p>
+         <p>The presence of the intrinsic emitter resistance, <span
+         class="math inline">\(r_e\)</span>, modifies the above input
+         and output impedances to:</p>
+         <p><span class="math display">\[r_{in} = reservoir(R_e +
+         r_e)~h_{fe}~~ \text{(CEA and EF)}\]</span></p>
+         <p><span class="math display">\[r_{out} =
+         \frac{R_B}{h_{fe}+1}+r_e~~ \text{(EF)}\]</span></p>
+         <p>In addition, this modifies the gain of the common emitter
+         amplifier to:</p>
+         <p><span class="math display">\[G =
+         \frac{-R_C}{R_E+r_e}\]</span></p>
+         <p>which shows that the common emitter gain is not infinite
+         when the external emitter resistor goes to zero.</p>
+         <h1 data-number="4" id="useful-readings"><span
+         class="header-section-number">4</span> Useful Readings</h1>
+         <ol type="1">
+         <li><p><a
+         href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
+         Sections 4.1, 4.2, 4.3, 4.4, 4.6, 4.6.1, 4.8, 4.9, and
+         4.11.3</p></li>
+         <li><p>Fischer-Cripps Chapters 5 and 6</p></li>
+         <li><p>Horowitz and Hill 2<sup>nd</sup> Ed. Chapter 2</p></li>
+         </ol>
+         <h1 data-number="5" id="prelab-1"><span
+         class="header-section-number">5</span> Prelab</h1>
+         <h2 data-number="5.1" id="biasing-the-transistor"><span
+         class="header-section-number">5.1</span> Biasing the
+         transistor</h2>
+         <ol type="1">
+         <li>Explain why we need to have the biasing resistors <span
+         class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> if we are
+         going to amplify an AC signal? That is, why won’t Figure <span
+         class="citation" data-cites="fig:emittera">@fig:emittera</span>
+         work as is?</li>
+         <li>Calculate the quiescent voltages (the DC voltages with no
+         signal present) <span class="math inline">\(V_B\)</span>, <span
+         class="math inline">\(V_E\)</span>, and <span
+         class="math inline">\(V_C\)</span> and the currents <span
+         class="math inline">\(I_E\)</span> and <span
+         class="math inline">\(I_C\)</span> for the common emitter
+         circuit in Figure <span class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span>. You may
+         assume that <span class="math inline">\(h_{fe}\)</span> is so
+         large that the base current is negligible.</li>
+         <li>How much power is dissipated in the transistor itself? Is
+         the power safely below <span
+         class="math inline">\(P_{max}\)</span>? See the 2N3904 data
+         sheet posted on Canvas.</li>
+         <li>What is the purpose of the input and output coupling
+         capacitors, <span class="math inline">\(C_{in}\)</span> and
+         <span class="math inline">\(C_{out}\)</span>?</li>
+         </ol>
+         <h2 data-number="5.2" id="sec:cea"><span
+         class="header-section-number">5.2</span> Common emitter
+         amplifier</h2>
+         <ol type="1">
+         <li>What is the maximum <span
+         class="math inline">\(h_{fe}\)</span> value at 10 mA collector
+         current? See the 2N3904 data sheet posted on Canvas. (You may
+         use this value for calculations below.)</li>
+         <li>What is the AC voltage gain of the circuit in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> for 10 kHz
+         sine waves?</li>
+         <li>What are the maximum and minimum possible output voltages
+         without the output coupling capacitor in place?</li>
+         <li>Since the gain is negative, this is an inverting amplifier.
+         Therefore, the maximum output voltage occurs with a small input
+         voltage and the minimum output voltage occurs with a large
+         input voltage. What is the largest input voltage that gives the
+         minimum output voltage and what is the smallest input voltage
+         that gives the maximum output voltage? In this case, you should
+         consider the input coupling capacitor to be in place.</li>
+         <li>What are the input and output impedances <span
+         class="math inline">\(r_{in}\)</span> and <span
+         class="math inline">\(r_{out}\)</span> at 10 kHz? The input
+         impedance with the bias resistor network in place is the input
+         resistance of the common emitter in parallel with both <span
+         class="math inline">\(R_1\)</span> and <span
+         class="math inline">\(R_2\)</span>. That is, <span
+         class="math inline">\(r_{in}\)</span> (total) = <span
+         class="math inline">\(r_{in}\)</span> (common emitter) || <span
+         class="math inline">\(R_1\)</span> || <span
+         class="math inline">\(R_2\)</span>.</li>
+         <li>Calculate the fraction of the original amplitude obtained
+         when a 470 <span class="math inline">\(\Omega\)</span> load is
+         connected to the output via a coupling capacitor (<span
+         class="math inline">\(C_{out}\)</span> in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span>) to ground.
+         HINT: the 470 <span class="math inline">\(\Omega\)</span>
+         resistor is in series with the output impedance of the circuit
+         to ground. The output capacitor only blocks the DC component;
+         it passes the AC signal just fine.</li>
+         </ol>
+         <h2 data-number="5.3" id="sec:dsa"><span
+         class="header-section-number">5.3</span> Dual stage
+         amplifier</h2>
+         <ol type="1">
+         <li>What is the AC voltage gain for 10 kHz sine waves of the
+         entire dual-stage amplifier (common emitter + emitter follower)
+         shown in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>?</li>
+         <li>Calculate the quiescent voltages (the DC voltages with no
+         signal present) <span class="math inline">\(V_B\)</span>, <span
+         class="math inline">\(V_E\)</span>, and <span
+         class="math inline">\(V_C\)</span> as well as the currents
+         <span class="math inline">\(I_E\)</span> and <span
+         class="math inline">\(I_C\)</span> for the emitter follower
+         part of the circuit in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>. You may assume that
+         <span class="math inline">\(h_{fe}\)</span> is so large that
+         the base current is negligible.</li>
+         <li>How much power is dissipated in the transistor of the
+         emitter follower? Is the power safely below <span
+         class="math inline">\(P_{max}\)</span>? See 2N3904 data sheet
+         posted on Canvas. What if we connected an 8 <span
+         class="math inline">\(\Omega\)</span> speaker to <span
+         class="math inline">\(V_{out}\)</span> without using the <span
+         class="math inline">\(C_{out}\)</span> coupling capacitor? This
+         basically changes <span class="math inline">\(R_E\)</span> to 8
+         <span class="math inline">\(\Omega\)</span>. How much power
+         would be dissipated in the emitter follower transistor in that
+         case? Is that safe to do?</li>
+         <li>For the entire dual stage amplifier in Figure <span
+         class="citation" data-cites="fig:dualsa">@fig:dualsa</span>,
+         what is the output impedance <span
+         class="math inline">\(r_{out}\)</span> at 10 kHz? You should
+         use the Eber-Molls model. Also, the impedance at the base of
+         the emitter follower is simply the collector resistor of the
+         common emitter amplifier.</li>
+         <li>Calculate the fraction of the original amplitude obtained
+         when a 470 <span class="math inline">\(\Omega\)</span> load is
+         connected to the output via a coupling capacitor (<span
+         class="math inline">\(C_{out}\)</span> in Figure <span
+         class="citation" data-cites="fig:dualsa">@fig:dualsa</span>).
+         HINT: the 470 <span class="math inline">\(\Omega\)</span>
+         resistor will be in series with the output impedance of the
+         circuit to ground. Even at only 10 kHz, the output capacitor
+         acts as a wire for the AC impedance. It serves to block only
+         the DC voltage.</li>
+         </ol>
+         <h2 data-number="5.4" id="audio-amplifier"><span
+         class="header-section-number">5.4</span> Audio amplifier</h2>
+         <ol type="1">
+         <li>A standard non-amplified speaker has an input impedance of
+         8 <span class="math inline">\(\Omega\)</span>. If your computer
+         headphone jack had an output voltage at 1 V unloaded and an
+         output impedance of 8 <span
+         class="math inline">\(\Omega\)</span>, what would the loaded
+         voltage be if you hooked it up to the 8 <span
+         class="math inline">\(\Omega\)</span> speaker? HINT: Think
+         voltage divider</li>
+         <li>Now, instead you can use the common emitter to amplify the
+         signal from the computer first. If your common emitter
+         amplifier has an unloaded output voltage of 2.7 V (assuming a
+         gain of 2.7), what is the output voltage if you connect an 8
+         <span class="math inline">\(\Omega\)</span> speaker to the
+         amplifier? HINT: Think voltage divider with the output
+         impedance of the common emitter.</li>
+         <li>Finally, consider using the two-stage amplifier shown in
+         Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span> to drive the
+         speaker. If the emitter follower amplifier output stage has an
+         unloaded output voltage of 2.7 V (assuming a gain of 2.7), what
+         is the output voltage if you connect an 8 <span
+         class="math inline">\(\Omega\)</span> speaker to the amplifier?
+         Note that in the lab you will be using the output of the lab’s
+         laptop computer headphone jack. HINT: Think voltage divider
+         with the output impedance of the emitter follower.</li>
+         </ol>
+         <h2 data-number="5.5" id="lab-activities"><span
+         class="header-section-number">5.5</span> Lab activities</h2>
+         <ol type="1">
+         <li><p>Read through all of the lab steps and identify the step
+         (or sub-step) that you think will be the most
+         challenging.</p></li>
+         <li><p>List at least one question you have about the lab
+         activity.</p></li>
+         </ol>
+         <h1 data-number="6" id="common-emitter-amplifier-1"><span
+         class="header-section-number">6</span> Common Emitter
+         Amplifier</h1>
+         <h2 data-number="6.1" id="quiescent-scale"><span
+         class="header-section-number">6.1</span> Quiescent scale</h2>
+         <ol type="1">
+         <li>Build the common emitter amplifier shown in Figure <span
+         class="citation"
+         data-cites="fig:emitterabn">@fig:emitterabn</span> without the
+         capacitors <span class="math inline">\(C_{in}\)</span> and
+         <span class="math inline">\(C_{out}\)</span> (and without <span
+         class="math inline">\(V_{in}\)</span>). Measure the resistors
+         before putting them in the circuit, and if they differ from the
+         values used in your calculations, recalculate the predicted
+         quiescent voltages. Draw the circuit schematic in your lab book
+         and label all components.</li>
+         <li>Measure the DC voltages (quiescent voltages) <span
+         class="math inline">\(V_B\)</span> (at the transistor base),
+         <span class="math inline">\(V_E\)</span> (at the emitter), and
+         <span class="math inline">\(V_C\)</span> (at the collector)? Do
+         they agree with your predictions?</li>
+         </ol>
+         <h2 data-number="6.2" id="check-limits-with-ac-signal"><span
+         class="header-section-number">6.2</span> Check limits with AC
+         signal</h2>
+         <ol type="1">
+         <li>Add the input coupling capacitor <span
+         class="math inline">\(C_{in}\)</span> and the input AC source
+         <span class="math inline">\(V_{in}\)</span> (and use the sync
+         output to trigger the scope). The capacitor allows one to
+         transmit an AC signal while maintaining the DC voltages
+         established by the bias network. When you switch on the power,
+         you may see high frequency spontaneous oscillations. These must
+         be suppressed before you can proceed. Also, reducing the length
+         of your circuit wires can help. Do not add <span
+         class="math inline">\(C_{out}\)</span> yet.</li>
+         <li>Assemble a test setup to observe the input (before <span
+         class="math inline">\(C_{in}\)</span>) and output of the
+         amplifier with 10 kHz sine waves. Check that your setup works,
+         and you can measure both the input and output.</li>
+         <li>Vary the input amplitude to determine the output amplitude
+         at which clipping begins. Compare your results to section <span
+         class="citation" data-cites="sec:cea">@sec:cea</span>.3? and
+         <span class="citation" data-cites="sec:cea">@sec:cea</span>.4.
+         You will want to stay below half of the clipping voltage to
+         ensure the amplifier is not distorting the output
+         waveform.</li>
+         <li>For the scope channel connected to the output, switch the
+         coupling between DC and AC coupling and adjust the scope to see
+         the signal in both cases. Explain the different behavior and
+         say why you may want one or the other.</li>
+         </ol>
+         <h2 data-number="6.3" id="measuring-the-ac-gain"><span
+         class="header-section-number">6.3</span> Measuring the AC
+         gain</h2>
+         <ol type="1">
+         <li>Add the output coupling capacitor <span
+         class="math inline">\(C_{out}\)</span>. It will be polarized.
+         Since the left side is connected to a positive DC voltage of
+         <span class="math inline">\(V_C\)</span> and the right side
+         will be connected to ground through the scope, you should have
+         the negative side (the one that is marked and has the shorter
+         lead) on the right. Move your scope measurement to occur after
+         <span class="math inline">\(C_{out}\)</span>. When you first
+         turn it on, you may find that the output voltage has a large DC
+         offset due to charging of the output coupling capacitor. This
+         should discharge since the scope provides a 1 M<span
+         class="math inline">\(\Omega\)</span> path to ground but if it
+         doesn’t, you can add a 220 k<span
+         class="math inline">\(\Omega\)</span> resistor to ground after
+         <span class="math inline">\(C_{out}\)</span>. Check that the
+         output now oscillates around 0 V with the scope channel set to
+         DC coupling.</li>
+         <li>Measure the gain of the amplifier for 10 kHz sine waves
+         using an amplitude that ensures the voltages are less than half
+         of the clipping voltage (either positive or negative). You
+         should use the 10X scope probe for measuring the output. Does
+         your measurement agree with your prediction? Screen shots here
+         would be good.</li>
+         </ol>
+         <h2 data-number="6.4" id="output-impedance"><span
+         class="header-section-number">6.4</span> Output impedance</h2>
+         <ol type="1">
+         <li>The common emitter amplifier often has a large output
+         impedance. Connect a 470 <span
+         class="math inline">\(\Omega\)</span> load from the output to
+         ground. What fraction of the original output do you now see?
+         Does this agree with your prediction from section <span
+         class="citation" data-cites="sec:cea">@sec:cea</span>.6? If
+         not, can you use your measurements of the output voltage before
+         and after the resistor was in place to refine the model of your
+         amplifier’s output impedance?</li>
+         <li>Remove the 470 <span class="math inline">\(\Omega\)</span>
+         load resistor.</li>
+         <li>Attach the speaker to your circuit board. Connect the black
+         wire to ground and connect the red wire to a free row on the
+         circuit board. Drive the speaker directly with the function
+         generator output. You should hear a tone. Vary the frequency
+         and amplitude to check the effect on the output of the speaker.
+         Then setup the same amplitude that you used in the previous
+         section and a frequency of 1 kHz</li>
+         <li>Switch back to driving the common emitter amplifier circuit
+         with the function generator and connect the speaker to the
+         output, just like you did with the 470 <span
+         class="math inline">\(\Omega\)</span> load resistor. Describe
+         the results of both speaker tests. Does the gain provided by
+         the common emitter amplifier result in a louder tone from the
+         speaker? Explain your results. You may want to measure the
+         impedance of the speaker with your DMM and do a calculation
+         similar to section <span class="citation"
+         data-cites="sec:cea">@sec:cea</span>.6 to understand what is
+         going on.</li>
+         </ol>
+         <figure>
+         <img src="../resources/lab7fig/dualsa.png" id="fig:dualsa"
+         style="width:15cm" alt="Dual stage amplifier" />
+         <figcaption aria-hidden="true">Dual stage
+         amplifier</figcaption>
+         </figure>
+         <h1 data-number="7" id="dual-stage-amplifier"><span
+         class="header-section-number">7</span> Dual Stage
+         Amplifier</h1>
+         <h2 data-number="7.1" id="quiescent-scale-1"><span
+         class="header-section-number">7.1</span> Quiescent scale</h2>
+         <ol type="1">
+         <li>Ordinarily, the quiescent base voltage is determined by a
+         bias circuit (as was done for the common emitter stage). In the
+         present case, the collector voltage VC of the previous circuit
+         already has a value suitable for biasing the emitter follower,
+         so a direct DC connection can be made between the two circuits.
+         Add the emitter follower to your circuit to build the dual
+         stage amplifier shown in Figure <span class="citation"
+         data-cites="fig:dualsa">@fig:dualsa</span>.</li>
+         <li>Using your measured resistor values, calculate the DC
+         voltages for the emitter follower’s base, emitter, and
+         collector (see section <span class="citation"
+         data-cites="sec:dsa">@sec:dsa</span>.2).</li>
+         <li>Measure the quiescent (DC) voltages (<span
+         class="math inline">\(V_B\)</span>, <span
+         class="math inline">\(V_E\)</span>, <span
+         class="math inline">\(V_C\)</span>) for the emitter follower
+         part. Do the measurements agree with your predictions? Correct
+         for/reconcile any errors before proceeding.</li>
+         </ol>
+         <h2 data-number="7.2" id="low-frequency-ac-gain"><span
+         class="header-section-number">7.2</span> Low frequency AC
+         gain</h2>
+         <ol type="1">
+         <li>Drive the complete system with the function generator at 10
+         kHz. Measure the AC amplitudes at the input of the common
+         emitter, the input of the emitter follower, and at the output.
+         What is the gain of the full circuit? What is the gain of just
+         the emitter follower? Do these measurements agree with your
+         predictions? HINT: As before, you may need a 220 k<span
+         class="math inline">\(\Omega\)</span> resistor to ground after
+         <span class="math inline">\(C_{out}\)</span> to keep the DC
+         level near ground as the large output capacitor can slowly
+         charge up. You may also want to put the scope on AC coupling
+         when you probe points with large DC offsets but switch it back
+         to DC coupling if you want to measure quiescent voltages.</li>
+         </ol>
+         <h2 data-number="7.3" id="output-impedance-1"><span
+         class="header-section-number">7.3</span> Output impedance</h2>
+         <ol type="1">
+         <li>The emitter follower amplifier should have a low output
+         impedance. Connect a 470 <span
+         class="math inline">\(\Omega\)</span> load from the output to
+         ground. What fraction of the original output do you now see?
+         Does this agree with your prelab predictions? If not, can you
+         use your measurements of the output voltage before and after
+         the resistor was in place to refine the model of your
+         amplifier’s output impedance?</li>
+         <li>Remove the load resistor and drive a speaker with the
+         output of the amplifier. Explain how you hooked up the speaker.
+         Drive your amplifier with the function generator. Describe your
+         measurements and observations. Do they agree with your model of
+         the output impedance of the dual stage amplifier? Compare your
+         results with the output from just the common emitter amplifier.
+         Do the results make sense?</li>
+         <li>Now drive your amplifier with the audio source (computer).
+         Describe your measurements and observations. Do they agree with
+         your model of the output impedance of the dual stage
+         amplifier?</li>
+         </ol>
+               </div>
+            <!-- Mathjax -->
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script>
+
+      </script>
+   </body>
+</html>

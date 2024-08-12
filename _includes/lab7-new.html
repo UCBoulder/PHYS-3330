@@ -73,31 +73,31 @@ Colorado Boulder">
             <li><a href="#6.1" id="toc-6.1"><span
             class="toc-section-number">2.6.1</span> Question</a></li>
             </ul></li>
-            </ul></li>
             <li><a href="#mosfet-current-voltage-relations"
             id="toc-mosfet-current-voltage-relations"><span
-            class="toc-section-number">3</span> MOSFET Current-Voltage
+            class="toc-section-number">2.7</span> MOSFET Current-Voltage
             Relations</a>
             <ul>
             <li><a href="#7.1" id="toc-7.1"><span
-            class="toc-section-number">3.0.1</span> Question</a></li>
+            class="toc-section-number">2.7.1</span> Question</a></li>
             <li><a href="#7.2" id="toc-7.2"><span
-            class="toc-section-number">3.0.2</span> Question</a></li>
+            class="toc-section-number">2.7.2</span> Question</a></li>
+            </ul></li>
             <li><a href="#a-dial-controlled-current"
             id="toc-a-dial-controlled-current"><span
-            class="toc-section-number">3.1</span> A dial controlled
+            class="toc-section-number">2.8</span> A dial controlled
             current</a>
             <ul>
             <li><a href="#7.3" id="toc-7.3"><span
-            class="toc-section-number">3.1.1</span> Question</a></li>
-            <li><a href="#7.3" id="toc-7.3"><span
-            class="toc-section-number">3.1.2</span> Question</a></li>
+            class="toc-section-number">2.8.1</span> Question</a></li>
+            <li><a href="#7.4" id="toc-7.4"><span
+            class="toc-section-number">2.8.2</span> Question</a></li>
             </ul></li>
             <li><a href="#op-amp-design" id="toc-op-amp-design"><span
-            class="toc-section-number">3.2</span> Op-amp design</a>
+            class="toc-section-number">2.9</span> Op-amp design</a>
             <ul>
             <li><a href="#8.1" id="toc-8.1"><span
-            class="toc-section-number">3.2.1</span> Question</a></li>
+            class="toc-section-number">2.9.1</span> Question</a></li>
             </ul></li>
             </ul></li>
             </ul>
@@ -244,14 +244,14 @@ Colorado Boulder">
          <figure>
          <img src="../resources/lab7fig/bjt-switch1.png"
          id="fig:bjt-simple" style="width:8cm"
-         alt="Simple BJT circuit (with an NPN) with resistors connected to the base and the collector (R_B and R_C respectively). A supply voltage V_S powers the circuit (this is similar to the supply voltages we apply to op-amps) and a signal voltage V_\text{in} provides a base current I_B to control the collector voltage I_C." />
+         alt="Simple BJT circuit (with an NPN) with resistors connected to the base and the collector (R_B and R_C respectively). A supply voltage V_\text{supply} powers the circuit (this is similar to the supply voltages we apply to op-amps) and a signal voltage V_\text{in} provides a base current I_B to control the collector voltage I_C." />
          <figcaption aria-hidden="true">Simple BJT circuit (with an NPN)
          with resistors connected to the base and the collector (<span
          class="math inline">\(R_B\)</span> and <span
          class="math inline">\(R_C\)</span> respectively). A supply
-         voltage <span class="math inline">\(V_S\)</span> powers the
-         circuit (this is similar to the supply voltages we apply to
-         op-amps) and a signal voltage <span
+         voltage <span class="math inline">\(V_\text{supply}\)</span>
+         powers the circuit (this is similar to the supply voltages we
+         apply to op-amps) and a signal voltage <span
          class="math inline">\(V_\text{in}\)</span> provides a base
          current <span class="math inline">\(I_B\)</span> to control the
          collector voltage <span
@@ -295,19 +295,19 @@ Colorado Boulder">
          class="math inline">\(R_B\)</span>, <span
          class="math inline">\(V_\text{in}\)</span>, <span
          class="math inline">\(V_{th}\)</span>, and <span
-         class="math inline">\(V_S\)</span>.</p></li>
+         class="math inline">\(V_\text{supply}\)</span>.</p></li>
          </ol>
          <h3 data-number="2.2.2" id="2.2"><span
          class="header-section-number">2.2.2</span> Question</h3>
          <p>Make the circuit above in LTspice with <span
-         class="math inline">\(V_S=9\text{ V}\)</span>, <span
-         class="math inline">\(R_B=1\text{ k}\Omega\)</span>, and <span
-         class="math inline">\(R_C=8\ \Omega\)</span>. We can consider
-         this circuit being used to control the current through an <span
-         class="math inline">\(8\ \Omega\)</span> load as a function of
-         <span class="math inline">\(V_\text{in}\)</span>. To create a
-         BJT, in the components menu, search “NPN” (or “PNP” if that’s
-         the kind of BJT you want).</p>
+         class="math inline">\(V_\text{supply}=9\text{ V}\)</span>,
+         <span class="math inline">\(R_B=1\text{ k}\Omega\)</span>, and
+         <span class="math inline">\(R_C=8\ \Omega\)</span>. We can
+         consider this circuit being used to control the current through
+         an <span class="math inline">\(8\ \Omega\)</span> load as a
+         function of <span class="math inline">\(V_\text{in}\)</span>.
+         To create a BJT, in the components menu, search “NPN” (or “PNP”
+         if that’s the kind of BJT you want).</p>
          <p>We will do a new kind of simulation: a “DC sweep”. In the
          Configure Analysis menu, select the “DC sweep” tab and under
          “1st Source” enter:</p>
@@ -361,7 +361,7 @@ Colorado Boulder">
          applied to the collector. Fix the input voltage to <span
          class="math inline">\(1\text{ V}\)</span> and change the DC
          sweep to sweep the supply voltage <span
-         class="math inline">\(V_S\)</span> from <span
+         class="math inline">\(V_\text{supply}\)</span> from <span
          class="math inline">\(0\text{ V}\)</span> to <span
          class="math inline">\(9\text{ V}\)</span> in <span
          class="math inline">\(0.005\text{ V}\)</span> increments.</p>
@@ -425,11 +425,11 @@ Colorado Boulder">
          in the circuit). When a collector current flows through the
          resistor, voltage will drop across it and <span
          class="math inline">\(V_{CE}\)</span> will then be less than
-         the supply voltage <span class="math inline">\(V_S\)</span>.
-         The voltage drop across <span
-         class="math inline">\(R_C\)</span> is</p>
-         <p><span class="math display">\[\Delta V = V_S-V_{CE}= I_C
-         R_C\]</span></p>
+         the supply voltage <span
+         class="math inline">\(V_\text{supply}\)</span>. The voltage
+         drop across <span class="math inline">\(R_C\)</span> is</p>
+         <p><span class="math display">\[\Delta V =
+         V_\text{supply}-V_{CE}= I_C R_C\]</span></p>
          <p>This can be rearranged to be a function <span
          class="math inline">\(I_C(V_{CE})\)</span> that we can plot on
          your graph from the previous question.</p>
@@ -440,12 +440,14 @@ Colorado Boulder">
          class="math inline">\(I_C\)</span> using <span
          class="math inline">\(V_{CE}\)</span>, <span
          class="math inline">\(R_C\)</span>, and <span
-         class="math inline">\(V_S\)</span> as inputs.</p></li>
+         class="math inline">\(V_\text{supply}\)</span> as
+         inputs.</p></li>
          <li><p>Use this Python function to plot this <span
          class="math inline">\(I_C(V_{CE})\)</span> on the same graph
          you made above using <span class="math inline">\(R_C=8\
-         \Omega\)</span> and <span class="math inline">\(V_S=5\text{
-         V}\)</span>. This line is referred to as a <a
+         \Omega\)</span> and <span
+         class="math inline">\(V_\text{supply}=5\text{ V}\)</span>. This
+         line is referred to as a <a
          href="https://en.wikipedia.org/wiki/Load_line_(electronics)">load
          line</a> and represents a constraint on the <span
          class="math inline">\(IV\)</span>-characteristics.</p></li>
@@ -454,10 +456,11 @@ Colorado Boulder">
          corresponding to the input voltage, then find where it
          intersects the load line. This intersection will represent the
          collector current and collector-emitter voltage for this
-         particular choice of <span class="math inline">\(V_S\)</span>
-         and <span class="math inline">\(R_C\)</span>. Use your plot to
-         record <span class="math inline">\(I_C\)</span> for each choice
-         of <span class="math inline">\(V_\text{in}\)</span>.</p></li>
+         particular choice of <span
+         class="math inline">\(V_\text{supply}\)</span> and <span
+         class="math inline">\(R_C\)</span>. Use your plot to record
+         <span class="math inline">\(I_C\)</span> for each choice of
+         <span class="math inline">\(V_\text{in}\)</span>.</p></li>
          <li><p>Compare the <span class="math inline">\(I_C\)</span> vs
          <span class="math inline">\(V_\text{in}\)</span> from the graph
          to the equations you derived in Question <span class="citation"
@@ -503,17 +506,17 @@ Colorado Boulder">
          class="math inline">\(h_{FE}\)</span> is not a constant value
          in real BJTs, so we don’t want to design the switch to rely on
          a particular value of the current gain. This can be done by
-         selecting <span class="math inline">\(V_S\)</span> such that it
-         can’t possibly supply more current than desired. When a BJT has
-         a saturated collector current (i.e. <span
-         class="math inline">\(V_S\)</span> can’t supply any more
-         current), <span class="math inline">\(V_{CE}\approx 0\)</span>.
-         If <span class="math inline">\(V_{CE}=0\)</span>, and one side
-         of the electromagnet is at <span
-         class="math inline">\(V_S\)</span>, what is the voltage across
-         the electromagnet? What choice of <span
-         class="math inline">\(V_S\)</span> will result in <span
-         class="math inline">\(12\text{ V}\)</span> across the
+         selecting <span class="math inline">\(V_\text{supply}\)</span>
+         such that it can’t possibly supply more current than desired.
+         When a BJT has a saturated collector current (i.e. <span
+         class="math inline">\(V_\text{supply}\)</span> can’t supply any
+         more current), <span class="math inline">\(V_{CE}\approx
+         0\)</span>. If <span class="math inline">\(V_{CE}=0\)</span>,
+         and one side of the electromagnet is at <span
+         class="math inline">\(V_\text{supply}\)</span>, what is the
+         voltage across the electromagnet? What choice of <span
+         class="math inline">\(V_\text{supply}\)</span> will result in
+         <span class="math inline">\(12\text{ V}\)</span> across the
          electromagnet when <span
          class="math inline">\(V_{CE}=0\)</span> (i.e. when the
          collector current is saturated)?</p></li>
@@ -532,7 +535,7 @@ Colorado Boulder">
          30. When <span class="math inline">\(h_{FE}\)</span> does
          exceed 30, it is impossible for the BJT to supply more
          collector current because it is limited by the supply voltage
-         <span class="math inline">\(V_S\)</span>.</p>
+         <span class="math inline">\(V_\text{supply}\)</span>.</p>
          <h2 data-number="2.4" id="pnps"><span
          class="header-section-number">2.4</span> PNPs</h2>
          <p>We have been looking at NPN BJTs where a positive current
@@ -827,9 +830,10 @@ Colorado Boulder">
          class="math inline">\(1\text{ MHz}\)</span> signals.</p></li>
          <li><p>You wish to design a low noise amplifier.</p></li>
          </ol>
-         <h1 data-number="3" id="mosfet-current-voltage-relations"><span
-         class="header-section-number">3</span> MOSFET Current-Voltage
-         Relations</h1>
+         <h2 data-number="2.7"
+         id="mosfet-current-voltage-relations"><span
+         class="header-section-number">2.7</span> MOSFET Current-Voltage
+         Relations</h2>
          <p>MOSFETs can operate in three distinct regions. The first
          region is where the gate-to-source voltage, <span
          class="math inline">\(V_{GS}\)</span>, is less than the
@@ -869,8 +873,8 @@ Colorado Boulder">
          MOSFETs. Always check the data sheet for your exact
          part.</figcaption>
          </figure>
-         <h3 data-number="3.0.1" id="7.1"><span
-         class="header-section-number">3.0.1</span> Question</h3>
+         <h3 data-number="2.7.1" id="7.1"><span
+         class="header-section-number">2.7.1</span> Question</h3>
          <p>Create a simple n-channel MOSFET circuit with the source
          grounded and individual voltages applied at the gate and the
          drain (see the figure below). You can create a n-channel MOSFET
@@ -919,8 +923,8 @@ Colorado Boulder">
          data-cites="fig:mosfetchar">@fig:mosfetchar</span> (if not,
          identify the mistake and resolve it)?</p></li>
          </ol>
-         <h3 data-number="3.0.2" id="7.2"><span
-         class="header-section-number">3.0.2</span> Question</h3>
+         <h3 data-number="2.7.2" id="7.2"><span
+         class="header-section-number">2.7.2</span> Question</h3>
          <ol type="1">
          <li>Identify the <span class="math inline">\(I_D\)</span> in
          the saturation region for each <span
@@ -955,10 +959,10 @@ Colorado Boulder">
          <ol start="2" type="1">
          <li>Fit the data to the fitting function to determine the
          constant <span class="math inline">\(k\)</span>. You can
-         utilize <code>curve_fit</code> function (<a
+         utilize the <code>curve_fit</code> function (<a
          href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">Documentation
          can be found here</a>). You can access this function with
-         <code>from scipy.optimize import cure_fit</code>.</li>
+         <code>from scipy.optimize import curve_fit</code>.</li>
          </ol>
          <div class="sourceCode" id="cb4"><pre
          class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>initial_guess <span class="op">=</span> (<span class="dv">1</span>,) <span class="co"># the initial guess for fitting parameters.</span></span>
@@ -1004,8 +1008,8 @@ Colorado Boulder">
          then you can take two), and the number of digits past the
          decimal should match in both the parameter and the error.</li>
          </ol>
-         <h2 data-number="3.1" id="a-dial-controlled-current"><span
-         class="header-section-number">3.1</span> A dial controlled
+         <h2 data-number="2.8" id="a-dial-controlled-current"><span
+         class="header-section-number">2.8</span> A dial controlled
          current</h2>
          <p>Consider the circuit below:</p>
          <figure>
@@ -1028,46 +1032,48 @@ Colorado Boulder">
          (since <span class="math inline">\(R_p\)</span> is <span
          class="math inline">\(R_{GS}\)</span> plus the resistance from
          the gate to the supply voltage <span
-         class="math inline">\(V_S\)</span>). This leads to</p>
+         class="math inline">\(V_\text{supply}\)</span>). This leads
+         to</p>
          <p><span class="math display">\[V_{GS} =
-         \frac{R_{GS}}{R_p}V_S\]</span></p>
+         \frac{R_{GS}}{R_p}V_\text{supply}\]</span></p>
          <p>The potentiometer then simply sets the gate-source voltage,
          giving you a way of controlling it through a dial. The load
          (with resistance <span class="math inline">\(R_L\)</span>) will
          have current <span class="math inline">\(I_D\)</span> run
-         through it depending on the dial position then. This will lead
-         to a voltage drop, such that the voltage at the drain (and
-         therefore <span class="math inline">\(V_{DS}\)</span>) is less
-         than <span class="math inline">\(V_S\)</span>. This idea should
-         be familiar from the BJT analysis you did.</p>
-         <h3 data-number="3.1.1" id="7.3"><span
-         class="header-section-number">3.1.1</span> Question</h3>
-         <p>One way to determine the behavior of this circuit is using a
-         load line on the plot you made using LTspice to determine what
-         value of <span class="math inline">\(V_{GS}\)</span> you need
-         to get a desired <span class="math inline">\(I_D\)</span>.
-         Recall, that the plot is specific to each individual MOSFET
-         design, so you would use the plots supplied by the manufacturer
-         in a datasheet in general; however, we will consider the MOSFET
-         in your simulation since you already have that loaded into your
-         Jupyter Notebook.</p>
+         through it depending on the dial position. This will lead to a
+         voltage drop, such that the voltage at the drain (and therefore
+         <span class="math inline">\(V_{DS}\)</span>) is less than <span
+         class="math inline">\(V_\text{supply}\)</span>. This idea
+         should be familiar from the BJT analysis you did.</p>
+         <h3 data-number="2.8.1" id="7.3"><span
+         class="header-section-number">2.8.1</span> Question</h3>
+         <p>A load line (on the <span class="math inline">\(I_D\)</span>
+         vs <span class="math inline">\(V_{DS}\)</span> plot) can be
+         used to determine the behavior of this circuit. Recall that the
+         intersection of the load line and a curve will determine <span
+         class="math inline">\(I_D\)</span> for each choice of <span
+         class="math inline">\(V_{GS}\)</span>. The plot is specific to
+         each individual MOSFET design, so you would use the plots
+         supplied by the manufacturer in a datasheet in general;
+         however, we will consider the MOSFET in your simulation since
+         you already have that loaded into your Jupyter Notebook.</p>
          <ol type="1">
          <li><p>Use Ohm’s law to write down <span
          class="math inline">\(I_D\)</span> as a function of <span
          class="math inline">\(R_L\)</span>, <span
-         class="math inline">\(V_S\)</span>, and <span
+         class="math inline">\(V_\text{supply}\)</span>, and <span
          class="math inline">\(V_{DS}\)</span> (this is your load line
          equation). Implement it as a Python function that returns the
          drain current in <span class="math inline">\(\text{mA}\)</span>
          (by multiplying by <span class="math inline">\(1000\)</span>)
-         and takes <span class="math inline">\(V_S\)</span> and <span
-         class="math inline">\(V_{DS}\)</span> in Volts and <span
-         class="math inline">\(R_L\)</span> in Ohms.</p></li>
+         and takes <span class="math inline">\(V_\text{supply}\)</span>
+         and <span class="math inline">\(V_{DS}\)</span> in Volts and
+         <span class="math inline">\(R_L\)</span> in Ohms.</p></li>
          <li><p>Plot your load line on a graph with your <span
          class="math inline">\(I_D\)</span> vs <span
          class="math inline">\(V_{DS}\)</span> curves using <span
-         class="math inline">\(V_S=9\text{ V}\)</span> and <span
-         class="math inline">\(R_L = 10\text{ k}\Omega\)</span>.
+         class="math inline">\(V_\text{supply}=9\text{ V}\)</span> and
+         <span class="math inline">\(R_L = 10\text{ k}\Omega\)</span>.
          <em>Hint:</em> You’ll want to make an <span
          class="math inline">\(x\)</span>-axis array with something like
          <code>v_ds = np.linspace(0, 10, 100)</code> and plug this into
@@ -1082,8 +1088,8 @@ Colorado Boulder">
          class="math inline">\(V_{GS}\)</span> get you closest to <span
          class="math inline">\(0.5\text{ mA}\)</span>?</p></li>
          </ol>
-         <h3 data-number="3.1.2" id="7.3"><span
-         class="header-section-number">3.1.2</span> Question</h3>
+         <h3 data-number="2.8.2" id="7.4"><span
+         class="header-section-number">2.8.2</span> Question</h3>
          <p>With a supply voltage of <span class="math inline">\(9\text{
          V}\)</span> and a load of <span class="math inline">\(10\text{
          k}\Omega\)</span>, the MOSFET operated in the linear region or
@@ -1096,10 +1102,10 @@ Colorado Boulder">
          <li><p>Show that the MOSFET is in the saturation region for all
          the <span class="math inline">\(V_{GS}\)</span> on your graph
          by plotting the new load line with <span
-         class="math inline">\(V_S=9\text{ V}\)</span> and <span
-         class="math inline">\(R_L = 100\ \Omega\)</span> (on a new
-         plot). Adjust the axes with <code>ax.ylim()</code> to show the
-         plot nicely.</p></li>
+         class="math inline">\(V_\text{supply}=9\text{ V}\)</span> and
+         <span class="math inline">\(R_L = 100\ \Omega\)</span> (on a
+         new plot). Adjust the axes with <code>ax.ylim()</code> to show
+         the plot nicely.</p></li>
          <li><p>Looking at your plot, is it consistent with the <span
          class="math inline">\(I_D\)</span> vs <span
          class="math inline">\(V_{GS}\)</span> plot you made in Question
@@ -1116,8 +1122,11 @@ Colorado Boulder">
          class="math inline">\(k\)</span> you determined from the fit,
          what <span class="math inline">\(V_{GS}\)</span> would you need
          to get a drain current of <span class="math inline">\(0.5\text{
-         mA}\)</span>? <em>Hint:</em> remember that <span
-         class="math inline">\(V_{th}=0\text{ V}\)</span>.</p></li>
+         mA}\)</span>? <em>Note:</em> check the units of <span
+         class="math inline">\(k\)</span> and make sure you report your
+         answer with correct and appropriate units. <em>Hint:</em>
+         remember that <span class="math inline">\(V_{th}=0\text{
+         V}\)</span>.</p></li>
          <li><p>Notice that the <span
          class="math inline">\(V_{GS}\)</span> needed to get the same
          current of <span class="math inline">\(I_D=0.5\text{
@@ -1131,23 +1140,23 @@ Colorado Boulder">
          class="math inline">\(I_D=0.5\text{ mA}\)</span> for a <span
          class="math inline">\(8\ \Omega\)</span> load?</p></li>
          </ol>
-         <h2 data-number="3.2" id="op-amp-design"><span
-         class="header-section-number">3.2</span> Op-amp design</h2>
+         <h2 data-number="2.9" id="op-amp-design"><span
+         class="header-section-number">2.9</span> Op-amp design</h2>
          <p>Op-amps are made of several transistors (often a mix of BJTs
          and JFETs). Op-amp design involves combining many kinds of
          transistor circuits like differential pairs (aka long-tail
          pairs), emitter amplifiers, current mirrors, darlington pairs,
-         and push-pull amplifiers. Chapter 3 in Horowitz and Hill has a
+         and push-pull amplifiers. Chapter 2 in Horowitz and Hill has a
          lot of great information on all of these (and more). It is
          worth thumbing through this chapter for ideas to incorporate in
          your final project.</p>
          <p>A great final project idea is to build an op-amp from
          discrete transistors! This op-amp, without doubt, will under
-         perform compared to the LF365, but it will be a great learning
+         perform compared to the LF356, but it will be a great learning
          experience. You can even implement it as an audio amplifier to
          drive a large speaker to make it more interesting. The
-         following resources are a good starting point to starting off
-         on a project like this.</p>
+         following resources are a good starting off point for a project
+         like this.</p>
          <ul>
          <li><p><a
          href="https://www.allaboutcircuits.com/video-tutorials/op-amp-basics-internal-circuitry/">Architecture
@@ -1161,8 +1170,8 @@ Colorado Boulder">
          href="https://www.nutsvolts.com/magazine/article/op-amp-cookbook">Op-amp
          Cookbook</a></p></li>
          </ul>
-         <h3 data-number="3.2.1" id="8.1"><span
-         class="header-section-number">3.2.1</span> Question</h3>
+         <h3 data-number="2.9.1" id="8.1"><span
+         class="header-section-number">2.9.1</span> Question</h3>
          <p>Read through the first article. What are the 3 primary
          stages of an op-amp? Describe the function of each one.</p>
          <!--# Useful Readings

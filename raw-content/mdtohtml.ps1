@@ -14,6 +14,7 @@ pandoc raw-content/lab6new-raw.md -o _includes/lab6-new.html --toc --filter pand
 pandoc raw-content/lab7-raw.md -o _includes/lab7.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 pandoc raw-content/lab7spice-raw.md -o _includes/lab7-new.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 pandoc raw-content/lab8-raw.md -o _includes/lab8.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
+pandoc raw-content/lab8new-raw.md -o _includes/lab8-new.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 pandoc raw-content/lab9-raw.md -o _includes/lab9.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 pandoc raw-content/lab10-raw.md -o _includes/lab10.html --toc --filter pandoc-xnos --mathjax="https://cdn.mathjax.org/mathjax/..." -s -N --template raw-content/Template.html 
 

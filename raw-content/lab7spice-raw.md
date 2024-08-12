@@ -72,7 +72,7 @@ Typically the $V_{CE}$ is some power source that is powering your circuit, and $
 
 Consider the following circuit
 
-![Simple BJT circuit (with an NPN) with resistors connected to the base and the collector ($R_B$ and $R_C$ respectively). A supply voltage $V_S$ powers the circuit (this is similar to the supply voltages we apply to op-amps) and a signal voltage $V_\text{in}$ provides a base current $I_B$ to control the collector voltage $I_C$.](../resources/lab7fig/bjt-switch1.png){#fig:bjt-simple width="8cm"}
+![Simple BJT circuit (with an NPN) with resistors connected to the base and the collector ($R_B$ and $R_C$ respectively). A supply voltage $V_\text{supply}$ powers the circuit (this is similar to the supply voltages we apply to op-amps) and a signal voltage $V_\text{in}$ provides a base current $I_B$ to control the collector voltage $I_C$.](../resources/lab7fig/bjt-switch1.png){#fig:bjt-simple width="8cm"}
 
 When $V_\text{in}=0\text{ V}$, clearly, there won't be a voltage across $R_B$ and $I_B$ will be zero. However, if $V_\text{in} > V_{th}$, it should be expected that current flows, so $V_{BE}=V_{th}$.
 
@@ -88,11 +88,11 @@ For the following, assume $V_\text{in} > V_{th}$:
 
 5. Since $I_C$ flows through $R_C$, what will be the voltage drop across $R_C$? Considering this drop in voltage, what will the voltage be at the collector relative to ground?
 
-6. Write $V_{CE}$ as a function of $R_C$, $R_B$, $V_\text{in}$, $V_{th}$, and $V_S$.
+6. Write $V_{CE}$ as a function of $R_C$, $R_B$, $V_\text{in}$, $V_{th}$, and $V_\text{supply}$.
 
 ### Question {#2.2}
 
-Make the circuit above in LTspice with $V_S=9\text{ V}$, $R_B=1\text{ k}\Omega$, and $R_C=8\ \Omega$. We can consider this circuit being used to control the current through an $8\ \Omega$ load as a function of $V_\text{in}$. To create a BJT, in the components menu, search "NPN" (or "PNP" if that's the kind of BJT you want).
+Make the circuit above in LTspice with $V_\text{supply}=9\text{ V}$, $R_B=1\text{ k}\Omega$, and $R_C=8\ \Omega$. We can consider this circuit being used to control the current through an $8\ \Omega$ load as a function of $V_\text{in}$. To create a BJT, in the components menu, search "NPN" (or "PNP" if that's the kind of BJT you want).
 
 We will do a new kind of simulation: a "DC sweep". In the Configure Analysis menu, select the "DC sweep" tab and under "1st Source" enter:
 
@@ -118,7 +118,7 @@ This will configure a voltage sweep from $0\text{ V}$ to $5\text{ V}$ for the in
 
 ### Question {#2.3}
 
-In the same simulation, remove the $8\ \Omega$ resistor so that the $9\text{ V}$ is directly applied to the collector. Fix the input voltage to $1\text{ V}$ and change the DC sweep to sweep the supply voltage $V_S$ from $0\text{ V}$ to $9\text{ V}$ in $0.005\text{ V}$ increments.
+In the same simulation, remove the $8\ \Omega$ resistor so that the $9\text{ V}$ is directly applied to the collector. Fix the input voltage to $1\text{ V}$ and change the DC sweep to sweep the supply voltage $V_\text{supply}$ from $0\text{ V}$ to $9\text{ V}$ in $0.005\text{ V}$ increments.
 
 1. Run the simulation and measure the collector current (the current that would have gone through the $8\ \Omega$ load) by clicking on the corner of the collector.
 
@@ -159,17 +159,17 @@ The plot you just created is the classic way people represent the $IV$-character
 
 ### Question {#2.4}
 
-Now re-consider the $8\ \Omega$ load ($R_C$ in the circuit). When a collector current flows through the resistor, voltage will drop across it and $V_{CE}$ will then be less than the supply voltage $V_S$. The voltage drop across $R_C$ is
+Now re-consider the $8\ \Omega$ load ($R_C$ in the circuit). When a collector current flows through the resistor, voltage will drop across it and $V_{CE}$ will then be less than the supply voltage $V_\text{supply}$. The voltage drop across $R_C$ is
 
-$$\Delta V = V_S-V_{CE}= I_C R_C$$
+$$\Delta V = V_\text{supply}-V_{CE}= I_C R_C$$
 
 This can be rearranged to be a function $I_C(V_{CE})$ that we can plot on your graph from the previous question.
 
-1. Write the function $I_C(V_{CE})$ and make a Python function that calculates $I_C$ using $V_{CE}$, $R_C$, and $V_S$ as inputs.
+1. Write the function $I_C(V_{CE})$ and make a Python function that calculates $I_C$ using $V_{CE}$, $R_C$, and $V_\text{supply}$ as inputs.
 
-2. Use this Python function to plot this $I_C(V_{CE})$ on the same graph you made above using $R_C=8\ \Omega$ and $V_S=5\text{ V}$. This line is referred to as a [load line](https://en.wikipedia.org/wiki/Load_line_(electronics)) and represents a constraint on the $IV$-characteristics.
+2. Use this Python function to plot this $I_C(V_{CE})$ on the same graph you made above using $R_C=8\ \Omega$ and $V_\text{supply}=5\text{ V}$. This line is referred to as a [load line](https://en.wikipedia.org/wiki/Load_line_(electronics)) and represents a constraint on the $IV$-characteristics.
 
-3. One way to predict the behavior of a BJT in this configuration is to pick the correct curve on the plot corresponding to the input voltage, then find where it intersects the load line. This intersection will represent the collector current and  collector-emitter voltage for this particular choice of $V_S$ and $R_C$. Use your plot to record $I_C$ for each choice of $V_\text{in}$.
+3. One way to predict the behavior of a BJT in this configuration is to pick the correct curve on the plot corresponding to the input voltage, then find where it intersects the load line. This intersection will represent the collector current and  collector-emitter voltage for this particular choice of $V_\text{supply}$ and $R_C$. Use your plot to record $I_C$ for each choice of $V_\text{in}$.
 
 4. Compare the $I_C$ vs $V_\text{in}$ from the graph to the equations you derived in Question @2.1 (you should use these equations to calculate $I_C$ for each $V_\text{in}$).
 
@@ -187,13 +187,13 @@ In the following steps, you will design a BJT switch to operate an electromagnet
 
 2. How much base current is needed to get this much collector current (use $h_{FE}=100$).
 
-3. As we saw in the data sheet, $h_{FE}$ is not a constant value in real BJTs, so we don't want to design the switch to rely on a particular value of the current gain. This can be done by selecting $V_S$ such that it can't possibly supply more current than desired. When a BJT has a saturated collector current (i.e. $V_S$ can't supply any more current), $V_{CE}\approx 0$. If $V_{CE}=0$, and one side of the electromagnet is at $V_S$, what is the voltage across the electromagnet? What choice of $V_S$ will result in $12\text{ V}$ across the electromagnet when $V_{CE}=0$ (i.e. when the collector current is saturated)?
+3. As we saw in the data sheet, $h_{FE}$ is not a constant value in real BJTs, so we don't want to design the switch to rely on a particular value of the current gain. This can be done by selecting $V_\text{supply}$ such that it can't possibly supply more current than desired. When a BJT has a saturated collector current (i.e. $V_\text{supply}$ can't supply any more current), $V_{CE}\approx 0$. If $V_{CE}=0$, and one side of the electromagnet is at $V_\text{supply}$, what is the voltage across the electromagnet? What choice of $V_\text{supply}$ will result in $12\text{ V}$ across the electromagnet when $V_{CE}=0$ (i.e. when the collector current is saturated)?
 
 4. Assuming the worst possible current gain is $h_{FE}=30$ for this transistor, how much base current is needed to saturate $I_C$?
 
 5. If the controller supplies a $5\text{ V}$ signal, what choice of $R_B$ will result in this current (don't forget to consider $V_{th}=0.9\text{ V}$)?
 
-This design no longer depends on $h_{FE}$ as long as it is above 30. When $h_{FE}$ does exceed 30, it is impossible for the BJT to supply more collector current because it is limited by the supply voltage $V_S$.
+This design no longer depends on $h_{FE}$ as long as it is above 30. When $h_{FE}$ does exceed 30, it is impossible for the BJT to supply more collector current because it is limited by the supply voltage $V_\text{supply}$.
 
 ## PNPs
 
@@ -364,7 +364,7 @@ def fitting_function_mosfet(V_GS, k):
    return k * V_GS ** 2
 ```
 
-2. Fit the data to the fitting function to determine the constant $k$. You can utilize `curve_fit` function ([Documentation can be found here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html)). You can access this function with `from scipy.optimize import cure_fit`.
+2. Fit the data to the fitting function to determine the constant $k$. You can utilize the `curve_fit` function ([Documentation can be found here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html)). You can access this function with `from scipy.optimize import curve_fit`.
 
 ```Python
 initial_guess = (1,) # the initial guess for fitting parameters.
@@ -402,43 +402,43 @@ Consider the circuit below:
 
 ![A simple MOSFET circuit that utilizes a potentiometer as a voltage divider to set a $V_{GS}$ to control the current through the load $R_L$.](../resources/lab7fig/mosfet-circuit.png){#fig:mosfet-cir width="7cm"}
 
-The potentiometer with total resistance $R_p$ acts as a voltage divider to set a gate-source voltage $V_{GS}$. We can consider the resistance from the wiper to ground as $R_{GS}$, such that the transfer function is $R_{GS}/R_p$ (since $R_p$ is $R_{GS}$ plus the resistance from the gate to the supply voltage $V_S$). This leads to
+The potentiometer with total resistance $R_p$ acts as a voltage divider to set a gate-source voltage $V_{GS}$. We can consider the resistance from the wiper to ground as $R_{GS}$, such that the transfer function is $R_{GS}/R_p$ (since $R_p$ is $R_{GS}$ plus the resistance from the gate to the supply voltage $V_\text{supply}$). This leads to
 
-$$V_{GS} = \frac{R_{GS}}{R_p}V_S$$
+$$V_{GS} = \frac{R_{GS}}{R_p}V_\text{supply}$$
 
-The potentiometer then simply sets the gate-source voltage, giving you a way of controlling it through a dial. The load (with resistance $R_L$) will have current $I_D$ run through it depending on the dial position then. This will lead to a voltage drop, such that the voltage at the drain (and therefore $V_{DS}$) is less than $V_S$. This idea should be familiar from the BJT analysis you did.
+The potentiometer then simply sets the gate-source voltage, giving you a way of controlling it through a dial. The load (with resistance $R_L$) will have current $I_D$ run through it depending on the dial position. This will lead to a voltage drop, such that the voltage at the drain (and therefore $V_{DS}$) is less than $V_\text{supply}$. This idea should be familiar from the BJT analysis you did.
 
 ### Question {#7.3}
 
-One way to determine the behavior of this circuit is using a load line on the plot you made using LTspice to determine what value of $V_{GS}$ you need to get a desired $I_D$. Recall, that the plot is specific to each individual MOSFET design, so you would use the plots supplied by the manufacturer in a datasheet in general; however, we will consider the MOSFET in your simulation since you already have that loaded into your Jupyter Notebook.
+A load line (on the $I_D$ vs $V_{DS}$ plot) can be used to determine the behavior of this circuit. Recall that the intersection of the load line and a curve will determine $I_D$ for each choice of $V_{GS}$. The plot is specific to each individual MOSFET design, so you would use the plots supplied by the manufacturer in a datasheet in general; however, we will consider the MOSFET in your simulation since you already have that loaded into your Jupyter Notebook.
 
-1. Use Ohm's law to write down $I_D$ as a function of $R_L$, $V_S$, and $V_{DS}$ (this is your load line equation). Implement it as a Python function that returns  the drain current in $\text{mA}$ (by multiplying by $1000$) and takes $V_S$ and $V_{DS}$ in Volts and $R_L$ in Ohms.
+1. Use Ohm's law to write down $I_D$ as a function of $R_L$, $V_\text{supply}$, and $V_{DS}$ (this is your load line equation). Implement it as a Python function that returns  the drain current in $\text{mA}$ (by multiplying by $1000$) and takes $V_\text{supply}$ and $V_{DS}$ in Volts and $R_L$ in Ohms.
 
-2. Plot your load line on a graph with your $I_D$ vs $V_{DS}$ curves using $V_S=9\text{ V}$ and $R_L = 10\text{ k}\Omega$. *Hint:* You'll want to make an $x$-axis array with something like `v_ds = np.linspace(0, 10, 100)` and plug this into your function to get the $y$-axis.
+2. Plot your load line on a graph with your $I_D$ vs $V_{DS}$ curves using $V_\text{supply}=9\text{ V}$ and $R_L = 10\text{ k}\Omega$. *Hint:* You'll want to make an $x$-axis array with something like `v_ds = np.linspace(0, 10, 100)` and plug this into your function to get the $y$-axis.
 
 3. Which values of $V_{GS}$ result in the MOSFET operating in the *linear region* and which values result in the MOSFET operating in the *saturation region*?
 
 4. What value of $V_{GS}$ get you closest to $0.5\text{ mA}$?
 
-### Question {#7.3}
+### Question {#7.4}
 
 With a supply voltage of $9\text{ V}$ and a load of $10\text{ k}\Omega$, the MOSFET operated in the linear region or the saturation region depending on the choice of $V_{GS}$; however, for a load of $R_L=100\ \Omega$, the MOSFET will operate in the saturation region for all four choices of $V_{GS}$.
 
-1. Show that the MOSFET is in the saturation region for all the $V_{GS}$ on your graph by plotting the new load line with $V_S=9\text{ V}$ and $R_L = 100\ \Omega$ (on a new plot). Adjust the axes with `ax.ylim()` to show the plot nicely.
+1. Show that the MOSFET is in the saturation region for all the $V_{GS}$ on your graph by plotting the new load line with $V_\text{supply}=9\text{ V}$ and $R_L = 100\ \Omega$ (on a new plot). Adjust the axes with `ax.ylim()` to show the plot nicely.
 
 2. Looking at your plot, is it consistent with the $I_D$ vs $V_{GS}$ plot you made in Question @7.2\?
 
 Since we are in the saturation region, the value of $k$ you determined from your fit can be used to determine the value of $V_{GS}$ needed to get a particular current $I_D$ through the load.
 
-3. Using the value of $k$ you determined from the fit, what $V_{GS}$ would you need to get a drain current of $0.5\text{ mA}$? *Hint:* remember that $V_{th}=0\text{ V}$.
+3. Using the value of $k$ you determined from the fit, what $V_{GS}$ would you need to get a drain current of $0.5\text{ mA}$? *Note:* check the units of $k$ and make sure you report your answer with correct and appropriate units. *Hint:* remember that $V_{th}=0\text{ V}$. 
 
 4. Notice that the $V_{GS}$ needed to get the same current of $I_D=0.5\text{ mA}$ differs depending on the load. As the load decreases the load line will become steeper, so it will continue to intersect the $I_D$ vs $V_{DS}$ curves in the *saturation region*. Considering this, what $V_{GS}$ would achieve $I_D=0.5\text{ mA}$ for a $8\ \Omega$ load?
 
 ## Op-amp design
 
-Op-amps are made of several transistors (often a mix of BJTs and JFETs). Op-amp design involves combining many kinds of transistor circuits like differential pairs (aka long-tail pairs), emitter amplifiers, current mirrors, darlington pairs, and push-pull amplifiers. Chapter 3 in Horowitz and Hill has a lot of great information on all of these (and more). It is worth thumbing through this chapter for ideas to incorporate in your final project.
+Op-amps are made of several transistors (often a mix of BJTs and JFETs). Op-amp design involves combining many kinds of transistor circuits like differential pairs (aka long-tail pairs), emitter amplifiers, current mirrors, darlington pairs, and push-pull amplifiers. Chapter 2 in Horowitz and Hill has a lot of great information on all of these (and more). It is worth thumbing through this chapter for ideas to incorporate in your final project.
 
-A great final project idea is to build an op-amp from discrete transistors! This op-amp, without doubt, will under perform compared to the LF365, but it will be a great learning experience. You can even implement it as an audio amplifier to drive a large speaker to make it more interesting. The following resources are a good starting point to starting off on a project like this.
+A great final project idea is to build an op-amp from discrete transistors! This op-amp, without doubt, will under perform compared to the LF356, but it will be a great learning experience. You can even implement it as an audio amplifier to drive a large speaker to make it more interesting. The following resources are a good starting off point for a project like this.
 
 - [Architecture and Design Techniques of Op-Amps](https://www.allaboutcircuits.com/video-tutorials/op-amp-basics-internal-circuitry/)
 

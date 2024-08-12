@@ -6,19 +6,19 @@
 % 5 - Download PNG file and upload to Overleaf
 
 \documentclass[border=0.2cm]{standalone}
-\usepackage{circuitikz}
+\usepackage{circuitikz,amsmath}
+
 
 \standaloneenv{circuitikz}
 \begin{document}
 
 \begin{circuitikz}[american voltages]
     \draw (0,0) node[npn](Q){};
-    \draw (Q.B) to [short, -o] ++(-1,0) node[anchor = east]{$V_{in}$};
+    \draw (Q.B) to [short, -o] ++(-1,0) node[anchor = east]{$V_\text{in}$};
     \draw (Q.E) to [R, l=$R_E$] ++(0,-2) node[ground]{};
-    \draw (Q.C) to [short,*-o] ++(1.5,0) node[anchor = west]{$V_{out}$};
-    \draw (Q.C) to [R, l=$R_C$] ++(0,2) to [short, -o] ++(0,0) node[anchor = south]{$+15~V$};
+    \draw (Q.E) to [short,*-o] ++(1.5,0) node[anchor = west]{$V_\text{out}$};
+    \draw (Q.C) to [short, -o] ++(0,.5) node[anchor = south]{$V_\text{supply}$};
 \end{circuitikz}
-
 
 
 \end{document}
