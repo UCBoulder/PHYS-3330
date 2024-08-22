@@ -1,0 +1,758 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="generator" content="pandoc">
+      <meta name="author" content="Department of Physics | University of
+Colorado Boulder">
+      
+      <title>PHYS 3330</title>
+         </head>
+   <body>
+            <div>
+         <style>
+            .eqnos { display: inline-block; position: relative; width: 100%; }
+            .eqnos br { display: none; }
+            .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
+         </style>
+         <h1 class="title">Lab 9 - Digital Electronics: Logic and
+clocks</h1>
+                  <h1 class="title">Contents</h1>
+        <nav id="TOC">
+            <ul>
+            <li><a href="#goals" id="toc-goals"><span
+            class="toc-section-number">1</span> Goals</a></li>
+            <li><a href="#intro-to-digital-circuits"
+            id="toc-intro-to-digital-circuits"><span
+            class="toc-section-number">2</span> Intro to Digital
+            Circuits</a></li>
+            <li><a href="#prelab" id="toc-prelab"><span
+            class="toc-section-number">3</span> Prelab</a>
+            <ul>
+            <li><a href="#digital-logic-gates"
+            id="toc-digital-logic-gates"><span
+            class="toc-section-number">3.1</span> Digital Logic
+            Gates</a>
+            <ul>
+            <li><a href="#sec:bdlpre" id="toc-sec:bdlpre"><span
+            class="toc-section-number">3.1.1</span> Prelab
+            Question</a></li>
+            </ul></li>
+            <li><a href="#memory-elements-and-flip-flops"
+            id="toc-memory-elements-and-flip-flops"><span
+            class="toc-section-number">3.2</span> Memory Elements and
+            Flip-Flops</a></li>
+            <li><a href="#rs-memory-circuit"
+            id="toc-rs-memory-circuit"><span
+            class="toc-section-number">3.3</span> RS memory
+            circuit</a></li>
+            <li><a href="#jk-flip-flop-ttl74107"
+            id="toc-jk-flip-flop-ttl74107"><span
+            class="toc-section-number">3.4</span> JK flip-flop
+            (TTL74107)</a></li>
+            <li><a href="#timer-and-digital-clock"
+            id="toc-timer-and-digital-clock"><span
+            class="toc-section-number">3.5</span> 555 timer and digital
+            clock</a></li>
+            </ul></li>
+            <li><a href="#digital-logic-chip-pin-outs"
+            id="toc-digital-logic-chip-pin-outs"><span
+            class="toc-section-number">4</span> Digital Logic Chip
+            Pin-Outs</a></li>
+            <li><a href="#useful-readings"
+            id="toc-useful-readings"><span
+            class="toc-section-number">5</span> Useful Readings</a></li>
+            <li><a href="#prelab-1" id="toc-prelab-1"><span
+            class="toc-section-number">6</span> Prelab</a>
+            <ul>
+            <li><a href="#sec:bdlpre" id="toc-sec:bdlpre"><span
+            class="toc-section-number">6.1</span> Basic digital
+            logic</a></li>
+            <li><a href="#sec:555pre" id="toc-sec:555pre"><span
+            class="toc-section-number">6.2</span> 555 timer</a></li>
+            <li><a href="#sec:jkffpre" id="toc-sec:jkffpre"><span
+            class="toc-section-number">6.3</span> JK flip-flop</a></li>
+            <li><a href="#lab-activities" id="toc-lab-activities"><span
+            class="toc-section-number">6.4</span> Lab
+            activities</a></li>
+            </ul></li>
+            <li><a href="#sec:TTL" id="toc-sec:TTL"><span
+            class="toc-section-number">7</span> TTL Gates</a>
+            <ul>
+            <li><a href="#truth-tables" id="toc-truth-tables"><span
+            class="toc-section-number">7.1</span> Truth tables</a></li>
+            <li><a href="#modifying-basic-gates"
+            id="toc-modifying-basic-gates"><span
+            class="toc-section-number">7.2</span> Modifying basic
+            gates</a></li>
+            <li><a href="#exclusice-or" id="toc-exclusice-or"><span
+            class="toc-section-number">7.3</span> Exclusice OR</a></li>
+            </ul></li>
+            <li><a href="#sequential-logic"
+            id="toc-sequential-logic"><span
+            class="toc-section-number">8</span> Sequential Logic</a>
+            <ul>
+            <li><a href="#rs-memory-circuit-1"
+            id="toc-rs-memory-circuit-1"><span
+            class="toc-section-number">8.1</span> RS memory
+            circuit</a></li>
+            <li><a href="#digital-clock-with-555-timer"
+            id="toc-digital-clock-with-555-timer"><span
+            class="toc-section-number">8.2</span> Digital clock with 555
+            timer</a></li>
+            <li><a href="#jk-flip-flop" id="toc-jk-flip-flop"><span
+            class="toc-section-number">8.3</span> JK flip-flop</a></li>
+            </ul></li>
+            <li><a href="#appendix-boolean-algebra"
+            id="toc-appendix-boolean-algebra"><span
+            class="toc-section-number">9</span> Appendix: Boolean
+            Algebra</a>
+            <ul>
+            <li><a href="#fundamental-laws"
+            id="toc-fundamental-laws"><span
+            class="toc-section-number">9.1</span> Fundamental
+            laws</a></li>
+            <li><a href="#equality" id="toc-equality"><span
+            class="toc-section-number">9.2</span> Equality</a></li>
+            <li><a href="#associative-laws"
+            id="toc-associative-laws"><span
+            class="toc-section-number">9.3</span> Associative
+            laws</a></li>
+            <li><a href="#distributive-laws"
+            id="toc-distributive-laws"><span
+            class="toc-section-number">9.4</span> Distributive
+            laws</a></li>
+            <li><a href="#demorgans-theorems"
+            id="toc-demorgans-theorems"><span
+            class="toc-section-number">9.5</span> DeMorgan’s
+            theorems</a></li>
+            <li><a href="#example-proof" id="toc-example-proof"><span
+            class="toc-section-number">9.6</span> Example proof</a></li>
+            <li><a href="#example-of-simplification"
+            id="toc-example-of-simplification"><span
+            class="toc-section-number">9.7</span> Example of
+            simplification</a></li>
+            </ul></li>
+            </ul>
+        </nav>
+        <hr/>
+         <h1 data-number="1" id="goals"><span
+         class="header-section-number">1</span> Goals</h1>
+         <p>In this lab, we will gloss over the basics of digital
+         electronics. You will utilize some of the most basic components
+         that are used to build more complex circuits, like computers.
+         You will learn to use logic gates, memory circuits, and digital
+         clocks (a kind of oscillator), and you will learn how to
+         combine gates and predict the behavior with Boolean
+         algebra.</p>
+         <p>This subject can easily span an entire semester, but we will
+         just dip our toes in the water so that you will be equipped to
+         employ some basic components into your final project if needed.
+         The digital clock you will build in this lab, for example, has
+         many applications. It is worth also investigating <a
+         href="https://en.wikipedia.org/wiki/Electronic_oscillator">other
+         kinds of oscillators</a> for your project (if relevant).</p>
+         <!--# Definitions
+
+         **Duty cycle** - percentage of time during one cycle that a system is active (+5V in the case of TTL digital logic)
+
+         **Truth-table** - table that shows all possible input combinations and the resulting outputs of digital logic components
+
+         **Flip-flop **- a circuit that has two stable states and can be used to store state information
+
+         **Logic gates ** - a physical device that implements some Boolean logic operation-->
+         <h1 data-number="2" id="intro-to-digital-circuits"><span
+         class="header-section-number">2</span> Intro to Digital
+         Circuits</h1>
+         <p>In almost all experiments in the physical sciences, the
+         signals that represent physical quantities start out as
+         <em>analog</em> waveforms. However, in the modern day, all our
+         data eventually ends up the computer (which is a digital
+         circuit) to store and display. This requires analog-to-digital
+         converters (ADC or A/D converter). There are plenty of
+         commercially available ADCs that read voltages and connect to
+         computers via USB, ethernet, PCI, or PCIe; however, most
+         instruments, such as the oscilloscope you use, have ADCs built
+         in and communicate with a computer via USB, ethernet, or GPIB.
+         Scientists usually buy their data acquisition equipment rather
+         than build it, so they usually don’t have to know too much
+         about the digital circuitry that makes it work.</p>
+         <p>In lab 5 you built a 3-bit digital-to-analog converter
+         (DAC). Both DACs and ADCs have limited precision by the number
+         of bits. A set of <span class="math inline">\(N\)</span> bits
+         has <span class="math inline">\(2^N\)</span> possible different
+         values. The precision will be determined by the range of value
+         and the number of possible values. If you try to represent an
+         analog voltage by <span class="math inline">\(7\)</span> bits,
+         your minimum uncertainty will be about <span
+         class="math inline">\(1\%\)</span> of the total range, since
+         there are <span class="math inline">\(2^7 = 128\)</span>
+         possible combinations of <span class="math inline">\(7\)</span>
+         bits. For higher accuracy you need more bits.</p>
+         <p>There are three key components of digital circuits:</p>
+         <ul>
+         <li><p>logic,</p></li>
+         <li><p>memory, and</p></li>
+         <li><p>timing.</p></li>
+         </ul>
+         <p>Transistors are the building blocks of all of these
+         components, but both logic and memory can be exclusively made
+         with <strong>gates</strong>.</p>
+         <p><strong>DEFINITION: Logic gates</strong> - a simple
+         transistor circuit that implements some Boolean logic
+         operation.</p>
+         <p>In digital circuits, it is easier to abstract the discrete
+         transistor circuits into gate circuits (similar to how we can
+         treat an op-amp as a lumped element completely independent of
+         the exact transistor layout that makes up the op-amp). In
+         computers, gates are <a
+         href="https://en.wikipedia.org/wiki/CMOS">CMOS</a> (where gates
+         are designed with MOSFETs), but gates originated as <a
+         href="https://en.wikipedia.org/wiki/Transistor%E2%80%93transistor_logic">TTL</a>
+         (where gates are made from BJTs). Most gates on DIP chips are
+         still TTL (including the ones we will use in this lab).</p>
+         <p>Gates can be used to construct arbitrary combinatorial logic
+         (they can generate any <em>truth-table</em>), but to create a
+         machine that steps through a sequence of instructions like a
+         computer does, we also need <em>memory</em> and a
+         <em>clock</em>. The fundamental single-bit memory element of
+         digital electronics is called a <em>flip-flop</em>. We will
+         study two types, called SR (or RS) and JK. Both of these can be
+         built exclusively with gates (the ones we use are TTL). A
+         <em>digital clock</em> is a repeating digital waveform used to
+         step a digital circuit through a sequence of states. We will
+         introduce the 555 timer chip and use it to generate a clock
+         signal. Digital circuits that are able to step through a
+         sequence of states with the aid of flip-flops and a clock are
+         called sequential logic.</p>
+         <p>The voltage in a digital circuit is allowed to be in only
+         one of two states: HIGH or LOW. HIGH is taken to mean logical
+         <span class="math inline">\((1)\)</span> or logical TRUE. LOW
+         is taken to mean logical <span
+         class="math inline">\((0)\)</span> or logical FALSE. In the TTL
+         logic family (see Figure <span class="citation"
+         data-cites="fig:TTLvolt">@fig:TTLvolt</span>), the “ideal” HIGH
+         and LOW voltage levels are <span class="math inline">\(5\text{
+         V}\)</span> and <span class="math inline">\(0\text{
+         V}\)</span>, respectively, but any input voltage in the range
+         of <span class="math inline">\(2–5\text{ V}\)</span> is
+         interpreted as HIGH, and any input voltage in the range of
+         <span class="math inline">\(0–0.8\text{ V}\)</span> as LOW.
+         Voltages outside this range are undefined, and therefore
+         “illegal,” except if they occur briefly during transitions. If
+         the input to a TTL circuit is a voltage in this undefined
+         range, the response is unpredictable, with the circuit
+         sometimes interpreting it as a <span
+         class="math inline">\(“1”\)</span> and sometimes as a <span
+         class="math inline">\(“0.”\)</span> Avoid sending voltages in
+         the undefined range into TTL components.</p>
+         <figure>
+         <img src="../resources/lab9fig/TTLvolt.png" id="fig:TTLvolt"
+         style="width:7cm" alt="TTL voltage levels" />
+         <figcaption aria-hidden="true">TTL voltage levels</figcaption>
+         </figure>
+         <h1 data-number="3" id="prelab"><span
+         class="header-section-number">3</span> Prelab</h1>
+         <h2 data-number="3.1" id="digital-logic-gates"><span
+         class="header-section-number">3.1</span> Digital Logic
+         Gates</h2>
+         <p>The flow of digital signals is controlled by transistors in
+         various configurations depending on the logic family (we
+         mentioned CMOS and TTL above). For most purposes, we can
+         imagine that the logic gates are composed of several ideal
+         switches with just two states: OPEN and CLOSED. The state of a
+         switch is controlled by a digital signal. The switch remains
+         closed so long as a logical <span
+         class="math inline">\((1)\)</span> signal is applied. A logical
+         <span class="math inline">\((0)\)</span> control signal keeps
+         it open.</p>
+         <p>Logic signals interact by means of gates. The three
+         fundamental gates, AND, OR, and NOT, are named after the three
+         fundamental operations of logic that they carry out. The AND
+         and OR gates each have two inputs and one output. The output
+         state is determined by the states of the two inputs. The NOT
+         gate has one input and one output.</p>
+         <p>The function of each gate is defined by a truth table, which
+         specifies the output state for every possible combination of
+         input states. The output values of the truth tables can be
+         understood in terms of two switches. If the switches are in
+         series, you get the AND function. Parallel switches perform the
+         OR operation. The most common gates are shown in Figure <span
+         class="citation"
+         data-cites="fig:simpgates">@fig:simpgates</span> and Figure
+         <span class="citation"
+         data-cites="fig:compgates">@fig:compgates</span>. A small
+         circle after a gate or at an input indicates negation
+         (NOT).</p>
+         <figure>
+         <img src="../resources/lab9fig/simpgates.png"
+         id="fig:simpgates" style="width:15cm"
+         alt="Simple logic gates" />
+         <figcaption aria-hidden="true">Simple logic gates</figcaption>
+         </figure>
+         <figure>
+         <img src="../resources/lab9fig/compgates.png"
+         id="fig:compgates" style="width:10cm"
+         alt="Compound logic gates" />
+         <figcaption aria-hidden="true">Compound logic
+         gates</figcaption>
+         </figure>
+         <h3 data-number="3.1.1" id="sec:bdlpre"><span
+         class="header-section-number">3.1.1</span> Prelab Question</h3>
+         <ol type="1">
+         <li><p>Read Section <span class="citation"
+         data-cites="sec:TTL">@sec:TTL</span> of the lab thoroughly and
+         enter in your lab book the circuit diagrams (symbols) and truth
+         tables of all the circuits that you will test: NAND, NOR, NOT
+         (INVERT), and XOR (EXCLUSIVE OR).</p></li>
+         <li><p>Read through the appendix. Design a circuit to perform
+         the XOR function using only NAND gates or only NOR gates.
+         Simplify the circuit so that you use the smallest possible
+         number of gates.</p></li>
+         <li><p>Prove that your circuit is equivalent to the XOR using
+         the truth tables or Boolean algebra method.</p></li>
+         </ol>
+         <h2 data-number="3.2" id="memory-elements-and-flip-flops"><span
+         class="header-section-number">3.2</span> Memory Elements and
+         Flip-Flops</h2>
+         <p>In sequential logic circuits, the output depends upon
+         previous values of the input signals as well as their
+         present-time values. Such circuits necessarily include memory
+         elements that store the logic values of the earlier signals.
+         The fundamental memory circuit is the RS memory element. The JK
+         flip-flop has an RS flip-flop at its core, but it adds
+         circuitry that synchronizes output transitions to a clock
+         signal. Timing control by a clock is essential to most complex
+         sequential circuits.</p>
+         <h2 data-number="3.3" id="rs-memory-circuit"><span
+         class="header-section-number">3.3</span> RS memory circuit</h2>
+         <p>The truth table for the RS memory element shows how the
+         circuit remembers. Suppose it starts in a state with Q=0 and
+         R=S=0. A positive pulse S at the input sets it into the state
+         Q=1, where it remains after S returns to zero. A later pulse R
+         on the other input resets the circuit to Q=0, where it remains
+         until the next S pulse.</p>
+         <figure>
+         <img src="../resources/lab9fig/rsmem.png" id="fig:rsmem"
+         alt="RS memory element" />
+         <figcaption aria-hidden="true">RS memory element</figcaption>
+         </figure>
+         <h2 data-number="3.4" id="jk-flip-flop-ttl74107"><span
+         class="header-section-number">3.4</span> JK flip-flop
+         (TTL74107)</h2>
+         <p>There are three kinds of inputs to the JK flip-flop:</p>
+         <ol type="1">
+         <li>Data inputs J and K</li>
+         <li>The clock CK</li>
+         <li>The direct input clear CLR</li>
+         </ol>
+         <p>There are two outputs: <span
+         class="math inline">\(Q\)</span> and it’s complement (not-<span
+         class="math inline">\(Q\)</span>).</p>
+         <p>The index <em>n</em> counts the number of clock pulses since
+         the start of the experiment. In the absence of a clock pulse,
+         the output remains unchanged at the previously acquired value,
+         <span class="math inline">\(Q_n\)</span>, which is independent
+         of the present-time data inputs J and K. Only on the arrival of
+         a clock pulse, C, can the output change to a new value, <span
+         class="math inline">\(Q_{n+1}\)</span>. The value of <span
+         class="math inline">\(Q_n\)</span> depends on the J and K
+         inputs in the way specified in the truth table. The change
+         occurs at the falling (trailing) edge of the clock pulse,
+         indicated by a downward arrow in the truth table in Figure
+         <span class="citation"
+         data-cites="fig:jkflipflop">@fig:jkflipflop</span>. The direct
+         input, CLR, overrides the clock and data inputs. During normal
+         operation, CLR = 1. At the moment CLR goes to zero, the output
+         goes to zero and remains there as long as CLR = 0.</p>
+         <figure>
+         <img src="../resources/lab9fig/jkflipflop.png"
+         id="fig:jkflipflop" alt="JK flip-flop" />
+         <figcaption aria-hidden="true">JK flip-flop</figcaption>
+         </figure>
+         <h2 data-number="3.5" id="timer-and-digital-clock"><span
+         class="header-section-number">3.5</span> 555 timer and digital
+         clock</h2>
+         <p>See <a
+         href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
+         section 15.1.1 for a description of the guts of the 555 timer
+         chip. Figure <span class="citation"
+         data-cites="fig:555timer">@fig:555timer</span> shows the
+         circuit for generating a clock with the 555 and summarizes the
+         formulas relating the resistor and capacitor values to the
+         output low time T1 and the output high time T2. Much more
+         information is available in <a
+         href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
+         section 15.1.2.</p>
+         <figure>
+         <img src="../resources/lab9fig/555timer.png" id="fig:555timer"
+         alt="Summary of information for generating a clock with a 555 Timer" />
+         <figcaption aria-hidden="true">Summary of information for
+         generating a clock with a 555 Timer</figcaption>
+         </figure>
+         <h1 data-number="4" id="digital-logic-chip-pin-outs"><span
+         class="header-section-number">4</span> Digital Logic Chip
+         Pin-Outs</h1>
+         <p>Each chip has a dot or notch to indicate the end where pins
+         1 and 14 are located. The pin numbers increase sequentially as
+         you go counterclockwise around the chip viewed from above. In
+         74xx family logic chips, pin 7 is always grounded (0 V) and pin
+         14 is always connected to the +5 V supply. You connect these to
+         the breadboard the same way as the op-amp (across the groove in
+         the middle of the breadboard).</p>
+         <figure>
+         <img src="../resources/lab9fig/logicchips.png"
+         id="fig:logicchips" style="width:20cm"
+         alt="Some logic chip pin-outs." />
+         <figcaption aria-hidden="true">Some logic chip
+         pin-outs.</figcaption>
+         </figure>
+         <h1 data-number="5" id="useful-readings"><span
+         class="header-section-number">5</span> Useful Readings</h1>
+         <ol type="1">
+         <li><p><a
+         href="https://atomoptics-nas.uoregon.edu/~dsteck/teaching/electronics/electronics-notes.pdf">Steck</a>
+         Sections 9.1, 9.2, 9.3, 10.1, 10.2, 11.4, 13.1, 13.2, 15.1.1,
+         15.1.2</p></li>
+         <li><p>Fischer-Cripps Chapter 11</p></li>
+         <li><p>Horowitz and Hill 2<sup>nd</sup> Ed. Chapter 8</p></li>
+         </ol>
+         <h1 data-number="6" id="prelab-1"><span
+         class="header-section-number">6</span> Prelab</h1>
+         <p>Answer the following questions using Mathematica or by
+         hand.</p>
+         <h2 data-number="6.1" id="sec:bdlpre"><span
+         class="header-section-number">6.1</span> Basic digital
+         logic</h2>
+         <ol type="1">
+         <li>Read the lab thoroughly and enter in your lab book the
+         circuit diagrams (symbols) and truth tables of all the circuits
+         that you will test: NAND, NOR, NOT (INVERT), and XOR (EXCLUSIVE
+         OR).</li>
+         <li>Design a circuit to perform the XOR function using only
+         NAND gates or only NOR gates. Simplify the circuit so that you
+         use the smallest possible number of gates.</li>
+         <li>Prove that your circuit is equivalent to the XOR using the
+         truth tables or Boolean algebra method (see the Appendix).</li>
+         </ol>
+         <h2 data-number="6.2" id="sec:555pre"><span
+         class="header-section-number">6.2</span> 555 timer</h2>
+         <ol type="1">
+         <li>Design a 4 kHz clock using the 555-timer chip. Make the low
+         level 1/4 of the output period (a 75% duty cycle: 25% low, 75%
+         high).</li>
+         <li>How large a capacitor would you need to substitute in order
+         to modify your clock to run at 2 Hz (e.g. for visual
+         observation of LEDs), keeping all other components fixed?</li>
+         </ol>
+         <h2 data-number="6.3" id="sec:jkffpre"><span
+         class="header-section-number">6.3</span> JK flip-flop</h2>
+         <ol type="1">
+         <li>A JK flip-flop with J=K=1 and CLR=1 is driven at the clock
+         input by the 4 kHz clock you designed in section <span
+         class="citation" data-cites="sec:555pre">@sec:555pre</span>.
+         Draw the waveforms for the clock and the Q output (labeling
+         each) vs. time using the same time scale (making sure the times
+         are indicated on the x-axis). Include enough periods of the
+         clock signal to see the full behavior of the flip-flop’s
+         output.</li>
+         </ol>
+         <h2 data-number="6.4" id="lab-activities"><span
+         class="header-section-number">6.4</span> Lab activities</h2>
+         <ol type="1">
+         <li>Read through all of the lab steps and identify the step (or
+         sub-step) that you think will be the most challenging.</li>
+         <li>List at least one question you have about the lab
+         activity.</li>
+         </ol>
+         <h1 data-number="7" id="sec:TTL"><span
+         class="header-section-number">7</span> TTL Gates</h1>
+         <h2 data-number="7.1" id="truth-tables"><span
+         class="header-section-number">7.1</span> Truth tables</h2>
+         <ol type="1">
+         <li>Check your power supply before connecting to the circuit
+         board. Some of the supplies have a fixed 5 V output that you
+         should use to power the TTL digital circuits. Supplies with a
+         varying output up to 6 V should be configured to output 5 V.
+         The logic chips will burn out at around 6 V.</li>
+         <li>Input logical values can be set by connecting wires from
+         the gate inputs to either 0 V (logical 0) or +5 V (logical 1).
+         Use one long rail on your prototyping board for 0 V and one for
+         +5 V. *<strong>Note: Disconnecting an input from the +5 V rail
+         is not the same as connecting it to 0 V. If it is disconnected,
+         the input can float up to +5 V on its own.</strong></li>
+         <li>The logic level of the output can be observed using a light
+         emitting diode (LED), which is connected from the output to
+         ground. The LED lights up when the output is +5 V and is off
+         when the output is 0 V. To limit the amount of current though
+         the diode, place a resistor in series with it. What value of
+         resistor should you use to limit the current to 20 mA (don’t
+         forget that the LED has a voltage drop of about 2 V)? Record
+         your calculation. You can either use the single LED (HLMP-C625)
+         or one of the LEDs from the 10-LED bank (MV57164). Check that
+         the LED lights up appropriately. If you don’t see light, try
+         reversing the +5 V and ground connections. You can review Lab 6
+         for more information on LEDs.</li>
+         <li>Record the measured truth tables for the NAND (7400), NOR
+         (7402), and INVERT (7404) gates, using the LED indicator for
+         your measurements.</li>
+         </ol>
+         <h2 data-number="7.2" id="modifying-basic-gates"><span
+         class="header-section-number">7.2</span> Modifying basic
+         gates</h2>
+         <ol type="1">
+         <li>Connect a NAND gate so that it performs the INVERT
+         function. Do this for a NOR gate also.</li>
+         <li>Record your circuit and measured truth table.</li>
+         </ol>
+         <h2 data-number="7.3" id="exclusice-or"><span
+         class="header-section-number">7.3</span> Exclusice OR</h2>
+         <ol type="1">
+         <li>Verify the truth tables for an XOR chip (7486).</li>
+         <li>Build and test the XOR circuit you designed using only NAND
+         or only NOR gates in section <span class="citation"
+         data-cites="sec:bdlpre">@sec:bdlpre</span>.2.</li>
+         </ol>
+         <h1 data-number="8" id="sequential-logic"><span
+         class="header-section-number">8</span> Sequential Logic</h1>
+         <h2 data-number="8.1" id="rs-memory-circuit-1"><span
+         class="header-section-number">8.1</span> RS memory circuit</h2>
+         <ol type="1">
+         <li>Build an RS memory circuit from two NOR gates. Draw a
+         schematic of your circuit.</li>
+         <li>Demonstrate the memory property by going through a complete
+         memory cycle: Set (R = 0, S = 1), Store (0, 0), Reset (1, 0),
+         Store (0, 0), Set (0, 1). Record all inputs and outputs for
+         each cycle. You can determine the output by using one LED for
+         each output or measuring the voltage of each output. Do your
+         results agree with your predictions?</li>
+         <li>Examine the effect of the “illegal” input (R = 1, S = 1)
+         for different initial states of the RS system. Describe the
+         outcomes of the illegal operation.</li>
+         </ol>
+         <h2 data-number="8.2" id="digital-clock-with-555-timer"><span
+         class="header-section-number">8.2</span> Digital clock with 555
+         timer</h2>
+         <ol type="1">
+         <li>Build the ~4 kHz digital clock using a 555 Timer according
+         to your design in section <span class="citation"
+         data-cites="sec:555pre">@sec:555pre</span>.1. Measure the
+         frequency, the pulse length (time the output is high), the duty
+         cycle, and the nominal 5 V amplitude. Include a screen shot
+         showing the results. Do your measurements agree with your
+         predictions using the measured values of your components?</li>
+         <li>Check that a suitable large capacitor placed in parallel
+         with the existing one converts the clock to 2 Hz.</li>
+         </ol>
+         <h2 data-number="8.3" id="jk-flip-flop"><span
+         class="header-section-number">8.3</span> JK flip-flop</h2>
+         <ol type="1">
+         <li>Test a JK flip-flop by constructing a truth table utilizing
+         different inputs for J and K and creating a clock transition by
+         switching the voltage from 0 V to 5 V to 0 V. This is a perfect
+         opportunity to use the switch on the front panel of your setup.
+         Connect LEDs to both outputs to record your data. Since the
+         output depends upon the previous state, <span
+         class="math inline">\(Q_n\)</span>, you will need to tabulate
+         <span class="math inline">\(Q_{n+1}\)</span> for both possible
+         previous states, <span class="math inline">\(Q_n=0\)</span> and
+         <span class="math inline">\(Q_n=1\)</span>. You should add an
+         additional column, <span
+         class="math inline">\(Q_{n+2}\)</span>, to get a better feel
+         for the behavior of the flip- flop.</li>
+         <li>Set CLR = 1 and J = K = 1. Now drive the clock input of the
+         flip-flop with 4 kHz pulses from your clock circuit. Use the
+         oscilloscope to measure the clock input and the output, <span
+         class="math inline">\(Q\)</span>, of the flip-flop. You may
+         find Figure <span class="citation"
+         data-cites="fig:jkfftest">@fig:jkfftest</span> helpful to setup
+         this part. Record your measurements and compare with your
+         prediction from section <span class="citation"
+         data-cites="sec:jkffpre">@sec:jkffpre</span>. Include a screen
+         shot showing the results.</li>
+         <li>Do the same test with J = K = 0 and record what
+         happens.</li>
+         </ol>
+         <figure>
+         <img src="../resources/lab9fig/jkfftest.png" id="fig:jkfftest"
+         style="width:20cm" alt="JK flip-flop test setup" />
+         <figcaption aria-hidden="true">JK flip-flop test
+         setup</figcaption>
+         </figure>
+         <h1 data-number="9" id="appendix-boolean-algebra"><span
+         class="header-section-number">9</span> Appendix: Boolean
+         Algebra</h1>
+         <h2 data-number="9.1" id="fundamental-laws"><span
+         class="header-section-number">9.1</span> Fundamental laws</h2>
+         <p>We imagine a logical variable, <em>A</em>, that takes on the
+         values 0 or 1. If <em>A = 0</em> then <em>Ā = 1</em> and if
+         <em>A = 1</em> then <em>Ā = 0</em> . Here are some obvious
+         identities using the AND, OR and NOT operations. Looking at
+         these identities you can see why the ‘plus’ symbol was chosen
+         for OR and ‘times’ (•) for AND.</p>
+         <table>
+         <caption>Caption. {#tbl:1}</caption>
+         <thead>
+         <tr class="header">
+         <th>OR</th>
+         <th>AND</th>
+         <th>NOT</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr class="odd">
+         <td><em>A</em> + 0 = <em>A</em></td>
+         <td><em>A</em> · 0 = 0</td>
+         <td><em>A</em> + <em>Ā</em> =1</td>
+         </tr>
+         <tr class="even">
+         <td><em>A</em> +1 = 1</td>
+         <td><em>A</em> ·1 = <em>A</em></td>
+         <td><em>A</em> · <em>Ā</em> = 0</td>
+         </tr>
+         <tr class="odd">
+         <td><em>A</em> + <em>A</em> = <em>A</em></td>
+         <td><em>A</em> · <em>A</em> = <em>A</em></td>
+         <td><em>Ā</em> = <em>A</em></td>
+         </tr>
+         <tr class="even">
+         <td><em>A</em> + <em>Ā</em> =1</td>
+         <td><em>A</em> · <em>Ā</em> = 0</td>
+         <td></td>
+         </tr>
+         </tbody>
+         </table>
+         <h2 data-number="9.2" id="equality"><span
+         class="header-section-number">9.2</span> Equality</h2>
+         <p>Two Boolean expressions are equal if and only if their truth
+         tables are identical.</p>
+         <h2 data-number="9.3" id="associative-laws"><span
+         class="header-section-number">9.3</span> Associative laws</h2>
+         <p><span class="math display">\[(A+B) + C = A +
+         (B+C)\]</span></p>
+         <p><span class="math display">\[(AB)C=A(BC)\]</span></p>
+         <h2 data-number="9.4" id="distributive-laws"><span
+         class="header-section-number">9.4</span> Distributive laws</h2>
+         <p><span class="math display">\[A(B+C)=AB+AC\]</span></p>
+         <p><strong>Related identities:</strong></p>
+         <p><span class="math display">\[(A+AB)=A\]</span></p>
+         <p><span class="math display">\[(A+\bar{A}B)=A+B\]</span></p>
+         <p><span class="math display">\[(A+B)\cdot (A+C) = (A+
+         BC)\]</span></p>
+         <h2 data-number="9.5" id="demorgans-theorems"><span
+         class="header-section-number">9.5</span> DeMorgan’s
+         theorems</h2>
+         <p><span class="math display">\[\overline{A \cdot B\cdot
+         \ldots} = \bar{A}+\bar{B}+\ldots\]</span></p>
+         <p><span class="math display">\[\overline{A + B+ \ldots} =
+         \bar{A}\cdot \bar{B}\cdot\ldots\]</span></p>
+         <h2 data-number="9.6" id="example-proof"><span
+         class="header-section-number">9.6</span> Example proof</h2>
+         <p>Each of the above equalities is a theorem that can be
+         proved. Let’s do an example by directly comparing the truth
+         tables for the left and right sides. We take on DeMorgan’s
+         first theorem for two variables, <span
+         class="math inline">\(\overline{AB}=\bar{A}+\bar{B}\)</span>:</p>
+         <table>
+         <caption>Caption. {#tbl:2}</caption>
+         <thead>
+         <tr class="header">
+         <th><span class="math inline">\(A\)</span></th>
+         <th><span class="math inline">\(B\)</span></th>
+         <th><span class="math inline">\(AB\)</span></th>
+         <th><span class="math inline">\(\overline{AB}\)</span></th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr class="odd">
+         <td>0</td>
+         <td>0</td>
+         <td>0</td>
+         <td>1</td>
+         </tr>
+         <tr class="even">
+         <td>0</td>
+         <td>1</td>
+         <td>0</td>
+         <td>1</td>
+         </tr>
+         <tr class="odd">
+         <td>1</td>
+         <td>0</td>
+         <td>0</td>
+         <td>1</td>
+         </tr>
+         <tr class="even">
+         <td>1</td>
+         <td>1</td>
+         <td>1</td>
+         <td>0</td>
+         </tr>
+         </tbody>
+         </table>
+         <table>
+         <caption>Caption. {#tbl:3}</caption>
+         <thead>
+         <tr class="header">
+         <th><span class="math inline">\(A\)</span></th>
+         <th><span class="math inline">\(B\)</span></th>
+         <th><span class="math inline">\(\bar{A}\)</span></th>
+         <th><span class="math inline">\(\bar{B}\)</span></th>
+         <th><span class="math inline">\(\bar{A}+\bar{B}\)</span></th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr class="odd">
+         <td>0</td>
+         <td>0</td>
+         <td>1</td>
+         <td>1</td>
+         <td>1</td>
+         </tr>
+         <tr class="even">
+         <td>0</td>
+         <td>1</td>
+         <td>1</td>
+         <td>0</td>
+         <td>1</td>
+         </tr>
+         <tr class="odd">
+         <td>1</td>
+         <td>0</td>
+         <td>0</td>
+         <td>1</td>
+         <td>1</td>
+         </tr>
+         <tr class="even">
+         <td>1</td>
+         <td>1</td>
+         <td>0</td>
+         <td>0</td>
+         <td>0</td>
+         </tr>
+         </tbody>
+         </table>
+         <p>The last columns of the truth tables are identical. Thus,
+         the first theorem is proven for two variables.</p>
+         <h2 data-number="9.7" id="example-of-simplification"><span
+         class="header-section-number">9.7</span> Example of
+         simplification</h2>
+         <p>Boolean algebra can be used to simplify logical expressions
+         and reduce the number of gates required in a circuit. In the
+         figure below, we show two ways to implement the expression,
+         <span class="math inline">\(Y=A+\bar{A}BC\)</span>.</p>
+         <p><strong>Direct implementation</strong> using NOT, NOR, and
+         NAND</p>
+         <figure>
+         <img src="../resources/lab9fig/logic.png" id="fig:logic"
+         alt="Logic" />
+         <figcaption aria-hidden="true">Logic</figcaption>
+         </figure>
+               </div>
+            <!-- Mathjax -->
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script>
+
+      </script>
+   </body>
+</html>
