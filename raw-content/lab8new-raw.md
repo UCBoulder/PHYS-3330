@@ -71,13 +71,13 @@ The difference between $I_C$ and $I_E$ is almost never important since $h_{FE}$ 
 
 ## The 2N3904
 
-The transistor you will use in this lab is the 2N3904, which is an NPN. The datasheet can be found in the [Datasheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets). Most NPNs have a "complement," which is PNP with very similar characteristics. The 2N3904's complement is the 2N3906. We have 2N3906s in the lab, but we won't need them today; however, you may want them for your project.
+The transistor you will use in this lab is the 2N3904, which is an NPN. The datasheet can be found in the [Datasheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets). Most NPNs have a "complement," which is a PNP with very similar characteristics. The 2N3904's complement is the 2N3906. We have 2N3906s in the lab, but we won't need them in this lab; however, you may want them for your project.
 
 The 2N3904 and 2N3906 have high current gain $(h_{FE})$, however, they are unable to deliver large amounts of current. This is fine, because the speakers we will use in this are very small and can only handle about half a Watt of power. If you want to power a larger speaker at higher power (louder), you will need transistors that can handle more current: often referred to as \"power transistors.\" Power transistors often have much smaller current gain than other transistors, and sometimes they must be connected as pairs to increase the total gain (you can search for \"Darlington connection\" in Horowitz and Hill). We have a complementary pair of power transistors in the lab: 2N2222 (NPN) and 2N2907 (PNP). These may be useful for a project. It is typically easy to distinguish normal BJTs from power BJTs since power BJTs have ways of mounting heat-sink hardware to help dissipate the heat (a hole for a bolt to go through and a metallic surface for good thermal conductivity).
 
 ### Prelab Question {#9.1}
 
-1. What is the maximum $h_{FE}$ value at 10 mA collector current? See the 2N3904 data sheet posted on Canvas. For any calculation that requires $h_{FE}$ throughout the prelab, you can use this value.
+1. What is the maximum $h_{FE}$ value at 10 mA collector current? See the 2N3904 data sheet posted in the [Datasheets and Instrument Manuals page](/PHYS-3330/manuals-data-sheets). For any calculation that requires $h_{FE}$ throughout the prelab, you can use this value.
 
 ## Emitter Follower
 
@@ -137,7 +137,7 @@ $$R_\text{in}^\text{EF} \approx \frac{h_{FE} R_ER_L}{R_E+R_L}\ \text{ (Load para
 
 ### Prelab Question {#1.4}
 
-As we've seen in other labs, output impedance $R_\text{out}$ causes a voltage drop when so that not all of the predicted (or internal) voltage makes it to the load:
+As we've seen in other labs, output impedance $R_\text{out}$ causes a voltage drop when output current flows so that not all of the predicted (or internal) voltage makes it to the load:
 
 $$V_\text{out}^\text{(ext)} = \frac{R_L}{R_\text{out} + R_L}V_\text{out}^\text{(int)}$$
 
@@ -358,13 +358,13 @@ The presence of the intrinsic emitter resistance, $r_e$, modifies the above inpu
 <!--removed "reservoir" from in front of (R_e+R_e)-->
 $$R_\text{in} = (R_e + r_e)\ h_{FE}$$
 
-where $R_e$ is the total impedance of the resistors connected between the emitter and ground. If this is only the resistor, $R_E$, then $R_e=R_E$. This is true for both the emitter follower and the common emitter amplifier. ***Note:* With the biasing network, $R_1$, and $R_2$ will be in parallel with this for the true input impedance**
+where $R_e$ is the total impedance of the resistors connected between the emitter and ground. If this is only the resistor, $R_E$, then $R_e=R_E$. This is true for both the emitter follower and the common emitter amplifier. ***Note:* With the biasing network, $R_1$ and $R_2$ will be in parallel with this for the true input impedance**
 
 The output impedance of the emitter follower can then be shown to be
 
 $$R_\text{out} = \frac{R_B}{h_{FE}+1}+r_e\ \ \text{(EF)}$$
 
-The common emitter amplifier's output impedance doesn't change because the resistance past the emitter. However, it does modify the gain of the common emitter amplifier to:
+The common emitter amplifier's output impedance doesn't change because it does not depend on the resistance past the emitter. However, it does modify the gain of the common emitter amplifier to:
 
 $$G = \frac{-R_C}{R_e+r_e}$$
 
@@ -390,7 +390,7 @@ which shows that the common emitter gain is not infinite when the external emitt
 
 ## Dual Stage amplifier
 
-As you just found above, the output impedance of the amplifier you designed above is quite high and makes it impractical for driving small loads. Load impedances are often small; for example, speakers are typically $4\ \Omega$, $6\ \Omega$, or $8\ \Omega$. This makes $R_L/(R_\text{out}+R_L)\approx0$. The emitter follower has a large input impedance, so it will not draw much current from amplifier, and therefore, barely any voltage will drop across the output impedance. The emitter follower, having a very small output impedance, will then be able to deliver the voltage to the load in a more practical way.
+As you found above, the output impedance of the amplifier you designed is quite high and makes it impractical for driving small loads. Load impedances are often small; for example, speakers are typically $4\ \Omega$, $6\ \Omega$, or $8\ \Omega$. This makes $R_L/(R_\text{out}+R_L)\approx0$. The emitter follower has a large input impedance, so it will not draw much current from amplifier, and therefore, barely any voltage will drop across the output impedance. The emitter follower, having a very small output impedance, will then be able to deliver the voltage to the load in a more practical way.
 
 ![A two stage amplifier. The gain is set by the common emitter amplifier (first stage), and the output impedance is improved by the emitter follower (second stage).](../resources/lab8fig/two-stage.png){#fig:emitter-biased width="14cm"}
 
