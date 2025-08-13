@@ -262,7 +262,7 @@ Calculate the total capacitance of the combination of capacitors shown above.
 
 SPICE (Simulation Program with Integrated Circuit Emphasis) is an open-source circuit simulation tool that is commonly used to help prototype and analyze circuits. There are many implementations of SPICE, but for this class, we will use Analog Devices' LTspice (because it's free!).
 
-- [Download and install LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html). Sometimes, the website changes; if the link is broken [please report the issue to the technical staff](/PHYS-3330/report-lab-issue), and search "site:analog.com LTspice download" to locate the download page.
+- [Download and install LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html). Sometimes, the website changes; if the link is broken [please report the issue to the technical staff](/PHYS-3330/report-lab-issue), and search "site:analog.com LTspice download" to locate the download page. *Note:* The Mac version is not as updated as the Windows version. There are instructions on how to install the updated Windows version on your Mac [here](https://ucboulder.github.io/PHYS-3330/ltspice), although we can not guarantee bug free results.
 
 - Download and save this [useful PDF of shortcuts](../resources/ltspice-resources/ltspice_shortcutflyer.pdf) <!--
   - *Note:* Mac users should keep these two references handy
