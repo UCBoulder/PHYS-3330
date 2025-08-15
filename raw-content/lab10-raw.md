@@ -248,7 +248,7 @@ The Arduino Uno has 6 analog input pins, which convert an analog input (between 
 
 1. What is the decimal equivalent of the binary number that represents $5\text{ V}$?
 
-2. Write a function (in Python or Mathematica) that converts a decimal equivalent of the binary stored value to volts
+2. Write a function in Python that converts a decimal equivalent of the binary stored value to volts
    -  input is a number between $0$ and the number calculated above
    -  output is a number in volts
    -  test that plugging in $0$ returns $0\text{ V}$ and plugging in the number you calculated above returns $5\text{ V}$
