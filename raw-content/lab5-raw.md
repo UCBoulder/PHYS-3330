@@ -345,7 +345,7 @@ We just found that the gain not only depends on the RC time constant, but also t
 
 ### Prelab Question {#sec:6.1}
 
-Sketch (or plot in Mathematica or Python) the predicted waveform for the output when the input is a
+Sketch (or plot in Python) the predicted waveform for the output when the input is a
 
 1.  Sine wave
 2.  Square wave
