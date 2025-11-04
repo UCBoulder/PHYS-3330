@@ -178,6 +178,9 @@ keywords: "{keywords}"
         # Convert code blocks to CODE blocks
         body = self._convert_code_blocks(body)
 
+        # Clean up cross-references (remove "Figure", "Equation", etc. prefixes)
+        body = self._clean_cross_references(body)
+
         # Extract bibliography/references
         body = self._extract_bibliography(body)
 
@@ -206,8 +209,117 @@ keywords: "{keywords}"
 
         return body
 
+    def _build_section_id_map(self, body: str) -> Dict[str, str]:
+        """
+        Build a mapping of old numeric section IDs to new semantic IDs.
+
+        Finds all headings with {#sec:X.Y} numeric IDs and generates semantic IDs
+        based on the heading text or the content that follows. For example:
+        - "Prelab Question {#sec:1.3}" with text about "Express V_out..."
+          -> maps "sec:1.3" to "sec:express-vout"
+
+        Returns:
+            Dict mapping old IDs (e.g., 'sec:1.3') to new IDs (e.g., 'sec:express-vout')
+        """
+        id_map = {}
+
+        # Split body into lines for easier processing
+        lines = body.split('\n')
+
+        # Find all headings with {#sec:X.Y} numeric IDs (contains only numbers, colons, periods)
+        # Pattern: heading text followed by {#sec:1.3} or similar
+        pattern = r'^(#{1,6})\s+(.+?)\s*\{#(sec:[0-9.:]+)\}\s*$'
+
+        for i, line in enumerate(lines):
+            match = re.match(pattern, line)
+            if not match:
+                continue
+
+            heading_text = match.group(2).strip()
+            old_id = match.group(3)  # e.g., 'sec:1.3'
+
+            # Generate semantic ID from heading text
+            # Remove "Prelab Question" prefix if present (very common)
+            text_for_id = re.sub(r'^Prelab\s+Question\s*', '', heading_text, flags=re.IGNORECASE)
+
+            # Also remove common prefixes like "Lab Question", "Question", etc.
+            text_for_id = re.sub(r'^Lab\s+Question\s*', '', text_for_id, flags=re.IGNORECASE)
+            text_for_id = re.sub(r'^Question\s*', '', text_for_id, flags=re.IGNORECASE)
+
+            # If heading text is empty after removing prefixes, use content from next paragraph
+            if not text_for_id.strip():
+                # Find the next non-empty line after the heading
+                for j in range(i + 1, min(i + 5, len(lines))):  # Check next 5 lines
+                    next_line = lines[j].strip()
+                    # Skip empty lines and image/figure markers
+                    if next_line and not next_line.startswith('!') and not next_line.startswith('<!--'):
+                        text_for_id = next_line
+                        break
+
+            # Extract key concepts from the text (first meaningful portion)
+            # Take first ~50 characters worth of content for ID generation
+            text_for_id = text_for_id[:50]
+
+            # Remove markdown formatting and LaTeX from text
+            text_for_id = re.sub(r'\$.*?\$', '', text_for_id)  # Remove inline math
+            text_for_id = re.sub(r'\*\*?(.+?)\*\*?', r'\1', text_for_id)  # Remove bold/italic
+            text_for_id = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', text_for_id)  # Remove links
+
+            # Generate semantic ID using existing method
+            new_id_suffix = self._generate_ref_id(text_for_id)
+
+            # If still empty, fallback to using the old numeric ID
+            if not new_id_suffix:
+                new_id_suffix = old_id.replace('sec:', '').replace('.', '-').replace(':', '-')
+
+            new_id = f"sec:{new_id_suffix}"
+
+            id_map[old_id] = new_id
+
+        return id_map
+
+    def _update_section_references(self, body: str, id_map: Dict[str, str]) -> str:
+        """
+        Update all section references from numeric to semantic IDs.
+
+        Handles formats:
+        - @sec:1.3 -> @sec:express-vout
+        - {@sec:1.3} -> {@sec:express-vout}
+
+        Args:
+            body: Markdown content with section references
+            id_map: Mapping of old IDs to new semantic IDs
+
+        Returns:
+            Updated markdown content with semantic IDs
+        """
+        for old_id, new_id in id_map.items():
+            # Replace @sec:X.Y (be careful with word boundaries)
+            # Pattern: @sec:X.Y followed by:
+            # - word boundary (space, punctuation except colon/period/hyphen/underscore)
+            # - or end of string
+            # This ensures we match @sec:1.3 followed by period or space,
+            # but not @sec:1 when looking for @sec:1.3
+            body = re.sub(
+                rf'@{re.escape(old_id)}(?![a-zA-Z0-9_:-])',  # Don't match if followed by ID chars (NOT period!)
+                f'@{new_id}',
+                body
+            )
+
+            # Replace {@sec:X.Y}
+            body = re.sub(
+                rf'\{{@{re.escape(old_id)}\}}',
+                f'{{@{new_id}}}',
+                body
+            )
+
+        return body
+
     def _convert_headings(self, body: str) -> str:
-        """Convert markdown headings to Typora-compatible format with {#id} syntax."""
+        """Convert markdown headings to Typora-compatible format with semantic section IDs."""
+
+        # Build mapping from numeric to semantic section IDs
+        id_map = self._build_section_id_map(body)
 
         def heading_replacer(match):
             level = len(match.group(1))  # Number of # characters
@@ -217,11 +329,29 @@ keywords: "{keywords}"
             if title == "Learning Objectives":
                 return match.group(0)
 
-            # Generate reference ID from title
-            ref_id = self._generate_ref_id(title)
+            # Check if heading already has an ID in {#id} format at the end
+            # More robust: only match valid IDs at end of line with allowed characters
+            # Allows: letters, numbers, underscores, colons, periods, hyphens
+            existing_id_match = re.search(r'\s*\{#([a-zA-Z0-9_:.-]+)\}\s*$', title)
+            if existing_id_match:
+                old_id = existing_id_match.group(1)
+                # Check if this is a numeric section ID that should be replaced
+                if old_id in id_map:
+                    ref_id = id_map[old_id]
+                else:
+                    # Keep non-numeric IDs as-is (like fig:, eq:, etc.)
+                    ref_id = old_id
+                # Remove the {#id} from the title text
+                title = re.sub(r'\s*\{#[a-zA-Z0-9_:.-]+\}\s*$', '', title).strip()
+            else:
+                # Generate reference ID from title
+                ref_id = self._generate_ref_id(title)
+
+            # Convert H1 to H2 (Wagtail HeadingBlock uses h2-h6)
+            if level == 1:
+                level = 2
 
             # Map # count to standard heading (keep same level for Typora compatibility)
-            # # becomes #, ## becomes ##, etc.
             hashes = '#' * level
 
             # Generate Typora-compatible Kramdown syntax: ## Title {#id}
@@ -230,9 +360,12 @@ keywords: "{keywords}"
             return heading
 
         # Match markdown headings: ## Title or ### Title
-        # Also match existing {#id} syntax to avoid double-processing
-        pattern = r'^(#{1,6})\s+(.+?)(?:\s*\{[^}]*\})?\s*$'
+        # Include {#id} in the title capture so heading_replacer can extract it
+        pattern = r'^(#{1,6})\s+(.+?)\s*$'
         body = re.sub(pattern, heading_replacer, body, flags=re.MULTILINE)
+
+        # Update all section references from numeric to semantic IDs
+        body = self._update_section_references(body, id_map)
 
         return body
 
@@ -241,7 +374,12 @@ keywords: "{keywords}"
 
         # Pandoc figure format: ![caption](path){#fig:id width="..."}
         # Also handles: ![caption](<path with spaces>){#fig:id width="..."}
-        pattern = r'!\[(.*?)\]\(<?(.*?)>?\)(?:\{([^}]+)\})?'
+        # Also handles nested links in caption: ![text [link](url)](path){#fig:id}
+
+        # Use a more robust pattern that looks for file paths with extensions
+        # This avoids matching URLs in nested links within the caption
+        # Also handles angle brackets for paths with spaces: ](<path with spaces.png>)
+        pattern = r'!\[((?:[^\[\]]|\[[^\]]*\])*?)\]\(<?(.*?\.(?:jpg|jpeg|png|gif|svg|pdf|JPG|JPEG|PNG|GIF|SVG|PDF))>?\)(?:\{([^}]+)\})?'
 
         def figure_replacer(match):
             caption = match.group(1).strip()
@@ -276,12 +414,19 @@ keywords: "{keywords}"
             # Convert image path from ../resources/... to images/...
             new_image_path = self._convert_image_path(image_path)
 
-            # Expand caption for better alt text (add context for accessibility)
-            # Keep original caption, but make alt text more descriptive
-            if len(caption) < 30:
-                alt_text = f"Image showing {caption.lower()}"
-            else:
-                alt_text = caption
+            # Create alt text with 255 character limit (database constraint)
+            # Remove markdown formatting for cleaner alt text
+            alt_text = caption
+            alt_text = re.sub(r'\*\*?(.+?)\*\*?', r'\1', alt_text)  # Remove bold/italic
+            alt_text = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', alt_text)  # Remove links
+
+            # Expand short captions for better alt text
+            if len(alt_text) < 30:
+                alt_text = f"Image showing {alt_text.lower()}"
+
+            # Truncate to 255 characters if needed
+            if len(alt_text) > 255:
+                alt_text = alt_text[:252] + "..."
 
             # Generate Typora-compatible format:
             # - Metadata in HTML comment
@@ -417,6 +562,45 @@ summary: Table showing experimental data and results
 
         return body
 
+    def _clean_cross_references(self, body: str) -> str:
+        """Remove prefixes like 'Figure', 'Equation', 'Table' before cross-references.
+
+        Note: Section references (@sec:) are left alone - Wagtail's import handles them.
+
+        Why @sec: is different:
+        - Wagtail's import system automatically converts @sec:X.Y to internal \\ref{sec:X.Y}
+        - The references then render as clickable "Section X.Y" links
+        - We preserve both @sec:X.Y and {@sec:X.Y} formats from the source
+
+        Examples:
+        - "Figure @fig:myref" -> "@fig:myref"
+        - "Equation @eq:myeq" -> "@eq:myeq"
+        - "Table @table:data" -> "@table:data"
+        - "Section @sec:intro" -> "@sec:intro" (PRESERVED - no change)
+        - "problem @sec:2.1" -> "problem @sec:2.1" (PRESERVED - no change)
+        """
+        # Match common prefixes before @ references
+        # Note: We do NOT clean up @sec: references - they are handled by Wagtail import
+        # Both @sec:X.Y and {@sec:X.Y} formats are preserved for Wagtail processing
+        patterns = [
+            (r'\bFigure\s+(@fig:[a-zA-Z0-9:_.-]+)', r'\1'),
+            (r'\bFigures\s+(@fig:[a-zA-Z0-9:_.-]+)', r'\1'),
+            (r'\bEquation\s+(@eq:[a-zA-Z0-9:_.-]+)', r'\1'),
+            (r'\bTable\s+(@table:[a-zA-Z0-9:_.-]+)', r'\1'),
+            (r'\bChapter\s+(@ch:[a-zA-Z0-9:_.-]+)', r'\1'),
+            # Also handle the {@fig:ref} style used in some markdown
+            (r'\bFigure\s+(\{@fig:[a-zA-Z0-9:_.-]+\})', r'\1'),
+            (r'\bFigures\s+(\{@fig:[a-zA-Z0-9:_.-]+\})', r'\1'),
+            (r'\bEquation\s+(\{@eq:[a-zA-Z0-9:_.-]+\})', r'\1'),
+            (r'\bTable\s+(\{@table:[a-zA-Z0-9:_.-]+\})', r'\1'),
+            # Note: @sec: patterns intentionally omitted - Wagtail handles these
+        ]
+
+        for pattern, replacement in patterns:
+            body = re.sub(pattern, replacement, body)
+
+        return body
+
     def _clean_html_comments(self, body: str) -> str:
         """Remove HTML comments that aren't block markers."""
         # Keep our block markers, remove others
@@ -447,8 +631,8 @@ summary: Table showing experimental data and results
 
         For Typora compatibility, we need the images/ prefix so images render in preview.
         """
-        # Clean up any trailing characters like >
-        old_path = old_path.rstrip('>')
+        # Clean up angle brackets (used for paths with spaces in markdown)
+        old_path = old_path.strip('<>')
         # Extract just the filename (no directory prefix)
         filename = os.path.basename(old_path)
         # Add images/ prefix for Typora compatibility
@@ -543,9 +727,9 @@ summary: Table showing experimental data and results
             with open(self.output_file, 'r', encoding='utf-8') as f:
                 content = f.read()
 
-            # Find all image_path references in the markdown
-            # Note: image_path now contains just the filename (no images/ prefix)
-            used_images = re.findall(r'image_path:\s*([^\n]+)', content)
+            # Find all images referenced in the markdown
+            # Match both ![alt](images/filename) and ![alt](filename) patterns
+            used_images = re.findall(r'!\[.*?\]\((?:images/)?([^)]+)\)', content)
 
             if used_images:
                 print(f"\n[OK] Copying {len(set(used_images))} images to ZIP package:")
