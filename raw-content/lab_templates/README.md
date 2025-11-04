@@ -88,23 +88,40 @@ year: 2020
 
 Use for major sections to enable cross-referencing and auto-numbering.
 
-**Format:**
+**🎨 New Typora-Compatible Format (Recommended):**
+```markdown
+## Introduction {#introduction}
+
+### Subsection {#theory-derivation}
+```
+
+**Key Benefits:**
+- ✅ Renders beautifully in Typora with automatic TOC generation
+- ✅ Standard Kramdown/Pandoc-style `{#id}` attributes for cross-references
+- ✅ No HTML comments needed for simple cases
+- ✅ Heading level extracted automatically from `##` symbols
+- ✅ Clean, readable markdown
+
+**Traditional Format (Still Supported):**
 ```markdown
 <!-- HEADING -->
-reference_id: unique-section-id
+reference_id: introduction
 level: h2
 ---
-Your Section Title
+Introduction
 <!-- /HEADING -->
 ```
 
+**How It Works:**
+- On **export**: Generates standard markdown headings (e.g., `## Title {#id}`)
+- On **import**: Smart extraction parses heading syntax automatically
+- **Backward compatible**: Old HTML comment format still works
+
 **Required Fields:**
-- `level` - Heading level: `h2`, `h3`, `h4`, `h5`, or `h6`
+- `level` - Heading level: `h2`, `h3`, `h4`, `h5`, or `h6` (auto-extracted from `##` count)
 
 **Optional Fields:**
-- `reference_id` - Unique ID for cross-references (e.g., `introduction`, `theory`, `procedure`)
-
-**Content:** Heading text (plain text, not markdown heading format)
+- `reference_id` - Unique ID for cross-references (extracted from `{#id}` syntax)
 
 **When to use:**
 - Major sections you want to reference elsewhere
@@ -122,7 +139,32 @@ Your Section Title
 - Regular markdown headings (without HEADING blocks) are NEVER numbered
 - For consistent appearance, use HEADING blocks for ALL major sections when numbering is enabled
 
-**Example:**
+**Examples:**
+
+**Simple Heading (Typora-compatible):**
+```markdown
+## Introduction {#introduction}
+
+This is the introduction text...
+```
+
+**Heading Without Reference ID:**
+```markdown
+## Background
+
+This section doesn't need to be referenced elsewhere...
+```
+
+**Subsection Example:**
+```markdown
+## Theory {#theory}
+
+### Derivation {#theory-derivation}
+
+Detailed derivation here...
+```
+
+**Traditional Format Example:**
 ```markdown
 <!-- HEADING -->
 reference_id: introduction
@@ -134,32 +176,16 @@ Introduction
 This is the introduction text...
 ```
 
-**Example with Subsection:**
-```markdown
-<!-- HEADING -->
-reference_id: theory
-level: h2
----
-Theory
-<!-- /HEADING -->
-
-<!-- HEADING -->
-reference_id: theory-derivation
-level: h3
----
-Derivation
-<!-- /HEADING -->
-```
-
 **Referencing:**
 ```markdown
 As described in \ref{introduction}, we investigate Newton's laws.
 ```
 
 **Important Notes:**
-- Heading text goes in the content section (after `---`), NOT in metadata
-- Use `h2`, `h3`, `h4` format for level (not `2`, `3`, `4`)
-- The `---` separator is required between metadata and content
+- Use standard markdown heading syntax (`##`) for best Typora compatibility
+- Reference IDs are optional - only add `{#id}` if you need to reference the section
+- Heading level is determined by number of `#` symbols (2-6 supported)
+- Smart extraction works both ways: import and export
 
 ---
 
@@ -263,7 +289,28 @@ The kinetic energy (\ref{eq-kinetic-energy}) can be expressed as...
 
 Use for images, diagrams, photos, and illustrations.
 
-**Format:**
+**🎨 New Typora-Compatible Format (Recommended):**
+```markdown
+<!-- FIGURE -->
+reference_id: fig-apparatus
+display_width: full
+auto_number: true
+---
+
+![Photo of 2-meter inclined plane with cart and two photogate sensors](images/apparatus-setup.jpg)
+
+*Experimental apparatus showing inclined plane and photogate sensors.*
+<!-- /FIGURE -->
+```
+
+**Key Benefits:**
+- ✅ Images render directly in Typora preview with standard `![alt](path)` syntax
+- ✅ Alt text and image path extracted from markdown automatically (no duplication!)
+- ✅ Caption displays as italic text (visible in Typora)
+- ✅ Wagtail-specific metadata (display_width, etc.) stored in compact HTML comment
+- ✅ Clean, readable format
+
+**Traditional Format (Still Supported):**
 ```markdown
 <!-- FIGURE -->
 reference_id: fig-unique-name
@@ -271,14 +318,20 @@ image_path: images/filename.jpg
 alt_text: Descriptive text for screen readers
 display_width: full
 auto_number: true
-<!-- /FIGURE -->
 ---
 Brief description of the figure (caption text).
+<!-- /FIGURE -->
 ```
 
+**How It Works:**
+- On **export**: Generates standard `![alt](path)` syntax with caption as italic text
+- On **import**: Smart extraction parses image syntax to extract alt_text and image_path
+- **Backward compatible**: Old format with metadata still works
+- **Image ID tracking**: System stores `image_id` in metadata for reliable re-export
+
 **Required Fields:**
-- `image_path` OR `image_id` - Image reference (use `image_path` for importing; `image_id` is added during export)
-- `alt_text` - Accessibility description for screen readers (minimum 10 characters)
+- `image_path` OR `image_id` - Image reference (extracted from `![alt](path)` or specified in metadata)
+- `alt_text` - Accessibility description (extracted from `![alt](path)` or specified in metadata, minimum 10 characters)
 
 **Optional Fields:**
 - `reference_id` - Unique ID for cross-referencing (required if you want to use `\ref{}`)
@@ -286,7 +339,7 @@ Brief description of the figure (caption text).
 - `auto_number` - Include in numbering: `true` or `false` (default: `true`)
 - `credit` - Attribution/source credit
 
-**Content:** Caption (supports markdown/LaTeX)
+**Content:** Standard markdown image `![alt](path)` followed by caption as italic text
 
 **Image Format Support:**
 - JPG/JPEG - Photos
@@ -304,7 +357,40 @@ lab-01-newton/
     └── results-graph.svg
 ```
 
-**Example:**
+**Examples:**
+
+**Simple Figure (Typora-compatible):**
+```markdown
+<!-- FIGURE -->
+reference_id: fig-apparatus
+display_width: full
+auto_number: true
+---
+
+![Photo of 2-meter inclined plane with cart and two photogate sensors mounted on stands](images/apparatus-setup.jpg)
+
+*Experimental apparatus showing inclined plane and photogate sensors.*
+<!-- /FIGURE -->
+
+The setup (\ref{fig-apparatus}) includes two photogate sensors...
+```
+
+**Figure with Credit (Typora-compatible):**
+```markdown
+<!-- FIGURE -->
+reference_id: fig-force-diagram
+display_width: half
+auto_number: true
+credit: Adapted from Serway & Jewett, Physics for Scientists and Engineers
+---
+
+![Free body diagram with weight vector, normal force, and friction vector](images/force-diagram.png)
+
+*Free body diagram showing all forces acting on the cart.*
+<!-- /FIGURE -->
+```
+
+**Traditional Format Example:**
 ```markdown
 <!-- FIGURE -->
 reference_id: fig-apparatus
@@ -312,25 +398,9 @@ image_path: images/apparatus-setup.jpg
 alt_text: Photo of 2-meter inclined plane with cart and two photogate sensors mounted on stands
 display_width: full
 auto_number: true
-<!-- /FIGURE -->
 ---
 Experimental apparatus showing inclined plane and photogate sensors.
-
-The setup (\ref{fig-apparatus}) includes two photogate sensors...
-```
-
-**Example with Credit:**
-```markdown
-<!-- FIGURE -->
-reference_id: fig-force-diagram
-image_path: images/force-diagram.png
-alt_text: Free body diagram with weight vector, normal force, and friction vector
-display_width: half
-auto_number: true
-credit: Adapted from Serway & Jewett, Physics for Scientists and Engineers
 <!-- /FIGURE -->
----
-Free body diagram showing all forces acting on the cart.
 ```
 
 **Display Width Options:**
@@ -436,7 +506,32 @@ summary: Comparison of measured versus theoretical acceleration values at five d
 
 Use for programming code, scripts, or command-line examples.
 
-**Format:**
+**🎨 New Typora-Compatible Format (Recommended):**
+```markdown
+*Python script to calculate average velocity from photogate data* {#code-data-analysis}
+
+```python
+import numpy as np
+
+# Load data
+distances = np.array([1.5, 1.5, 1.5])  # meters
+times = np.array([2.34, 1.67, 1.35])  # seconds
+
+# Calculate velocities
+velocities = distances / times
+print(f"Average: {np.mean(velocities):.2f} m/s")
+```
+```
+
+**Key Benefits:**
+- ✅ Code renders with syntax highlighting in Typora
+- ✅ Caption displays as italic text above code (visible in preview)
+- ✅ Language auto-extracted from fence info string (` ```python`)
+- ✅ Standard fenced code block format
+- ✅ Optional Kramdown-style `{#id}` for cross-references
+- ✅ No HTML comments needed for simple cases
+
+**Traditional Format (Still Supported):**
 ```markdown
 <!-- CODE -->
 reference_id: code-unique-name
@@ -452,15 +547,21 @@ print("Hello, physics!")
 <!-- /CODE -->
 ```
 
+**How It Works:**
+- On **export**: Generates standard fenced code blocks with caption as italic text above
+- On **import**: Smart extraction parses fence info string to extract language
+- **Backward compatible**: Old HTML comment format still works
+- **Wagtail-specific metadata**: `show_line_numbers` stored in compact HTML comment when needed
+
 **Required Fields:**
-- `language` - Programming language for syntax highlighting
+- `language` - Programming language for syntax highlighting (auto-extracted from ` ```language` or specified in metadata)
 
 **Optional Fields:**
-- `reference_id` - Unique ID for cross-referencing (required if you want to use `\ref{}`)
-- `caption` - Brief description of code purpose
+- `reference_id` - Unique ID for cross-referencing (extracted from `{#id}` or specified in metadata)
+- `caption` - Brief description of code purpose (italic text above code block)
 - `show_line_numbers` - Display line numbers: `true` or `false` (default: `false`)
 
-**Content:** Code block with language-specific markdown fence
+**Content:** Standard fenced code block with language specifier
 
 **Supported Languages:**
 - `python` - Python
@@ -473,14 +574,12 @@ print("Hello, physics!")
 - `sql` - SQL queries
 - Many more...
 
-**Example:**
+**Examples:**
+
+**Simple Code Block (Typora-compatible):**
 ```markdown
-<!-- CODE -->
-reference_id: code-data-analysis
-language: python
-caption: Python script to calculate average velocity from photogate data.
-show_line_numbers: true
----
+*Python script to calculate average velocity from photogate data* {#code-data-analysis}
+
 ```python
 import numpy as np
 
@@ -490,10 +589,36 @@ times = np.array([2.34, 1.67, 1.35])  # seconds
 
 # Calculate velocities
 velocities = distances / times
-
-# Calculate average
 avg_velocity = np.mean(velocities)
 print(f"Average velocity: {avg_velocity:.2f} m/s")
+```
+
+The analysis script (\ref{code-data-analysis}) processes the photogate data...
+```
+
+**Code Without Caption or Reference:**
+```markdown
+```python
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3], [1, 4, 9])
+plt.show()
+```
+```
+
+**Traditional Format Example:**
+```markdown
+<!-- CODE -->
+reference_id: code-data-analysis
+language: python
+caption: Python script to calculate average velocity from photogate data.
+show_line_numbers: true
+---
+```python
+import numpy as np
+distances = np.array([1.5, 1.5, 1.5])
+times = np.array([2.34, 1.67, 1.35])
+velocities = distances / times
+print(f"Average: {np.mean(velocities):.2f} m/s")
 ```
 <!-- /CODE -->
 ```
@@ -753,7 +878,44 @@ This is well-established \cite{taylor1997, young2020, serway2018}.
 
 ## Markdown Content (Outside Blocks)
 
-Between block markers, you can use standard markdown:
+Between block markers, you can use standard markdown.
+
+### MARKDOWN Block (Rich Text Areas)
+
+For rich text content (paragraphs, lists, formatting), use MARKDOWN blocks:
+
+**🎨 New Format (Plain Markdown - Recommended):**
+```markdown
+This is regular markdown content with **bold**, *italic*, and `code` formatting.
+
+You can use:
+- Unordered lists
+- Multiple paragraphs
+- [Links](https://example.com)
+- Inline math: $E = mc^2$
+
+All without any HTML comment wrappers!
+```
+
+**Key Benefits:**
+- ✅ Exports as plain markdown (no HTML comment wrappers)
+- ✅ Renders perfectly in Typora
+- ✅ Cleaner, more readable format
+- ✅ Standard markdown throughout
+
+**Traditional Format (Still Supported):**
+```markdown
+<!-- MARKDOWN -->
+---
+This is markdown content wrapped in HTML comments.
+<!-- /MARKDOWN -->
+```
+
+**How It Works:**
+- On **export**: Generates plain markdown directly without wrappers
+- On **import**: Both wrapped and unwrapped markdown work
+- **Backward compatible**: Old HTML comment format still supported
+- **Note**: Most lab guide content doesn't need explicit MARKDOWN blocks - just write regular markdown!
 
 ### Text Formatting
 ```markdown

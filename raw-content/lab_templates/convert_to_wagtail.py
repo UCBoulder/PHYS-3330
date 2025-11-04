@@ -24,7 +24,10 @@ class WagtailMarkdownConverter:
 
     def __init__(self, input_file: Path, output_file: Optional[Path] = None,
                  create_image_dir: bool = False, create_zip: bool = False):
-        self.input_file = Path(input_file)
+        self.input_file = Path(input_file).resolve()
+        self.script_dir = Path(__file__).parent.resolve()  # Location of this script
+        self.repo_root = self._find_repo_root()
+        self.resources_dir = self._find_resources_dir()
         self.output_file = output_file or self._default_output_path()
         self.create_image_dir = create_image_dir
         self.create_zip = create_zip
@@ -35,10 +38,42 @@ class WagtailMarkdownConverter:
         self.figure_counter = 0
         self.table_counter = 0
 
+    def _find_repo_root(self) -> Path:
+        """Find the repository root by looking for .git directory or common markers."""
+        # Start from the script directory and walk up
+        current = self.script_dir
+        for _ in range(10):  # Limit search depth
+            if (current / '.git').exists():
+                return current
+            # Also check for common project markers
+            if (current / 'resources').exists():
+                return current
+            parent = current.parent
+            if parent == current:  # Reached filesystem root
+                break
+            current = parent
+        # Default to two levels up from script (raw-content/lab_templates -> repo root)
+        return self.script_dir.parent.parent
+
+    def _find_resources_dir(self) -> Path:
+        """Find the resources directory containing lab images."""
+        # Try repo_root/resources first
+        resources = self.repo_root / 'resources'
+        if resources.exists():
+            return resources
+        # Try relative to script
+        resources = self.script_dir.parent.parent / 'resources'
+        if resources.exists():
+            return resources
+        # Fallback
+        return self.repo_root / 'resources'
+
     def _default_output_path(self) -> Path:
-        """Generate default output filename."""
+        """Generate default output filename in raw-content/wagtail_output."""
         stem = self.input_file.stem.replace('-raw', '')
-        return self.input_file.parent / 'wagtail_output' / f"{stem}-wagtail.md"
+        # Place output in raw-content/wagtail_output
+        raw_content_dir = self.repo_root / 'raw-content'
+        return raw_content_dir / 'wagtail_output' / f"{stem}-wagtail.md"
 
     def convert(self) -> str:
         """Main conversion method."""
@@ -172,7 +207,7 @@ keywords: "{keywords}"
         return body
 
     def _convert_headings(self, body: str) -> str:
-        """Convert markdown headings to HEADING blocks."""
+        """Convert markdown headings to Typora-compatible format with {#id} syntax."""
 
         def heading_replacer(match):
             level = len(match.group(1))  # Number of # characters
@@ -185,31 +220,24 @@ keywords: "{keywords}"
             # Generate reference ID from title
             ref_id = self._generate_ref_id(title)
 
-            # Map # count to h2, h3, etc.
-            # Wagtail only allows h2-h6, so shift everything down by 1
-            # # becomes h2, ## becomes h3, etc.
-            wagtail_level = level + 1
-            if wagtail_level > 6:
-                wagtail_level = 6  # Cap at h6
-            heading_level = f"h{wagtail_level}"
+            # Map # count to standard heading (keep same level for Typora compatibility)
+            # # becomes #, ## becomes ##, etc.
+            hashes = '#' * level
 
-            block = f"""<!-- HEADING -->
-reference_id: {ref_id}
-level: {heading_level}
----
-{title}
-<!-- /HEADING -->"""
+            # Generate Typora-compatible Kramdown syntax: ## Title {#id}
+            heading = f"{hashes} {title} {{#{ref_id}}}"
 
-            return block
+            return heading
 
         # Match markdown headings: ## Title or ### Title
+        # Also match existing {#id} syntax to avoid double-processing
         pattern = r'^(#{1,6})\s+(.+?)(?:\s*\{[^}]*\})?\s*$'
         body = re.sub(pattern, heading_replacer, body, flags=re.MULTILINE)
 
         return body
 
     def _convert_figures(self, body: str) -> str:
-        """Convert pandoc-style figures to FIGURE blocks."""
+        """Convert pandoc-style figures to Typora-compatible FIGURE blocks."""
 
         # Pandoc figure format: ![caption](path){#fig:id width="..."}
         # Also handles: ![caption](<path with spaces>){#fig:id width="..."}
@@ -248,17 +276,26 @@ level: {heading_level}
             # Convert image path from ../resources/... to images/...
             new_image_path = self._convert_image_path(image_path)
 
-            # Generate alt text from caption (simplified)
-            alt_text = self._caption_to_alt_text(caption)
+            # Expand caption for better alt text (add context for accessibility)
+            # Keep original caption, but make alt text more descriptive
+            if len(caption) < 30:
+                alt_text = f"Image showing {caption.lower()}"
+            else:
+                alt_text = caption
 
+            # Generate Typora-compatible format:
+            # - Metadata in HTML comment
+            # - Standard markdown image with alt text
+            # - Caption as italic text below
             block = f"""<!-- FIGURE -->
 reference_id: {ref_id}
-image_path: {new_image_path}
-alt_text: {alt_text}
 display_width: {width}
 auto_number: true
 ---
-{caption}
+
+![{alt_text}]({new_image_path})
+
+*{caption}*
 <!-- /FIGURE -->"""
 
             return block
@@ -330,7 +367,7 @@ summary: Table showing experimental data and results
         return body
 
     def _convert_code_blocks(self, body: str) -> str:
-        """Convert code blocks to CODE blocks."""
+        """Convert code blocks to Typora-compatible format."""
 
         # Match fenced code blocks: ```language\n code \n```
         pattern = r'```(\w+)?\n(.*?)\n```'
@@ -339,15 +376,18 @@ summary: Table showing experimental data and results
             language = match.group(1) or 'text'
             code_content = match.group(2)
 
-            block = f"""<!-- CODE -->
-language: {language}
-caption: Code example
-show_line_numbers: false
----
+            # Generate a simple reference ID based on language
+            ref_id = f"code-{language}-{hash(code_content) % 10000}"
+
+            # Generate Typora-compatible format:
+            # - Caption as italic text with {#id} above code block
+            # - Standard fenced code block
+            # Note: For simplicity, we add a generic caption. Users should improve these.
+            block = f"""*{language.title()} code example* {{#{ref_id}}}
+
 ```{language}
 {code_content}
-```
-<!-- /CODE -->"""
+```"""
 
             return block
 
@@ -403,16 +443,16 @@ show_line_numbers: false
         return ref_id
 
     def _convert_image_path(self, old_path: str) -> str:
-        """Convert image path from ../resources/lab1fig/image.jpg to just the filename.
+        """Convert image path from ../resources/lab1fig/image.jpg to images/filename.jpg.
 
-        The Wagtail importer will handle adding the images/ directory prefix,
-        so we only need to provide the bare filename here.
+        For Typora compatibility, we need the images/ prefix so images render in preview.
         """
         # Clean up any trailing characters like >
         old_path = old_path.rstrip('>')
         # Extract just the filename (no directory prefix)
         filename = os.path.basename(old_path)
-        return filename
+        # Add images/ prefix for Typora compatibility
+        return f"images/{filename}"
 
     def _caption_to_alt_text(self, caption: str) -> str:
         """Generate alt text from caption (simplified)."""
@@ -456,21 +496,23 @@ show_line_numbers: false
         self.image_dir.mkdir(exist_ok=True)
 
         print(f"\n[OK] Created image directory: {self.image_dir}")
-        print("  Copy your image files from 'resources/' to this directory")
+        print(f"  Using resources from: {self.resources_dir}")
 
         # Try to identify source images directory
-        # Look for ../resources/lab*fig/ pattern in input file
+        # Look for ../resources/lab*fig/ or resources/lab*fig/ pattern in input file
         with open(self.input_file, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        image_paths = re.findall(r'\.\./resources/([^)]+)', content)
+        # Match both relative and absolute resource paths
+        image_paths = re.findall(r'(?:\.\./)?resources/([^)]+)', content)
 
         if image_paths:
             print(f"\n  Found {len(image_paths)} images referenced:")
             for img_path in set(image_paths):
                 # Clean up any angle brackets from the path
                 clean_path = img_path.strip('<>')
-                source = self.input_file.parent.parent / 'resources' / clean_path
+                # Use detected resources directory
+                source = self.resources_dir / clean_path
                 if source.exists():
                     dest = self.image_dir / os.path.basename(clean_path)
                     shutil.copy2(source, dest)
@@ -554,20 +596,23 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Convert single file
-  python convert_to_wagtail.py raw-content/lab1-raw.md
+  # Run from the lab_templates directory (where script is located):
+  python convert_to_wagtail.py ../lab1-raw.md --create-zip
 
-  # Convert with custom output location
-  python convert_to_wagtail.py raw-content/lab1-raw.md -o output/lab1.md
+  # Run from repository root:
+  python raw-content/lab_templates/convert_to_wagtail.py raw-content/lab1-raw.md --create-zip
 
-  # Convert and create image directory
-  python convert_to_wagtail.py raw-content/lab1-raw.md --create-image-dir
+  # Convert with custom output location:
+  python convert_to_wagtail.py ../lab1-raw.md -o /path/to/output.md
 
-  # Convert and create Wagtail-ready ZIP package
-  python convert_to_wagtail.py raw-content/lab1-raw.md --create-zip
+  # Convert multiple labs at once:
+  python convert_to_wagtail.py ../lab*-raw.md --create-zip
 
-  # Convert all lab files with ZIP packages
-  python convert_to_wagtail.py raw-content/lab*.md --create-zip
+Note:
+  - The script automatically detects the repository structure and finds resources
+  - Input paths are relative to your current working directory
+  - Output is placed in raw-content/wagtail_output by default
+  - Use --create-zip to generate a ready-to-import package with images
         """
     )
 
@@ -592,8 +637,14 @@ Examples:
 
     for input_file in args.input_files:
         try:
+            # Resolve input file path relative to current working directory
+            input_path = Path(input_file).resolve()
+            if not input_path.exists():
+                print(f"Error: Input file not found: {input_file}")
+                return 1
+
             converter = WagtailMarkdownConverter(
-                input_file=input_file,
+                input_file=input_path,
                 output_file=args.output,
                 create_image_dir=args.create_image_dir,
                 create_zip=args.create_zip

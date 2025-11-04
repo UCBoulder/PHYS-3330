@@ -36,57 +36,66 @@ The conversion script uses only Python standard library modules.
 
 ## Quick Start
 
+The script automatically detects the repository structure and finds resources - no manual path configuration needed!
+
 ### Convert a Single Lab Guide
 
 ```bash
-# Basic conversion
-python convert_to_wagtail.py raw-content/lab1-raw.md
+# From the lab_templates directory (recommended):
+cd raw-content/lab_templates
+python convert_to_wagtail.py ../lab1-raw.md --create-zip
 
-# Convert with automatic image copying
-python convert_to_wagtail.py raw-content/lab1-raw.md --create-image-dir
-
-# Convert with custom output location
-python convert_to_wagtail.py raw-content/lab1-raw.md -o my-labs/lab1.md
+# Or from the repository root:
+python raw-content/lab_templates/convert_to_wagtail.py raw-content/lab1-raw.md --create-zip
 ```
 
 ### Convert All Lab Guides
 
 ```bash
-# Convert all lab files at once
-python convert_to_wagtail.py raw-content/lab*-raw.md --create-image-dir
+# From the lab_templates directory:
+cd raw-content/lab_templates
+python convert_to_wagtail.py ../lab*-raw.md --create-zip
+
+# This will:
+# - Automatically find the resources directory
+# - Copy all referenced images
+# - Create ready-to-import ZIP packages
+# - Place output in raw-content/wagtail_output/
 ```
 
 ## Output Structure
 
-When you run the conversion, it creates:
+When you run the conversion with `--create-zip`, it automatically creates:
 
 ```
 raw-content/
 └── wagtail_output/
-    ├── lab1-wagtail.md       # Converted markdown file
+    ├── lab1-wagtail.md       # Converted markdown files
     ├── lab2-wagtail.md
     ├── ...
-    └── images/               # Shared image directory (if --create-image-dir used)
-        ├── apparatus-setup.jpg
-        ├── force-diagram.png
+    ├── images/               # All images copied from resources/
+    │   ├── apparatus-setup.jpg
+    │   ├── force-diagram.png
+    │   └── ...
+    └── zip/                  # Ready-to-import ZIP packages
+        ├── lab1.zip
+        ├── lab2.zip
         └── ...
 ```
 
-For importing to Wagtail, organize each lab guide with its own images:
+Each ZIP file contains the proper structure for Wagtail import:
 
 ```
-lab-guides-for-import/
-├── lab1/
-│   ├── guide.md
-│   └── images/
-│       ├── banana.jpg
-│       ├── coax.png
-│       └── ...
-├── lab2/
-│   ├── guide.md
-│   └── images/
-│       └── ...
+lab1.zip
+└── lab1/
+    ├── guide.md
+    └── images/
+        ├── banana.jpg
+        ├── coax.png
+        └── ...
 ```
+
+**No manual reorganization needed!** Just upload the ZIP files directly to Wagtail.
 
 ## Conversion Details
 

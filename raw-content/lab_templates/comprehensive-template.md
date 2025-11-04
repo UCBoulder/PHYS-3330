@@ -18,12 +18,7 @@ Write your learning objectives here as a bulleted list. This section supports ba
 - Students will understand the concept of **measurement uncertainty**
 - Students will be able to analyze data using statistical methods
 
-<!-- HEADING -->
-reference_id: introduction
-level: h2
----
-Introduction
-<!-- /HEADING -->
+## Introduction {#introduction}
 
 This is a **markdown block** (the default content type). You can use standard markdown formatting:
 
@@ -35,19 +30,9 @@ In this lab, we'll explore Newton's Second Law (see \ref{eq-newton-2nd}) and col
 
 **Note:** Use `\ref{reference_id}` to create cross-references to equations, figures, tables, and sections.
 
-<!-- HEADING -->
-reference_id: theory
-level: h2
----
-Theory
-<!-- /HEADING -->
+## Theory {#theory}
 
-<!-- HEADING -->
-reference_id: basic-equations
-level: h3
----
-Example: Basic Equation Block
-<!-- /HEADING -->
+### Example: Basic Equation Block {#basic-equations}
 
 Here's how to add an equation with a reference ID:
 
@@ -71,12 +56,7 @@ You can reference this equation in text like this: "According to \ref{eq-newton-
 - `reference_id` - Unique ID for cross-referencing (required if you want to use `\ref{}`)
 - `caption` - Optional caption displayed below equation
 
-<!-- HEADING -->
-reference_id: multi-line-equations
-level: h3
----
-Example: Multi-line Equation
-<!-- /HEADING -->
+### Example: Multi-line Equation {#multi-line-equations}
 
 <!-- EQUATION -->
 reference_id: eq-kinetic-energy
@@ -93,12 +73,7 @@ KE &= \frac{1}{2}mv^2 \\
 
 The kinetic energy (\ref{eq-kinetic-energy}) can be expressed in terms of momentum.
 
-<!-- HEADING -->
-reference_id: complex-equations
-level: h3
----
-Example: Complex Equation with Greek Letters
-<!-- /HEADING -->
+### Example: Complex Equation with Greek Letters {#complex-equations}
 
 <!-- EQUATION -->
 reference_id: eq-wave-function
@@ -109,12 +84,7 @@ spoken_version: Wave function psi of x and t equals A times e to the i times k x
 \Psi(x,t) = A e^{i(kx - \omega t)}
 <!-- /EQUATION -->
 
-<!-- HEADING -->
-reference_id: safety
-level: h2
----
-Safety Considerations
-<!-- /HEADING -->
+## Safety Considerations {#safety}
 
 Use safety warning blocks to highlight important safety information. There are four severity levels: `info`, `caution`, `warning`, and `danger`.
 
@@ -162,92 +132,79 @@ dismissible: true
 Follow all laboratory safety procedures. Know the location of safety equipment including fire extinguishers, eyewash stations, and emergency exits.
 <!-- /SAFETY_WARNING -->
 
-<!-- HEADING -->
-reference_id: apparatus
-level: h2
----
-Experimental Apparatus
-<!-- /HEADING -->
+## Experimental Apparatus {#apparatus}
 
-<!-- HEADING -->
-reference_id: figure-basics
-level: h3
----
-Example: Figure with Caption
-<!-- /HEADING -->
+### Example: Figure with Caption {#figure-basics}
 
 <!-- FIGURE -->
 reference_id: fig-apparatus
-image_path: images/apparatus-setup.jpg
-alt_text: Photo of 2-meter inclined plane with dynamics cart and two photogate sensors mounted on stands
 display_width: full
 auto_number: true
 ---
-Experimental setup showing the inclined plane, cart, and photogate sensors.
+
+![Photo of 2-meter inclined plane with dynamics cart and two photogate sensors mounted on stands](images/apparatus-setup.jpg)
+
+*Experimental setup showing the inclined plane, cart, and photogate sensors.*
 <!-- /FIGURE -->
 
-**Required fields:**
-- `image_path` - Relative path to image (use when importing, e.g., `images/filename.jpg`)
-- `image_id` - Wagtail image ID (automatically added during export)
-- `alt_text` - Accessibility description for screen readers (minimum 10 chars)
+**New Typora-Compatible Format!**
 
-**Optional fields:**
-- `reference_id` - Unique ID for cross-referencing
+The FIGURE block now uses standard markdown image syntax that renders perfectly in external editors like Typora.
+
+**How it works:**
+- Standard markdown image: `![alt text](images/filename.jpg)` - renders in Typora!
+- Caption as italic text: `*Your caption here*` - visible in preview
+- `alt_text` and `image_path` extracted automatically on import (no duplication)
+- Wagtail metadata (reference_id, display_width) in comment block
+
+**Required in content:**
+- `![alt text](path)` - Standard markdown image (alt text minimum 10 chars for accessibility)
+- Caption text (optional, but recommended)
+
+**Optional metadata fields:**
+- `reference_id` - Unique ID for cross-referencing with `\ref{}`
 - `display_width` - Width: `full`, `half`, or `third` (default: `full`)
 - `auto_number` - Include in numbering: `true` or `false` (default: `true`)
 - `credit` - Attribution/source credit
 
-**Note:**
-- Place your images in the `images/` directory alongside this markdown file
-- Use `image_path: images/filename.jpg` (relative path)
-- Always include descriptive `alt_text` for accessibility
-- The `image_id` field is added automatically during export from Wagtail
+**Notes:**
+- Place images in `images/` directory alongside this markdown file
+- Use forward slashes in paths: `images/filename.jpg` (works cross-platform)
+- The `image_id` field is added automatically during export (internal use)
+- Old format with metadata fields still imports correctly (backward compatible)
 
 As shown in \ref{fig-apparatus}, the cart is positioned at the top of the incline.
 
-<!-- HEADING -->
-reference_id: multiple-figures
-level: h3
----
-Example: Multiple Figures
-<!-- /HEADING -->
+### Example: Multiple Figures {#multiple-figures}
 
 <!-- FIGURE -->
 reference_id: fig-force-diagram
-image_path: images/force-diagram.png
-alt_text: Free body diagram with weight vector pointing down, normal force perpendicular to incline, and friction vector opposing motion
 display_width: half
 auto_number: true
 credit: Adapted from Serway & Jewett, Physics for Scientists and Engineers
 ---
-Free body diagram showing all forces acting on the cart.
+
+![Free body diagram with weight vector pointing down, normal force perpendicular to incline, and friction vector opposing motion](images/force-diagram.png)
+
+*Free body diagram showing all forces acting on the cart.*
 <!-- /FIGURE -->
 
 <!-- FIGURE -->
 reference_id: fig-photogate
-image_path: images/photogate-detail.jpg
-alt_text: Photogate sensor mounted on aluminum track with infrared beam crossing the track
 display_width: half
 auto_number: true
 ---
-Close-up view of the photogate sensor setup.
+
+![Photogate sensor mounted on aluminum track with infrared beam crossing the track](images/photogate-detail.jpg)
+
+*Close-up view of the photogate sensor setup.*
 <!-- /FIGURE -->
 
 Refer to \ref{fig-force-diagram} for the force analysis and \ref{fig-photogate} for sensor placement details.
 
-<!-- HEADING -->
-reference_id: procedure
-level: h2
----
-Procedure
-<!-- /HEADING -->
+## Procedure {#procedure}
 
-<!-- HEADING -->
-reference_id: ordered-lists
-level: h3
----
-Example: Ordered Lists
-<!-- /HEADING -->
+### Example: Ordered Lists {#ordered-lists}
 
 1. Set up the apparatus as shown in \ref{fig-apparatus}
 2. Calibrate the photogate sensors according to manufacturer instructions
@@ -256,12 +213,7 @@ Example: Ordered Lists
 5. Release the cart from rest and record the time intervals
 6. Repeat for 5 different incline angles
 
-<!-- HEADING -->
-reference_id: nested-lists
-level: h3
----
-Example: Nested Lists
-<!-- /HEADING -->
+### Example: Nested Lists {#nested-lists}
 
 1. **Part A: Preliminary Measurements**
    - Measure cart mass (±0.1 g)
@@ -278,19 +230,9 @@ Example: Nested Lists
    - Compute acceleration using \ref{eq-newton-2nd}
    - Compare with theoretical prediction
 
-<!-- HEADING -->
-reference_id: data-collection
-level: h2
----
-Data Collection
-<!-- /HEADING -->
+## Data Collection {#data-collection}
 
-<!-- HEADING -->
-reference_id: simple-table
-level: h3
----
-Example: Simple Data Table
-<!-- /HEADING -->
+### Example: Simple Data Table {#simple-table}
 
 <!-- TABLE -->
 reference_id: table-measurements
@@ -325,12 +267,7 @@ summary: Five trials showing incline angle, time of descent, and calculated velo
 
 The data in \ref{table-measurements} shows the relationship between angle and velocity.
 
-<!-- HEADING -->
-reference_id: complex-table
-level: h3
----
-Example: Complex Table with Calculations
-<!-- /HEADING -->
+### Example: Complex Table with Calculations {#complex-table}
 
 <!-- TABLE -->
 reference_id: table-calculations
@@ -348,26 +285,14 @@ summary: Comparison of measured versus theoretical acceleration values at five d
 | 25.0 ± 0.5  | 4.02 ± 0.18      | 4.14                 | 2.9               |
 <!-- /TABLE -->
 
-<!-- HEADING -->
-reference_id: analysis
-level: h2
----
-Data Analysis
-<!-- /HEADING -->
+## Data Analysis {#analysis}
 
-<!-- HEADING -->
-reference_id: python-code
-level: h3
----
-Example: Python Code Block
-<!-- /HEADING -->
+### Example: Python Code Block {#python-code}
 
-<!-- CODE -->
-reference_id: code-analysis
-language: python
-caption: Python script for calculating acceleration from photogate data
-show_line_numbers: true
----
+<!-- CODE: reference_id: code-analysis, show_line_numbers: true -->
+*Python script for calculating acceleration from photogate data* {#code-analysis}
+
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -393,34 +318,36 @@ plt.title('Cart Velocity vs. Incline Angle')
 plt.grid(True)
 plt.legend()
 plt.show()
-<!-- /CODE -->
+```
+
+**New Typora-Compatible Format!**
+
+CODE blocks now use standard fenced code blocks that render perfectly in Typora with syntax highlighting.
+
+**How it works:**
+- Standard fenced code: ` ```python` renders with syntax highlighting in Typora!
+- Caption as italic text: `*Your caption here* {#reference-id}` - visible in preview
+- Language extracted automatically from fence info string
+- Compact HTML comment for Wagtail-specific settings (show_line_numbers)
 
 **Required fields:**
-- `language` - Programming language for syntax highlighting
+- Language specified in fence: ` ```language`
 
 **Optional fields:**
-- `reference_id` - Unique ID for cross-referencing
-- `caption` - Code description/purpose
-- `show_line_numbers` - Display line numbers: `true` or `false` (default: `false`)
+- Caption (italic text above code block)
+- Reference ID (in {#id} after caption, or in HTML comment)
+- show_line_numbers (in HTML comment: `<!-- CODE: show_line_numbers: true -->`)
 
 **Note:** Code blocks support syntax highlighting for many languages:
 - `python`, `matlab`, `r`, `cpp`, `java`, `javascript`, `bash`, `sql`, etc.
 
 The analysis code (\ref{code-analysis}) processes the data from \ref{table-measurements}.
 
-<!-- HEADING -->
-reference_id: matlab-code
-level: h3
----
-Example: MATLAB Code Block
-<!-- /HEADING -->
+### Example: MATLAB Code Block {#matlab-code}
 
-<!-- CODE -->
-reference_id: code-matlab
-language: matlab
-caption: MATLAB code for linear regression analysis
-show_line_numbers: false
----
+*MATLAB code for linear regression analysis* {#code-matlab}
+
+```matlab
 % Linear fit to angle vs. acceleration data
 angles = [5, 10, 15, 20, 25];
 accel = [0.84, 1.68, 2.49, 3.28, 4.02];
@@ -442,14 +369,9 @@ grid on;
 % Display fit parameters
 fprintf('Slope: %.3f m/s^2/degree\n', p(1));
 fprintf('Intercept: %.3f m/s^2\n', p(2));
-<!-- /CODE -->
+```
 
-<!-- HEADING -->
-reference_id: results
-level: h2
----
-Results and Discussion
-<!-- /HEADING -->
+## Results and Discussion {#results}
 
 Our experimental results confirm Newton's Second Law (\ref{eq-newton-2nd}) \cite{young2020}. The data in \ref{table-measurements} shows a clear linear relationship between angle and velocity.
 
@@ -457,12 +379,7 @@ Using the photogate timing method \cite{peters2014} and analysis code (\ref{code
 
 The force diagram (\ref{fig-force-diagram}) helps explain why acceleration increases with angle - the component of gravitational force along the incline increases as $mg\sin\theta$. Our experimental values can be compared to the standard gravitational acceleration g = 9.80665 m/s² \cite{nist2023}.
 
-<!-- HEADING -->
-reference_id: error-analysis
-level: h3
----
-Error Analysis
-<!-- /HEADING -->
+### Error Analysis {#error-analysis}
 
 Major sources of uncertainty include:
 
@@ -474,12 +391,7 @@ Major sources of uncertainty include:
 
 Uncertainty propagation follows standard methods \cite{taylor1997}. The combined uncertainty in acceleration was calculated using quadrature addition of individual error sources.
 
-<!-- HEADING -->
-reference_id: conclusions
-level: h2
----
-Conclusions
-<!-- /HEADING -->
+## Conclusions {#conclusions}
 
 1. The experimental data strongly supports \ref{eq-newton-2nd}
 2. Percent errors (see \ref{table-calculations}) are all below 3%
@@ -500,19 +412,9 @@ Citation examples by type:
 
 **Important:** Bibliography entries are added in a separate **"# Bibliography"** section at the end of this document (after all content). See below for examples.
 
-<!-- HEADING -->
-reference_id: appendix-a
-level: h2
----
-Appendix A: Equipment List
-<!-- /HEADING -->
+## Appendix A: Equipment List {#appendix-a}
 
-<!-- HEADING -->
-reference_id: required-equipment
-level: h3
----
-Required Equipment
-<!-- /HEADING -->
+### Required Equipment {#required-equipment}
 
 - Inclined plane track (2 m length)
 - Dynamics cart with low-friction wheels
@@ -521,23 +423,13 @@ Required Equipment
 - Digital balance (±0.1 g precision)
 - Meter stick (±0.1 cm precision)
 
-<!-- HEADING -->
-reference_id: optional-equipment
-level: h3
----
-Optional Equipment
-<!-- /HEADING -->
+### Optional Equipment {#optional-equipment}
 
 - Computer with data acquisition software
 - Motion sensor (ultrasonic or infrared)
 - Video camera for motion analysis
 
-<!-- HEADING -->
-reference_id: appendix-b
-level: h2
----
-Appendix B: Derivation of Theoretical Acceleration
-<!-- /HEADING -->
+## Appendix B: Derivation of Theoretical Acceleration {#appendix-b}
 
 Starting from Newton's Second Law (\ref{eq-newton-2nd}):
 
@@ -589,14 +481,36 @@ This is the theoretical prediction we test in this experiment.
 
 | Block Type      | Use For                          | Required Fields                           |
 |-----------------|----------------------------------|-------------------------------------------|
-| HEADING         | Major sections                   | level                                     |
+| HEADING         | Major sections                   | Standard markdown: `## Title {#id}`       |
 | MARKDOWN        | Text, lists, basic formatting    | (none - default)                          |
 | EQUATION        | Mathematical equations           | display_type, spoken_version, auto_number |
-| FIGURE          | Images, diagrams, photos         | image_path/image_id, alt_text             |
+| FIGURE          | Images, diagrams, photos         | `![alt](path)` in content (10+ chars)     |
 | TABLE           | Data tables                      | caption                                   |
-| CODE            | Code examples, scripts           | language                                  |
+| CODE            | Code examples, scripts           | Fenced blocks: ` ```language`             |
 | SAFETY_WARNING  | Safety information               | severity, title                           |
-| BIBENTRY        | Bibliography entries             | reference_key, authors, title, year           |
+| BIBENTRY        | Bibliography entries             | reference_key, authors, title, year       |
+
+**New Typora-Compatible Formats:**
+
+- **HEADING blocks**: Now use standard markdown `## Title {#reference-id}` syntax
+  - Renders perfectly in Typora with automatic TOC generation
+  - Level determined by number of `#` symbols (## = h2, ### = h3, etc.)
+  - Optional {#id} for cross-references using Kramdown/Pandoc attribute syntax
+
+- **FIGURE blocks**: Extract alt_text and image_path from `![alt](path)` syntax
+  - Images render directly in Typora preview
+  - No duplication of information in metadata
+
+- **CODE blocks**: Now use standard fenced code blocks ` ```language`
+  - Renders with syntax highlighting in Typora
+  - Caption as italic text above: `*Caption* {#reference-id}`
+  - Language extracted automatically from fence info string
+  - Wagtail settings in compact HTML comment when needed
+
+- **MARKDOWN blocks**: Now export as plain markdown without HTML comment wrappers
+  - No `<!-- MARKDOWN -->` wrappers cluttering the output
+  - Cleaner, more readable markdown files
+  - Perfect for editing in Typora or any markdown editor
 
 ### Cross-Referencing Quick Guide
 

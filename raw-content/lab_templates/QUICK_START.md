@@ -3,27 +3,36 @@
 ## TL;DR - Fast Track
 
 ```bash
-# 1. Convert all labs with automatic image handling
-python convert_to_wagtail.py raw-content/lab*-raw.md --create-image-dir
+# Navigate to the script directory
+cd raw-content/lab_templates
+
+# 1. Convert all labs with automatic image handling and ZIP packaging
+python convert_to_wagtail.py ../lab*-raw.md --create-zip
 
 # 2. Review output
-ls raw-content/wagtail_output/
+ls ../wagtail_output/
 
-# 3. Manually improve the converted files
+# 3. Manually improve the converted files (optional)
 #    - Fix equation spoken versions
 #    - Enhance figure alt text
 #    - Add bibliography entries
 #    - Review captions
 
-# 4. Organize for Wagtail import (per lab)
-mkdir -p import-ready/lab1/images
-cp raw-content/wagtail_output/lab1-wagtail.md import-ready/lab1/guide.md
-# Copy relevant images from wagtail_output/images/ to import-ready/lab1/images/
+# 4. ZIP packages are ready to import!
+#    Located in: ../wagtail_output/zip/
+#    Each lab has its own .zip file with guide.md and images/
 
 # 5. Import to Wagtail
-#    - Upload guide.md and images folder
+#    - Upload the ZIP file for each lab
 #    - Validate, review, publish
 ```
+
+**Note:** The script now automatically:
+- Detects the repository structure
+- Finds the resources directory
+- Copies all images
+- Creates ready-to-import ZIP packages
+- No manual path configuration needed!
 
 ## What This Script Does
 
@@ -78,10 +87,15 @@ V = IR
 ### 1. Run Conversion (5 minutes)
 
 ```bash
-python convert_to_wagtail.py raw-content/lab*-raw.md --create-image-dir
+# From the lab_templates directory:
+cd raw-content/lab_templates
+python convert_to_wagtail.py ../lab*-raw.md --create-zip
+
+# Or from the repository root:
+python raw-content/lab_templates/convert_to_wagtail.py raw-content/lab*-raw.md --create-zip
 ```
 
-**Output:** `raw-content/wagtail_output/` with all converted files
+**Output:** `raw-content/wagtail_output/` with all converted files and ready-to-import ZIP packages
 
 ### 2. Manual Review (15-30 minutes per lab)
 
@@ -95,19 +109,14 @@ Open each converted file and improve:
 
 ### 3. Import to Wagtail (10 minutes per lab)
 
-1. Organize files:
-   ```
-   lab1/
-   ├── guide.md
-   └── images/
-       ├── image1.jpg
-       └── image2.png
-   ```
+1. Locate ZIP files in `raw-content/wagtail_output/zip/`
+   - Each lab has its own ZIP: `lab1.zip`, `lab2.zip`, etc.
+   - Each contains: `lab1/guide.md` and `lab1/images/`
 
 2. In Wagtail admin:
    - Click "Import Markdown"
    - Validate first
-   - Upload files
+   - Upload the ZIP file
    - Review and publish
 
 ## Most Important Manual Edits
